@@ -17,7 +17,9 @@ Before changing files, credentials, package settings, or external integrations, 
 
 Context is the standing information that helps an agent behave correctly. It can include role instructions, user preferences, project notes, package-provided instructions, and process-specific instructions.
 
-Use context for stable behavior and concise facts the agent needs often. Do not put large manuals, source dumps, or changing project data directly into always-loaded context. Put those in Wiki or Files and link to them.
+Use context for stable behavior and concise facts the agent needs often. Do not put large manuals, source dumps, or changing project data into standing context. Put those in Wiki or Files and link to them.
+
+Reusable procedures belong in skills, not ordinary context. See [Context, Skills & Knowledge Boundaries](../files-knowledge/context-files-knowledge.md) for how to choose between context, skills, Wiki, files, and conversations.
 
 ## Media
 

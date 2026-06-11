@@ -20,6 +20,8 @@ Each account also has a small account-home overlay for standing agent context an
 - `~/context.d/`: short standing context loaded into that account's agent prompt.
 - `~/skills.d/`: reusable skills available to that account's agents.
 
+For what to put in these folders and how agents should update them, see [Context, Skills & Knowledge Boundaries](context-files-knowledge.md).
+
 Older profile-folder workflows have been replaced by real agent accounts and package profile agents. Do not use `~/profiles.d/` for new work.
 
 ## Wiki And Knowledge Bases
