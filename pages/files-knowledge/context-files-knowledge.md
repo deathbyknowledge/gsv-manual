@@ -24,6 +24,8 @@ Poor context examples:
 
 Large or changing material belongs in Wiki or Files.
 
+Use `~/context.d/` for account-wide standing context. Use package profile context only when the package owns a dedicated package-agent account. Do not create `~/profiles.d/` trees for new profile behavior; create or use the appropriate agent account instead.
+
 ## Use Wiki For Reference Knowledge
 
 Wiki is durable and searchable. Use it for procedures, explanations, design notes, source references, summaries of imported material, and knowledge bases an agent should consult when relevant.

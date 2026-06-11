@@ -18,6 +18,8 @@ Before syncing from a remote, know whether the update changes source only, insta
 
 Some packages expose public routes or user-visible catalog entries. Public visibility should be intentional.
 
+Package public listing is backed by source repo visibility. A repo is private by default. Marking a repo public allows read-only public access to that repo and lets packages sourced from it appear in local public package catalogs. It does not grant public write access.
+
 Review:
 
 - The exact public paths.

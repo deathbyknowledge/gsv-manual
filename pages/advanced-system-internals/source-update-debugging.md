@@ -18,6 +18,8 @@ Use this page when changing GSV itself or debugging which layer owns a behavior.
 - Product and design references: `docs/*` and `engineering/*`
 - Shipped manual content: `root/gsv-manual`
 
+Visible repositories are also mounted read-first at `/src/repos/<owner>/<repo>`. Package source editing still uses `/src/packages/<package>` and its staged package-source workflow.
+
 ## Update Paths
 
 - Gateway changes: `cd gateway && npm run deploy`

@@ -15,6 +15,13 @@ Use home files when:
 
 Agents should avoid scattering files into unexpected locations. Prefer a clear project folder, a user-named path, or a path the user already gave.
 
+Each account also has a small account-home overlay for standing agent context and reusable skills. The important user-facing folders are:
+
+- `~/context.d/`: short standing context loaded into that account's agent prompt.
+- `~/skills.d/`: reusable skills available to that account's agents.
+
+Older profile-folder workflows have been replaced by real agent accounts and package profile agents. Do not use `~/profiles.d/` for new work.
+
 ## Wiki And Knowledge Bases
 
 Wiki is for durable knowledge, not just file storage. A Wiki page should be useful when found later by search or browsing. It can hold manuals, operating notes, project background, imported reference material, summaries, and source references.
