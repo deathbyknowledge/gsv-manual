@@ -38,4 +38,4 @@ Sharing should be explicit. Before granting access, decide:
 
 ## For Agents
 
-Do not print secrets into chat or Wiki. If a workflow needs a secret, use the correct credential or settings surface and report only that it was configured or that configuration is still needed.
+Do not print secrets into chat, Library, or ordinary files. If a workflow needs a secret, use the correct credential or settings surface and report only that it was configured or that configuration is still needed.

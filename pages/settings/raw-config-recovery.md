@@ -33,7 +33,7 @@ Raw config is not the normal way to browse settings. Some settings live in dedic
 - Change the smallest setting that solves the problem.
 - Record the old value before changing it, unless it is a secret.
 - Prefer removing an explicit override when you want to return to a default.
-- Avoid pasting secrets into chat, Wiki, or ordinary files.
+- Avoid pasting secrets into chat, Library, or ordinary files.
 - Test sign-in or the affected feature after a recovery change.
 
 ## For Agents

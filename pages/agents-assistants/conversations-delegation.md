@@ -14,7 +14,7 @@ Use conversations for:
 - Attaching files or media for the agent to inspect.
 - Opening a previous work session and continuing from it.
 
-Long conversations can become harder for an agent to use directly. When information should last, move it into Files or Wiki. A final decision, reusable note, how-to, or project fact belongs somewhere durable.
+Long conversations can become harder for an agent to use directly. When information should last, move it into Files or Library. A final decision, reusable note, how-to, or project fact belongs somewhere durable.
 
 ## Delegation
 
@@ -35,7 +35,7 @@ GSV agents can receive more than one message while work is already running. New 
 
 - Use short, direct task requests when you need a specific result.
 - Use a custom agent when you repeatedly need the same role.
-- Use Wiki for reusable instructions or reference material.
+- Use Library for reusable instructions or reference material.
 - Use Files for artifacts the user should edit, download, or share.
 - Stop a process from the GSV console if it is clearly no longer needed.
 

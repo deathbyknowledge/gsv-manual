@@ -31,14 +31,14 @@ Look for:
 Entrypoints are the ways a package appears in GSV:
 
 - App entrypoints open desktop UI.
-- Command entrypoints run from Shell or package command surfaces.
+- Command entrypoints run from Terminal or package command surfaces.
 - Backend entrypoints handle package logic.
 - Agent entrypoints provide package-specific assistants.
 - Public route entrypoints receive external web requests when declared.
 
 ## Source Workflows
 
-Package source may be mounted for editing and review. Some source changes are staged until committed or discarded. Editing package source is not always the same as updating the installed running package.
+Package source may be mounted for editing and review under `/src/repos/<owner>/<repo>`. Writable repository edits are staged until committed or discarded with `rgit`. Editing package source is not the same as updating the installed running package; after committing, update the package explicitly.
 
 ## For Agents
 

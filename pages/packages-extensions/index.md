@@ -2,12 +2,12 @@
 
 [Back to GSV Manual](../../index.md)
 
-Packages extend GSV. A package can add apps, commands, backend behavior, public routes, package agents, or other capabilities. Builtin apps are packages too, but they are shipped with GSV and updated through the GSV builtin package flow.
+Packages extend GSV. A package can add apps, commands, backend behavior, public routes, package agents, or other capabilities. Core surfaces such as Chat, Files, Terminal, Library, Repositories, Settings, and Crew are now native web-shell surfaces rather than package-backed first-party apps.
 
 ## What Packages Can Add
 
-- App entrypoints that open in the desktop.
-- Command entrypoints for Shell or package command workflows.
+- App entrypoints that open in the desktop as framed package apps.
+- Command entrypoints for Terminal or package command workflows.
 - Backend entrypoints for package-specific services.
 - Package agents with their own profile, context, and permissions.
 - Public routes for webhooks or externally visible package surfaces.

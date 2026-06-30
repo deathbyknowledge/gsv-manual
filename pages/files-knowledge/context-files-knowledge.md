@@ -10,7 +10,7 @@ GSV gives people and agents several ways to keep information. Choosing the right
 | --- | --- |
 | `~/context.d/` | Short standing instructions and preferences that should shape an account or agent. |
 | `~/skills.d/` | Reusable procedures, workflows, command recipes, and task-specific guardrails. |
-| Wiki | Durable explanations, manuals, notes, imported reference material, and searchable knowledge bases. |
+| Library | Durable explanations, manuals, notes, imported reference material, and searchable knowledge bases. |
 | Files | Documents, project folders, code, data, media, exports, and artifacts people should manage directly. |
 | Conversations | Current work, discussion, decisions in progress, and temporary coordination. |
 
@@ -32,7 +32,7 @@ Poor context examples:
 - An entire source tree.
 - Temporary task notes.
 
-Large or changing material belongs in Wiki or Files.
+Large or changing material belongs in Library or Files.
 
 Use `~/context.d/` for account-wide standing context. Agent accounts can have their own context when they need a different role, responsibility, or style. Use package profile context only when the package owns a dedicated package-agent account.
 
@@ -53,7 +53,7 @@ Poor skill examples:
 
 - A complete product encyclopedia.
 - A dump of every command a system supports.
-- A duplicate of a Wiki manual page.
+- A duplicate of a Library manual page.
 - One-off task notes that will not be reused.
 
 Use `~/skills.d/` for user or agent skills. Packages may also expose skills from package source when their workflows should travel with the package.
@@ -73,13 +73,13 @@ skills read <skill> <file>
 
 Read the relevant skill before relying on it for a nontrivial workflow.
 
-## Use Wiki For Reference Knowledge
+## Use Library For Reference Knowledge
 
-Wiki is durable and searchable. Use it for procedures, explanations, design notes, source references, summaries of imported material, and knowledge bases an agent should consult when relevant.
+Library is durable and searchable. Use it for procedures, explanations, design notes, source references, summaries of imported material, and knowledge bases an agent should consult when relevant.
 
-Wiki should not replace a project directory. If the thing is a build artifact, code file, CSV, archive, or user document, keep it as a file and link to it from Wiki when useful.
+Library should not replace a project directory. If the thing is a build artifact, code file, CSV, archive, or user document, keep it as a file and link to it from Library when useful.
 
-Wiki is the right home for broad GSV explanations, product manuals, system maps, historical notes, and background material that would make context or skills too large.
+Library is the right home for broad GSV explanations, product manuals, system maps, historical notes, and background material that would make context or skills too large.
 
 ## Use Files For Artifacts
 
@@ -122,11 +122,11 @@ When a package ships context or skills for its own agent account, edit the packa
 
 ## For Agents
 
-If you need information later, place it somewhere visible and linkable. If you are unsure where it belongs, ask the user: "Should I save this as a file, a Wiki note, standing context, or a reusable skill?"
+If you need information later, place it somewhere visible and linkable. If you are unsure where it belongs, ask the user: "Should I save this as a file, a Library note, standing context, or a reusable skill?"
 
 Use this rule of thumb:
 
 - Behavior the agent should keep following: context.
 - Procedure the agent may need to perform again: skill.
-- Explanation or reference material someone may search for later: Wiki.
+- Explanation or reference material someone may search for later: Library.
 - Artifact someone may open, edit, copy, or run: file.

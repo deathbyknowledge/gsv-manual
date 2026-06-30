@@ -2,33 +2,35 @@
 
 [Back to GSV Manual](../../index.md)
 
-The GSV desktop is the browser-hosted work surface for the cloud computer. It opens apps in windows, keeps sessions connected, shows previews, and gives package apps a safe way to communicate with the host.
+The GSV desktop is the browser-hosted work surface for the cloud computer. It keeps the session connected, hosts native GSV surfaces, opens package apps, and gives package app frames a safe way to communicate with the host.
 
 ## What The Desktop Owns
 
 - Login and setup.
-- The desktop frame, launcher, and app windows.
-- Opening, moving, focusing, and closing app windows.
+- The desktop frame, launcher, shell rail, and chat dock.
+- Grouped inventory for Machines, Messengers, Integrations, and Applications.
+- Opening, focusing, and closing native surfaces or package app frames.
 - App previews and browser-hosted views.
 - The bridge that lets package apps request host actions.
 - Browser targets for automation that must happen inside the active web shell.
 
 ## What Apps Own
 
-Apps own their product work:
+Native surfaces and package apps own their product work:
 
 - Chat owns conversations and agent work.
 - Files owns browsing and editing the filesystem.
-- Shell owns command sessions.
-- Wiki owns durable knowledge.
-- GSV console owns system operation and configuration.
-- Package apps own their own app-specific views and behavior.
+- Terminal owns command sessions.
+- Repositories owns ripgit browsing, history, diffs, pulls, and source inspection.
+- Library owns durable markdown knowledge.
+- Settings and Crew own system operation, configuration, accounts, agents, models, tasks, devices, messengers, integrations, and applications.
+- Package apps own their own app-specific views and behavior inside a frame.
 
 The desktop should feel like the place where work happens, not a dashboard about work.
 
 ## Pages In This Section
 
-- [Builtin Apps, Previews & Host Bridge](builtin-apps-previews.md)
+- [Desktop Surfaces & Apps](desktop-surfaces-and-apps.md)
 
 ## For Agents
 

@@ -27,6 +27,6 @@ GSV uses several kinds of agents:
 
 ## Agent Notes
 
-Agents should treat conversation history as working memory, not permanent storage. Important outcomes should be written to files, Wiki pages, package source, or another durable location that the user can inspect later.
+Agents should treat conversation history as working memory, not permanent storage. Important outcomes should be written to files, Library pages, package source, or another durable location that the user can inspect later.
 
 For implementation details about process state, queues, tool calls, and cancellation, see [Advanced System Internals](../advanced-system-internals/index.md).

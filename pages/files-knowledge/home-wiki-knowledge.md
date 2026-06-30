@@ -1,4 +1,4 @@
-# Home Files, Wiki & Knowledge Bases
+# Home Files, Library & Knowledge Bases
 
 [Files & Knowledge](index.md)
 
@@ -24,11 +24,11 @@ For what to put in these folders and how agents should update them, see [Context
 
 Older profile-folder workflows have been replaced by real agent accounts and package profile agents. Do not use `~/profiles.d/` for new work.
 
-## Wiki And Knowledge Bases
+## Library And Knowledge Bases
 
-Wiki is for durable knowledge, not just file storage. A Wiki page should be useful when found later by search or browsing. It can hold manuals, operating notes, project background, imported reference material, summaries, and source references.
+Library is for durable knowledge, not just file storage. A Library page should be useful when found later by search or browsing. It can hold manuals, operating notes, project background, imported reference material, summaries, and source references.
 
-Use Wiki when:
+Use Library when:
 
 - The information should be searchable by people and agents.
 - The material explains how to do something.
@@ -38,10 +38,10 @@ Use Wiki when:
 
 ## Durable References
 
-A durable reference is a stable pointer to material that should not depend on one conversation. It can be a Wiki page, a file path, a repository path, an external URL, or a package source location.
+A durable reference is a stable pointer to material that should not depend on one conversation. It can be a Library page, a file path, a repository path, an external URL, or a package source location.
 
-Good durable references are specific. "See the note in Wiki" is weaker than "See `gsv-manual/pages/files-knowledge/home-wiki-knowledge.md`".
+Good durable references are specific. "See the note in Library" is weaker than "See `gsv-manual/pages/files-knowledge/home-wiki-knowledge.md`".
 
 ## Search
 
-Search works best when pages have clear titles, concise summaries, and terms a user would naturally search for. Avoid stuffing pages with raw logs or large unrelated dumps. Put raw material in files and summarize it in Wiki.
+Search works best when pages have clear titles, concise summaries, and terms a user would naturally search for. Avoid stuffing pages with raw logs or large unrelated dumps. Put raw material in files and summarize it in Library.

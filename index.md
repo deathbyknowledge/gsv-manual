@@ -20,13 +20,14 @@ Start here:
 
 ## Everyday Map
 
-- Use [Chat](pages/apps-desktop/builtin-apps-previews.md#chat) to work with agents and conversations.
+- Use [Chat](pages/apps-desktop/desktop-surfaces-and-apps.md#chat) to work with agents and conversations.
 - Use [Files](pages/files-knowledge/home-wiki-knowledge.md#home-files) for documents, project folders, and ordinary file editing.
-- Use [Wiki](pages/files-knowledge/home-wiki-knowledge.md#wiki-and-knowledge-bases) for durable reference material that agents should be able to search later.
-- Use [Shell](pages/apps-desktop/builtin-apps-previews.md#shell) when you need commands instead of app controls.
-- Use the [GSV console](pages/apps-desktop/builtin-apps-previews.md#gsv-console) for devices, integrations, packages, access, settings, and runtime operations.
+- Use [Library](pages/files-knowledge/home-wiki-knowledge.md#library-and-knowledge-bases) for durable reference material that agents should be able to search later.
+- Use [Repositories](pages/apps-desktop/desktop-surfaces-and-apps.md#repositories) for ripgit source trees, history, diffs, and package or manual source state.
+- Use [Terminal](pages/apps-desktop/desktop-surfaces-and-apps.md#terminal) when you need commands instead of app controls.
+- Use the [GSV console](pages/apps-desktop/desktop-surfaces-and-apps.md#gsv-console) for devices, integrations, packages, access, settings, and runtime operations.
 - Use [Advanced System Internals](pages/advanced-system-internals/index.md) only when you need source paths, update behavior, or debugging boundaries.
 
 ## For Agents
 
-When you are an agent inside GSV, treat the user's visible computer as the primary truth. Ask which target to use when command location matters, keep durable knowledge in Wiki or files instead of hidden memory, and respect the account, package, and approval boundaries described in this manual.
+When you are an agent inside GSV, treat the user's visible computer as the primary truth. Ask which target to use when command location matters, keep durable knowledge in Library or files instead of hidden memory, and respect the account, package, and approval boundaries described in this manual.

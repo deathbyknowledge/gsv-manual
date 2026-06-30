@@ -4,7 +4,7 @@
 
 ## Cloud GSV Target
 
-The cloud GSV target is the normal default. Use it for cloud files, cloud-side package work, system settings, knowledge operations, and ordinary GSV shell tasks.
+The cloud GSV target is the normal default. Use it for cloud files, cloud-side package work, system settings, knowledge operations, and ordinary Terminal tasks.
 
 ## Local Devices
 

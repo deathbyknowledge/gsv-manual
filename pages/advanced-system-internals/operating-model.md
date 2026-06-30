@@ -26,17 +26,24 @@ Source area:
 - `gateway/src/process/checkpoint.ts`
 - `gateway/src/process/media.ts`
 
-## Desktop And Apps
+## Web Shell, Native Surfaces, And Apps
 
-The web shell hosts the desktop. Builtin packages and package apps provide the actual user work surfaces.
+The web shell hosts the desktop and most first-party user work surfaces directly. Chat, Files, Terminal, Library, Repositories, Settings, Crew, Runtime/Tasks, Machines, Messengers, Integrations, and Applications are implemented under `web/src/app/features/*`.
+
+Installable package apps still open inside the desktop through package app frames. The host bridge gives those package frames shell-owned app sessions, backend RPC, status/title/dirty-state integration, and constrained access to granted syscalls.
 
 Source area:
 
-- `web/src/session-ui.ts`
-- `web/src/session-service.ts`
-- `web/src/host-bridge.ts`
-- `web/src/gateway-client.ts`
-- `builtin-packages/*`
+- `web/src/app/App.tsx`
+- `web/src/app/features/desktop/*`
+- `web/src/app/features/gsv-shell/*`
+- `web/src/app/features/gsv-console/*`
+- `web/src/app/features/chat/*`
+- `web/src/app/features/files/*`
+- `web/src/app/features/terminal/*`
+- `web/src/app/features/repositories/*`
+- `web/src/app/features/apps/components/AppFramePage.tsx`
+- `web/src/app/features/desktop/runtime/host/hostBridge.ts`
 
 ## Targets
 

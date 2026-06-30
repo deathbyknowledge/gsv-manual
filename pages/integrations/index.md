@@ -6,7 +6,7 @@ Integrations connect GSV to external systems. They can bring messages into agent
 
 ## Main Integration Types
 
-- Message adapters such as WhatsApp, Discord, Telegram-style test adapters, and other channel workers.
+- Message adapters such as WhatsApp, Discord, Telegram-style test adapters, and other adapter workers.
 - MCP servers that expose tools or resources to agents and coding workflows.
 - OAuth accounts that let GSV access external services with user consent.
 - External identity links that map outside people or accounts to GSV users.

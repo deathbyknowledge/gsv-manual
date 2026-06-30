@@ -4,7 +4,7 @@
 
 ## Catalogs
 
-A catalog is a list of packages available to install or review. Catalogs can represent builtin packages, local packages, organization packages, or remote sources.
+A catalog is a list of packages available to install or review. Catalogs can represent local packages, organization packages, user package remotes, or other remote sources.
 
 Use catalogs to discover packages, compare available versions, and decide which packages should be visible to users.
 
@@ -28,9 +28,9 @@ Review:
 - What data they can read or change.
 - Whether logs might include sensitive data.
 
-## Builtin Packages
+## Native Surfaces And Packages
 
-Builtin package changes are applied through the package update workflow. A general system update does not necessarily update shipped app content.
+Native web-shell surfaces are updated with the web shell, not with package sync. Installable package changes still use package source, review, and update workflows.
 
 ## For Agents
 
