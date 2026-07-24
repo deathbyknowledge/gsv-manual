@@ -25,6 +25,7 @@ Start here:
 - Use [Library](pages/files-knowledge/home-wiki-knowledge.md#library-and-knowledge-bases) for durable reference material that agents should be able to search later.
 - Use [Repositories](pages/apps-desktop/desktop-surfaces-and-apps.md#repositories) for ripgit source trees, history, diffs, and package or manual source state.
 - Use [Terminal](pages/apps-desktop/desktop-surfaces-and-apps.md#terminal) when you need commands instead of app controls.
+- Use [`img2txt`](pages/apps-desktop/image-reading.md) to caption, query, OCR, point at, or detect objects in an image.
 - Use the [GSV console](pages/apps-desktop/desktop-surfaces-and-apps.md#gsv-console) for devices, integrations, packages, access, settings, and runtime operations.
 - Use [Advanced System Internals](pages/advanced-system-internals/index.md) only when you need source paths, update behavior, or debugging boundaries.
 
