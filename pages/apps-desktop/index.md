@@ -31,6 +31,7 @@ The desktop should feel like the place where work happens, not a dashboard about
 ## Pages In This Section
 
 - [Desktop Surfaces & Apps](desktop-surfaces-and-apps.md)
+- [Reading Images With `img2txt`](image-reading.md)
 
 ## For Agents
 

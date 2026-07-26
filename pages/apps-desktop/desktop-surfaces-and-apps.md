@@ -16,6 +16,9 @@ Terminal is the command surface. Use it when the user needs shell commands with 
 
 Before running a command, check the target. A command on the cloud GSV target is not the same as a command on a local laptop, browser target, or adapter target.
 
+For image descriptions, questions, OCR, object points, and detections, see
+[Reading Images With `img2txt`](image-reading.md).
+
 ## Repositories
 
 Repositories is the ripgit source surface. Use it to browse visible repositories, inspect files, search source, review history and diffs, pull upstream changes, and understand package or manual source state.
