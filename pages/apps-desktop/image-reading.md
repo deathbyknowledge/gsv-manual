@@ -2,7 +2,7 @@
 
 [Apps & Desktop](index.md)
 
-`img2txt` reads an image from the GSV filesystem with Moondream 3.1 on
+`img2txt` reads an image from GSV or a connected target with Moondream 3.1 on
 Cloudflare Workers AI. Moondream is the only image-reading implementation:
 there is no selectable image-reading model and no Gemma fallback.
 
@@ -32,6 +32,9 @@ img2txt point --target TEXT [--max-objects N] IMAGE
 img2txt detect --target TEXT [--max-objects N] IMAGE
 ```
 
+`IMAGE` may be a local path, `gsv:/path`, `target:/path`, or
+`[target-with-colons]:/path`, matching the source syntax accepted by `cp`.
+
 Examples:
 
 ```bash
@@ -53,6 +56,10 @@ img2txt ocr --prompt "Extract only the invoice number, date, and total." invoice
 # Locate every matching object
 img2txt point --target "red button" controls.png
 img2txt detect --target "person wearing a helmet" worksite.jpg
+
+# Read directly from connected machine and browser targets
+img2txt laptop:/home/alice/photos/receipt.jpg
+img2txt ocr [browser:work]:/downloads/invoice.png
 ```
 
 `query` deliberately has no default prompt. The caller chooses the question or
@@ -159,9 +166,21 @@ compatibility aliases and will be rejected. Image reading always uses
 
 ## Files, Targets, And Agents
 
-The image path is resolved on the target where the shell command runs. Copy an
-image to the GSV target before using the cloud `img2txt` command if the file
-currently exists only on a local device or browser target.
+An unqualified image path is resolved on GSV relative to the shell's current
+directory. Prefix the path to read directly from another accessible target:
+
+```bash
+img2txt phone:/photos/receipt.jpg
+img2txt query --prompt "What error is shown?" laptop:/tmp/screenshot.png
+img2txt detect --target "submit button" [browser:work]:/screenshots/form.png
+```
+
+Target IDs containing colons use brackets so the target/path boundary stays
+unambiguous. The remote file body streams directly into image reading without
+creating a temporary GSV file. Access, filesystem-transfer capability, missing
+file, disconnect, size mismatch, and cancellation errors are reported instead
+of falling back to a local path. Use `cp` first only when a durable GSV copy is
+itself useful.
 
 Agents should choose the narrowest useful mode:
 
