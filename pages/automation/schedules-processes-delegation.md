@@ -1,39 +1,51 @@
-# Schedules, Background Agents & Delegation
+# Schedules, Queues & Delegation
 
-[Automation](index.md)
+[Automation & Delegation](index.md)
 
-## Scheduled Work
+## Process Event Schedules
 
-Scheduled work runs later or repeatedly. Use it for:
+`sched add --here` from a Process-backed shell captures the current Process. At each firing it admits
+a typed event to that PID. If the schedule was created during an authorized adapter run, it may also
+retain that opaque destination for the resulting committed Message.
 
-- Daily or weekly summaries.
-- Periodic checks.
-- Reminders.
-- Maintenance tasks.
-- Import or sync routines.
+A successful firing means admission succeeded; it does not mean the model finished or delivery was
+confirmed. If the Process is killed, recreate or remove the schedule explicitly.
 
-Good schedules include what will run, who owns it, what agent identity is used, and how failures are reported.
+## Direct Delivery Schedules
 
-## Background Agents
+`sched add --to DESTINATION` sends fixed text through an authorized adapter without running a model.
+Use an opaque destination from `message destinations --all`; provider IDs do not belong in the
+schedule contract.
 
-Background agents do not require an open chat window. They are useful for integration handling, recurring tasks, long-running work, and package workflows.
+## Cron
 
-Because no one may be watching, background agents should not depend on interactive approvals. Configure permissions and approval policy before relying on the automation.
+Crontab entries run background shell commands. They have no Process caller and cannot use delegation.
+If they spawn an agent, make it non-interactive and do not assume its raw answer appears in Home.
 
-## Queues And Runs
+## Queues
 
-Processes handle work in runs. If new messages or events arrive during a run, they can be queued. A queue is not a failure; it is how GSV keeps concurrent input ordered.
+Each Process runs one agent turn at a time. Human input supersedes an active direct turn. Scheduler
+and Process events queue FIFO and become separate runs. Queueing preserves ordering; it is not a
+delivery failure.
 
-If a run is no longer wanted:
+## Delegation
 
-- Abort it to stop current work while keeping the process.
-- Reset when the conversation should start over but the process should survive.
-- Kill only when the process itself should be torn down.
+`proc delegate` creates a child, bounds its execution, and reports the terminal result to the caller
+as a Process event. `proc.call` provides bounded IPC to an existing Process. Neither automatically
+creates a user Message.
 
-## IPC And Delegation
+Delegated work should return a compact result, stable artifact/reference, status, and any remaining
+follow-up. The parent decides what to expose to the user.
 
-Inter-process communication and delegation let one process ask another for help. Keep these requests bounded and reviewable. A delegated process should return a result, artifact path, status, or clear failure.
+## Lifecycle
+
+- Abort stops only the current run.
+- Reset archives and clears Process activity but preserves the Process.
+- Kill archives as requested, permanently tombstones the PID, and performs retryable cleanup.
+
+Canonical Conversations remain separate from all three operations.
 
 ## For Agents
 
-When creating automation, record where the schedule or background work can be inspected. When completing delegated work, report durable outputs and any follow-up action that remains.
+Use typed events and bounded IPC rather than transcript copying. Never create a recurring automation
+without an observable owner and cancellation path.

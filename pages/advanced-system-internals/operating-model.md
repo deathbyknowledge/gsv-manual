@@ -1,54 +1,64 @@
 # Operating Model
 
-[Advanced System Internals](index.md)
-
-GSV is an OS-shaped cloud computer. The user-facing concepts are apps, files, agents, devices, settings, integrations, and packages. The implementation maps those concepts onto workers, durable runtime state, package source, and connected targets.
+[System Internals](index.md)
 
 ## Control Plane
 
-The gateway is the control plane. It handles identity, auth, package management, adapter routing, inference routing, process lifecycle, and system configuration.
+The Gateway is intentionally lightweight. The Kernel owns identity, authorization, configuration,
+Conversation directories, process registry, adapter routes, schedules, and inference coordination.
+Heavy native work stays on machines/providers/specialized Workers.
 
-Source area:
+Managed HTTP first resolves an accepted hostname through Accounts. The immutable installation ID
+addresses the Kernel and scopes Process, Conversation, R2, ripgit, and adapter state. Standalone uses
+the explicit `singleton` projection to preserve supported upgrades.
 
-- `gateway/src/kernel/*`
-- `gateway/src/syscalls/*`
-- `gateway/src/inference/*`
-- `gateway/src/fs/*`
+## Durable State
 
-## Durable Agent Runtime
+- Kernel SQLite stores users, capabilities, config, processes, routes, schedules, receipts, mail
+  intents, and Conversation directory state.
+- Process SQLite stores execution messages, current/queued runs, tool dispatches, approvals, and
+  lifecycle metadata.
+- Each Conversation Durable Object stores hot canonical Messages and an index of archived segments.
+- Installation-scoped R2 stores large/immutable resources and archive objects.
+- ripgit backs account home repositories and filesystem history.
 
-Processes are durable agent runtimes. They hold conversation history, queued input, active runs, pending tool calls, media references, checkpoints, and archives.
+Process deletion never means Conversation deletion. Immutable resource retention lets canonical
+Messages survive live Process cleanup without duplicating bytes into Conversation storage.
 
-Source area:
+## Raw Durable Objects
 
-- `gateway/src/process/do.ts`
-- `gateway/src/process/store.ts`
-- `gateway/src/process/checkpoint.ts`
-- `gateway/src/process/media.ts`
+Kernel and Process behavior is composed directly around Cloudflare Durable Objects. GSV owns its
+WebSocket handling, scheduling, MCP client integration, cancellation, and SQLite state machines; it
+does not rely on PartyServer/Agents inheritance for those semantics.
 
-## Web Shell, Native Surfaces, And Apps
+Scheduled ticks intentionally break long agent work into new Durable Object events. This resets
+subrequest budgets and leaves abort/reset/kill available between model/tool cycles.
 
-The web shell hosts the desktop and most first-party user work surfaces directly. Chat, Files, Terminal, Library, Repositories, Settings, Crew, Runtime/Tasks, Machines, Messengers, Integrations, and Applications are implemented under `web/src/app/features/*`.
+## Streaming Data Plane
 
-Installable package apps still open inside the desktop through package app frames. The host bridge gives those package frames shell-owned app sessions, backend RPC, status/title/dirty-state integration, and constrained access to granted syscalls.
+The frame is the control plane; the body stream is the data plane. Provider output, file transfer,
+adapter media, R2 content, and other binary bodies cross Worker and Durable Object RPC as real
+byte-oriented `ReadableStream` values.
 
-Source area:
+No intermediary makes a recursive per-token service call. Backpressure flows from the consumer to
+the producer. Cancellation propagates to the component that owns the active read/request, and a body
+has exactly one terminal outcome: consumed, forwarded, or cancelled.
 
-- `web/src/app/App.tsx`
-- `web/src/app/features/desktop/*`
-- `web/src/app/features/gsv-shell/*`
-- `web/src/app/features/gsv-console/*`
-- `web/src/app/features/chat/*`
-- `web/src/app/features/files/*`
-- `web/src/app/features/terminal/*`
-- `web/src/app/features/repositories/*`
-- `web/src/app/features/apps/components/AppFramePage.tsx`
-- `web/src/app/features/desktop/runtime/host/hostBridge.ts`
+Some runtime byte streams can detach enqueued buffers. Code that forwards pooled or reusable input
+must enqueue an owned copy at that boundary; it must not corrupt sibling chunks or a Node buffer
+slab.
 
-## Targets
+## Agent Loop
 
-Only target-routed file and shell work should move to devices, browser targets, or adapter targets. Control-plane domains remain gateway-facing. When debugging, separate "where the command ran" from "which control-plane operation authorized it."
+A Process tick loads AI config, context, capabilities, target descriptions, and offered tools;
+assembles provider history; calls inference; stores raw reasoning/text/tool blocks; dispatches tools;
+and requires explicit Message or Silence completion.
 
-## Advanced Agent Note
+Direct input may supersede the active run. Runtime/scheduler events queue. Persistent run and
+dispatch identities fence late output after cancellation, reset, replacement, or eviction.
 
-When implementation behavior and the visible system disagree, identify the source of truth first: live runtime state, package source, deployed worker code, local CLI config, a device target, or the repository.
+## For Agents
+
+Fix shared behavior at the owning syscall/protocol/runtime boundary. Avoid client-specific patches,
+adapter-specific Kernel logic, and defensive revalidation of values already parsed into trusted
+internal types.

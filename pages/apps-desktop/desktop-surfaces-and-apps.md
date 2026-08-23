@@ -1,49 +1,88 @@
-# Desktop Surfaces & Apps
+# Surfaces, Desktop Host & Local Helpers
 
-[Apps & Desktop](index.md)
+[Web & Desktop](index.md)
 
-## Chat
+## Personal Chat
 
-Chat is the conversation surface. Use it to talk with personal agents, custom agents, package agents, and background-capable assistants. In the current web shell, Chat appears as a dock beside the desktop or active page. It is where users can review messages, attach media, approve tools, and continue previous work.
+Chat is fixed to the canonical Personal Process. A recently active Work Process cannot silently
+become the apparent assistant. Starting or opening Work creates a separate Work Session with an
+explicit banner and Back action.
 
-## Files
+Committed Messages synchronize across signed-in clients. Only the client that started a run receives
+its transient Message stream. Opening Process activity explicitly subscribes that client to raw
+reasoning, drafts, tools, and lifecycle signals.
 
-Files is the filesystem surface. Use it to browse `/home`, project folders, generated artifacts, and other file-backed locations the user can access.
+## Messages, Files, Terminal, And Repositories
 
-## Terminal
+- **Messages** shows canonical Conversation content.
+- **Files** browses and edits authorized filesystem targets.
+- **Terminal** runs the shell on the selected target.
+- **Repositories** inspects ripgit-backed source, history, diffs, and updates.
+- **Work** lists non-Personal Processes and opens their activity or explicit Work Sessions.
 
-Terminal is the command surface. Use it when the user needs shell commands with visible output, or when an operation does not have an app control.
+Attachments are uploaded as files, converted to exact resource references, and resolved lazily. The
+client does not embed base64 in a protocol frame.
 
-Before running a command, check the target. A command on the cloud GSV target is not the same as a command on a local laptop, browser target, or adapter target.
+## Desktop And `gsvd`
 
-For image descriptions, questions, OCR, object points, and detections, see
-[Reading Images With `img2txt`](image-reading.md).
+Desktop is a user client. `gsvd` is a separate machine driver with a driver-bound credential. On
+first use Desktop can ask the user to name the computer, derive a stable normalized machine ID,
+persist its credential/configuration, install the per-user service, and verify the daemon through a
+versioned same-user control protocol.
 
-## Repositories
+Closing Desktop does not disconnect the machine. Signing out of Desktop and explicitly revoking the
+machine are separate actions.
 
-Repositories is the ripgit source surface. Use it to browse visible repositories, inspect files, search source, review history and diffs, pull upstream changes, and understand package or manual source state.
+The `gsv` CLI uses the same narrow daemon-control protocol for status, reload, reconnect, diagnostics,
+and lifecycle actions. It does not duplicate the machine runtime.
 
-## Library
+## Voice And Gestures
 
-Library is the knowledge product. Use it to build durable manuals, reference collections, imported knowledge bases, and linked notes that agents and people can search later.
+Desktop supervises platform-native helpers:
 
-## GSV Console
+- `gsv-transcribe` owns microphone capture and local speech inference;
+- `gsv-vision` owns camera capture, tract inference for palm/landmark models, gesture recognition,
+  and temporal gesture policy.
 
-The GSV console is the native system settings and operations area. It is split across Settings, Crew, Runtime/Tasks, and the grouped object pages for Machines, Messengers, Integrations, and Applications. Use it for:
+Camera frames, landmarks, and audio stay local and do not cross the Gateway control plane. Helpers
+send bounded, versioned semantic events to Desktop. Desktop owns the active voice request, draft,
+send/delete/clear behavior, armed gesture state, and stale-event fencing.
 
-- Runtime and process inspection.
-- Devices and machine lifecycle.
-- Applications, package trust, and updates.
-- Integrations and MCP servers.
-- Access, tokens, and identity links.
-- Settings and advanced recovery.
+The gesture helper starts disarmed. The two-hand arming and scroll chords, action-hand number
+commands, tracking-loss rules, and freshness checks are designed so a stale or partially recognized
+gesture cannot act on a later voice request.
 
-## Previews
+Desktop exposes one optional system status item for machine connectivity, voice, and gesture state.
+`gsvd` remains headless; it does not create a competing tray icon.
 
-Previews let users inspect running app views, generated pages, package output, or browser-hosted surfaces without leaving the desktop. If a preview is interactive, keep track of whether it is showing cloud state, local device state, or browser state.
+## Platform Boundaries
 
-## Host Bridge
+The lifecycle contract is cross-platform. OS-specific implementation stays behind narrow boundaries:
 
-Package apps run inside desktop app frames and communicate with the host through a bridge. In user terms, the bridge is what lets an app ask GSV to open files, show status, call backend work, or interact with desktop chrome without taking over the whole computer.
+| Concern | macOS | Linux | Windows |
+| --- | --- | --- | --- |
+| Background service | per-user launch service | systemd user service/XDG fallback | per-user startup task |
+| Local control | Unix socket | Unix socket | named pipe |
+| Protected credentials | Keychain-capable boundary | Secret Service/protected file | Credential Manager/DPAPI |
+| Media permissions | TCC | portals/PipeWire/device access | privacy APIs |
 
-For source-level details, use [Advanced System Internals](../advanced-system-internals/index.md).
+Current host configuration uses a private, atomically replaced `config.toml`; the storage boundary can
+be hardened per platform without changing enrollment or daemon IPC.
+
+## Development Builds
+
+The Rust workspace is rooted at `host/`. Build all host applications with:
+
+```bash
+cd host
+cargo build --workspace
+```
+
+On macOS, `host/scripts/package-macos.sh` assembles the development `GSV.app` bundle and ZIP. Gesture
+models are checksum-pinned and embedded in `gsv-vision`, so a packaged application does not fetch or
+build MediaPipe, Java, or Bazel at runtime.
+
+## For Agents
+
+Do not route raw camera/audio through generic IPC, and do not make the Desktop tray or CLI own daemon
+state. Ask the component that owns the state through its typed control protocol.

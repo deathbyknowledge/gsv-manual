@@ -2,38 +2,43 @@
 
 [Settings](index.md)
 
-## AI Model And Provider
+## AI Profiles
 
-AI settings decide which provider and model agents use, along with generation options such as reasoning effort, token limits, and context size.
+An AI profile selects provider transport, model, reasoning behavior, output limit, context budget,
+tool policy, and related generation settings. Personal and Work may use different profiles when
+configured.
 
-Use user-specific settings when one person wants a different model from the system default. Use system settings when the default should apply broadly.
+Standalone deployments normally use the user's own provider credentials. Managed installations may
+use the platform inference Worker, whose operator chooses permitted providers/models and enforces
+installation usage policy. The model selected in an account profile does not grant access to a
+provider that the owning service has disabled.
 
-Common reasons to change AI settings:
+Model requests stream through service bindings and Process boundaries. Text chunks and binary bodies
+remain streams; intermediary Workers must not collect a complete provider response merely to forward
+it.
 
-- A task needs a more capable model.
-- A task needs a faster or cheaper model.
-- The user has a provider-specific API key.
-- A package or agent requires a particular model family.
-- Context limits need to fit larger reference material.
+## Context
 
-## Voice And Transcription
+Context byte budgets, compaction, system `context.d`, account `context.d`, and skills determine what
+the model sees. Increasing a provider token limit does not make unbounded file reads safe; Read keeps
+a default result bound and callers page deliberately.
 
-Voice settings control speech output. Transcription settings control how audio becomes text. These settings matter for voice agents, audio notes, media workflows, and accessibility.
+## Voice And Gestures
 
-Before enabling voice or transcription, check whether the provider, model, and account permissions are configured.
+Desktop voice and gesture settings are local. Microphone selection, local transcription, camera
+permission, and gesture arming do not belong in the Gateway's provider profile. Packaged helpers and
+models must match the Desktop version.
 
-## Approval Behavior
+## Tool Approvals
 
-Approval settings control how tools behave:
+Approval profiles map operations to `auto`, `ask`, or `deny`. Defaults ask for shell, deletion, and
+MCP calls. Rules can match syscall, profile, target type, path, command, arguments, and risk tags.
 
-- Ask: request confirmation before doing the action.
-- Allow: run without asking when policy permits it.
-- Deny: block the action.
-
-Approval is especially important for shell commands, external messages, credential access, package changes, device actions, and file operations with broad impact.
-
-Interactive conversations can ask the user. Background jobs should be configured so they do not depend on approvals that require a live person.
+Background and scheduled profiles cannot wait indefinitely for a person; an `ask` outcome becomes a
+tool failure. Interactive approvals carry an exact request ID and may be answered from an authorized
+client or linked direct-message surface.
 
 ## For Agents
 
-If a model, voice, transcription, or approval setting blocks a task, explain the specific missing capability or policy instead of retrying blindly.
+If a model or tool fails, distinguish provider availability, budget, profile configuration,
+capability, approval, and target availability before changing anything.

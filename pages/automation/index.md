@@ -1,31 +1,33 @@
-# Automation
+# Automation & Delegation
 
 [Back to GSV Manual](../../index.md)
 
-Automation lets GSV do work without a person typing every step. It can run scheduled tasks, recurring checks, background agents, delayed jobs, package workflows, and delegated work.
+Automation admits explicit future work into Processes or sends direct scheduled text through an
+authorized adapter destination. Delegation creates bounded child Processes. Both remain visible and
+controllable.
 
-## Main Concepts
+## Choices
 
-- Scheduled work runs at a time or on a recurrence.
-- Background agents work without an open Chat window.
-- Queues hold messages or tasks until the process can handle them.
-- Runs are active units of agent work.
-- Process lifecycle controls starting, stopping, resetting, aborting, and killing agent work.
-- IPC and delegation let agents or package components ask one another for bounded work.
+- Use a **Process event schedule** when an agent should think at firing time.
+- Use a **direct adapter schedule** for fixed text that needs no model run.
+- Use **cron** for background shell commands.
+- Use **delegation** when an active Process needs a bounded subtask result.
+- Use a separate long-lived Work Process when the work needs independent history and control.
 
-## Common Workflows
+## Safety
 
-- Schedule a recurring report.
-- Run a background agent when new external messages arrive.
-- Queue follow-up work from a package or integration.
-- Stop a runaway or obsolete process.
-- Delegate a subtask to a specialist agent.
-- Inspect active and queued work from the GSV console.
+Scheduled/background profiles cannot depend on interactive approval. Schedules target a physical PID
+or authorized destination; killing a Process does not silently retarget its schedule to a new
+Personal Process.
 
-## Pages In This Section
+Every automation must expose ownership, next fire, enabled state, latest outcome, and a stop/remove
+path.
 
-- [Schedules, Background Agents & Delegation](schedules-processes-delegation.md)
+## Page In This Section
+
+- [Schedules, Queues & Delegation](schedules-processes-delegation.md)
 
 ## For Agents
 
-Automation should have clear ownership, permissions, and failure behavior. Do not create recurring work without making it visible and easy for the user to stop.
+Do not create recurring work merely because one execution was useful. State the cadence, target,
+delivery behavior, and how the user can disable it.

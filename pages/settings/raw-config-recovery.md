@@ -1,41 +1,39 @@
-# Auth, Sessions & Raw Config Recovery
+# Authentication, Sessions & Raw Config
 
 [Settings](index.md)
 
-## Auth And Sessions
+## Authentication And Sessions
 
-Authentication controls who can enter GSV. Sessions keep a browser, device, or service connected after sign-in.
+Use setup/login, logout, token revoke, machine revoke, and adapter disconnect before low-level repair.
+Browser/Desktop user sessions, machine driver credentials, and service bindings have different
+lifecycles and should not be cleared as a group.
 
-Use normal settings and console flows for:
+When a browser appears to log in and immediately disconnect, inspect the WebSocket response and
+Gateway/Access routing rather than treating unrelated manifest or analytics errors as the cause.
 
-- Setup and first login.
-- Signing in and out.
-- Reviewing connected sessions.
-- Revoking suspicious sessions.
-- Adjusting session behavior.
-- Connecting trusted devices or services.
+## Raw Configuration
 
-If a user loses access, prefer documented recovery flows over direct configuration edits.
+Raw config is useful when:
 
-## Raw Config
+- an exact setting has no curated UI;
+- a bad override must be removed;
+- support identifies one key to inspect;
+- the normal settings page cannot load.
 
-Raw config is the low-level settings view. It is useful when:
+Some state lives in dedicated SQLite stores or external services and is intentionally absent from
+generic config. Do not invent a config key because a value exists conceptually.
 
-- A normal settings screen cannot load.
-- A bad value needs to be removed.
-- An advanced key is not yet exposed in the curated UI.
-- A support or operator procedure gives an exact key to inspect.
+## Safe Recovery
 
-Raw config is not the normal way to browse settings. Some settings live in dedicated stores and will not appear as ordinary config keys.
+1. Identify the component that owns the state.
+2. Record the non-secret old value.
+3. Change or remove the smallest exact override.
+4. Reconnect or restart only the affected component.
+5. Test the original workflow.
 
-## Recovery Principles
-
-- Change the smallest setting that solves the problem.
-- Record the old value before changing it, unless it is a secret.
-- Prefer removing an explicit override when you want to return to a default.
-- Avoid pasting secrets into chat, Library, or ordinary files.
-- Test sign-in or the affected feature after a recovery change.
+Never edit a shipped schema migration or use an ad hoc constructor migration as recovery.
 
 ## For Agents
 
-Never guess raw config keys when a user-facing setting exists. If raw recovery is necessary, say why, name the key, and keep the change narrow.
+Do not guess raw keys, print auth material, or reset unrelated services. Explain why the normal path
+is insufficient before using the recovery surface.

@@ -1,38 +1,39 @@
 # MCP Servers & OAuth Accounts
 
-[Integrations](index.md)
+[Messaging, Email & Integrations](index.md)
 
 ## MCP Servers
 
-MCP servers add external tools and resources to GSV. They may expose file systems, issue trackers, databases, search tools, design tools, or other capabilities.
+MCP servers expose tools and resources from systems such as issue trackers, databases, design tools,
+and search services. GSV keeps MCP out of the model's always-expanded direct tool list. Agents inspect
+the compact index and call selected MCP operations through CodeMode or the native `mcp` shell command.
 
-Use MCP settings to:
+This preserves the fixed Read, Write, Edit, Delete, Search, Shell, and CodeMode surface while making
+large MCP catalogs available on demand.
 
-- Add a server.
-- Check connection status.
-- Refresh available tools.
-- Remove a server.
-- Troubleshoot unavailable tools.
+Availability depends on the current run-as identity, server configuration, health, and capability.
+Tool output is still untrusted data and MCP calls normally require approval.
 
-MCP tools may appear in agent or coding environments rather than as ordinary desktop apps. Availability can depend on the current account, server health, and tool permissions.
+## OAuth
 
-## OAuth Accounts
+OAuth grants GSV delegated access without asking a user to paste access tokens into chat. Start the
+authorization flow from the owning integration surface, verify the account and requested scopes, and
+revoke it there when no longer needed.
 
-OAuth accounts connect GSV to external services using the user's consent. Use OAuth for services that support delegated access, such as code hosting, productivity tools, or cloud APIs.
+MCP and OAuth are complementary: OAuth establishes permission; MCP can expose operations that use it.
 
-Use OAuth settings to:
+## Failure Checks
 
-- Start an authorization flow.
-- Review connected accounts.
-- Revoke an account.
-- Repair an expired connection.
+If an operation is missing or fails, distinguish:
 
-OAuth tokens are sensitive and should not be displayed in chat or stored in ordinary files.
-
-## Choosing Between MCP And OAuth
-
-MCP describes how tools are exposed to GSV. OAuth describes how GSV gets permission to access an external account. A single integration may use both: OAuth for authorization and MCP for tool access.
+1. the OAuth account is absent/expired;
+2. the MCP server is offline;
+3. tool discovery has not refreshed;
+4. the run-as identity lacks capability;
+5. approval denied the call;
+6. the external service rejected it.
 
 ## For Agents
 
-If an external tool is missing, check whether the account is connected, the server is healthy, and the tool is available to the current identity. Do not ask the user to paste OAuth tokens into chat.
+Never ask for an OAuth bearer token in a Message or file. Use the supported authorization flow and
+report only account identity, scope, status, and next action.

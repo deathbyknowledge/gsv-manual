@@ -1,32 +1,31 @@
-# Files & Knowledge
+# Files, Resources & Knowledge
 
 [Back to GSV Manual](../../index.md)
 
-Files and knowledge are where GSV keeps durable material. Conversations are useful for doing work, but files, Library pages, standing context, and reusable skills are where important results should land.
+GSV uses ordinary files for artifacts and standing knowledge, immutable resource references for
+durable media, and Process/Conversation records for interaction state.
 
-## Main Places
+## Choose The Right Place
 
-- `/home` is the ordinary home area for users, agents, documents, project folders, and durable artifacts.
-- Files is the app for browsing, opening, editing, and organizing files.
-- Library is the built-in web surface for structured knowledge bases, manuals, notes, imports, durable references, and search.
-- `~/context.d/` stores short standing instructions for an account or agent.
-- `~/skills.d/` stores reusable procedures that agents can open when a task calls for them.
-- Knowledge bases are collections of material that people and agents can search, browse, and cite when needed.
+- Put documents, code, exports, and project artifacts in files.
+- Put durable identity and preferences in `context.d`.
+- Put reusable operating procedures in `skills.d`.
+- Put reference material in an appropriate file or repository and search it when needed.
+- Let Conversations retain what users deliberately said.
+- Let Process activity retain how a run happened.
 
-## What Belongs Where
+## Files And Revisions
 
-- Use context for short, stable instructions that should shape an agent's behavior.
-- Use skills for repeatable procedures, command sequences, and task-specific guardrails.
-- Use Library for durable reference material that should be searchable.
-- Use Files for artifacts, documents, project data, scripts, and anything the user should directly manage.
-- Use conversations for current work, decisions in progress, and task coordination.
-- Use package source for code or assets that belong to an installed package.
+Filesystem targets expose the same `fs.*` and transfer primitives through the Gateway or a connected
+machine. Exact revisions let a transcript refer to old bytes even after the visible path changes.
+Binary bodies stream separately from structured protocol metadata.
 
 ## Pages In This Section
 
-- [Home Files, Library & Knowledge Bases](home-wiki-knowledge.md)
-- [Context, Skills & Knowledge Boundaries](context-files-knowledge.md)
+- [Home Files, Immutable Resources & Search](home-wiki-knowledge.md)
+- [Context, Skills & Knowledge](context-files-knowledge.md)
 
 ## For Agents
 
-When a user says "remember this", clarify whether it should become standing context, a reusable skill, a Library note, or a file. Hidden memory is not the preferred durable record in GSV; user-visible storage is.
+Do not paste large or binary content into messages when a resource reference or file path is enough.
+Resolve bytes only for the consumer that actually needs them.

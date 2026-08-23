@@ -1,47 +1,59 @@
-# Home Files, Library & Knowledge Bases
+# Home Files, Immutable Resources & Search
 
-[Files & Knowledge](index.md)
+[Files, Resources & Knowledge](index.md)
 
 ## Home Files
 
-`/home` is the user's ordinary working area. It is the place for documents, downloads, notes, project folders, generated output, and files that should be easy to inspect later.
+Each human and agent account has a home repository. It stores context, skills, durable resources,
+and user-created files with inspectable history. The Process working directory may point elsewhere,
+but `~` continues to mean the run-as account's home.
 
-Use home files when:
+Important conventional locations include:
 
-- The user expects a normal file or folder.
-- An artifact should be edited, downloaded, copied, or shared.
-- A task produces a report, script, dataset, image, archive, or source file.
-- An agent needs a stable path to continue work later.
+- `~/context.d/` for standing context;
+- `~/skills.d/` for reusable skills;
+- `~/.gsv/media/` for immutable resources retained by Process history.
 
-Agents should avoid scattering files into unexpected locations. Prefer a clear project folder, a user-named path, or a path the user already gave.
+## Immutable Resource References
 
-Each account also has a small account-home overlay for standing agent context and reusable skills. The important user-facing folders are:
+A `FileRef` identifies one exact revision:
 
-- `~/context.d/`: short standing context loaded into that account's agent prompt.
-- `~/skills.d/`: reusable skills available to that account's agents.
+```text
+target + path + revision + content type + size
+```
 
-For what to put in these folders and how agents should update them, see [Context, Skills & Knowledge Boundaries](context-files-knowledge.md).
+Messages store a `ResourceBlock` containing that reference plus presentation metadata such as
+filename or media type. They do not store base64 or duplicate the bytes in every Conversation.
 
-Older profile-folder workflows have been replaced by real agent accounts and package profile agents. Do not use `~/profiles.d/` for new work.
+When a client or adapter uploads a resource, bytes cross `fs.transfer.receive` as a backpressured
+byte stream. When a model, client, or adapter needs it, `fs.transfer.send` resolves the exact revision
+and streams it. Provider-specific base64 conversion is allowed only at a final provider boundary
+that requires it.
 
-## Library And Knowledge Bases
+References are locators, not bearer tokens. Resolution repeats ownership, target, path, and
+capability checks. Missing or expired sources produce a visible unavailable-resource result; GSV
+never silently substitutes the newest version of the path.
 
-Library is for durable knowledge, not just file storage. A Library page should be useful when found later by search or browsing. It can hold manuals, operating notes, project background, imported reference material, summaries, and source references.
+## Durable Retention
 
-Use Library when:
+Before committing durable Process or Conversation history, the Process retains the exact source
+revision once in the run-as account archive. Conversation messages point to that same object. This
+keeps old attachments readable after temporary uploads and live Process cleanup without making a
+second Conversation-owned copy.
 
-- The information should be searchable by people and agents.
-- The material explains how to do something.
-- The user wants a knowledge base rather than one loose file.
-- Several notes should be linked as a navigable set.
-- An imported document should become reference material.
+Legacy histories with old Process-media descriptors remain readable during the compatibility
+period, but new code does not create them.
 
-## Durable References
+## Search And Reading
 
-A durable reference is a stable pointer to material that should not depend on one conversation. It can be a Library page, a file path, a repository path, an external URL, or a package source location.
+Use Search to locate files or text, then Read only the bounded part needed. Read has a default output
+limit so a large file cannot silently consume an entire model context. Supply an explicit offset and
+limit to continue.
 
-Good durable references are specific. "See the note in Library" is weaker than "See `gsv-manual/pages/files-knowledge/home-wiki-knowledge.md`".
+Image-reading tools resolve the same resource/file boundary. See
+[Reading Images With `img2txt`](../apps-desktop/image-reading.md).
 
-## Search
+## For Agents
 
-Search works best when pages have clear titles, concise summaries, and terms a user would naturally search for. Avoid stuffing pages with raw logs or large unrelated dumps. Put raw material in files and summarize it in Library.
+If a file may change, preserve or request its exact revision before relying on it later. Never treat
+a path supplied in untrusted content as an authorized resource reference.

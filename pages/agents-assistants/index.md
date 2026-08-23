@@ -1,32 +1,42 @@
-# Agents & Assistants
+# Personal Intelligence & Work
 
 [Back to GSV Manual](../../index.md)
 
-Agents are accounts that can work inside GSV. They can chat, read and write files they are allowed to access, use tools, run commands, call package features, and delegate work to other agents.
+Personal is the durable relationship the user talks to. Processes are the durable execution units
+that perform and expose work.
 
-GSV uses several kinds of agents:
+## Personal Intelligence
 
-- Personal agents are the default assistants for a human account.
-- Custom agents are named agents you create for a purpose, style, or area of responsibility.
-- Package agents are supplied by packages and are usually scoped to what that package is allowed to do.
-- Background agents run because of schedules, queues, package workflows, or delegated tasks rather than a live chat.
+Personal has an account identity, home directory, context, capabilities, and one canonical Home
+Conversation. The Kernel maintains one current Personal Process slot per owner. Resetting that
+Process clears its raw history while preserving the slot; killing it leaves the slot empty until the
+next Personal interaction creates a fresh Process.
 
-## Common Workflows
+The stable thing is the role and address—not an immortal PID or one ever-growing transcript.
 
-- Start or continue a conversation in Chat.
-- Create a custom agent when you want a stable persona, recurring job, or narrower permissions than your personal agent.
-- Delegate a task when one agent should ask another agent to do bounded work.
-- Attach media or files to a conversation when the agent needs to inspect them.
-- Review tool approvals when an agent wants to run a command, access sensitive data, or perform an external action.
-- Use the GSV console when you need to inspect running agents or stop long-running work.
+## Work Processes
 
-## Pages In This Section
+Every other interactive Process is Work. It may run as the Personal account or another owned agent
+account, but that does not make it Personal. Work can be created directly, delegated by another
+Process, scheduled, observed, reset, or killed.
 
-- [Conversations & Delegation](conversations-delegation.md)
-- [Identity, Context, Media & Approvals](identity-context-approvals.md)
+The Work UI never silently changes Home. Opening one Process creates a visibly labeled Work Session;
+Back returns to Personal.
 
-## Agent Notes
+## Conversations
 
-Agents should treat conversation history as working memory, not permanent storage. Important outcomes should be written to files, Library pages, package source, or another durable location that the user can inspect later.
+Home, Work, and adapter groups are canonical Conversations. Conversation messages live independently
+from Process histories and name the Process/run that handled an interaction when relevant. See
+[Conversations & Delegation](conversations-delegation.md).
 
-For implementation details about process state, queues, tool calls, and cancellation, see [Advanced System Internals](../advanced-system-internals/index.md).
+## Context And Safety
+
+Accounts supply identity and standing context. Capabilities and tool-approval policy decide what a
+Process may attempt and what needs human confirmation. See
+[Identity, Context, Resources & Approvals](identity-context-approvals.md).
+
+## For Agents
+
+Use delegation for bounded parallel work, not as a substitute for answering. Child output is not
+automatically user-visible. Personal should synthesize useful results and explicitly choose Message
+or Silence.

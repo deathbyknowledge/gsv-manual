@@ -2,26 +2,38 @@
 
 [Back to GSV Manual](../../index.md)
 
-Accounts and access decide who can see, change, run, or connect things in GSV. Humans and agents are both accounts, but they are used differently.
+Accounts answer who is acting. Capabilities and owned runtime records answer what that identity may
+do. Authentication, authorization, Process identity, and external-message linking are related but
+separate boundaries.
 
-## Account Types
+## Current Account Roles
 
-- Human accounts are for people who log in and operate GSV.
-- Personal agent accounts are the default assistants attached to humans.
-- Custom agent accounts are named assistants with their own behavior and access.
-- Package agent accounts come from packages and are usually scoped to package work.
-- Service identities are used by trusted system connections such as adapters or devices.
+- A **human account** logs in, owns Processes, Conversations, files, integrations, and machines.
+- A **Personal agent account** holds that human's durable Personal identity and home.
+- Other **agent accounts** may have distinct context and capabilities.
+- **Driver identities** authenticate machines.
+- **Service identities** authenticate deployment components such as adapter Workers.
 
-## Permissions And Groups
+Onboarding currently creates the first human owner and Personal identity. The underlying Kernel has
+users, groups, ownership, and capabilities, but a complete product flow for inviting additional
+humans, managing shared Conversations, and self-service password recovery is not finished. Do not
+present those as shipped features.
 
-Permissions decide what an account may do. Groups help grant access to sets of accounts. A capability may allow a kind of operation, but the specific operation can still have ownership or safety checks.
+## Authorization
 
-Examples of access boundaries:
+The Kernel enforces access even when a caller or UI already checked it. A capability allows a class
+of syscall; ownership, target, route, process, path, and lifecycle checks may still reject a specific
+call.
 
-- A user should not see another user's private home files unless sharing allows it.
-- A package should not get broad system access unless it has been reviewed and approved.
-- An external identity link should route messages to the right GSV user without granting unrelated access.
-- An agent should run with the identity and permissions intended for its task.
+Managed deployments add an outer installation boundary. A public hostname first resolves through
+the trusted installation directory; public callers cannot choose the installation ID used to address
+Kernel, Process, Conversation, adapter, R2, or ripgit state.
+
+## External Identities
+
+Linking a Telegram, WhatsApp, or Discord actor maps an authenticated provider identity to a local
+human. The adapter never gets to supply a trusted local uid. Connecting an adapter account and
+linking a person are separate operations.
 
 ## Pages In This Section
 
@@ -29,4 +41,5 @@ Examples of access boundaries:
 
 ## For Agents
 
-Before changing access, issuing tokens, linking external identities, or using credentials, identify the account involved and whether the user has authority over it.
+Before changing access, identify the human owner, run-as account, installation, and exact operation.
+Labels, usernames from external providers, and route IDs are not authorization.

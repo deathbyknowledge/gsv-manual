@@ -1,27 +1,29 @@
-# Advanced System Internals
+# System Internals
 
 [Back to GSV Manual](../../index.md)
 
-This section is for operators, developers, and agents that need implementation details. It is intentionally separate from the everyday manual.
+This section is for developers and operators debugging implementation ownership, deployment state,
+protocol behavior, migrations, and upgrades.
 
-Use these pages when you need to debug source-of-truth questions, inspect code paths, validate a deployment, understand runtime components, or change GSV itself.
+## Runtime Pieces
+
+- **Gateway/Kernel:** auth, capabilities, config, routing, lifecycle, schedules, Conversations,
+  adapter coordination, and inference coordination.
+- **Process Durable Objects:** raw agent history, model loop, queues, tools, approvals, resources,
+  cancellation, reset, and kill.
+- **Conversation Durable Objects:** canonical user-visible Messages and archive segments.
+- **Accounts:** managed installation directory, onboarding, lifecycle, and operator policy.
+- **Inference:** managed provider credentials, routing, usage reservation, and settlement.
+- **Adapters:** provider identity, transport, replay, media, and delivery.
+- **Web/host clients:** user presentation and local machine integration.
 
 ## Pages In This Section
 
 - [Operating Model](operating-model.md)
-- [Source Maps, Updates & Debugging](source-update-debugging.md)
+- [Source, Deployment & Debugging](source-update-debugging.md)
 - [Schema & Migration Guidance](schema-migrations.md)
 
-## User-Level Warning
+## For Agents
 
-Most user tasks should not start here. If the question is "how do I use GSV?", go back to the everyday sections. If the question is "where is this implemented, how do I update it, or what validates it?", this section is the right place.
-
-## Main Runtime Pieces
-
-- Gateway worker: control plane, auth, packages, adapters, inference, and routing.
-- Process runtime: durable agent conversations, queues, tool calls, media, and checkpoints.
-- Web shell: setup/login, desktop, native Chat/Files/Terminal/Library/Repositories/Settings/Crew/Runtime/Inventory surfaces, and package app host bridge.
-- Package runtime: installable package apps, package commands, package agents, backend RPC, public routes, and package-scoped storage.
-- Adapter workers: external platform connections such as WhatsApp and Discord.
-- CLI: device, deployment, administration, and package sync commands.
-- ripgit: git-backed storage and content operations.
+Say whether evidence came from source, tests, local state, deployed Workers, Durable Object data, or
+provider state. Those are not interchangeable sources of truth.

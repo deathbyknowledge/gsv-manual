@@ -1,38 +1,46 @@
-# Apps & Desktop
+# Web & Desktop
 
 [Back to GSV Manual](../../index.md)
 
-The GSV desktop is the browser-hosted work surface for the cloud computer. It keeps the session connected, hosts native GSV surfaces, opens package apps, and gives package app frames a safe way to communicate with the host.
+GSV currently has two first-party graphical clients:
 
-## What The Desktop Owns
+- the Web shell served by the Gateway;
+- the cross-platform Rust Desktop client in the host workspace.
 
-- Login and setup.
-- The desktop frame, launcher, shell rail, and chat dock.
-- Grouped inventory for Machines, Messengers, Integrations, and Applications.
-- Opening, focusing, and closing native surfaces or package app frames.
-- App previews and browser-hosted views.
-- The bridge that lets package apps request host actions.
-- Browser targets for automation that must happen inside the active web shell.
+Both authenticate as a human, send canonical Conversation messages, synchronize committed Messages,
+and may explicitly observe Process activity. Neither becomes the owner of agent state merely because
+it renders it.
 
-## What Apps Own
+## Web
 
-Native surfaces and package apps own their product work:
+The Web shell owns setup/login, Personal Chat, Work inspection, Messages, Files, Terminal,
+Repositories, Machines, Messengers, Integrations, Settings, and administrative surfaces. Its cached
+queries are scoped to the authenticated session so signing out or switching users cannot retain the
+previous user's private results.
 
-- Chat owns conversations and agent work.
-- Files owns browsing and editing the filesystem.
-- Terminal owns command sessions.
-- Repositories owns ripgit browsing, history, diffs, pulls, and source inspection.
-- Library owns durable markdown knowledge.
-- Settings and Crew own system operation, configuration, accounts, agents, models, tasks, devices, messengers, integrations, and applications.
-- Package apps own their own app-specific views and behavior inside a frame.
+## Desktop
 
-The desktop should feel like the place where work happens, not a dashboard about work.
+Desktop owns its selected Process/Conversation, drafts, attachments, approvals, voice and gesture
+presentation, and local same-user control endpoint. It can chat without `gsvd`; connecting the local
+computer adds it as a machine target.
+
+The packaged application includes matching `gsv`, `gsvd`, transcription and vision helpers, and the
+gesture model weights. Desktop can enroll the computer, install the per-user daemon service, and
+control it without requiring users to assemble components manually.
+
+## Distribution Status
+
+The repository can build an architecture-native macOS development application and ZIP. Public macOS
+distribution still requires Developer ID signing, hardened-runtime entitlements, notarization, and
+stapling. Host release artifacts cover the supported CLI/daemon platforms; a polished single-package
+Linux and Windows Desktop release remains active product work.
 
 ## Pages In This Section
 
-- [Desktop Surfaces & Apps](desktop-surfaces-and-apps.md)
+- [Surfaces, Desktop Host & Local Helpers](desktop-surfaces-and-apps.md)
 - [Reading Images With `img2txt`](image-reading.md)
 
 ## For Agents
 
-When a task is visual, window-based, or browser-local, use the desktop and browser target. When a task is about files, packages, settings, or devices, prefer the app that owns that work instead of relying on hidden commands.
+Treat Web and Desktop as presentations of shared protocol primitives. Keep visual state in the
+client, authorization in the Kernel, and machine execution in `gsvd`.

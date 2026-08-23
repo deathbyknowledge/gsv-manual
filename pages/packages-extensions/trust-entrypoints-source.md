@@ -1,45 +1,49 @@
-# Trust, Entrypoints & Source Workflows
+# Protocol Roles & Trust
 
-[Packages & Extensions](index.md)
+[Clients, Adapters & Extensions](index.md)
 
-## Installing And Enabling
+## Human Clients
 
-Installing makes a package available. Enabling activates its entrypoints. A disabled package may remain installed for review, source work, or later use.
+Web, Desktop, and CLI authenticate as a human and call the ordinary Kernel syscall surface. They may
+send Conversation input, receive directed Message streams, synchronize committed Messages, and
+explicitly observe Processes. A client connection is not a machine target unless a separate driver
+identity implements that role.
 
-Before enabling a package, check:
+## Machine Drivers
 
-- What apps, commands, agents, backend services, or public routes it adds.
-- What permissions it requests.
-- Who will use it.
-- Whether it comes from a trusted source.
+`gsvd` connects with a driver-bound credential. It may implement selected filesystem, shell, and
+network primitives for its machine ID. It cannot turn that transport into an arbitrary human login.
 
-## Package Review
+## Adapter Services
 
-Review is most important for packages that request file access, shell access, credentials, external messaging, public routes, or system settings access.
+An adapter Worker authenticates provider traffic and calls the restricted service-binding entrypoint.
+The Kernel derives the linked local human. Adapter service authority and delegated external-user
+authority are intentionally different contexts.
 
-Look for:
+Today, text commands such as process inspection are partly adapter-specific frontends. The planned
+peer work would route permitted commands through the same syscall dispatcher with effective
+capabilities equal to the intersection of user authority, adapter policy, and connection policy.
 
-- Clear manifest and capability requests.
-- Narrow permissions.
-- Source that matches the advertised purpose.
-- No hidden credential handling.
-- Public routes that verify incoming requests.
-- Reasonable package agent behavior.
+## Binary Bodies
 
-## Entrypoints
+Frame metadata is structured and bounded. Large or binary content is a `ReadableStream<Uint8Array>`
+body:
 
-Entrypoints are the ways a package appears in GSV:
+- WebSocket clients use the protocol's binary-body channel.
+- Worker and Durable Object RPC forward the `ReadableStream` directly.
+- Providers and R2 are streamed at their owning boundary.
 
-- App entrypoints open desktop UI.
-- Command entrypoints run from Terminal or package command surfaces.
-- Backend entrypoints handle package logic.
-- Agent entrypoints provide package-specific assistants.
-- Public route entrypoints receive external web requests when declared.
+Intermediate code preserves backpressure and cancellation. It does not send one RPC per token/chunk,
+base64-encode bodies, or collect the whole stream before forwarding. The receiver that accepts a body
+owns consuming, forwarding, or cancelling it exactly once.
 
-## Source Workflows
+## Browser Extension
 
-Package source may be mounted for editing and review under `/src/repos/<owner>/<repo>`. Writable repository edits are staged until committed or discarded with `rgit`. Editing package source is not the same as updating the installed running package; after committing, update the package explicitly.
+The extension is a browser target, not an installable Gateway package. It exposes intentionally
+supported browser operations and remains subject to target routing and browser permission.
 
 ## For Agents
 
-When reporting a package change, say whether you installed, enabled, approved, committed source, discarded source, or updated a running package. These are different actions.
+When adding an operation, fix the stable syscall/protocol boundary and then implement transport
+adapters. Do not add separate semantics solely because one caller happens to use WebSocket and
+another a service binding.

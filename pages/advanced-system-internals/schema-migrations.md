@@ -1,32 +1,38 @@
 # Schema & Migration Guidance
 
-[Advanced System Internals](index.md)
-
-GSV uses versioned schema migrations for durable stores. Do not create ad hoc schema changes from store constructors or runtime repair code unless the owning system explicitly supports that pattern.
+[System Internals](index.md)
 
 ## Migration Owners
 
-- Gateway kernel schemas: `gateway/src/kernel/schema/*`
-- Process runtime schemas: `gateway/src/process/schema/*`
-- App runner schemas: `gateway/src/app-runner/schema/*`
-- Shared TypeScript runner schema: `gateway/src/schema/runner.ts`
-- ripgit repository worker schema: `ripgit/src/schema.rs`
+- Accounts D1: `accounts/migrations/`
+- Kernel Durable Object SQLite: `gateway/src/kernel/schema/`
+- Process Durable Object SQLite: `gateway/src/process/schema/`
+- Conversation Durable Object SQLite: `gateway/src/conversation/schema/`
+- Shared DO migration runner: `gateway/src/schema/runner.ts`
+- Managed Inference Durable Object SQLite: `inference/src/schema/`
+- ripgit: its Rust schema owner
 
 ## Rules
 
-- Add the next numbered migration for shipped schema changes.
-- Do not edit a migration that has already shipped in a release.
-- Collapse into a new baseline only before a release or during an explicit major-version reset.
-- Keep old migrations long enough for supported upgrade paths.
-- Validate the owner of the schema, not only the code that reads it.
+- Never edit a migration that may have shipped.
+- Add the next numbered migration in the owning store.
+- Do not create tables/indexes or `ensureColumn` repairs from store constructors.
+- Preserve supported standalone and managed upgrade paths in tests.
+- Migration IDs, names, and checksums are part of deployed state. Reusing an ID for a different
+  migration breaks startup even if the SQL happens to be compatible.
+- Collapse to a new baseline only for an explicit release/reset policy.
 
-## Validation Examples
+Managed and standalone may share runtime code while applying different surrounding services. A
+managed migration number already deployed for mail or installation state cannot be renumbered to
+make room for another branch.
 
-- Gateway runtime or syscall schema work: run gateway typecheck and tests.
-- Process runtime schema work: run process and migration tests.
-- App runner schema work: validate the app runner and relevant package behavior.
-- ripgit schema work: validate the Rust worker tests.
+## Validation
+
+Test a fresh database, the oldest supported upgrade, and any historic ledger edge the release policy
+claims to support. Cross-boundary lifecycle changes also need clean-instance runtime tests; a schema
+unit test alone cannot prove that Process, Kernel, adapter, and client state agree.
 
 ## For Agents
 
-If a task asks for schema recovery or migration repair, pause before editing. Identify the owning store, current version, expected upgrade path, and whether the change is a one-time repair or a shipped migration.
+Before editing, identify the physical store, current migration sequence, deployed environments, and
+support policy. If any are unknown, investigate rather than adding runtime repair code.

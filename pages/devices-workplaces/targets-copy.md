@@ -1,49 +1,54 @@
-# Targets, Execution & Cross-Target Copy
+# Targets, Execution & File Transfer
 
-[Devices & Workplaces](index.md)
+[Machines & Targets](index.md)
 
-## Cloud GSV Target
+## Same Primitive, Different Target
 
-The cloud GSV target is the normal default. Use it for cloud files, cloud-side package work, system settings, knowledge operations, and ordinary Terminal tasks.
+Routable filesystem, shell, and network syscalls keep one meaning across targets. `target: "gsv"`
+uses the Gateway implementation; a machine ID forwards the request to `gsvd`. The Kernel performs
+authorization and routing before the target executes it.
 
-## Local Devices
+The target that accepts a request or body owns completion, cancellation, and cleanup. A disconnect,
+timeout, or malformed response must terminate both the request route and its binary stream.
 
-Local devices extend GSV to places the cloud cannot reach by itself. Use a local device when the work depends on:
+## Machine Targets
 
-- Files stored on that device.
-- Local command-line tools.
-- A private network or VPN.
-- Hardware such as cameras, microphones, GPUs, or connected equipment.
-- Credentials that should remain local.
+Use a machine for:
 
-Local devices can go offline. If a task depends on one, check that it is connected before starting.
+- files that should remain on that computer;
+- installed command-line tools;
+- private/VPN networks;
+- GPUs or other local compute;
+- hardware such as cameras and microphones;
+- credentials that should not be copied to the Gateway.
 
-## Browser Target
+`gsvd` runs as an unprivileged user and stays in the foreground under the OS service manager. It owns
+shell sessions, subprocesses, network requests, reconnection, and cancellation.
 
-The browser target is the active GSV web shell in the user's browser. Use it for:
+## Browser Targets
 
-- Inspecting or automating the current desktop.
-- Testing previews.
-- Reading browser-local state.
-- Running browser-side JavaScript.
-- Checking layout or interaction behavior.
+The browser extension exposes explicitly supported browser-side primitives. Browser state and
+automation remain in that target rather than being implemented inside the Kernel.
 
-Browser-target work is not the same as cloud shell work.
+## File Transfer And References
 
-## Adapter Targets
+`fs.transfer.send` streams bytes from a target and `fs.transfer.receive` streams them into a target.
+Structured frames carry size, type, path, revision, and ownership metadata; the body is a
+backpressured `ReadableStream<Uint8Array>` across WebSocket, Worker service RPC, and Durable Object
+RPC boundaries.
 
-Some integrations expose command-like surfaces. These are adapter targets. They are only available when the external account is connected, linked to a GSV identity, and the adapter supports the action.
+Cross-target copy names both source and destination. A resource reference can instead preserve an
+exact immutable revision for later lazy resolution. The two operations serve different purposes:
+copy creates another file; a reference avoids a copy until durable retention or consumption requires
+one.
 
-## Cross-Target Copy
+## Failure Semantics
 
-Cross-target copy moves files between workplaces. Be explicit about source and destination. A path that is valid on one target may not exist on another.
-
-Good copy requests name both sides:
-
-- From a local device path to `/home/...` in GSV.
-- From `/home/...` in GSV to a local downloads folder.
-- From a generated cloud file into a browser preview workflow.
+If a source goes offline, changes revision, or loses authorization, GSV returns an explicit error.
+It does not read a newer file with the same path. Partial readers and disconnected callers cancel
+the body exactly once.
 
 ## For Agents
 
-When copying or executing across targets, preserve user data boundaries. Do not move secrets or private files between targets unless the user asked for that transfer or the workflow clearly requires it.
+Prefer executing near the data. Copy only when a durable duplicate is useful, and prefer a revision-
+bound reference when the consumer only needs to resolve the same bytes later.

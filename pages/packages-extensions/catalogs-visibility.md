@@ -1,37 +1,38 @@
-# Catalogs, Remotes & Public Visibility
+# Extensions Today & Roadmap
 
-[Packages & Extensions](index.md)
+[Clients, Adapters & Extensions](index.md)
 
-## Catalogs
+## What Exists Today
 
-A catalog is a list of packages available to install or review. Catalogs can represent local packages, organization packages, user package remotes, or other remote sources.
+- Public TypeScript protocol/client types in `packages/gsv`.
+- Rust host applications and shared protocol crates in `host/`.
+- First-party adapter Workers under `adapters/`.
+- A browser extension under `extension/`.
+- MCP servers and OAuth accounts configured as integrations.
+- Skills and context files that extend agent behavior without adding new model-facing tools.
 
-Use catalogs to discover packages, compare available versions, and decide which packages should be visible to users.
+## What Was Removed
 
-## Remotes
+The historical installable package runtime, framed package apps, catalogs, remotes, package agents,
+and public package routes were removed. Old manual pages and commands describing them are not valid
+for current GSV.
 
-Remotes connect package source to external or internal repositories. A remote may be used to pull updates, inspect source history, or publish package changes.
+## What Is Planned
 
-Before syncing from a remote, know whether the update changes source only, installed package state, enabled entrypoints, or public behavior.
+Protocol-peer unification may eventually let authenticated participants negotiate facilities such as
+syscall access, interactive input, directed output, signals, or target execution. The design must
+keep principal, transport, and facilities independent and attenuate external-user authority.
 
-## Public Visibility
+An entitlements service is also planned for managed product limits such as inference and email. Its
+records are expected to be simple typed-by-caller keys such as `inference.credits` or
+`email.daily_messages`, cached by services for roughly 5–15 minutes. Enforcement and atomic usage
+settlement still belong to the service that owns the scarce operation; the entitlement value is not
+itself a quota counter or usage ledger.
 
-Some packages expose public routes or user-visible catalog entries. Public visibility should be intentional.
-
-Package public listing is backed by source repo visibility. A repo is private by default. Marking a repo public allows read-only public access to that repo and lets packages sourced from it appear in local public package catalogs. It does not grant public write access.
-
-Review:
-
-- The exact public paths.
-- Who can call them.
-- Whether they need signatures, shared secrets, or OAuth.
-- What data they can read or change.
-- Whether logs might include sensitive data.
-
-## Native Surfaces And Packages
-
-Native web-shell surfaces are updated with the web shell, not with package sync. Installable package changes still use package source, review, and update workflows.
+Neither proposal should revive the old package system or add a second message model.
 
 ## For Agents
 
-Do not make a package public or connect a remote without confirming the intended audience and trust boundary.
+Describe an extension by the current boundary it uses: SDK client, host app, driver, adapter,
+browser target, MCP integration, skill, or source contribution. Do not promise a catalog/install flow
+that is not present.

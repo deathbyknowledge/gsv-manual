@@ -1,31 +1,38 @@
-# Integrations
+# Messaging, Email & Integrations
 
 [Back to GSV Manual](../../index.md)
 
-Integrations connect GSV to external systems. They can bring messages into agents, let agents send replies, expose external tools, or connect third-party accounts.
+Adapters own third-party transport. MCP adds callable external tools. OAuth grants delegated access
+to external accounts. The Kernel owns local identity, authorization, Process admission, Conversation
+messages, and generic routing.
 
-## Main Integration Types
+## Messaging
 
-- Message adapters such as WhatsApp, Discord, Telegram-style test adapters, and other adapter workers.
-- MCP servers that expose tools or resources to agents and coding workflows.
-- OAuth accounts that let GSV access external services with user consent.
-- External identity links that map outside people or accounts to GSV users.
+Telegram, WhatsApp, and Discord normalize provider actors, surfaces, messages, media, replay IDs, and
+delivery outcomes. Linked private messages normally enter Personal Home. Group/channel/thread routes
+remain explicitly bound.
 
-## Common Workflows
+## Managed Email
 
-- Connect an adapter account.
-- Link an external sender to a GSV user.
-- Route inbound messages to the right agent or conversation.
-- Review adapter connection status.
-- Add or refresh an MCP server.
-- Connect or revoke an OAuth account.
-- Inspect failures when a message or external tool does not arrive.
+Managed installations can receive and send email through the platform email service. Inbound email
+is stored in the owner's mailbox and summarized by the isolated mail pipeline. Personal receives only
+a small untrusted notify-only event and decides whether to send a Message or remain silent.
+
+Outbound version one sends one plain-text recipient or replies to an existing mailbox message. The
+email Worker owns provider delivery, quotas, and idempotent attempt state. Standalone deployments do
+not deploy or advertise managed delivery resources.
+
+## MCP And OAuth
+
+MCP servers expose tools/resources. OAuth grants an external account permission. One integration may
+use both.
 
 ## Pages In This Section
 
-- [Message Adapters & Routing](adapters-routing.md)
+- [Adapters, Identity Links & Routing](adapters-routing.md)
 - [MCP Servers & OAuth Accounts](mcp-oauth.md)
 
 ## For Agents
 
-External systems have their own identity and safety rules. Before sending messages or calling external tools, confirm which account or integration is being used and whether the user approved the action.
+An external provider name or message ID is not a GSV identity. Use the adapter's established link and
+opaque destination records, and make externally visible delivery explicit.

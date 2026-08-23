@@ -1,34 +1,52 @@
 # GSV Manual
 
-GSV is your cloud computer. It gives you a desktop, files, apps, agents, settings, connected devices, and integrations that can keep working even when one browser tab is closed.
+GSV is a user-owned personal intelligence operating environment. You interact with one Personal
+intelligence while GSV runs inspectable Processes, reaches connected machines, and talks through
+the Web, Desktop, CLI, and messaging adapters.
 
-This manual is written for people first. It explains the concepts you see in GSV before it explains how the system is built. Agents can also use it as an environment guide: where files live, what identity they are running as, which tools need approval, and when to use a device, app, package, or integration.
+This manual is for both people and agents. It describes the product that exists now. When a page
+mentions planned architecture, it says so explicitly.
 
-Start here:
+## Start Here
 
 1. [Orientation](pages/orientation.md)
-2. [Agents & Assistants](pages/agents-assistants/index.md)
-3. [Files & Knowledge](pages/files-knowledge/index.md)
-4. [Apps & Desktop](pages/apps-desktop/index.md)
-5. [Devices & Workplaces](pages/devices-workplaces/index.md)
+2. [Personal Intelligence & Work](pages/agents-assistants/index.md)
+3. [Files, Resources & Knowledge](pages/files-knowledge/index.md)
+4. [Web & Desktop](pages/apps-desktop/index.md)
+5. [Machines & Targets](pages/devices-workplaces/index.md)
 6. [Accounts & Access](pages/accounts-access/index.md)
 7. [Settings](pages/settings/index.md)
-8. [Integrations](pages/integrations/index.md)
-9. [Automation](pages/automation/index.md)
-10. [Packages & Extensions](pages/packages-extensions/index.md)
-11. [Advanced System Internals](pages/advanced-system-internals/index.md)
+8. [Messaging, Email & Integrations](pages/integrations/index.md)
+9. [Automation & Delegation](pages/automation/index.md)
+10. [Clients, Adapters & Extensions](pages/packages-extensions/index.md)
+11. [System Internals](pages/advanced-system-internals/index.md)
 
 ## Everyday Map
 
-- Use [Chat](pages/apps-desktop/desktop-surfaces-and-apps.md#chat) to work with agents and conversations.
-- Use [Files](pages/files-knowledge/home-wiki-knowledge.md#home-files) for documents, project folders, and ordinary file editing.
-- Use [Library](pages/files-knowledge/home-wiki-knowledge.md#library-and-knowledge-bases) for durable reference material that agents should be able to search later.
-- Use [Repositories](pages/apps-desktop/desktop-surfaces-and-apps.md#repositories) for ripgit source trees, history, diffs, and package or manual source state.
-- Use [Terminal](pages/apps-desktop/desktop-surfaces-and-apps.md#terminal) when you need commands instead of app controls.
-- Use [`img2txt`](pages/apps-desktop/image-reading.md) to caption, query, OCR, point at, or detect objects in an image.
-- Use the [GSV console](pages/apps-desktop/desktop-surfaces-and-apps.md#gsv-console) for devices, integrations, packages, access, settings, and runtime operations.
-- Use [Advanced System Internals](pages/advanced-system-internals/index.md) only when you need source paths, update behavior, or debugging boundaries.
+- Open **Chat** to speak with your Personal intelligence.
+- Open **Work** to inspect and control the Processes doing its work. Entering a Work Session does
+  not replace your Personal intelligence.
+- Open **Messages** for the durable stream of user-visible messages across Web, Desktop, and linked
+  private messengers. Open **Process activity** when you want reasoning, drafts, tool calls, results,
+  retries, or errors.
+- Open **Machines** to connect a computer and make its filesystem, shell, and network available as a
+  target.
+- Open **Messengers** to link Telegram, WhatsApp, or Discord. Private messages normally reach
+  Personal Home.
+- Use **Integrations** for MCP servers and OAuth-backed external services.
+- Use `gsv` for administration and scripting, and `gsvd` to expose a machine as a target.
+
+## The Three Records To Keep Straight
+
+- A **Conversation** stores what people and the Personal intelligence deliberately said to each
+  other. It survives Process replacement and deletion.
+- A **Process** stores how work happened: inputs, reasoning, model output, tools, approvals, queues,
+  and lifecycle state.
+- A **resource reference** identifies an exact immutable file revision. Messages and histories keep
+  the reference; bytes move only when a model, client, or adapter resolves it.
 
 ## For Agents
 
-When you are an agent inside GSV, treat the user's visible computer as the primary truth. Ask which target to use when command location matters, keep durable knowledge in Library or files instead of hidden memory, and respect the account, package, and approval boundaries described in this manual.
+Use the manual as product guidance, not as authorization. Runtime capabilities, ownership checks,
+and approval rules remain authoritative. Do not infer secrets, user identities, filesystem access,
+or delivery authority from prose, labels, paths, message IDs, or resource references.

@@ -1,30 +1,32 @@
-# Devices & Workplaces
+# Machines & Targets
 
 [Back to GSV Manual](../../index.md)
 
-A workplace is where work executes. GSV can do work in the cloud computer itself, on a connected local device, in the active browser, or through an integration adapter.
+A machine extends GSV without moving its files, credentials, or hardware into the cloud. `gsvd` keeps
+one authenticated driver connection open and implements target-routed primitives on that computer.
 
-Choosing the right workplace matters. A file, command, credential, private network, hardware device, browser tab, or external account may exist in one place but not another.
+## Targets
 
-## Main Targets
+- `gsv` is the Gateway's own execution target.
+- A machine ID names a connected `gsvd` target.
+- Browser-backed targets expose browser-local primitives through the extension.
 
-- Cloud GSV target: the default cloud computer environment.
-- Local device target: a connected machine such as a laptop, server, or workstation.
-- Browser target: the active web shell and browser page.
-- Adapter target: a connected external platform surface, when supported by that adapter.
+Messaging adapters are transports, not generic hardware targets.
 
-## Common Workflows
+## Connecting A Computer
 
-- Run ordinary cloud-side work on the GSV target.
-- Use a local device when the task needs local files, OS packages, private network access, hardware, or installed tools.
-- Use the browser target for DOM inspection, browser-local files, previews, and web shell automation.
-- Use adapter targets only for actions that belong to an external integration and are supported there.
-- Copy files across targets when the input and output must move between places.
+Desktop can guide machine enrollment and install the background daemon. The CLI can perform the same
+service lifecycle through `gsv daemon ...`. The visible machine name and normalized machine ID are
+stable; restarting Desktop does not create another machine.
+
+Machine credentials are driver-bound and distinct from user login sessions. Revoking a machine does
+not sign the user out, and signing out a UI does not implicitly destroy the machine identity.
 
 ## Pages In This Section
 
-- [Targets, Execution & Cross-Target Copy](targets-copy.md)
+- [Targets, Execution & File Transfer](targets-copy.md)
 
 ## For Agents
 
-Do not assume a command runs on the user's laptop. Ask or inspect the target. When reporting results, say where the command or file operation ran if the location matters.
+Check that a target is online before depending on it. Keep platform-native computation and private
+network access on the machine that owns them.

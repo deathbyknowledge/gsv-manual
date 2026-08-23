@@ -1,49 +1,66 @@
-# Source Maps, Updates & Debugging
+# Source, Deployment & Debugging
 
-[Advanced System Internals](index.md)
-
-Use this page when changing GSV itself or debugging which layer owns a behavior.
+[System Internals](index.md)
 
 ## Source Map
 
-- Gateway control plane: `gateway/src/*`
-- Process runtime: `gateway/src/process/*`
-- Syscall surface: `gateway/src/syscalls/*`
-- Web shell and native UI surfaces: `web/src/*` and `web/public/*`
-- Package runtime and installable package source: `gateway/src/app-runner/*`, `packages/gsv/*`, and source repositories under `/src/repos/<owner>/<repo>`
-- Adapter workers: `adapters/whatsapp/*`, `adapters/discord/*`, and `adapters/test/*`
-- CLI: `cli/*`
-- ripgit: `ripgit/*`
-- Shared contracts: `shared/*`
-- Product and design references: `docs/*` and `engineering/*`
-- Shipped manual content: `root/gsv-manual`
+- `gateway/`: Kernel, Process, Conversations, syscalls, routing, inference client, filesystem.
+- `packages/gsv/`: public TypeScript client and protocol.
+- `web/`: Web shell and browser-side Gateway integration.
+- `host/`: Cargo workspace containing Desktop, CLI, daemon, helpers, and shared host protocols.
+- `adapters/`: Telegram, WhatsApp, Discord, email, test, and shared adapter code.
+- `accounts/`: managed installation directory, onboarding, and operator APIs.
+- `inference/`: managed inference and mail-summary service.
+- `extension/`: browser target.
+- `docs/` and `engineering/`: developer/product source documentation.
+- `../gsv-manual/`: this built-in human/agent manual.
+- `../infrastructure/`: managed deployment graph, environment configuration, and operator guide.
 
-Visible repositories are mounted read-first at `/src/repos/<owner>/<repo>`. Writable repository and package-source edits stage into a process-local overlay until `rgit commit` or `rgit discard`. Use `pkg source <package>` to find a package's source repo path, and `pkg update <package> --ref <ref>` after committing source that should affect the installed package.
+## Validation By Boundary
 
-## Update Paths
+Run the smallest relevant set, plus each real protocol consumer:
 
-- Gateway changes: `cd gateway && npm run deploy`
-- Gateway local validation: `cd gateway && npx tsc --noEmit && npm run test:run`
-- Web shell changes: `cd web && npm run check && npm run build`
-- Package source changes: `rgit diff owner/repo`, `rgit commit owner/repo --message "..."`, then `pkg update <package> --ref <ref>` or `gsv packages sync <package> [--ref REF]`.
-- WhatsApp adapter changes: `cd adapters/whatsapp && npx tsc --noEmit`
-- Discord adapter changes: `cd adapters/discord && npm run typecheck`
-- Test adapter changes: `cd adapters/test && npm run typecheck`
-- CLI changes: `cd cli && cargo test && cargo fmt --check`
+```text
+Gateway:        cd gateway && npx tsc --noEmit && npm run test:run
+Web:            cd web && npm run check && npm run test:run && npm run build
+SDK:            npm run gsv:check && npm test --workspace packages/gsv
+Host:           cd host && cargo fmt --all -- --check && cargo test --workspace
+Accounts:       cd accounts && npm run typecheck && npm test
+Inference:      cd inference && npm run typecheck && npm test
+Adapter:        cd adapters/<name> && run its typecheck/tests
+Extension:      cd extension && npm run check && npm run test:run && npm run build
+```
 
-## Debugging Boundaries
+Run `npm run lint` and `npm run protocol:check` at the repository root. Protocol changes often affect
+Gateway, SDK, Web, Desktop/CLI, and adapters even if only one public type changed.
 
-Check the surface that owns the problem:
+## Deployment Boundaries
 
-- Login, desktop windows, previews, or browser target: web shell.
-- Chat dock, Files, Terminal, Library, Repositories, Settings, Crew, Runtime/Tasks, Machines, Messengers, Integrations, or Applications pages: web shell.
-- Conversation history, queued input, tool approvals, media, or abort/reset behavior: process runtime.
-- Package install, enablement, trust, or source workflow: package system.
-- Package app UI behavior: the owning package app and the host bridge.
-- External platform behavior: the specific adapter worker.
-- Filesystem or command location confusion: target routing and devices.
-- Knowledge search or Library editing: web shell Library plus repository-backed knowledge storage.
+A Gateway deploy updates Kernel/Process code and serves the currently built `web/dist`. It does not
+update adapter Workers, Accounts, Inference, host binaries, or the extension. Deploy those through
+their own release paths.
+
+Managed infrastructure composes all Workers and bindings but still preserves their independent state
+and migrations. Standalone deploys omit managed Accounts/Inference/email resources and must retain
+the `singleton` Durable Object projection for upgrades.
+
+## Debugging Ownership
+
+- Login/installation hostname: Web, Gateway ingress, Accounts directory, and Access configuration.
+- Canonical message missing: Conversation admission/commit and exact endpoint route.
+- Reasoning/tool activity missing: Process observation and Process history.
+- Provider generation: Process inference client, managed Inference/provider, streaming cancellation.
+- External delivery: adapter ledger and provider state.
+- File/media failure: resource reference, exact revision, transfer body, target/R2 owner.
+- Machine command: Kernel target route, driver connection, `gsvd`, and local OS.
 
 ## Source Of Truth
 
-Do not assume the repository, deployed worker, installed package, and live runtime state are identical. A debugging note should say which one was inspected.
+A local branch, managed infrastructure gitlink, deployed Worker version, Durable Object migration
+ledger, adapter provider state, and client binary can all differ. Record exact revisions and
+environment before concluding that source behavior is deployed.
+
+## For Agents
+
+Preserve unrelated dirty changes. Commit logical batches with short imperative subjects, and never
+deploy merely because local tests passed unless the user authorized deployment.
