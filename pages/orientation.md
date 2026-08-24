@@ -2,11 +2,17 @@
 
 [Back to the manual](../index.md)
 
-GSV gives you one personal intelligence that can hold a conversation, work with files, use connected computers and services, remember what matters, and keep longer work visible while you continue talking.
+GSV is a personal intelligence operating environment: one continuing intelligence across all the technology you choose to connect.
+
+A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that environment. Each can provide a place to reach GSV, a place for GSV to act, or both. The environment grows by capability, so specialized technology can join alongside familiar apps and devices.
+
+GSV carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the environment and what it may expose.
+
+Models and specialized agents can contribute to the work. GSV is the continuing whole that coordinates them and remains yours.
 
 ## Your Home Conversation
 
-Home is the ordinary place to talk with GSV. The Web app, Desktop app, and linked private messengers all continue the same relationship with the same personal intelligence.
+Home names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Home.
 
 GSV may do work in separate work sessions, but results return through the same personal intelligence unless you deliberately open a direct work session.
 
@@ -25,15 +31,15 @@ GSV can hand off parts of a request or keep longer tasks separate so Home remain
 
 Sent messages remain in the conversation when work stops. Returning Home leaves other work running; Abort, Reset, and Kill provide explicit lifecycle controls.
 
-## Places GSV Can Act
+## How Technology Joins GSV
 
-GSV can act in several places when they are connected and authorized:
+Connected technology contributes one or more roles:
 
-- its own files and tools;
-- a connected computer running the machine service;
-- a supported browser connection;
-- linked messaging and email accounts;
-- MCP and OAuth-connected services.
+- a **surface** where you and GSV exchange messages;
+- a **target** where GSV can use files, commands, networks, software, or hardware;
+- a **service** that contributes an account or specialized capability.
+
+A messenger can be a surface, a laptop can be a target, and a browser or Desktop app can contribute more than one role. GSV combines their capabilities while preserving the identity and permission of every action.
 
 GSV discovers available targets and integrations before acting:
 
