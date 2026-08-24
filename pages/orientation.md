@@ -2,11 +2,11 @@
 
 [Back to the manual](../index.md)
 
-GSV is a personal intelligence operating environment: one continuing intelligence across all the technology you choose to connect.
+GSV is a personal intelligence operating system: one continuing intelligence across all the technology you choose to connect.
 
-A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that environment. Each can provide a place to reach GSV, a place for GSV to act, or both. The environment grows by capability, so specialized technology can join alongside familiar apps and devices.
+A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that system. Each can provide a place to reach GSV, something GSV can use, or both. The system grows by capability, so specialized technology can join alongside familiar apps and devices.
 
-GSV carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the environment and what it may expose.
+GSV carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. GSV is the continuing whole that coordinates them and remains yours.
 
