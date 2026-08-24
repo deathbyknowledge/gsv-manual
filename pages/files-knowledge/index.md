@@ -1,31 +1,25 @@
-# Files, Resources & Knowledge
+# Files, Memory, And Skills
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-GSV uses ordinary files for artifacts and standing knowledge, immutable resource references for
-durable media, and Process/Conversation records for interaction state.
+Use ordinary files for documents and deliverables, personal memory for facts worth retrieving later, context for a small set of always-relevant facts, and skills for reusable procedures.
 
-## Choose The Right Place
+## Choose What You Need
 
-- Put documents, code, exports, and project artifacts in files.
-- Put durable identity and preferences in `context.d`.
-- Put reusable operating procedures in `skills.d`.
-- Put reference material in an appropriate file or repository and search it when needed.
-- Let Conversations retain what users deliberately said.
-- Let Process activity retain how a run happened.
-
-## Files And Revisions
-
-Filesystem targets expose the same `fs.*` and transfer primitives through the Gateway or a connected
-machine. Exact revisions let a transcript refer to old bytes even after the visible path changes.
-Binary bodies stream separately from structured protocol metadata.
+| Goal | Use |
+| --- | --- |
+| Read, edit, create, search, or delete content | file tools |
+| Copy a file to or from a connected computer | `cp` with a target-qualified path |
+| Keep an attachment tied to the exact bytes used | an exact file revision, handled by GSV |
+| Remember a fact, decision, event, or project detail | the personal wiki |
+| Keep a stable preference visible in every request | personal `context.d` |
+| Save a reusable procedure | `skills.d` / `skills` |
+| Inspect history, diffs, or commits in a GSV repository | `rgit` |
+| Read or create image/audio media | `img2txt`, `txt2img`, `stt`, or `tts` |
 
 ## Pages In This Section
 
-- [Home Files, Immutable Resources & Search](home-wiki-knowledge.md)
-- [Context, Skills & Knowledge](context-files-knowledge.md)
-
-## For Agents
-
-Do not paste large or binary content into messages when a resource reference or file path is enough.
-Resolve bytes only for the consumer that actually needs them.
+- [Files, paths, copies, and exact revisions](home-wiki-knowledge.md)
+- [Memory, context, and skills](context-files-knowledge.md)
+- [Wikis and repositories](repositories.md)
+- [Images, audio, and attachments](media.md)

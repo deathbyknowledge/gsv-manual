@@ -1,54 +1,50 @@
-# Targets, Execution & File Transfer
+# Run Commands And Copy Files Across Targets
 
-[Machines & Targets](index.md)
+[Computers And Browser](index.md)
 
-## Same Primitive, Different Target
+A target is a place where GSV can perform an action. `gsv` means the installation itself. Connected computers and browser profiles have their own target IDs.
 
-Routable filesystem, shell, and network syscalls keep one meaning across targets. `target: "gsv"`
-uses the Gateway implementation; a machine ID forwards the request to `gsvd`. The Kernel performs
-authorization and routing before the target executes it.
+## Discover The Right Target
 
-The target that accepts a request or body owns completion, cancellation, and cleanup. A disconnect,
-timeout, or malformed response must terminate both the request route and its binary stream.
+```bash
+targets list
+targets search "computer name or capability"
+targets show <target-id>
+```
 
-## Machine Targets
+Check that it is online and implements the needed operation before starting work that depends on it.
 
-Use a machine for:
+## Use A Target
 
-- files that should remain on that computer;
-- installed command-line tools;
-- private/VPN networks;
-- GPUs or other local compute;
-- hardware such as cameras and microphones;
-- credentials that should not be copied to the Gateway.
+Target-aware file, shell, and network operations keep the same meaning wherever they run. Select the intended target and keep the operation itself unchanged.
 
-`gsvd` runs as an unprivileged user and stays in the foreground under the OS service manager. It owns
-shell sessions, subprocesses, network requests, reconnection, and cancellation.
+Use a target-qualified path to read or copy a remote file:
 
-## Browser Targets
+```bash
+cp laptop:/home/sam/report.pdf ~/reports/report.pdf
+cp ~/exports/data.csv laptop:/home/sam/Downloads/data.csv
+```
 
-The browser extension exposes explicitly supported browser-side primitives. Browser state and
-automation remain in that target rather than being implemented inside the Kernel.
+Use brackets when a target ID itself contains a colon:
 
-## File Transfer And References
+```bash
+cp [browser:work]:/downloads/invoice.pdf ~/invoices/invoice.pdf
+```
 
-`fs.transfer.send` streams bytes from a target and `fs.transfer.receive` streams them into a target.
-Structured frames carry size, type, path, revision, and ownership metadata; the body is a
-backpressured `ReadableStream<Uint8Array>` across WebSocket, Worker service RPC, and Durable Object
-RPC boundaries.
+Use the selected target option in Shell or CodeMode when executing a command, filesystem request, or network request there.
 
-Cross-target copy names both source and destination. A resource reference can instead preserve an
-exact immutable revision for later lazy resolution. The two operations serve different purposes:
-copy creates another file; a reference avoids a copy until durable retention or consumption requires
-one.
+## Copy Or Work In Place
 
-## Failure Semantics
+- Work in place when the data, installed software, private network, or hardware belongs to that computer.
+- Copy when another saved file should exist at the destination.
+- Keep an exact file reference when another step only needs to resolve the same bytes later.
 
-If a source goes offline, changes revision, or loses authorization, GSV returns an explicit error.
-It does not read a newer file with the same path. Partial readers and disconnected callers cancel
-the body exactly once.
+## Disconnects And Cancellation
 
-## For Agents
+If a target disconnects, the active operation fails, accepted file or network streams are cancelled, and partial files are discarded. A retry remains bound to the selected target unless the user chooses another.
 
-Prefer executing near the data. Copy only when a durable duplicate is useful, and prefer a revision-
-bound reference when the consumer only needs to resolve the same bytes later.
+After reconnection, inspect whether the original operation had an external side effect before retrying it.
+
+## Permissions
+
+Target selection is followed by authorization of the current identity, capability, path, and operation. Remote work may also require human approval.

@@ -1,46 +1,33 @@
-# Web & Desktop
+# Web And Desktop
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-GSV currently has two first-party graphical clients:
+The Web and Desktop apps are two ways to use the same GSV. They share messages,
+work, files, machines, integrations, and permissions.
 
-- the Web shell served by the Gateway;
-- the cross-platform Rust Desktop client in the host workspace.
+## Choose The App That Fits
 
-Both authenticate as a human, send canonical Conversation messages, synchronize committed Messages,
-and may explicitly observe Process activity. Neither becomes the owner of agent state merely because
-it renders it.
+Use **Web** when you want GSV from any signed-in browser. It includes Home,
+Work, Messages, Files, Terminal, Repositories, Machines, Messengers,
+Integrations, Settings, and administration.
 
-## Web
+Use **Desktop** when you want a native window, local voice and gesture control,
+or automatic setup of the current computer as a connected machine. Desktop can
+still chat when the computer itself is not connected as a machine.
 
-The Web shell owns setup/login, Personal Chat, Work inspection, Messages, Files, Terminal,
-Repositories, Machines, Messengers, Integrations, Settings, and administrative surfaces. Its cached
-queries are scoped to the authenticated session so signing out or switching users cannot retain the
-previous user's private results.
+## What Stays In Sync
 
-## Desktop
+Deliberately sent messages and saved work state are available to other
+signed-in clients. A live activity view is an observation of a particular
+piece of work; open that work explicitly when you want its reasoning, tool
+calls, retries, or errors.
 
-Desktop owns its selected Process/Conversation, drafts, attachments, approvals, voice and gesture
-presentation, and local same-user control endpoint. It can chat without `gsvd`; connecting the local
-computer adds it as a machine target.
-
-The packaged application includes matching `gsv`, `gsvd`, transcription and vision helpers, and the
-gesture model weights. Desktop can enroll the computer, install the per-user daemon service, and
-control it without requiring users to assemble components manually.
-
-## Distribution Status
-
-The repository can build an architecture-native macOS development application and ZIP. Public macOS
-distribution still requires Developer ID signing, hardened-runtime entitlements, notarization, and
-stapling. Host release artifacts cover the supported CLI/daemon platforms; a polished single-package
-Linux and Windows Desktop release remains active product work.
+Draft text and transient interface state may remain local to the app where they
+were created. Attach a file or send the message before expecting another app to
+see it.
 
 ## Pages In This Section
 
-- [Surfaces, Desktop Host & Local Helpers](desktop-surfaces-and-apps.md)
-- [Reading Images With `img2txt`](image-reading.md)
-
-## For Agents
-
-Treat Web and Desktop as presentations of shared protocol primitives. Keep visual state in the
-client, authorization in the Kernel, and machine execution in `gsvd`.
+- [Use the Web and Desktop surfaces](desktop-surfaces-and-apps.md)
+- [Use voice and gestures](voice-gestures.md)
+- [Read images with `img2txt`](image-reading.md)

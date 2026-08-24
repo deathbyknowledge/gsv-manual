@@ -1,72 +1,70 @@
-# Adapters, Identity Links & Routing
+# Connect And Route Messaging
 
-[Messaging, Email & Integrations](index.md)
+[Messaging, Email, And Connected Services](index.md)
 
-## Adapter Ownership
+## Connect Versus Link
 
-Each adapter Worker owns provider authentication, account state, webhook/socket lifecycle, event
-normalization, media download, outbound formatting, retry ledgers, and provider-specific IDs. The
-Gateway receives generic actor, surface, message, resource, and reply metadata.
+- **Connect** gives GSV access to the messaging service or bot account.
+- **Link** proves that a particular external sender is the signed-in GSV owner.
 
-Provider payloads are untrusted. The adapter authenticates and bounds them before parsing, then keeps
-durable replay state so a retry cannot duplicate Process admission or provider delivery.
+Keeping these separate prevents an untrusted incoming username or chat ID from choosing a local account.
 
-## Connecting And Linking
+## Telegram
 
-Connecting establishes the provider account or managed service. Linking proves which external actor
-represents the signed-in GSV human.
+The exact setup depends on the installation:
 
-- **Managed Telegram:** message the platform bot, receive a short-lived code, enter it in the signed-
-  in installation, inspect the actor, and confirm. The platform owns the bot token. A linked actor has
-  one active installation route and can be explicitly disconnected.
-- **Standalone Telegram:** create a BotFather bot, connect its token to the user's adapter, then redeem
-  the bot's link challenge.
-- **WhatsApp:** pair the GSV adapter account as a linked device, then message it from the human's own
-  account and redeem the separate identity-link code.
-- **Discord:** connect a bot with the required message-content and delivery permissions, then link or
-  address it according to direct-message/channel policy.
+- With managed Telegram, message the platform bot. It returns a short-lived one-time code. Enter that code while signed in to GSV, inspect the Telegram identity shown, and confirm the link.
+- With a standalone bot, connect the BotFather token through the Telegram settings first, message that bot, then redeem its link challenge while signed in.
 
-The first challenge-producing message is consumed by linking; send another message to start a
-Conversation.
+The message used to create the link may be consumed by setup. Send another message after confirmation to begin the conversation.
 
-## Personal Home And Work
+## WhatsApp
 
-An unoverridden private DM goes to Personal Home. `/where` reports the selection. `/home` clears a
-Work selection immediately and returns future messages to Personal.
+First pair the GSV WhatsApp account as a linked device through the Messengers setup. Then message it from the person's own WhatsApp account and confirm the separate identity-link challenge inside GSV.
 
-Personal can offer a direct line to an owned interactive Work Process from the exact current DM run.
-The adapter visibly labels that selection as a Work Session. This is a routing change for future
-messages, not a replacement of Personal and not a redirect of the answer already being generated.
+Pairing the device and linking the human sender are different operations.
 
-Groups, channels, and threads use persistent Kernel-owned mappings. Provider IDs never appear in
-agent-facing commands; opaque GSV destination IDs and generic labels are used instead.
+## Discord
 
-## Voice, Images, And Attachments
+Connect a bot with the permissions required by the intended direct messages, servers, channels, and message content. Then link or route the desired surface through GSV. Owner identity is established by the authenticated link challenge.
 
-Standalone and managed adapter paths use the same resource contract. The adapter downloads provider
-media once and streams the body into an immutable Process resource. Telegram voice messages, images,
-video, and documents therefore reach the same model/history boundary as Web or Desktop attachments.
-Transcription is metadata on the resource when available, not a substitute for retaining the audio.
+## Home And Direct Work Sessions
 
-Outbound media resolves the committed immutable reference lazily and streams it to the adapter. A
-retry can read the agent-owned archive even after the originating Process has been killed.
+An ordinary linked private message goes to Home. In a messenger chat:
 
-## Delivery Guarantees
+- `/where` reports the current selection.
+- `/home` returns future messages to Home immediately.
 
-Inbound events and outbound messages use stable delivery IDs and payload fingerprints. Reusing an ID
-for different content fails. Provider acceptance that cannot be confirmed is reported as ambiguous
-rather than retried as a new logical message.
+GSV can offer a direct line to an owned work item from the active private conversation. The messenger labels that selection as a Work Session. It affects future input on that chat; it does not replace Home elsewhere or redirect a reply that was already being generated.
 
-The exact run route wins for a direct reply. Background Personal events may use the most recently
-authorized linked private destination. A disconnected client-origin run never silently falls back to
-Telegram or WhatsApp.
+From GSV, inspect or change an authorized route with:
 
-## Approvals
+```bash
+message route show --to here --json
+message route set --process PID_OR_LABEL --to here --json
+message route clear --to here --json
+```
 
-Adapter approval prompts include the exact `hil[...]` request ID. A bare “approve” or a stale token
-cannot authorize a different request.
+Groups, channels, and threads keep explicit routes. Choose their GSV destination or label from the destination list.
 
-## For Agents
+## Attachments And Voice
 
-Do not ask users to enter raw provider IDs or use hidden adapter commands. Personal may establish a
-Work direct line itself; users always retain `/home` as the escape back to Personal.
+Incoming images, voice messages, video, and documents become files tied to exact revisions. Transcription may accompany audio, but the original audio remains available.
+
+Outgoing attachments are resolved only when they are sent:
+
+```bash
+message send --to DESTINATION --message "Here it is" --attach /path/to/file --also
+```
+
+This works for managed and standalone messaging paths when the selected adapter supports that media type.
+
+## Delivery And Retries
+
+GSV gives each logical inbound and outbound delivery a stable identity. Provider retries reuse that identity. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry.
+
+For a direct reply, the endpoint that started the interaction wins. Background Home events may use the most recently authorized linked private destination.
+
+## Approvals In Messaging
+
+An approval applies only to its exact request token and authorized sender. Bare approval text, stale tokens, and answers from another surface leave the operation unauthorized.

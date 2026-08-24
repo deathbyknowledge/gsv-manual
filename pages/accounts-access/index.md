@@ -1,45 +1,44 @@
-# Accounts & Access
+# Accounts And Permissions
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-Accounts answer who is acting. Capabilities and owned runtime records answer what that identity may
-do. Authentication, authorization, Process identity, and external-message linking are related but
-separate boundaries.
+Accounts identify who is acting. Permissions decide which actions that identity may request. Ownership and approval rules narrow those permissions for a particular file, computer, integration, message, or work item.
 
-## Current Account Roles
+## Common Identities
 
-- A **human account** logs in, owns Processes, Conversations, files, integrations, and machines.
-- A **Personal agent account** holds that human's durable Personal identity and home.
-- Other **agent accounts** may have distinct context and capabilities.
-- **Driver identities** authenticate machines.
-- **Service identities** authenticate deployment components such as adapter Workers.
+- The **owner account** signs in and owns the installation's conversations, work, files, computers, and connections.
+- The **personal-intelligence account** holds Home's context, skills, and working identity for that owner.
+- Additional **work identities** can have focused context and permissions.
+- A **machine identity** authenticates one connected computer.
+- A linked messaging identity proves that an external sender represents the signed-in owner.
 
-Onboarding currently creates the first human owner and Personal identity. The underlying Kernel has
-users, groups, ownership, and capabilities, but a complete product flow for inviting additional
-humans, managing shared Conversations, and self-service password recovery is not finished. Do not
-present those as shipped features.
+Onboarding creates one human owner. Invitations and multi-human administration are not yet available.
 
-## Authorization
+## Inspect Identity
 
-The Kernel enforces access even when a caller or UI already checked it. A capability allows a class
-of syscall; ownership, target, route, process, path, and lifecycle checks may still reject a specific
-call.
+Inside a work shell:
 
-Managed deployments add an outer installation boundary. A public hostname first resolves through
-the trusted installation directory; public callers cannot choose the installation ID used to address
-Kernel, Process, Conversation, adapter, R2, or ripgit state.
+```bash
+whoami
+id
+proc agents --json
+```
 
-## External Identities
+The first two show the current run-as identity and groups. `proc agents` lists identities available for owned work.
 
-Linking a Telegram, WhatsApp, or Discord actor maps an authenticated provider identity to a local
-human. The adapter never gets to supply a trusted local uid. Connecting an adapter account and
-linking a person are separate operations.
+## Permission Checks
+
+A capability allows a kind of action, such as reading files, sending messages, or calling an integration. A specific action may still fail because:
+
+- the file or work item has another owner;
+- the selected computer or integration is unavailable;
+- the destination is not linked to this person;
+- the path or operation is outside the allowed scope;
+- approval policy asks or denies;
+- the installation has disabled or limited that service.
+
+Authority comes from authenticated identity, ownership, capability, and approval checks; process IDs, labels, paths, provider usernames, and destination IDs are selectors.
 
 ## Pages In This Section
 
-- [Credentials, Sessions & Sharing Boundaries](credentials-sharing.md)
-
-## For Agents
-
-Before changing access, identify the human owner, run-as account, installation, and exact operation.
-Labels, usernames from external providers, and route IDs are not authorization.
+- [Passwords, sessions, tokens, machines, and external identities](credentials-sharing.md)

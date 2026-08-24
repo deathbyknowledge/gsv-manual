@@ -1,51 +1,64 @@
-# Schedules, Queues & Delegation
+# Schedules, Queues, And Delegation
 
-[Automation & Delegation](index.md)
+[Schedule And Delegate Work](index.md)
 
-## Process Event Schedules
+## Ask GSV To Act Later
 
-`sched add --here` from a Process-backed shell captures the current Process. At each firing it admits
-a typed event to that PID. If the schedule was created during an authorized adapter run, it may also
-retain that opaque destination for the resulting committed Message.
+From an active GSV work shell, schedule a message back to that work item:
 
-A successful firing means admission succeeded; it does not mean the model finished or delivery was
-confirmed. If the Process is killed, recreate or remove the schedule explicitly.
+```bash
+sched add --here --name follow-up --after 2h --message "Check whether the export completed."
+```
 
-## Direct Delivery Schedules
+Other time forms include:
 
-`sched add --to DESTINATION` sends fixed text through an authorized adapter without running a model.
-Use an opaque destination from `message destinations --all`; provider IDs do not belong in the
-schedule contract.
+```bash
+sched add --here --name daily-review --every 1d --message "Review today's open commitments."
+sched add --here --name weekday-review --cron "0 9 * * 1-5" --timezone Europe/Amsterdam --message "Prepare the weekday review."
+sched add --here --name appointment --at 2026-09-01T14:00:00Z --message "Remind the user about the appointment."
+```
 
-## Cron
+A successful firing means the event reached the work item. Later model work and external delivery report their own outcomes.
 
-Crontab entries run background shell commands. They have no Process caller and cannot use delegation.
-If they spawn an agent, make it non-interactive and do not assume its raw answer appears in Home.
+## Send Fixed Text Later
 
-## Queues
+Choose an authorized destination from GSV's destination list:
 
-Each Process runs one agent turn at a time. Human input supersedes an active direct turn. Scheduler
-and Process events queue FIFO and become separate runs. Queueing preserves ordering; it is not a
-delivery failure.
+```bash
+message destinations --all --json
+sched add --to DESTINATION --name reminder --after 30m --message "The oven timer is done."
+```
+
+This sends the fixed text without asking a model to compose it at firing time.
+
+## Inspect And Control Schedules
+
+```bash
+sched list --all
+sched disable <id>
+sched enable <id>
+sched run <id> --force
+sched remove <id>
+```
+
+A schedule remains attached to its original work item. After that work item is killed, recreate the schedule for its replacement or remove it.
+
+## Recurring Shell Commands
+
+Use `crontab` for a recurring shell command. Cron runs unattended, so every operation must already be authorized.
 
 ## Delegation
 
-`proc delegate` creates a child, bounds its execution, and reports the terminal result to the caller
-as a Process event. `proc.call` provides bounded IPC to an existing Process. Neither automatically
-creates a user Message.
+Delegation is immediate, bounded work:
 
-Delegated work should return a compact result, stable artifact/reference, status, and any remaining
-follow-up. The parent decides what to expose to the user.
+```bash
+proc delegate --label invoices --timeout 5m "Compare the invoices and return discrepancies."
+```
 
-## Lifecycle
+The result returns to the calling work item. The caller decides what to send to the person. See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md).
 
-- Abort stops only the current run.
-- Reset archives and clears Process activity but preserves the Process.
-- Kill archives as requested, permanently tombstones the PID, and performs retryable cleanup.
+## Queued Work
 
-Canonical Conversations remain separate from all three operations.
+One work item runs one turn at a time. Schedule events and delegated results queue in order. New direct human input may supersede current direct work; queued events remain in order.
 
-## For Agents
-
-Use typed events and bounded IPC rather than transcript copying. Never create a recurring automation
-without an observable owner and cancellation path.
+Scheduled work runs without an interactive approver. An operation whose policy requires interactive confirmation fails visibly.

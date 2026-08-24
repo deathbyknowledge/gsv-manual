@@ -1,33 +1,32 @@
-# Automation & Delegation
+# Schedule And Delegate Work
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-Automation admits explicit future work into Processes or sends direct scheduled text through an
-authorized adapter destination. Delegation creates bounded child Processes. Both remain visible and
-controllable.
+Use automation when something should happen later or repeat. Use delegation when an active request needs a bounded piece of separate work now.
 
-## Choices
+## Choose The Mechanism
 
-- Use a **Process event schedule** when an agent should think at firing time.
-- Use a **direct adapter schedule** for fixed text that needs no model run.
-- Use **cron** for background shell commands.
-- Use **delegation** when an active Process needs a bounded subtask result.
-- Use a separate long-lived Work Process when the work needs independent history and control.
+| Need | Use |
+| --- | --- |
+| Ask GSV to think or act later | `sched add --here` |
+| Send fixed text later without a model run | `sched add --to` |
+| Run a recurring shell command | `crontab` |
+| Hand off a bounded task and receive its result | `proc delegate` |
+| Keep independent work with its own history and controls | a separate Work item |
 
-## Safety
+## Before Creating Automation
 
-Scheduled/background profiles cannot depend on interactive approval. Schedules target a physical PID
-or authorized destination; killing a Process does not silently retarget its schedule to a new
-Personal Process.
+Confirm:
 
-Every automation must expose ownership, next fire, enabled state, latest outcome, and a stop/remove
-path.
+- what should happen;
+- when and in which timezone;
+- whether it repeats;
+- where any result should be delivered;
+- which identity and target own the action;
+- how the user can inspect, disable, or remove it.
 
-## Page In This Section
+Create recurring automation for an intent that genuinely recurs. Keep one-time work as a one-time schedule or ordinary request.
 
-- [Schedules, Queues & Delegation](schedules-processes-delegation.md)
+## More Detail
 
-## For Agents
-
-Do not create recurring work merely because one execution was useful. State the cadence, target,
-delivery behavior, and how the user can disable it.
+- [Schedules, queues, and delegation](schedules-processes-delegation.md)

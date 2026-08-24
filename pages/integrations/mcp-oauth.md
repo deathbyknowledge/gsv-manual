@@ -1,39 +1,61 @@
-# MCP Servers & OAuth Accounts
+# MCP And OAuth
 
-[Messaging, Email & Integrations](index.md)
+[Messaging, Email, And Connected Services](index.md)
 
-## MCP Servers
+## Find A Connected Tool
 
-MCP servers expose tools and resources from systems such as issue trackers, databases, design tools,
-and search services. GSV keeps MCP out of the model's always-expanded direct tool list. Agents inspect
-the compact index and call selected MCP operations through CodeMode or the native `mcp` shell command.
+MCP servers expose tools and resources from external services. GSV keeps large tool catalogs out of every prompt and discovers the needed operation on demand:
 
-This preserves the fixed Read, Write, Edit, Delete, Search, Shell, and CodeMode surface while making
-large MCP catalogs available on demand.
+```bash
+mcp status
+mcp list
+mcp search "create an issue"
+mcp tools <server>
+mcp describe <server> <tool>
+```
 
-Availability depends on the current run-as identity, server configuration, health, and capability.
-Tool output is still untrusted data and MCP calls normally require approval.
+Call the selected tool with the arguments shown by `describe`:
 
-## OAuth
+```bash
+mcp call <server> <tool> --args-json '<arguments>' --json
+```
 
-OAuth grants GSV delegated access without asking a user to paste access tokens into chat. Start the
-authorization flow from the owning integration surface, verify the account and requested scopes, and
-revoke it there when no longer needed.
+For a workflow involving several calls, use CodeMode or the server's generated CodeMode bindings so intermediate values remain structured.
 
-MCP and OAuth are complementary: OAuth establishes permission; MCP can expose operations that use it.
+## Add, Refresh, Or Remove MCP
 
-## Failure Checks
+```bash
+mcp add <name> <url>
+mcp refresh <server>
+mcp remove <server>
+```
 
-If an operation is missing or fails, distinguish:
+Run `mcp help` before changing a connection. Availability depends on the current identity, configuration, server health, capability, and approval policy.
 
-1. the OAuth account is absent/expired;
-2. the MCP server is offline;
-3. tool discovery has not refreshed;
-4. the run-as identity lacks capability;
-5. approval denied the call;
-6. the external service rejected it.
+## OAuth Accounts
 
-## For Agents
+OAuth authorizes an external account without exposing its bearer token in a message or file:
 
-Never ask for an OAuth bearer token in a Message or file. Use the supported authorization flow and
-report only account identity, scope, status, and next action.
+```bash
+oauth list
+oauth show <provider-or-account>
+oauth device start <provider>
+oauth forget <provider-or-account>
+```
+
+Use `oauth help` for the exact flow supported by the provider. Confirm the account identity and requested scopes before authorizing it.
+
+OAuth and MCP solve different parts of a connection: OAuth grants account access; MCP exposes operations that may use it.
+
+## Troubleshoot A Missing Tool
+
+Check in this order:
+
+1. the OAuth account exists and has not expired;
+2. the MCP server is connected and healthy;
+3. the tool catalog has been refreshed;
+4. the current identity has the required capability;
+5. approval policy permits the operation;
+6. the external service accepted the request.
+
+Tool output is external data. The authenticated request and current task determine which instructions GSV follows.

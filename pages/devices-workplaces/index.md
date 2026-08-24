@@ -1,32 +1,45 @@
-# Machines & Targets
+# Computers And Browser
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-A machine extends GSV without moving its files, credentials, or hardware into the cloud. `gsvd` keeps
-one authenticated driver connection open and implements target-routed primitives on that computer.
+Connecting a computer lets GSV work with that computer's files, commands, private networks, installed software, and hardware without moving all of it into GSV.
 
-## Targets
+## Connect A Computer
 
-- `gsv` is the Gateway's own execution target.
-- A machine ID names a connected `gsvd` target.
-- Browser-backed targets expose browser-local primitives through the extension.
+The Desktop app can guide first-time setup:
 
-Messaging adapters are transports, not generic hardware targets.
+1. Sign in to the GSV installation.
+2. Choose a name for the computer.
+3. Confirm machine enrollment.
+4. Let Desktop install and start the background machine service.
+5. Verify that the computer appears online under Machines.
 
-## Connecting A Computer
+The background service keeps the machine connected when the Desktop window closes. Desktop sign-out and machine revocation remain separate actions.
 
-Desktop can guide machine enrollment and install the background daemon. The CLI can perform the same
-service lifecycle through `gsv daemon ...`. The visible machine name and normalized machine ID are
-stable; restarting Desktop does not create another machine.
+The CLI can inspect and control the same service. Run `gsv daemon --help` for the commands supported by the installed version.
 
-Machine credentials are driver-bound and distinct from user login sessions. Revoking a machine does
-not sign the user out, and signing out a UI does not implicitly destroy the machine identity.
+## Find Where Work Can Run
+
+```bash
+targets list
+targets search "laptop"
+targets show <target-id>
+```
+
+The target ID is the stable name used in commands. A friendly label helps people recognize it.
+
+## What Belongs On A Computer
+
+Prefer a connected computer for:
+
+- files that should remain there;
+- locally installed programs;
+- VPN or private-network access;
+- local credentials that should not be copied elsewhere;
+- GPUs, cameras, microphones, and other hardware;
+- platform-specific automation.
 
 ## Pages In This Section
 
-- [Targets, Execution & File Transfer](targets-copy.md)
-
-## For Agents
-
-Check that a target is online before depending on it. Keep platform-native computation and private
-network access on the machine that owns them.
+- [Run commands and copy files across targets](targets-copy.md)
+- [Use a browser target](browser-targets.md)

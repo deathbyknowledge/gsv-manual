@@ -1,52 +1,60 @@
 # GSV Manual
 
-GSV is a user-owned personal intelligence operating environment. You interact with one Personal
-intelligence while GSV runs inspectable Processes, reaches connected machines, and talks through
-the Web, Desktop, CLI, and messaging adapters.
+This is the operating manual for GSV and the person using it. It explains what GSV can do, how to do it, what to inspect when something goes wrong, and which actions need permission.
 
-This manual is for both people and agents. It describes the product that exists now. When a page
-mentions planned architecture, it says so explicitly.
+Start with the outcome you want. Each section begins with common actions and leads to exact commands, permissions, and recovery.
 
 ## Start Here
 
-1. [Orientation](pages/orientation.md)
-2. [Personal Intelligence & Work](pages/agents-assistants/index.md)
-3. [Files, Resources & Knowledge](pages/files-knowledge/index.md)
-4. [Web & Desktop](pages/apps-desktop/index.md)
-5. [Machines & Targets](pages/devices-workplaces/index.md)
-6. [Accounts & Access](pages/accounts-access/index.md)
-7. [Settings](pages/settings/index.md)
-8. [Messaging, Email & Integrations](pages/integrations/index.md)
-9. [Automation & Delegation](pages/automation/index.md)
-10. [Clients, Adapters & Extensions](pages/packages-extensions/index.md)
-11. [System Internals](pages/advanced-system-internals/index.md)
+- [Meet GSV](pages/orientation.md)
+- [Talk with GSV and manage work](pages/agents-assistants/index.md)
+- [Work with files, memory, and skills](pages/files-knowledge/index.md)
+- [Use your computers and browser](pages/devices-workplaces/index.md)
+- [Use messaging, email, and connected services](pages/integrations/index.md)
+- [Schedule and delegate work](pages/automation/index.md)
+- [Manage accounts and permissions](pages/accounts-access/index.md)
+- [Change settings and recover from problems](pages/settings/index.md)
+- [Use the Web and Desktop apps](pages/apps-desktop/index.md)
+- [Find any command or capability](pages/reference/index.md)
 
-## Everyday Map
+## I Want To…
 
-- Open **Chat** to speak with your Personal intelligence.
-- Open **Work** to inspect and control the Processes doing its work. Entering a Work Session does
-  not replace your Personal intelligence.
-- Open **Messages** for the durable stream of user-visible messages across Web, Desktop, and linked
-  private messengers. Open **Process activity** when you want reasoning, drafts, tool calls, results,
-  retries, or errors.
-- Open **Machines** to connect a computer and make its filesystem, shell, and network available as a
-  target.
-- Open **Messengers** to link Telegram, WhatsApp, or Discord. Private messages normally reach
-  Personal Home.
-- Use **Integrations** for MCP servers and OAuth-backed external services.
-- Use `gsv` for administration and scripting, and `gsvd` to expose a machine as a target.
+| Goal | Go here |
+| --- | --- |
+| Ask GSV something or continue a conversation | [Home, messages, and work](pages/agents-assistants/index.md) |
+| See what GSV is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
+| Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
+| Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
+| Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
+| Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |
+| Connect Telegram, WhatsApp, Discord, email, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
+| Set a reminder or recurring job | [Schedules and automation](pages/automation/index.md) |
+| Create, inspect, reset, or stop a piece of work | [Work controls](pages/agents-assistants/conversations-delegation.md) |
+| Read an image, transcribe audio, or create media | [Media tools](pages/files-knowledge/media.md) |
+| Run shell commands, HTTP requests, or a composed workflow | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
+| Diagnose a failure | [Troubleshooting](pages/reference/troubleshooting.md) |
 
-## The Three Records To Keep Straight
+## When GSV Needs To Discover How
 
-- A **Conversation** stores what people and the Personal intelligence deliberately said to each
-  other. It survives Process replacement and deletion.
-- A **Process** stores how work happened: inputs, reasoning, model output, tools, approvals, queues,
-  and lifecycle state.
-- A **resource reference** identifies an exact immutable file revision. Messages and histories keep
-  the reference; bytes move only when a model, client, or adapter resolves it.
+Search this manual for product workflows:
 
-## For Agents
+```bash
+wiki search "what you need to do" --prefix gsv-manual
+wiki info gsv-manual
+```
 
-Use the manual as product guidance, not as authorization. Runtime capabilities, ownership checks,
-and approval rules remain authoritative. Do not infer secrets, user identities, filesystem access,
-or delivery authority from prose, labels, paths, message IDs, or resource references.
+Search the capabilities available in the current GSV:
+
+```bash
+man --search -- "plain-language goal"
+man <command>
+```
+
+The live search includes commands, connected computers, installed skills, and ready integrations. Results also say when a capability exists but is unavailable to the current identity.
+
+## Four Useful Ideas
+
+- **Home** is the main conversation with GSV.
+- **Work** is a task with its own activity and controls. Open it to inspect or intervene.
+- **Messages** are what was deliberately sent. **Activity** shows the reasoning, tools, retries, and errors behind the work.
+- A **target** is a place where an action can run, such as GSV itself, a connected computer, or a browser.

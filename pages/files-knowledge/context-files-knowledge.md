@@ -1,52 +1,54 @@
-# Context, Skills & Knowledge
+# Memory, Context, And Skills
 
-[Files, Resources & Knowledge](index.md)
+[Files, Memory, And Skills](index.md)
 
-## Quick Map
+These mechanisms answer different questions:
 
-| Need | Use |
+| Need | Put it here |
 | --- | --- |
-| Durable identity, preferences, constraints, commitments | `context.d` |
-| A reusable procedure an agent should load for a task | `skills.d` |
-| Documents, code, data, and deliverables | ordinary files/repositories |
-| What people deliberately said | Conversations |
-| Reasoning, drafts, tools, retries, and run state | Process activity |
+| “This fact may matter again; retrieve it when relevant.” | personal wiki |
+| “This preference or commitment must affect nearly every request.” | personal context |
+| “Use these instructions whenever doing this kind of task.” | a skill |
+| “This is source material or a deliverable.” | an ordinary file |
 
-## Context Files
+## Personal Memory
 
-System context lives in `config/ai/context.d/*.md`. Account context lives in
-`~/context.d/*.md`. Files are composed in lexical order and cached for the active run.
+Use the `personal` wiki for long-term, searchable facts, people, projects, decisions, preferences, routines, and dated events. Search it when personal history could change the answer:
 
-Keep context concise and durable. Good context states who the agent is, how the user prefers to work,
-which commitments persist, and which constraints always apply. Do not use it as a log, dump tool
-documentation into it, or copy transient conversation details there.
+```bash
+wiki search "project atlas decision" --prefix personal
+wiki info personal
+wiki read personal/pages/projects/atlas.md
+```
 
-Repository-defined prompt and seeded context text is owned by the Gateway prompt sources. Runtime,
-protocol, routing, or UI bugs must be fixed in code rather than papered over with prompt edits.
+Personal memory contains concise, supported facts in the person's terms. It excludes raw transcripts, secrets, unsupported personality inferences, and routine actions. Replace information that has been corrected.
+
+## Standing Context
+
+Files in `context.d` are loaded automatically. Use them only for concise identity, preferences, constraints, voice, and open commitments that should remain visible without a search.
+
+Account context lives under `~/context.d/`. Shared personal context belongs to the person and is available to owned work. Context files are ordered by filename.
+
+Standing context contains only broadly applicable facts and commitments. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
 ## Skills
 
-Skills are task-specific instructions under layered `skills.d` directories. The standing prompt
-contains only a compact index. An agent reads the selected `SKILL.md` when needed, which saves context
-and keeps procedures independently maintainable.
+Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; GSV reads the selected `SKILL.md` and any required supporting files before using it.
 
-Use a skill for repeatable workflows, external-system procedures, or specialized rules. Use context
-for behavior that should apply across tasks.
+Useful commands:
 
-## Files And Reference Knowledge
+```bash
+skills list
+skills search "workflow"
+skills show <skill>
+skills files <skill>
+skills read <skill> <file>
+skills create <name> --description "when to use it" --from /path/to/SKILL.md
+skills validate <skill>
+```
 
-Use ordinary files for source material and artifacts. Search before reading large collections, then
-read only relevant ranges. Use immutable resource references when a Message or history entry must
-continue to identify exact media bytes after the path changes.
+Use context for a rule that applies broadly. Use a skill for a repeatable workflow with a clear trigger.
 
-## Conversations And Memory
+## Updating Memory Safely
 
-Conversation history is a record, not automatically standing context. Personal may choose to record
-a durable preference or commitment in account files; it should not assume every old Message belongs
-in every future prompt.
-
-## For Agents
-
-Prefer the smallest durable representation. Update context only when the user intends a standing
-change. Preserve unrelated context and skill files, and never overwrite them merely to complete a
-one-off task.
+When a person explicitly asks GSV to remember or forget something, update the narrowest owning file or wiki page. Read before editing, preserve unrelated content, and report what changed without exposing private contents unnecessarily.

@@ -1,42 +1,46 @@
-# Personal Intelligence & Work
+# Talk With GSV And Manage Work
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-Personal is the durable relationship the user talks to. Processes are the durable execution units
-that perform and expose work.
+Most of the time, use Home and speak naturally. GSV decides whether it can answer immediately or should separate part of the request into visible work.
 
-## Personal Intelligence
+## Home
 
-Personal has an account identity, home directory, context, capabilities, and one canonical Home
-Conversation. The Kernel maintains one current Personal Process slot per owner. Resetting that
-Process clears its raw history while preserving the slot; killing it leaves the slot empty until the
-next Personal interaction creates a fresh Process.
+Home is the main conversation with your personal intelligence. It keeps the same identity, files, preferences, and memory even when its current work history is reset or replaced.
 
-The stable thing is the role and address—not an immortal PID or one ever-growing transcript.
+Private messages from linked apps normally return to Home. Ask for the outcome there; Home separates and coordinates work when useful.
 
-## Work Processes
+## Work
 
-Every other interactive Process is Work. It may run as the Personal account or another owned agent
-account, but that does not make it Personal. Work can be created directly, delegated by another
-Process, scheduled, observed, reset, or killed.
+Work contains tasks with their own activity and controls. Open it when you want to:
 
-The Work UI never silently changes Home. Opening one Process creates a visibly labeled Work Session;
-Back returns to Personal.
+- see what is running or waiting;
+- inspect reasoning, commands, tools, or errors;
+- approve, interrupt, reset, or remove work;
+- talk directly to one work item for a while.
 
-## Conversations
+A direct Work Session is clearly labeled. Leaving it returns to the personal intelligence in Home while that work item keeps its own identity.
 
-Home, Work, and adapter groups are canonical Conversations. Conversation messages live independently
-from Process histories and name the Process/run that handled an interaction when relevant. See
-[Conversations & Delegation](conversations-delegation.md).
+## Messages Versus Activity
 
-## Context And Safety
+- **Messages** show the conversation: what people and GSV deliberately sent.
+- **Activity** shows how an answer or task was produced.
 
-Accounts supply identity and standing context. Capabilities and tool-approval policy decide what a
-Process may attempt and what needs human confirmation. See
-[Identity, Context, Resources & Approvals](identity-context-approvals.md).
+This separation keeps the conversation readable and the reasoning and tool use inspectable.
 
-## For Agents
+## Common Actions
 
-Use delegation for bounded parallel work, not as a substitute for answering. Child output is not
-automatically user-visible. Personal should synthesize useful results and explicitly choose Message
-or Silence.
+| Goal | Action |
+| --- | --- |
+| See visible work | Open **Work** or run `proc list` |
+| Inspect the current work item | Run `proc self`, then `proc history --pid <pid>` |
+| Hand off a bounded subtask | `proc delegate --label LABEL --timeout DURATION TASK` |
+| Stop only the active run | use **Abort** in the active client |
+| Clear activity but keep the work item | Reset / `proc reset --pid <pid>` |
+| Remove a work item | Kill / `proc kill <pid>` |
+| Return a messenger chat to Home | `/home` |
+
+## More Detail
+
+- [Messages, work, and delegation](conversations-delegation.md)
+- [Identity, context, files, and approvals](identity-context-approvals.md)

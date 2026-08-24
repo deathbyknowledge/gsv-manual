@@ -1,68 +1,75 @@
-# Conversations & Delegation
+# Messages, Work, And Delegation
 
-[Personal Intelligence & Work](index.md)
+[Talk With GSV And Manage Work](index.md)
 
-## Conversation Kinds
+## What Becomes A Message
 
-- **Home** is the stable Conversation with Personal. Linked private surfaces contribute to the same
-  stream.
-- **Work** is handled by one explicit interactive Work Process.
-- **Group** belongs to one normalized adapter group, channel, or thread. The schema can represent
-  multiple members, but current authorization is still owner-centered.
+Reasoning and draft text belong to activity. A user-visible reply is sent only when the active GSV intelligence deliberately finishes with:
 
-A Conversation owns canonical Messages. A Process owns execution activity. Deleting one does not
-delete the other.
+```bash
+message send --message "text for the user"
+```
 
-## Explicit Completion
+If no reply should be sent:
 
-Each model turn must finish with one terminal control:
+```bash
+message silence --reason "why no message is needed"
+```
 
-- `Message` commits one user-visible message and its resource references.
-- `Silence` records that nothing should be delivered.
+Files can be attached before completion:
 
-Reasoning and ordinary assistant text remain Process activity. If the model omits both controls, GSV
-adds one correction event and retries once; a second omission ends with an inspectable error.
+```bash
+message attach /path/to/file
+message send --message "Here it is."
+```
 
-For direct clients, the initiating connection receives streaming Message arguments. For adapters,
-GSV commits first and the adapter performs durable provider delivery. Other clients synchronize the
-committed Message rather than receiving the transient stream as though it were addressed to them.
+Use `message current --json` to inspect the endpoint for the current interaction. Use `message destinations --all --json` when sending a separate message to another authorized destination.
 
-## Delegation And IPC
+If a run ends without sending or silencing, GSV asks it once to choose. A second omission ends with an error visible in activity.
 
-Delegation creates a child Process and returns a bounded result event to its caller. It does not
-append the child's transcript to Home. The caller may inspect it, continue working, send a summary,
-or remain silent.
+## One Conversation, Separate Work
 
-Process IPC follows the same rule. `proc.send` is asynchronous Process mail; `proc.call` waits for a
-bounded `ipc.reply` or `ipc.timeout`. An IPC terminal Message returns to the calling Process, not to a
-human Conversation.
+The conversation stores sent messages. Each work item separately stores its inputs, reasoning, tools, results, approvals, retries, and errors. Removing a work item therefore does not erase messages that were already exchanged.
 
-## Queueing And Interruption
+Home is the main conversation. A Work Session is a temporary direct conversation with one selected work item. Groups and channels have their own conversations.
 
-A Process runs one model turn at a time. New direct human input supersedes active direct work and
-terminates pending tool calls consistently. Process events and scheduled work queue in FIFO order.
-Late output from a superseded run cannot mutate the new run.
+## Delegating A Bounded Task
 
-`proc.abort` stops the current run, `proc.reset` archives and clears Process activity while keeping
-the Process, and `proc.kill` tears it down. None of them deletes canonical Conversation Messages.
+Use delegation when an active request needs investigation, several steps, waiting, or parallel work:
 
-## Inspection
+```bash
+proc delegate --label research --timeout 5m "Find the answer and return the evidence."
+```
 
-Use the Messages view for what people saw. Use Process activity for reasoning, drafts, tools,
-approvals, retries, and errors. A client explicitly observes a Process; closing the inspector removes
-that subscription.
+The delegated task gets its own activity. Its result returns to the caller, which evaluates it and then sends a useful answer or remains silent.
+
+Useful commands:
+
+```bash
+proc agents --json                    # available specialized identities
+proc delegate --as ACCOUNT ...        # delegate as a specialized identity
+proc list                              # visible work
+proc history --pid PID                 # inspect activity
+proc send PID "message"               # asynchronous process message
+proc call PID "request"               # wait for a bounded process reply
+```
+
+Use `proc --help` for the full current syntax.
+
+## New Input, Queues, And Late Results
+
+One work item handles one model turn at a time. New direct human input may supersede an active direct turn. Scheduled events and results from other work queue in order.
+
+Only the active run can modify its state. If an older result arrives after the conversation has moved on, GSV decides whether it is still useful before sending anything.
+
+## Abort, Reset, And Kill
+
+- **Abort** stops only the active run and keeps its history.
+- **Reset** archives and clears activity while keeping the work item and its identity.
+- **Kill** permanently removes that work item after cleanup.
+
+None of these actions deletes already committed conversation messages.
 
 ## Retention
 
-Each Conversation has its own installation-scoped Durable Object. SQLite keeps the newest 1,000
-Messages for indexed access. When that hot set grows, the oldest 500 become an immutable gzip JSON
-segment in installation-scoped R2; SQLite retains the segment index and idempotency receipts. The
-archive object is uploaded and verified before the synchronous commit removes hot rows.
-
-Process history has a separate archive lifecycle. Conversation and Process retention can therefore
-rotate independently without confusing what the user saw with how the answer was produced.
-
-## For Agents
-
-Do not copy an entire child transcript into Home. Return the smallest useful result, preserve links
-or resource references where relevant, and let the owning Process decide what becomes a Message.
+GSV keeps recent conversation messages readily searchable and archives older conversation history in segments as it grows. Work activity has its own retention and archive lifecycle, so conversation history and work history can each be retrieved at the level of detail they need.

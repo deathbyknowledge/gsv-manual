@@ -1,49 +1,35 @@
-# Credentials, Sessions & Sharing Boundaries
+# Passwords, Sessions, Tokens, And Links
 
-[Accounts & Access](index.md)
+[Accounts And Permissions](index.md)
 
-## Credential Types
+## Sign-In Sessions
 
-- A human password or session authenticates an interactive user.
-- A user token supports non-interactive client access with that user's bounded authority.
-- A machine credential is driver-bound and stored in local host configuration.
-- Adapter provider credentials belong to their adapter boundary.
-- Managed platform credentials belong to the managed service Worker and are never copied into an
-  installation's ordinary configuration.
+Web and Desktop sign in as a person. Locking, signing out, or switching users clears that client's private cached data and active session.
 
-Raw secrets may be displayed only at their deliberate creation or provider boundary. Never log them,
-put them in prompts, paste them into Messages, or store them in ordinary knowledge files.
+A browser or Desktop session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
 
-## Sessions And Client Caches
+## User Tokens
 
-Web and Desktop sessions are separate from machine and adapter connections. Signing out removes the
-user session but does not silently revoke a machine. UI query caches are session-scoped and replaced
-on lock, logout, or account change so one user's fresh data cannot appear in another session.
+User tokens support non-interactive clients with bounded authority. Create, list, and revoke them through the authenticated administration surface or corresponding `gsv` CLI command. Label each token by purpose and revoke it when that purpose ends.
 
-## Linking External Actors
+A newly created raw token may be shown once. Do not place it in a message, prompt, ordinary file, log, or screenshot.
 
-An adapter first proves the provider event and normalizes its actor. The Kernel then resolves an owned
-identity link. A link code is short-lived and one-time; confirmation occurs inside an authenticated
-GSV session so the code itself cannot select a local user or installation.
+## Machine Credentials
 
-Managed Telegram uses the platform bot and this pairing flow. Standalone Telegram uses a user-owned
-bot credential. WhatsApp pairing connects the adapter account first, then a separate direct-message
-challenge links the human sender.
+Each connected computer has a credential bound to its machine identity. Desktop can enroll the computer and install its background service. Revoking that machine stops its connection without signing the person out everywhere else.
 
-## Sharing
+See [Computers and browser](../devices-workplaces/index.md).
 
-Current product behavior is primarily one owner per installation. Do not simulate multi-user sharing
-by handing out the owner's password, copying a bearer token, or mapping unrelated external actors to
-the owner. Proper N-human/M-Process Conversations require explicit membership, sender identity, and
-per-message authorization and remain future product work.
+## Messaging Identities
 
-## Recovery
+Connecting a messaging account gives GSV access to the service. A separate, short-lived one-time challenge links an external sender to the owner from inside an authenticated GSV session.
 
-Prefer normal logout/revocation, adapter disconnect, machine revoke, and setup flows. A complete
-self-service forgotten-password reset is not currently shipped. Operators should follow a documented
-installation recovery procedure rather than editing password records ad hoc.
+An external identity is linked only through the authenticated challenge, not from a display name, typed provider ID, or untrusted message. See [Connect and route messaging](../integrations/adapters-routing.md).
 
-## For Agents
+## External Account Secrets
 
-Report whether a credential was configured or revoked, never its value. If a workflow requires a
-secret in an unsafe channel, stop and direct the user to the owning settings or provider surface.
+Provider tokens and OAuth credentials belong to the connection that uses them. Prefer supported connection flows over asking the user to paste secrets into chat. Report account name, scope, and connection status—not secret values.
+
+## Password Recovery And Additional Humans
+
+Onboarding creates the first owner. Self-service password recovery, invitations, and multi-human conversation membership are not yet available. Use the installation's operator recovery path, and keep the owner's password and linked identities exclusive to that person.

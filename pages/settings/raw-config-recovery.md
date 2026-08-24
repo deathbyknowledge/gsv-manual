@@ -1,39 +1,46 @@
-# Authentication, Sessions & Raw Config
+# Sessions, Raw Configuration, And Recovery
 
-[Settings](index.md)
+[Settings And Recovery](index.md)
 
-## Authentication And Sessions
+## Use The Normal Control First
 
-Use setup/login, logout, token revoke, machine revoke, and adapter disconnect before low-level repair.
-Browser/Desktop user sessions, machine driver credentials, and service bindings have different
-lifecycles and should not be cleared as a group.
+Prefer the action that owns the relationship:
 
-When a browser appears to log in and immediately disconnect, inspect the WebSocket response and
-Gateway/Access routing rather than treating unrelated manifest or analytics errors as the cause.
+- sign out or revoke a user session;
+- revoke a user token;
+- disconnect a messenger or OAuth account;
+- revoke or reconnect one computer;
+- change the selected model or approval profile;
+- reset or kill only the affected work item.
+
+Change or revoke only the relationship that owns the problem.
 
 ## Raw Configuration
 
-Raw config is useful when:
+Raw configuration is appropriate when:
 
-- an exact setting has no curated UI;
-- a bad override must be removed;
-- support identifies one key to inspect;
-- the normal settings page cannot load.
+- the exact setting has no curated control;
+- a known override must be inspected or removed;
+- the normal settings page cannot load;
+- a documented support procedure names the exact key.
 
-Some state lives in dedicated SQLite stores or external services and is intentionally absent from
-generic config. Do not invent a config key because a value exists conceptually.
+Before changing it:
 
-## Safe Recovery
+1. identify the exact key and scope;
+2. record the non-secret old value;
+3. understand the default when the key is absent;
+4. make the smallest change;
+5. reconnect only the affected component;
+6. retry the original workflow.
 
-1. Identify the component that owns the state.
-2. Record the non-secret old value.
-3. Change or remove the smallest exact override.
-4. Reconnect or restart only the affected component.
-5. Test the original workflow.
+Use keys discovered in the live configuration or named by a documented recovery procedure. Keep authentication material out of diagnostic output.
 
-Never edit a shipped schema migration or use an ad hoc constructor migration as recovery.
+## Session Problems
 
-## For Agents
+If login succeeds but the UI immediately disconnects, inspect the actual connection error and session status. Browser manifest, analytics, content-blocker, and form warnings may be unrelated noise.
 
-Do not guess raw keys, print auth material, or reset unrelated services. Explain why the normal path
-is insufficient before using the recovery surface.
+If another person's data appears after switching accounts, lock or sign out immediately and report a session-isolation failure. Preserve the evidence for diagnosis.
+
+## Recovery
+
+Use [Troubleshooting](../reference/troubleshooting.md) to isolate the failing action. A data-store repair, installation reset, or operator action should be the last step, not the first.

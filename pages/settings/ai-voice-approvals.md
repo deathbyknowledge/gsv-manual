@@ -1,44 +1,33 @@
-# AI, Voice & Approval Settings
+# Models, Voice, Gestures, And Approvals
 
-[Settings](index.md)
+[Settings And Recovery](index.md)
 
 ## AI Profiles
 
-An AI profile selects provider transport, model, reasoning behavior, output limit, context budget,
-tool policy, and related generation settings. Personal and Work may use different profiles when
-configured.
+An AI profile can select a provider and model, reasoning behavior, output limit, context budget, and tool policy. Different work identities may use different profiles when configured.
 
-Standalone deployments normally use the user's own provider credentials. Managed installations may
-use the platform inference Worker, whose operator chooses permitted providers/models and enforces
-installation usage policy. The model selected in an account profile does not grant access to a
-provider that the owning service has disabled.
+In a self-hosted installation, availability follows the credentials and providers the owner configured. In a managed installation, the service may offer a curated set of models and enforce usage limits. A profile selects among the providers available to that installation.
 
-Model requests stream through service bindings and Process boundaries. Text chunks and binary bodies
-remain streams; intermediary Workers must not collect a complete provider response merely to forward
-it.
+When generation behaves unexpectedly, inspect:
 
-## Context
+1. the active account and profile;
+2. selected model and reasoning options;
+3. context and output limits;
+4. provider availability or allowance;
+5. cancellation, timeout, or malformed provider output.
 
-Context byte budgets, compaction, system `context.d`, account `context.d`, and skills determine what
-the model sees. Increasing a provider token limit does not make unbounded file reads safe; Read keeps
-a default result bound and callers page deliberately.
+Search and bounded Read keep large files from consuming the context budget. Adjust context limits only when the task itself needs more model context.
 
 ## Voice And Gestures
 
-Desktop voice and gesture settings are local. Microphone selection, local transcription, camera
-permission, and gesture arming do not belong in the Gateway's provider profile. Packaged helpers and
-models must match the Desktop version.
+Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, selected device, helper status, and armed/muted state there.
 
-## Tool Approvals
+Voice and gesture settings belong to Desktop on that computer; model profiles belong to the GSV account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
 
-Approval profiles map operations to `auto`, `ask`, or `deny`. Defaults ask for shell, deletion, and
-MCP calls. Rules can match syscall, profile, target type, path, command, arguments, and risk tags.
+## Tool Approval
 
-Background and scheduled profiles cannot wait indefinitely for a person; an `ask` outcome becomes a
-tool failure. Interactive approvals carry an exact request ID and may be answered from an authorized
-client or linked direct-message surface.
+Approval policy can automatically allow, ask, or deny operations. Rules may differ by action, target, path, command, arguments, or risk.
 
-## For Agents
+Interactive work can pause for an exact approval request. Scheduled and unattended work cannot rely on somebody eventually answering; an “ask” decision becomes a visible tool failure there.
 
-If a model or tool fails, distinguish provider availability, budget, profile configuration,
-capability, approval, and target availability before changing anything.
+Before loosening approval policy, identify the exact operation and why the current rule blocks a legitimate workflow. Prefer a narrow rule over disabling approval broadly.

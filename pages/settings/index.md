@@ -1,29 +1,23 @@
-# Settings
+# Settings And Recovery
 
-[Back to GSV Manual](../../index.md)
+[Back to the manual](../../index.md)
 
-Settings control model profiles, context limits, tools, approvals, voice behavior, authentication,
-adapters, and runtime defaults. Start with the curated Web surfaces and use raw configuration only
-for an exact documented key or recovery.
+Settings control models, tools, approvals, voice and gesture behavior, sessions, integrations, and defaults. Change the smallest setting that owns the behavior.
 
-Settings have owners and scopes. A platform-managed inference choice is not the same setting as a
-user's model profile; a Desktop microphone choice is local host configuration, not Kernel config.
+## Where A Setting Belongs
 
-## Main Areas
+| Setting | Where it belongs |
+| --- | --- |
+| Model, reasoning, context, and tool profile | GSV account or AI settings |
+| Shell/tool approval rules | GSV approval settings |
+| Microphone, camera, voice, and gesture behavior | Desktop on that computer |
+| Messaging or MCP connection | the relevant integration settings |
+| Machine connection | Machines / Desktop machine setup |
+| Provider or service availability in a managed installation | installation operator policy |
 
-- AI providers, models, reasoning, context, and output limits.
-- Tool visibility and human-approval policy.
-- Desktop microphone, voice, and gesture behavior.
-- Authentication and sessions.
-- Managed-service operator configuration and limits.
-- Low-level configuration inspection and recovery.
+Start with the normal Web or Desktop settings. Use raw configuration only for an exact known key or recovery when the normal surface cannot load.
 
 ## Pages In This Section
 
-- [AI, Voice & Approval Settings](ai-voice-approvals.md)
-- [Authentication, Sessions & Raw Config](raw-config-recovery.md)
-
-## For Agents
-
-Name the setting, scope, owner, and rollback when changing behavior. Do not write standing context to
-work around a runtime or configuration bug.
+- [Models, voice, gestures, and approvals](ai-voice-approvals.md)
+- [Sessions, raw configuration, and recovery](raw-config-recovery.md)
