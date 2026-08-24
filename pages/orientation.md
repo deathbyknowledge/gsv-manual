@@ -10,9 +10,9 @@ GSV carries identity, memory, permissions, conversation, and ongoing work across
 
 Models and specialized agents can contribute to the work. GSV is the continuing whole that coordinates them and remains yours.
 
-## Your Home Conversation
+## Your Ship
 
-Home names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Home.
+Ship names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Ship.
 
 GSV may do work in separate work sessions, but results return through the same personal intelligence unless you deliberately open a direct work session.
 
@@ -27,9 +27,9 @@ Use Messages for the conversation. Open a work item's Activity when you want to 
 
 ## Work You Can See And Control
 
-GSV can hand off parts of a request or keep longer tasks separate so Home remains responsive. The Work area shows those tasks and lets you inspect, reset, stop, or open one directly.
+GSV can hand off parts of a request or keep longer tasks separate so Ship remains responsive. The Work area shows those tasks and lets you inspect, reset, stop, or open one directly.
 
-Sent messages remain in the conversation when work stops. Returning Home leaves other work running; Abort, Reset, and Kill provide explicit lifecycle controls.
+Sent messages remain in the conversation when work stops. Returning to Ship leaves other work running; Abort, Reset, and Kill provide explicit lifecycle controls.
 
 ## How Technology Joins GSV
 

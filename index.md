@@ -21,7 +21,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 
 | Goal | Go here |
 | --- | --- |
-| Ask GSV something or continue a conversation | [Home, messages, and work](pages/agents-assistants/index.md) |
+| Ask GSV something or continue a conversation | [Ship, messages, and work](pages/agents-assistants/index.md) |
 | See what GSV is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
 | Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
@@ -54,7 +54,7 @@ The live search includes commands, connected computers, installed skills, and re
 
 ## Four Useful Ideas
 
-- **Home** is the main conversation with GSV.
+- **Ship** is the main conversation with GSV.
 - **Work** is a task with its own activity and controls. Open it to inspect or intervene.
 - **Messages** are what was deliberately sent. **Activity** shows the reasoning, tools, retries, and errors behind the work.
 - A **target** is a place where an action can run, such as GSV itself, a connected computer, or a browser.

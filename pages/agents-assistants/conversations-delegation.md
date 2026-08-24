@@ -31,7 +31,7 @@ If a run ends without sending or silencing, GSV asks it once to choose. A second
 
 The conversation stores sent messages. Each work item separately stores its inputs, reasoning, tools, results, approvals, retries, and errors. Removing a work item therefore does not erase messages that were already exchanged.
 
-Home is the main conversation. A Work Session is a temporary direct conversation with one selected work item. Groups and channels have their own conversations.
+Ship is the main conversation. A Work Session is a temporary direct conversation with one selected work item. Groups and channels have their own conversations.
 
 ## Delegating A Bounded Task
 

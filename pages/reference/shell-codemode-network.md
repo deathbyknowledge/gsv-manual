@@ -54,7 +54,7 @@ llm "Suggest a concise title for this note."
 printf 'Release notes...' | llm --system "Return three bullets."
 ```
 
-Use normal Home or Work when the request needs memory, tools, approvals,
+Use normal Ship or Work when the request needs memory, tools, approvals,
 follow-up, or an explicit user-facing message. Use `llm` for a bounded
 transformation whose output will be consumed immediately.
 

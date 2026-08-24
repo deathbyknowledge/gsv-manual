@@ -7,7 +7,7 @@ Accounts identify who is acting. Permissions decide which actions that identity 
 ## Common Identities
 
 - The **owner account** signs in and owns the installation's conversations, work, files, computers, and connections.
-- The **personal-intelligence account** holds Home's context, skills, and working identity for that owner.
+- The **personal-intelligence account** holds Ship's context, skills, and working identity for that owner.
 - Additional **work identities** can have focused context and permissions.
 - A **machine identity** authenticates one connected computer.
 - A linked messaging identity proves that an external sender represents the signed-in owner.

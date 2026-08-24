@@ -2,17 +2,17 @@
 
 [Web And Desktop](index.md)
 
-## Home And Work
+## Ship And Work
 
-Home always opens the personal intelligence. Separate work opens in a visibly
-labelled Work session with a Back action, while Home remains available.
+Ship always opens the personal intelligence. Separate work opens in a visibly
+labelled Work session with a Back action, while Ship remains available.
 
 Use the Work view when you want to:
 
 - see which tasks are active, waiting, finished, or failed;
 - inspect reasoning, tool calls, approvals, and errors;
 - continue, abort, reset, or remove a particular task;
-- return to Home without stopping the work.
+- return to Ship without stopping the work.
 
 See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md)
 for the difference between sent messages and work activity.

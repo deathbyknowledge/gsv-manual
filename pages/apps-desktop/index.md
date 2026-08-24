@@ -7,7 +7,7 @@ work, files, machines, integrations, and permissions.
 
 ## Choose The App That Fits
 
-Use **Web** when you want GSV from any signed-in browser. It includes Home,
+Use **Web** when you want GSV from any signed-in browser. It includes Ship,
 Work, Messages, Files, Terminal, Repositories, Machines, Messengers,
 Integrations, Settings, and administration.
 

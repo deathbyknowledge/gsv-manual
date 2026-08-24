@@ -6,13 +6,13 @@ GSV can continue conversations through messaging apps, receive and send managed 
 
 ## Messaging
 
-Private messages from a linked Telegram, WhatsApp, or Discord identity normally continue Home. Groups, channels, and threads can be directed to selected work when authorized.
+Private messages from a linked Telegram, WhatsApp, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized.
 
 Connecting a provider account and proving which external person is the signed-in GSV owner are separate steps. See [Connect and route messaging](adapters-routing.md).
 
 ## Email
 
-Managed email can receive, search, send, and reply to email. Home receives new-mail summaries through restricted notification runs. See [Use email](email.md).
+Managed email can receive, search, send, and reply to email. Ship receives new-mail summaries through restricted notification runs. See [Use email](email.md).
 
 ## MCP
 

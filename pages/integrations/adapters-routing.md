@@ -28,14 +28,14 @@ Pairing the device and linking the human sender are different operations.
 
 Connect a bot with the permissions required by the intended direct messages, servers, channels, and message content. Then link or route the desired surface through GSV. Owner identity is established by the authenticated link challenge.
 
-## Home And Direct Work Sessions
+## Ship And Direct Work Sessions
 
-An ordinary linked private message goes to Home. In a messenger chat:
+An ordinary linked private message goes to Ship. In a messenger chat:
 
 - `/where` reports the current selection.
-- `/home` returns future messages to Home immediately.
+- `/ship` returns future messages to Ship immediately.
 
-GSV can offer a direct line to an owned work item from the active private conversation. The messenger labels that selection as a Work Session. It affects future input on that chat; it does not replace Home elsewhere or redirect a reply that was already being generated.
+GSV can offer a direct line to an owned work item from the active private conversation. The messenger labels that selection as a Work Session. It affects future input on that chat; it does not replace Ship elsewhere or redirect a reply that was already being generated.
 
 From GSV, inspect or change an authorized route with:
 
@@ -63,7 +63,7 @@ This works for managed and standalone messaging paths when the selected adapter 
 
 GSV gives each logical inbound and outbound delivery a stable identity. Provider retries reuse that identity. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry.
 
-For a direct reply, the endpoint that started the interaction wins. Background Home events may use the most recently authorized linked private destination.
+For a direct reply, the endpoint that started the interaction wins. Background Ship events may use the most recently authorized linked private destination.
 
 ## Approvals In Messaging
 
