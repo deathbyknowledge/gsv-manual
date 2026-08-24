@@ -25,7 +25,7 @@ message send --message "Here it is."
 
 Use `message current --json` to inspect the endpoint for the current interaction. Use `message destinations --all --json` when sending a separate message to another authorized destination.
 
-If a run ends without sending or silencing, GSV asks it once to choose. A second omission ends with an error visible in activity.
+If a human-facing run ends without sending or silencing, GSV asks it once to choose. A second omission ends with an error visible in activity.
 
 ## One Conversation, Separate Work
 
@@ -41,7 +41,7 @@ Use delegation when an active request needs investigation, several steps, waitin
 proc delegate --label research --timeout 5m "Find the answer and return the evidence."
 ```
 
-The delegated task gets its own activity. Its result returns to the caller, which evaluates it and then sends a useful answer or remains silent.
+The delegated task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send or silence a human message. The caller evaluates that result and then sends a useful answer or remains silent.
 
 Useful commands:
 
@@ -58,7 +58,7 @@ Use `proc --help` for the full current syntax.
 
 ## New Input, Queues, And Late Results
 
-One work item handles one model turn at a time. New direct human input may supersede an active direct turn. Scheduled events and results from other work queue in order.
+One work item has one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the active work item's next model context, so it can adjust the work already in progress. Scheduled work and other requests that need their own run remain queued in order.
 
 Only the active run can modify its state. If an older result arrives after the conversation has moved on, GSV decides whether it is still useful before sending anything.
 

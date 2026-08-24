@@ -59,6 +59,6 @@ The result returns to the calling work item. The caller decides what to send to 
 
 ## Queued Work
 
-One work item runs one turn at a time. Schedule events and delegated results queue in order. New direct human input may supersede current direct work; queued events remain in order.
+One work item has one provider request in flight at a time. Schedule events that need their own run queue in order. Delegated results enter the calling work item's active context as soon as the current provider request can observe them. New direct human input may supersede current direct work.
 
 Scheduled work runs without an interactive approver. An operation whose policy requires interactive confirmation fails visibly.
