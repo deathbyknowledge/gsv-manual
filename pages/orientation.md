@@ -6,6 +6,9 @@ GSV is a personal intelligence operating system: one continuing intelligence acr
 
 A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that system. Each can provide a place to reach GSV, something GSV can use, or both. The system grows by capability, so specialized technology can join alongside familiar apps and devices.
 
+Your Ship can also connect directly with another person's Ship. Each GSV stays
+sovereign while the two exchange messages, requests, and exact file revisions.
+
 GSV carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. GSV is the continuing whole that coordinates them and remains yours.

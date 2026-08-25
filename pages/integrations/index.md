@@ -4,6 +4,12 @@
 
 GSV can continue conversations through messaging apps, receive and send managed email, and use external services connected through MCP or OAuth. What is available depends on the installation and the accounts the user has linked.
 
+## Contacts
+
+A Contact connects your Ship to a person on another GSV. Both sides retain
+their own conversations and permissions while exchanging messages, structured
+requests, and exact file revisions. See [Connect with another GSV](contacts.md).
+
 ## Messaging
 
 Private messages from a linked Telegram, WhatsApp, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized.
@@ -34,5 +40,6 @@ OAuth lets a user authorize an external account without pasting an access token 
 ## Pages In This Section
 
 - [Connect and route messaging](adapters-routing.md)
+- [Connect with another GSV](contacts.md)
 - [Use email](email.md)
 - [MCP and OAuth](mcp-oauth.md)
