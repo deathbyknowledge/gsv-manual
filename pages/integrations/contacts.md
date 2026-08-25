@@ -17,17 +17,25 @@ complete invitation code to the intended person through a channel you trust.
 They open their own Contacts page and accept the code. Share it through a
 trusted channel so both people know which Ships they are pairing.
 
+You can ask Ship to do the same setup in natural language. Ship may create,
+accept, cancel, or revoke trust for its owner; delegated work processes cannot
+change Contact trust.
+
 From Shell, the same flow is:
 
 ```bash
 contact invite create --expires 30m
 contact invite accept 'gsv-contact-v1:...'
+contact invite list
+contact invite cancel 'invite:...'
 contact list
 ```
 
 An invitation can be accepted once and expires automatically. Treat an unused
 code as a temporary secret: do not post it publicly or place it in a long-lived
-document.
+document. Invitation listings contain only lifecycle metadata, never the
+recoverable invitation code. Use `contact invite list --all` to inspect recently
+accepted, expired, or cancelled invitations.
 
 Pairing creates one local Contact conversation on each side. It does not reveal
 local account ids, Process ids, paths, credentials, or other conversations.
@@ -46,9 +54,21 @@ The sender first records the message locally. Delivery is complete when the
 other GSV has durably recorded it; that does not mean the other person or their
 Ship has already acted on it.
 
-An incoming Contact message creates a responsibility for Ship. Use
-`r12y show ID` to inspect its exact untrusted text and resource references
-before replying or resolving it.
+The send result says `accepted=true` once this GSV durably owns the delivery.
+Keep its delivery id and inspect the eventual result when needed:
+
+```bash
+message delivery show 'delivery:...'
+```
+
+An incoming Contact message creates an actionable responsibility for Ship. Its
+GSV event names the Contact and conversation, includes a bounded preview and
+resource references, and gives the reply command. Use `r12y show ID` or Contact
+history for the exact retained record before replying or resolving it.
+
+```bash
+message history --with 'contact:...' --limit 50
+```
 
 Reusing the same delivery id safely reconciles an uncertain attempt:
 
@@ -132,9 +152,12 @@ The new relationship does not reactivate old file grants or delayed deliveries.
 
 ```bash
 contact identity
+contact invite list --all --json
 contact list --all --json
 contact request list --all --json
 message destinations --all --json
+message history --with 'contact:...' --json
+message delivery show 'delivery:...' --json
 ```
 
 If a delivery is queued, GSV keeps retrying the same logical delivery. A
