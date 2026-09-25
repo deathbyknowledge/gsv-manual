@@ -48,24 +48,40 @@ load the referenced bytes when the attachment is displayed or used.
 See [Work with media](../files-knowledge/media.md) for reading, creating, and
 transcribing media.
 
-## Desktop Status Menu
+## The Desktop App
 
-Desktop remains available from the system status area when the main window is
-closed. Its menu can:
+Desktop is the same Instrument app in a native window, with local voice and
+hands-free input and a built-in way to connect the computer it runs on. On first
+launch it asks for a space: type a handle (it fills in the space domain) or paste
+a custom address. Owner verification opens in the system browser.
 
-- reopen GSV;
-- show or retry Desktop's connection to GSV;
-- connect, restart, or diagnose the current computer;
-- start or finish voice input;
-- show gesture state and open the gesture guide;
-- quit Desktop completely.
+The space name at the top of the window is a menu. It shows the space address
+and offers **this computer** (connect or inspect this computer), **disconnect**
+(sign out of the space and return to the space picker), and **quit**. When a
+locked account needs recovery, **recover account** appears there too.
 
-Closing the main window leaves Desktop available in the status area. **Quit
-GSV** exits Desktop completely. The background machine remains connected until
-it is disconnected or revoked through Machines or the daemon controls.
+There is no background tray application. Closing the window is the same as
+**quit**: unsent work is guarded, credentials are flushed, and the app exits. The
+computer's background machine service, `gsvd`, is independent and keeps the
+computer connected after Desktop closes.
+
+## Connect This Computer
+
+After sign-in, Desktop offers **Connect this computer** so your Ship can use
+this computer's files and commands even when the app is closed. Give it a
+display name and choose **connect**; Desktop creates the same device invitation
+Fleet would, pairs the computer, and installs the background service. Choose
+**Not now** to skip it for this session; **this computer** in the space menu
+opens the same dialog later and shows the connection's status.
+
+An existing connection for the same space and account resumes automatically. A
+connection to another space or account, and a separate CLI login, are left
+alone. If the space forgets the computer, Desktop offers to connect it again
+with the same display name and workspace.
 
 ## Signing Out
 
-Signing out ends the current app session and clears that session's private
+**disconnect** ends the current app session and clears that session's private
 cached data. The GSV account, messages, work, and separately managed machine
-credentials remain in place.
+credentials remain in place; the connected computer stays connected until it is
+forgotten in Fleet.

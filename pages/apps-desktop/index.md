@@ -14,9 +14,9 @@ responsibilities, the ledger, and recent files, **Memory** for personal
 knowledge pages, and **Settings** for preferences, permissions, instructions,
 messengers, MCP, and (for root) sign-in and people.
 
-Use **Desktop** when you want a native window, local voice and gesture control,
-or automatic setup of the current computer as a connected machine. Desktop can
-still chat when the computer itself is not connected as a machine.
+Use **Desktop** when you want a native window, local voice and hands-free
+control, or a guided way to connect the current computer as a place. Desktop can
+still chat when the computer itself is not connected.
 
 ## What Stays In Sync
 

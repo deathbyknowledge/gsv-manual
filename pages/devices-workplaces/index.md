@@ -8,11 +8,10 @@ Connecting a computer lets GSV work with that computer's files, commands, privat
 
 The Desktop app can guide first-time setup:
 
-1. Sign in to the GSV installation.
-2. Choose a name for the computer.
-3. Confirm machine enrollment.
-4. Let Desktop install and start the background machine service.
-5. Verify that the computer appears online under **Places** in Fleet.
+1. Sign in to the space in Desktop.
+2. In the **Connect this computer** prompt, give the computer a display name and choose **connect**. (**Not now** skips it; **this computer** in the space menu opens it later.)
+3. Wait for **Connected**; Desktop pairs the computer and installs the background machine service.
+4. Verify that the computer appears online under **Places** in Fleet.
 
 Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing GSV.
 

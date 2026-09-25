@@ -22,7 +22,7 @@ Search and bounded Read keep large files from consuming the context budget. Adju
 
 ## Voice And Gestures
 
-Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, selected device, helper status, and armed/muted state there.
+Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, the selected microphone, and the hands-free state (Off, Ready, Listening) in Zen's **Voice and hands-free** control there.
 
 Voice and gesture settings belong to Desktop on that computer; model profiles belong to the GSV account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
 
