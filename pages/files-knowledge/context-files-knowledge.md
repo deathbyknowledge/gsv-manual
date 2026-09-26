@@ -28,7 +28,7 @@ Personal memory contains concise, supported facts in the person's terms. It excl
 
 Files in `context.d` are loaded automatically. Use them for concise identity, preferences, constraints, and voice that should remain visible without a search. Keep unfinished commitments in `r12y`.
 
-Account context lives under `~/context.d/`. Shared personal context belongs to the person and is available to owned work. Context files are ordered by filename.
+Account context lives under `~/context.d/`. Shared personal context belongs to the person and is available to owned work. Each account layer loads its selected role directory before shared root files, with filename ordering within each group. This keeps a large shared file from crowding out the role and voice instructions within the context budget.
 
 Root `context.d/*.md` files apply to both Ship and workers. Each root can also contain `ship/*.md` and `worker/*.md`; only the current process role is included. Ship's public voice lives in `~/context.d/ship/05-voice.md`. Shared owner preferences remain in the person's `context.d/10-personal.md`. A worker uses the same account and files unless delegation explicitly selects another account.
 
