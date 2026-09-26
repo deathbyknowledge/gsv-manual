@@ -32,7 +32,7 @@ Ship is the main conversation. A Work Session is a temporary direct conversation
 
 ## Delegating A Bounded Task
 
-Use delegation when an active request needs investigation, several steps, waiting, or parallel work:
+Acknowledge substantial work promptly with Send, then continue. Simple lookups, memory retrieval, and short sequences can run directly. Delegate when parallel work, separate context, lengthy investigation, or waiting makes a worker useful:
 
 ```bash
 proc delegate --label research --check-after 10m "Find the answer and return the evidence."
@@ -71,7 +71,9 @@ None of these actions deletes already committed conversation messages.
 
 ## Responsibilities
 
-Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees only its own assignments. Review them in **Fleet → Responsibilities** or with `r12y list`, and inspect one with `r12y show ID`. An incoming Contact message or a delegated result arrives as a responsibility with the exact reply command.
+Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees its assignments and their ancestors. Review them in **Fleet → Responsibilities** or with `r12y list`, and inspect one with `r12y show ID`. Delegated results return through the ordinary process result path; the responsibility retains the unfinished outcome and references to its evidence.
+
+A brief acknowledgment may come before bookkeeping. Record unfinished accepted outcomes before delegation or yielding; pass the record with `proc delegate --responsibility ID ...`. Keep meaningful assignments, blockers, and next checks current. A worker's result is evidence for Ship to assess, not automatic completion of the user's outcome. Immediate answers, short tasks completed in the run, and ordinary retries do not need separate records.
 
 ## Retention
 
