@@ -32,10 +32,10 @@ Ship is the main conversation. A Work Session is a temporary direct conversation
 
 ## Delegating A Bounded Task
 
-Acknowledge substantial work promptly with Send, then continue. Simple lookups, memory retrieval, and short sequences can run directly. Delegate when parallel work, separate context, lengthy investigation, or waiting makes a worker useful:
+Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Delegate when parallel work, separate context, lengthy investigation, or waiting makes a worker useful. Ship's `~/context.d/10-delegation.md` identifies its owned Crew account:
 
 ```bash
-proc delegate --label research --check-after 10m "Find the answer and return the evidence."
+proc delegate --as crew --label research --check-after 10m "Find the answer and return the evidence."
 ```
 
 The delegated task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. The caller evaluates that result and then sends a useful answer or yields quietly.
@@ -73,7 +73,7 @@ None of these actions deletes already committed conversation messages.
 
 Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees its assignments and their ancestors. Review them in **Fleet → Responsibilities** or with `r12y list`, and inspect one with `r12y show ID`. Delegated results return through the ordinary process result path; the responsibility retains the unfinished outcome and references to its evidence.
 
-A brief acknowledgment may come before bookkeeping. Record unfinished accepted outcomes before delegation or yielding; pass the record with `proc delegate --responsibility ID ...`. Keep meaningful assignments, blockers, and next checks current. A worker's result is evidence for Ship to assess, not automatic completion of the user's outcome. Immediate answers, short tasks completed in the run, and ordinary retries do not need separate records.
+A brief acknowledgment may precede bookkeeping. Record unfinished accepted outcomes before delegation or yielding; pass the record with `proc delegate --responsibility ID ...`. Keep assignments, blockers, and next checks current. A worker's result is evidence for Ship to assess, not automatic completion of the user's outcome. Immediate answers, short tasks completed in the run, and ordinary retries do not need separate records.
 
 ## Retention
 
