@@ -49,10 +49,10 @@ Use `crontab` for a recurring shell command. Cron runs unattended, so every oper
 
 ## Delegation
 
-Delegation is immediate, bounded work:
+Delegation is immediate, bounded work. Replace `ACCOUNT` with the Crew account named in Ship's `~/context.d/10-delegation.md`:
 
 ```bash
-proc delegate --label invoices --check-after 10m "Compare the invoices and return discrepancies."
+proc delegate --as ACCOUNT --label invoices --check-after 10m "Compare the invoices and return discrepancies."
 ```
 
 The result returns to the calling work item, and the caller is told at each checkpoint while the child is still running. The caller decides what to send to the person. See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md).

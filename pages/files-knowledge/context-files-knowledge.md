@@ -7,7 +7,8 @@ These mechanisms answer different questions:
 | Need | Put it here |
 | --- | --- |
 | “This fact may matter again; retrieve it when relevant.” | personal wiki |
-| “This preference or commitment must affect nearly every request.” | personal context |
+| “This preference must affect nearly every request.” | personal context |
+| “This unfinished outcome needs follow-through.” | responsibility ledger (`r12y`) |
 | “Use these instructions whenever doing this kind of task.” | a skill |
 | “This is source material or a deliverable.” | an ordinary file |
 
@@ -25,11 +26,13 @@ Personal memory contains concise, supported facts in the person's terms. It excl
 
 ## Standing Context
 
-Files in `context.d` are loaded automatically. Use them only for concise identity, preferences, constraints, voice, and open commitments that should remain visible without a search.
+Files in `context.d` are loaded automatically. Use them for concise identity, preferences, constraints, and voice that should remain visible without a search. Keep unfinished commitments in `r12y`.
 
 Account context lives under `~/context.d/`. Shared personal context belongs to the person and is available to owned work. Context files are ordered by filename.
 
-Standing context contains only broadly applicable facts and commitments. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
+Ship's voice lives in its own `~/context.d/05-voice.md`; Crew's execution guidance lives in Crew's separate home. Put shared preferences in the human owner's `context.d/10-personal.md`.
+
+Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
 ## Skills
 
