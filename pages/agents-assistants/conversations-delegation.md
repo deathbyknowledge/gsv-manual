@@ -45,7 +45,7 @@ message history --with CONVERSATION --before NEXT_SEQUENCE --limit 1 --json
 
 Search defaults to Ship's conversation. Words match prefixes and all words must match; results include a snippet, message ID, sequence, author, and date. `--before` pages older matches using `nextBeforeSequence`. To read an exact message, use its sequence plus one as `NEXT_SEQUENCE` in the history command.
 
-Search includes archived messages. If `indexing` is true, older archives are still being added; repeat the search shortly before concluding that there are no matches. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; delegated work does not inherit that access.
+Search covers messages saved after the feature was enabled, including those later archived. Earlier messages remain readable through history but are not indexed retroactively. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; delegated work does not inherit that access.
 
 ## Delegating A Bounded Task
 
