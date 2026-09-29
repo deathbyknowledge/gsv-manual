@@ -10,9 +10,9 @@ work, files, machines, integrations, and permissions.
 Use **Web** when you want GSV from any signed-in browser. The Web app is
 called **Instrument** and has four views: **Zen** for Ship and the activity
 behind each reply, **Fleet** for places, processes, contacts,
-responsibilities, the ledger, and recent files, **Memory** for personal
+responsibilities and recent files, **Memory** for personal
 knowledge pages, and **Settings** for preferences, permissions, instructions,
-messengers, MCP, and (for root) sign-in and people.
+messengers, MCP, Logs, and (for root) sign-in and people.
 
 Use **Desktop** when you want a native window, local voice and hands-free
 control, or a guided way to connect the current computer as a place. Desktop can

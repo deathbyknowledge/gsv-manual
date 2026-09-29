@@ -1,4 +1,4 @@
-# The Ledger
+# Logs
 
 [Talk With GSV And Manage Work](index.md)
 
@@ -8,7 +8,7 @@ Use it to answer "what happened" without depending on a work item's history, whi
 
 ## Read It
 
-Open **Fleet** and look at the **Ledger** block; lines arrive live and update when a call completes. The purpose column is the one-sentence reason the tool supplied for the person.
+Open **Settings → Logs**; lines arrive live and update when a call completes. Open a line for its request details, duration and any failure. **Inspect process** opens that process in Fleet. The purpose column is the one-sentence reason the tool supplied for the person.
 
 The same record is available to clients through the `sys.ledger.list` capability, scoped to the owning person or root.
 

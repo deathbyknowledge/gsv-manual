@@ -46,4 +46,4 @@ This separation keeps the conversation readable and the reasoning and tool use i
 
 - [Messages, work, and delegation](conversations-delegation.md)
 - [Identity, context, files, and approvals](identity-context-approvals.md)
-- [The ledger](ledger.md)
+- [Logs](ledger.md)

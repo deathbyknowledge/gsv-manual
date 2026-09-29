@@ -25,8 +25,12 @@ Fleet is the operational view:
 - **Processes** shows running and finished work with its controls.
 - **Contacts** shows people on other GSVs; **add contact** starts a pairing.
 - **Responsibilities** shows promises, follow-ups, and delegated work Ship is tracking.
-- **Ledger** shows every action taken on the installation, with its purpose and outcome.
 - **Files** shows recently touched files across places.
+
+Open **Settings → Logs** for the full action history, purposes and outcomes.
+
+Zen's composer starts on **your cloud** (`gsv`). Choose another place explicitly
+to address a message or command to it. That choice stays when switching views.
 
 Check the selected target before changing a file or running a command. A path
 such as `laptop:/projects/report` acts on that connected target; an unqualified
