@@ -54,4 +54,17 @@ Every call carries an optional purpose, one sentence written for the person. The
 
 Interactive work can pause for an exact approval request. Scheduled and unattended work cannot rely on somebody eventually answering; an "ask" decision becomes a visible tool failure there.
 
+Zen offers a walkthrough at the first approval. It shows which categories ask
+and lets the person change them or skip without changing policy. Existing
+denials remain blocked. **Settings → permissions → show it again** replays the
+walkthrough at the next approval.
+
+The approval card's **always allow this** saves a rule for that capability and
+target to the account policy used by the process, then approves the pending
+request once. The card explains the scope: allowing commands on one machine
+allows future commands there, not only the displayed command. The saved rule
+applies to later runs and can be changed in Settings; the active run keeps its
+policy snapshot. Messenger “always” controls instead remember the choice for
+that process.
+
 Before loosening approval policy, identify the exact operation and why the current rule blocks a legitimate workflow. Prefer a narrow rule over disabling approval broadly.
