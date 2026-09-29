@@ -27,7 +27,7 @@ Start with the failed outcome, then inspect the smallest owner of that outcome. 
 | A model fails | the model order in **Settings → preferences**, provider availability, allowance, context size, and cancellation |
 | An action is waiting | pending approval, active tool, target connection, or queued work |
 | An action was refused or asked for approval | the approval policy in **Settings → permissions**, and the ledger line's purpose and outcome |
-| Something ran that should not have | the ledger in **Fleet**, then the policy that allowed it |
+| Something ran that should not have | **Settings → Logs**, then the policy that allowed it |
 
 ## Preserve The Original Error
 

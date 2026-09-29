@@ -34,7 +34,7 @@ This separation keeps the conversation readable and the reasoning and tool use i
 | --- | --- |
 | See visible work | Open **Fleet → Processes** or run `proc list` |
 | Inspect the current work item | Run `proc self`, then `proc history --pid <pid>` (`--tail` for the newest) |
-| See every action taken and why | Open **Fleet → Ledger** |
+| See every action taken and why | Open **Settings → Logs** |
 | Review open promises and follow-ups | Open **Fleet → Responsibilities** or run `r12y list` |
 | Hand off a bounded subtask | `proc delegate --as ACCOUNT --label LABEL --check-after DURATION TASK`; select the account named in Ship's `~/context.d/10-delegation.md` |
 | Stop only the active run | use **Abort** in the active client |

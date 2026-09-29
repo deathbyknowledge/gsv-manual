@@ -17,7 +17,7 @@ Models and specialized agents can contribute to the work. GSV is the continuing 
 
 Ship names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Ship.
 
-The Web app is called **Instrument**. It has four views: **Zen** is Ship and the activity behind each reply; **Fleet** lists your places, processes, contacts, responsibilities, the ledger, and recent files; **Memory** shows your personal knowledge pages; **Settings** holds preferences, permissions, instructions, messengers, and MCP connections.
+The Web app is called **Instrument**. It has four views: **Zen** is Ship and the activity behind each reply; **Fleet** lists your places, processes, contacts, responsibilities, and recent files; **Memory** shows your personal knowledge pages; **Settings** holds preferences, permissions, instructions, messengers, MCP connections, and Logs.
 
 GSV may do work in separate work sessions, but results return through the same personal intelligence unless you deliberately open a direct work session.
 
