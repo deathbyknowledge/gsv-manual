@@ -30,6 +30,23 @@ The conversation stores sent messages. Each work item separately stores its inpu
 
 Ship is the main conversation. A Work Session is a temporary direct conversation with one selected work item. Groups and channels have their own conversations.
 
+## Search Past Messages
+
+In Zen, use **search**, `/` in browse mode, or `Ctrl/Cmd+F`. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
+
+Ship can search the same sent messages through Shell:
+
+```bash
+message search "Rotterdam cafes" --json
+message search "Rotterdam cafes" --before SEQUENCE --limit 20 --json
+message search "Rotterdam cafes" --with CONVERSATION_OR_CONTACT --json
+message history --with CONVERSATION --before NEXT_SEQUENCE --limit 1 --json
+```
+
+Search defaults to Ship's conversation. Words match prefixes and all words must match; results include a snippet, message ID, sequence, author, and date. `--before` pages older matches using `nextBeforeSequence`. To read an exact message, use its sequence plus one as `NEXT_SEQUENCE` in the history command.
+
+Search covers messages saved after the feature was enabled, including those later archived, within the conversation's storage budget. The oldest search entries can expire; their original messages remain readable through history. Pre-feature messages are not indexed retroactively. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; delegated work does not inherit that access.
+
 ## Delegating A Bounded Task
 
 Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Delegate when parallel work, separate context, lengthy investigation, or waiting makes a worker useful. Replace `ACCOUNT` with the Crew account named in Ship's `~/context.d/10-delegation.md`:
