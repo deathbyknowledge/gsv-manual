@@ -32,6 +32,13 @@ Account context lives under `~/context.d/`. Shared personal context belongs to t
 
 Ship's voice lives in its own `~/context.d/05-voice.md`; Crew's execution guidance lives in Crew's separate home. Put shared preferences in the human owner's `context.d/10-personal.md`.
 
+Ship's `~/context.d/07-onboarding.md` applies while its initial
+`onboarding.initial` responsibility is unresolved. It guides one useful first
+task and the setup needed to complete it. Completion records the concepts the
+person encountered in `resolution.conceptsIntroduced`. Afterward, the bundled
+`gsv-concepts` skill guides unfamiliar actions in small steps and keeps the
+person's already-met concepts in their `context.d/10-personal.md`.
+
 Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
 ## Skills
