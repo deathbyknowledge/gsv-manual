@@ -118,12 +118,23 @@ contact request create \
   --kind review \
   --title "Review the release candidate" \
   --details '{"version":"0.5.0"}'
+```
 
+The requester can cancel an unaccepted offer. On the other GSV, the performer
+accepts or rejects it, then starts, completes or stops accepted work:
+
+```bash
 contact request list
 contact request update 'request:...' --state accepted --revision 1
 contact request update 'request:...' --state active --revision 2
 contact request update 'request:...' --state completed --revision 3
 ```
+
+Wait for `EXCHANGE` to become `acknowledged` before the next local update.
+The work state is recorded locally first; `pending` means the other GSV has not
+confirmed it yet. `failed` leaves the exchange unsettled, even when its work
+state says `completed`. Older records may say `unconfirmed` when no confirmation
+was retained. Check the current record rather than assuming a remote outcome.
 
 Useful terminal states are `completed`, `rejected`, and `cancelled`. Include
 `--all` when listing requests to see terminal records. If an expected revision
@@ -160,7 +171,12 @@ message history --with 'contact:...' --json
 message delivery show 'delivery:...' --json
 ```
 
-If a delivery is queued, GSV keeps retrying the same logical delivery. A
-terminal failure becomes work for Ship to inspect instead of silently creating
-duplicates. If pairing fails, verify that the invitation is unexpired and that
-the other GSV's origin is reachable over HTTPS.
+If a delivery is queued, GSV keeps retrying the same logical delivery. Failures
+of messages sent by Ship become work for Ship to inspect. A signed-in person or
+their Ship can resume a recoverable failure through `contact.delivery.retry`,
+using the delivery ID and `updatedAtMs` from `contact.delivery.get`. This retries
+the exact stored message; it does not create a new message. A permanent refusal,
+revoked relationship or delivery older than seven days cannot be retried.
+
+If pairing fails, verify that the invitation is unexpired and that the other
+GSV's origin is reachable over public HTTPS.
