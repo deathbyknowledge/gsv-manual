@@ -43,11 +43,13 @@ keep the same selected snapshot. Logs are not attached automatically.
 You can also ask Ship to report an issue. On the `gsv` target it uses:
 
 ```bash
-feedback 'The attachment download did not open.'
 feedback < report.txt
 ```
 
-Share only the details the person asked to report. `feedback --id UUID ...`
+Use a report file rather than inline text, `printf`, or a heredoc: shell command
+text is recorded in Logs.
+
+Share only the details the person asked to report. `feedback --id UUID < report.txt`
 keeps the same report identity when retrying. The command returns a receipt once
 the operator's inbox accepts the report; unavailable or failed sends return an
 error. A receipt does not mean the issue has been fixed.
