@@ -80,11 +80,12 @@ Keep its delivery id and inspect the eventual result when needed:
 message delivery show 'delivery:...'
 ```
 
-Pairing, accepting a first message and receiving an ordinary message do not start
-Ship. Choose **hand to Ship** beside the person's name to enable ongoing handling.
-That handoff uses one ordinary responsibility and Ship's usual permissions and
-approval rules. **Ship handling** stays visible; **take back** disables it. Messages
-show whether the person or their Ship wrote them.
+Pairing and accepting a first message do not start Ship. Enable **Ship replies**
+beside the person's name to let it respond to new incoming messages. Turning the
+switch on waits for the next message; it does not start work on the existing
+conversation. Handling uses an ordinary responsibility and Ship's usual permissions
+and approval rules. Turn the switch off to stop ongoing handling. Messages show
+whether the person or their Ship wrote them.
 
 When contacting someone for an existing task, bind the outgoing message to that
 Ship responsibility instead of enabling permanent conversation handling:
