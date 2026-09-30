@@ -32,7 +32,7 @@ Provider tokens and OAuth credentials belong to the connection that uses them. P
 
 ## Inviting People
 
-Only root sees **Settings → people**. To invite someone, enter the username they will use (lowercase, starting with a letter or `_`, up to 32 characters) and choose **create invitation**. GSV shows a private link that expires after ten minutes; share it through a channel you trust. The person opens it, chooses a password, and is signed in to their own account. Pending invitations are listed with **cancel invitation**.
+Only root sees **Settings → people**. To invite someone, enter the username they will use (lowercase, starting with a letter or `_`, up to 32 characters) and choose **create invitation**. GSV shows a private link that expires after ten minutes. Use **copy invitation message** and share it through a channel you trust; the message includes the [Privacy Policy](https://humansandmachin.es/privacy/) and [Terms of Service](https://gsv.space/terms/). The person opens the link, reviews and acknowledges both documents, chooses a password, then signs in to their own account. Pending invitations are listed with **cancel invitation**.
 
 For each other account, root can **set password** (at least 8 characters; existing credentials and messenger links are revoked, so the person signs in again and re-links messengers) and **remove access** (their credentials and messenger links stop working; their data and running work remain).
 
