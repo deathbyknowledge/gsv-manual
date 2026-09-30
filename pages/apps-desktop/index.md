@@ -29,6 +29,31 @@ Draft text and transient interface state may remain local to the app where they
 were created. Attach a file or send the message before expecting another app to
 see it.
 
+## Send Feedback
+
+If your operator enables it, choose **feedback** in the header to report a bug or
+suggest an improvement. Write what happened and press **Send**. A failed send
+keeps your draft. Reports include your space, account, and app/server versions.
+**Include last 20 Ship messages** is off by default. Check it to attach a snapshot
+of recent messages, thinking, tool inputs/results and runtime events. Use
+**Review** to inspect it before sending; tool results can contain private content.
+Uncheck it to remove it. No files or media are fetched. Long activity is visibly shortened, and retries
+keep the same selected snapshot. Logs are not attached automatically.
+
+You can also ask Ship to report an issue. On the `gsv` target it uses:
+
+```bash
+feedback < report.txt
+```
+
+Use a report file rather than inline text, `printf`, or a heredoc: shell command
+text is recorded in Logs.
+
+Share only the details the person asked to report. `feedback --id UUID < report.txt`
+keeps the same report identity when retrying. The command returns a receipt once
+the operator's inbox accepts the report; unavailable or failed sends return an
+error. A receipt does not mean the issue has been fixed.
+
 ## Pages In This Section
 
 - [Use the Web and Desktop surfaces](desktop-surfaces-and-apps.md)
