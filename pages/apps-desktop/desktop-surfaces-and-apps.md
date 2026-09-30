@@ -23,7 +23,6 @@ Fleet is the operational view:
 
 - **Places** shows connected computers and browsers and their state; **connect** pairs a new one.
 - **Processes** shows running and finished work with its controls.
-- **Contacts** shows people on other GSVs; **add contact** starts a pairing.
 - **Responsibilities** shows promises, follow-ups, and delegated work Ship is tracking.
 - **Ledger** shows every action taken on the installation, with its purpose and outcome.
 - **Files** shows recently touched files across places.
@@ -31,6 +30,16 @@ Fleet is the operational view:
 Check the selected target before changing a file or running a command. A path
 such as `laptop:/projects/report` acts on that connected target; an unqualified
 path uses the current target and working directory.
+
+## People
+
+**People** (`p`) holds conversations with people on other spaces, first-message
+requests and your private address book. **New conversation** opens a public profile
+or private invitation. Search stays within the selected conversation; drafts stay
+with it while switching views. Details contains mute, block and **Let Ship handle
+this**. Accepting a contact alone does not delegate work to Ship.
+
+See [Contacts](../integrations/contacts.md) for publication, delivery and task replies.
 
 ## Browser Extension
 

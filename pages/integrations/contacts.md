@@ -7,14 +7,33 @@ messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
 
-Contacts work between standalone and managed GSVs. The other person's
-installation does not need to use the same host or deployment model.
+Contacts work between spaces run by the same or different operators.
+
+## People And First Messages
+
+Open **People** with `p` to see conversations. **Requests** above the list opens
+first messages from new people; **contacts** beside the heading opens your private
+address book. **← conversations** returns to your previous conversation. Read position, archive,
+aliases and mute stay private to your space. New messages bring an archived
+conversation back unless muted; mute also suppresses tab attention.
+
+**new** finds saved people by name or accepts a public profile address. Review the person, choose
+the display name they will see, and send a first message. Once accepted, that
+message stays in the same conversation and both sides can send more messages and
+attachments. Declining does not notify the sender. First-message requests expire
+after 30 days.
+
+Public profiles start private. A signed-in person can save and publish theirs in
+**Settings → Profile**. Saving edits does not update a published page until they
+publish again. Unpublishing removes the page but leaves existing conversations
+intact. Ship may resolve a public profile; publishing and first-message decisions
+belong to the signed-in person.
 
 ## Pair With Someone
 
-One person creates a short-lived invitation in the Contacts page. Send the
+One person chooses **new → use a private invitation** in People. Send the
 complete invitation code to the intended person through a channel you trust.
-They open their own Contacts page and accept the code. Share it through a
+They open the same invitation flow in their space and accept the code. Share it through a
 trusted channel so both people know which Ships they are pairing.
 
 You can ask Ship to do the same setup in natural language. Ship may create,
@@ -42,7 +61,7 @@ local account ids, Process ids, paths, credentials, or other conversations.
 
 ## Send A Message
 
-Open the conversation from the Contacts page, or copy its contact id and send
+Open the conversation from People, or copy its contact id and send
 from Shell:
 
 ```bash
@@ -61,13 +80,32 @@ Keep its delivery id and inspect the eventual result when needed:
 message delivery show 'delivery:...'
 ```
 
-An incoming Contact message creates an actionable responsibility for Ship. Its
-GSV event names the Contact and conversation, includes a bounded preview and
-resource references, and gives the reply command. Use `r12y show ID` or Contact
-history for the exact retained record before replying or resolving it.
+Pairing and accepting a first message do not start Ship. Enable **Ship replies**
+beside the person's name to let it respond to new incoming messages. Turning the
+switch on waits for the next message; it does not start work on the existing
+conversation. Handling uses an ordinary responsibility and Ship's usual permissions
+and approval rules. Turn the switch off to stop ongoing handling. Messages show
+whether the person or their Ship wrote them.
+
+When contacting someone for an existing task, bind the outgoing message to that
+Ship responsibility instead of enabling permanent conversation handling:
+
+```bash
+message send --to 'contact:...' --responsibility 'r12y:...' \
+  --message "Does Friday morning work?" --also
+```
+
+Human and Ship replies can continue this responsibility. An exact reply reference
+selects the task; an unthreaded reply continues only one unambiguous active task
+awaiting that contact. Resolved or cancelled work stops receiving continuations.
+Delivery acknowledgements and duplicate messages never create more work. The
+other person independently decides whether their Ship handles their side.
+
+Use `r12y show ID` and Contact history for the exact message before acting:
 
 ```bash
 message history --with 'contact:...' --limit 50
+message search 'Friday morning' --with 'contact:...'
 ```
 
 Reusing the same delivery id safely reconciles an uncertain attempt:
@@ -140,12 +178,12 @@ Useful terminal states are `completed`, `rejected`, and `cancelled`. Include
 `--all` when listing requests to see terminal records. If an expected revision
 is stale, inspect the current record before deciding what should happen next.
 
-The Contacts page exposes the common accept, reject, cancel, start, and complete
+The conversation's **Details → Work requests** exposes the common accept, reject, cancel, start, and complete
 actions without requiring Shell.
 
 ## Revoke A Contact
 
-Use the Contacts page or:
+Use conversation Details or:
 
 ```bash
 contact revoke 'contact:...'
@@ -158,6 +196,12 @@ notice.
 
 If a relationship should exist again later, create and accept a new invitation.
 The new relationship does not reactivate old file grants or delayed deliveries.
+
+**Block** also refuses new requests from that remote identity. It is available in
+conversation Details and first-message request controls. **Unblock** allows a new
+connection; it does not restore an old one. Muting or removing someone from the
+saved address book keeps the conversation and does not cancel Ship's work.
+**Blocked people** keeps the list available after old requests are cleaned up.
 
 ## Inspect Or Recover
 
