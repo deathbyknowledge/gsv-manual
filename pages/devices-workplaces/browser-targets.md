@@ -2,18 +2,33 @@
 
 [Computers And Browser](index.md)
 
-A browser target lets GSV use operations deliberately exposed by a connected browser extension or profile. It is useful for browser-local state and actions that should happen in that profile.
+A browser target is a browser profile the user paired with the **Your GSV** extension. GSV works inside that profile, so it reaches whatever the user is signed into there: a calendar, mail, a billing portal, an admin dashboard, a private forum. A site the browser is already logged into needs no MCP server, OAuth account, or other integration.
 
 To connect one, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md).
 
+## What A Browser Reaches
+
+- Any site the profile is signed into, through the user's own session.
+- Web apps with no API or export: read the page, fill a form, download a file.
+- Pages to watch: open one on a schedule and report when something changes.
+- Browser-local state such as tabs, history, bookmarks, cookies, and downloads, when the task calls for it.
+
+"Can you see my calendar?" is a browser question. When a browser is paired, open the calendar's web app in a tab and read it rather than asking the user to describe their schedule or to connect an integration.
+
 ## Find It
+
+Check for a browser before telling the user that GSV cannot reach a service:
 
 ```bash
 targets search "browser"
 targets show <browser-target-id>
 ```
 
-The target description lists the operations, permissions, and online state of that browser connection.
+The target description lists the operations, permissions, and online state of that browser connection. If no browser is paired, say that pairing the Your GSV extension would give GSV that site through the user's signed-in session, and point to the connection steps above.
+
+## Work In A Browser
+
+Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
 ## Address Browser Files
 

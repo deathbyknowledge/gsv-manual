@@ -53,7 +53,7 @@ OAuth and MCP solve different parts of a connection: OAuth grants account access
 
 ## Troubleshoot A Missing Tool
 
-Check in this order:
+If the goal is a website the user is signed into, check for a paired browser first with `targets search "browser"`; it may already provide the access with no integration. See [Use a browser target](../devices-workplaces/browser-targets.md). Otherwise check in this order:
 
 1. the OAuth account exists and has not expired;
 2. the MCP server is connected and healthy;

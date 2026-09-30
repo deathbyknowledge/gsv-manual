@@ -19,6 +19,10 @@ The background service keeps the machine connected when the Desktop window close
 
 The CLI can inspect and control the same service. Run `gsv daemon --help` for the commands supported by the installed version.
 
+## Connect A Browser
+
+Pair the **Your GSV** extension to make a browser profile a target. GSV then reaches any site that profile is signed into, with no separate integration. See [Use a browser target](browser-targets.md).
+
 ## Find Where Work Can Run
 
 ```bash
@@ -39,6 +43,15 @@ Prefer a connected computer for:
 - local credentials that should not be copied elsewhere;
 - GPUs, cameras, microphones, and other hardware;
 - platform-specific automation.
+
+## What Belongs In A Browser
+
+Prefer a paired browser for:
+
+- sites the user is signed into;
+- web apps with no API or export;
+- pages to watch for a change;
+- browser-local state such as tabs, history, bookmarks, and downloads.
 
 ## Pages In This Section
 

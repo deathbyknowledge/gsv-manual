@@ -28,6 +28,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
 | Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |
+| Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser target](pages/devices-workplaces/browser-targets.md) |
 | Connect Telegram, WhatsApp, Discord, email, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
 | Set a reminder or recurring job | [Schedules and automation](pages/automation/index.md) |
 | Create, inspect, reset, or stop a piece of work | [Work controls](pages/agents-assistants/conversations-delegation.md) |

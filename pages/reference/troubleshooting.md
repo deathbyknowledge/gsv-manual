@@ -23,6 +23,7 @@ Start with the failed outcome, then inspect the smallest owner of that outcome. 
 | A computer command fails | `targets show <target>` and the machine connection |
 | A file cannot be read | target, path, permissions, exact revision, and size limits |
 | An integration tool is absent | `mcp status`, `mcp list`, OAuth status, and current capability |
+| A website or web app seems out of reach | `targets search "browser"`; a paired [browser target](../devices-workplaces/browser-targets.md) reaches signed-in sites without an integration |
 | A message is not delivered externally | linked destination, route, attachment limits, and provider result |
 | A model fails | the model order in **Settings → preferences**, provider availability, allowance, context size, and cancellation |
 | An action is waiting | pending approval, active tool, target connection, or queued work |
