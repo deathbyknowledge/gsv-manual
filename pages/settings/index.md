@@ -13,6 +13,7 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | Standing instructions for your agents | **Settings → instructions** (`~/context.d/`) |
 | Messaging connection | **Settings → messengers** |
 | MCP connection | **Settings → mcp** |
+| Action history, outcomes and request details | **Settings → Logs** |
 | Owner sign-in, tokens, and space ownership | **Settings → sign-in** (root only) |
 | Other people in this space | **Settings → people** (root only) |
 | Computer or browser connection | **Fleet → Places → connect**, or Desktop machine setup |
