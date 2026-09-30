@@ -8,6 +8,12 @@ Web and Desktop sign in as a person. Locking, signing out, or switching users cl
 
 A browser or Desktop session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
 
+## Creating A Space
+
+Open the operator's signup page or **Create your space** in Desktop and enter your invite code. On the email step, confirm that you are 18 or older, agree to the [Terms of Service](https://gsv.space/terms), and acknowledge the [Privacy Policy](https://gsv.space/privacy) before requesting a verification code. Verify your email and choose a handle for your space.
+
+Inside the new space, choose your username and password, then continue to **Before you begin** to review the early-access disclosure. Creating your account acknowledges the Privacy Policy through the notice beside that action; there is no second agreement checkbox. **Back** lets you revise your credentials. Signing in to an existing owner account does not repeat the signup checkbox.
+
 ## User Tokens
 
 User tokens support non-interactive clients with bounded authority. Create, list, and revoke them under **Settings → sign-in** or with the corresponding `gsv` CLI command. Label each token by purpose and revoke it when that purpose ends.
