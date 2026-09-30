@@ -24,7 +24,11 @@ Connect a Slack app to the workspace through **Settings → messengers**; the op
 
 ## WhatsApp
 
-WhatsApp is not currently available. The earlier unofficial adapter was removed; a WhatsApp Business connection is separate future work. If a person asks for it, say so rather than attempting a pairing.
+When the operator offers WhatsApp Business, message its business number to get a short-lived code. Enter it in **Settings → Messengers → WhatsApp**, inspect the name and masked number, and confirm while signed in. Send another message after linking to reach Ship. The operator owns the Meta credentials; people do not supply their own tokens.
+
+This connection supports direct messages to that number, including media and approval buttons. It does not expose a person's WhatsApp account or group conversations. Availability depends on the operator's Meta account and regional eligibility.
+
+Free-form replies require a message from the person within the last 24 hours. Outside that window, an operator-approved template can deliver a short reply or invite the person to resume. Longer replies and approvals wait for a reply or the **Show me** button, for up to seven days. Attachments cannot wait behind a template; use another authorized destination or ask the person to message again. Without a configured template, out-of-window delivery fails rather than silently disappearing.
 
 ## Discord
 
