@@ -29,6 +29,25 @@ Draft text and transient interface state may remain local to the app where they
 were created. Attach a file or send the message before expecting another app to
 see it.
 
+## Send Feedback
+
+If your operator enables it, choose **feedback** in the header to report a bug or
+suggest an improvement. Write what happened and press **Send**. A failed send
+keeps your draft. Reports include your space, account, and app/server versions;
+your conversation and logs are not attached.
+
+You can also ask Ship to report an issue. On the `gsv` target it uses:
+
+```bash
+feedback 'The attachment download did not open.'
+feedback < report.txt
+```
+
+Share only the details the person asked to report. `feedback --id UUID ...`
+keeps the same report identity when retrying. The command returns a receipt once
+the operator's inbox accepts the report; unavailable or failed sends return an
+error. A receipt does not mean the issue has been fixed.
+
 ## Pages In This Section
 
 - [Use the Web and Desktop surfaces](desktop-surfaces-and-apps.md)

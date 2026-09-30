@@ -31,6 +31,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Generate an image | `txt2img` |
 | Transcribe audio | `stt` |
 | Create spoken audio | `tts` |
+| Report a bug or suggestion to the space operator | `feedback` (when configured) |
 
 ## The Main Work Tools
 
