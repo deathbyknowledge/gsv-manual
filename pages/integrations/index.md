@@ -12,7 +12,7 @@ requests, and exact file revisions. See [Connect with another GSV](contacts.md).
 
 ## Messaging
 
-Private messages from a linked Telegram, Slack, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized. WhatsApp is not currently available.
+Private messages from a linked Telegram, Slack, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized. WhatsApp Business direct messaging is also available when the operator offers it.
 
 Connecting a provider account and proving which external person is the signed-in GSV owner are separate steps. See [Connect and route messaging](adapters-routing.md).
 
