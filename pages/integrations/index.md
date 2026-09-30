@@ -4,6 +4,8 @@
 
 GSV can continue conversations through messaging apps, receive and send managed email, and use external services connected through MCP or OAuth. What is available depends on the installation and the accounts the user has linked. Messengers are connected under **Settings → messengers** and MCP servers under **Settings → mcp** in the Web app.
 
+A website the user is already signed into does not need an integration. A paired browser reaches it through the user's own session; see [Use a browser target](../devices-workplaces/browser-targets.md). Prefer the browser when the goal is to read or act on a web app, and use MCP or OAuth when a service exposes operations GSV should call directly.
+
 ## Contacts
 
 A Contact connects your Ship to a person on another GSV. Both sides retain
