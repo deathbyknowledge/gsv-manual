@@ -176,7 +176,7 @@ Useful terminal states are `completed`, `rejected`, and `cancelled`. Include
 `--all` when listing requests to see terminal records. If an expected revision
 is stale, inspect the current record before deciding what should happen next.
 
-The conversation's Requests tab exposes the common accept, reject, cancel, start, and complete
+The conversation's **Details → Work requests** exposes the common accept, reject, cancel, start, and complete
 actions without requiring Shell.
 
 ## Revoke A Contact
