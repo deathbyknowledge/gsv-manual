@@ -33,8 +33,12 @@ see it.
 
 If your operator enables it, choose **feedback** in the header to report a bug or
 suggest an improvement. Write what happened and press **Send**. A failed send
-keeps your draft. Reports include your space, account, and app/server versions;
-your conversation and logs are not attached.
+keeps your draft. Reports include your space, account, and app/server versions.
+**Include last 20 Ship messages** is off by default. Check it to attach a snapshot
+of recent messages, thinking, tool inputs/results and runtime events. Use
+**Review** to inspect it before sending; tool results can contain private content.
+Uncheck it to remove it. No files or media are fetched. Long activity is visibly shortened, and retries
+keep the same selected snapshot. Logs are not attached automatically.
 
 You can also ask Ship to report an issue. On the `gsv` target it uses:
 
