@@ -11,12 +11,13 @@ Contacts work between spaces run by the same or different operators.
 
 ## People And First Messages
 
-Open **People** with `p`. Inbox holds conversations, Requests holds first messages
-from new people, and Contacts is the private address book. Read position, archive,
+Open **People** with `p` to see conversations. **Requests** above the list opens
+first messages from new people; **contacts** beside the heading opens your private
+address book. **← conversations** returns to your previous conversation. Read position, archive,
 aliases and mute stay private to your space. New messages bring an archived
 conversation back unless muted; mute also suppresses tab attention.
 
-**New conversation** accepts a public profile address. Review the person, choose
+**new** finds saved people by name or accepts a public profile address. Review the person, choose
 the display name they will see, and send a first message. Once accepted, that
 message stays in the same conversation and both sides can send more messages and
 attachments. Declining does not notify the sender. First-message requests expire
@@ -30,7 +31,7 @@ belong to the signed-in person.
 
 ## Pair With Someone
 
-One person chooses **new conversation → use a private invitation** in People. Send the
+One person chooses **new → use a private invitation** in People. Send the
 complete invitation code to the intended person through a channel you trust.
 They open the same invitation flow in their space and accept the code. Share it through a
 trusted channel so both people know which Ships they are pairing.
@@ -80,9 +81,9 @@ message delivery show 'delivery:...'
 ```
 
 Pairing, accepting a first message and receiving an ordinary message do not start
-Ship. The person handles the conversation until they enable **Let Ship handle
-this** in Details. That handoff uses one ordinary responsibility and Ship's usual
-permissions and approval rules. Disable the same control to take it back. Messages
+Ship. Choose **hand to Ship** beside the person's name to enable ongoing handling.
+That handoff uses one ordinary responsibility and Ship's usual permissions and
+approval rules. **Ship handling** stays visible; **take back** disables it. Messages
 show whether the person or their Ship wrote them.
 
 When contacting someone for an existing task, bind the outgoing message to that
