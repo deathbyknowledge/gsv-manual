@@ -20,6 +20,10 @@ and camera access for desktop apps in Windows Privacy settings. These controls
 run in the signed-in Desktop session; the background machine service does not
 capture audio or video before login.
 
+Windows local voice requires a CPU with AVX2, FMA and F16C support. Desktop
+explains when the CPU does not support voice; the rest of Desktop and the
+background machine service remain available.
+
 ## Hands-Free
 
 **Enable hands-free** turns on the camera. Hands-free has three states: **Off**,
