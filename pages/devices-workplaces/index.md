@@ -15,6 +15,24 @@ The Desktop app can guide first-time setup:
 
 Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing GSV.
 
+Ship can also guide the connection. Ask what to call the computer and whether it
+runs macOS, Linux or Windows, then run on `gsv`:
+
+```bash
+targets pair --name "My laptop" --platform mac
+```
+
+The JSON result contains the install and `gsv pair CODE` commands for this space
+and release. Share each command with the owner in its own fenced code block so it
+can be copied directly; skip installation if GSV is already installed.
+The invitation lasts ten minutes and enrolls under the human owner's account.
+When the user says it finished, check `targets show my-laptop` before claiming it is connected.
+
+Check `targets list` before creating another place. To reconnect an existing one,
+use `--id TARGET_ID --replace`. `targets pair list` shows invitation status;
+`targets pair cancel INVITATION_ID` cancels an unused invitation if its code was
+lost or the user no longer wants it. Cancellation never disconnects an already-paired device.
+
 The background service keeps the machine connected when the Desktop window closes. Desktop sign-out and machine revocation remain separate actions. The service updates itself when the installation moves ahead; new installs go to `~/.gsv/bin` and need no administrator rights.
 
 The CLI can inspect and control the same service. Run `gsv daemon --help` for the commands supported by the installed version.
