@@ -12,6 +12,8 @@ A browser or Desktop session is separate from a connected computer, messenger, o
 
 Open the operator's signup page or **Create your space** in Desktop and enter your invite code. On the email step, confirm that you are 18 or older, agree to the [Terms of Service](https://gsv.space/terms), and acknowledge the [Privacy Policy](https://gsv.space/privacy) before requesting a verification code. Verify your email and choose a handle for your space.
 
+If you sign in through **Open your space** first, choosing **Use an invite** asks for the same age, Terms and Privacy confirmation on **Before you begin**, before claiming the invite. When resuming signup after reopening the browser or app, confirm again before claiming an invite or continuing space creation.
+
 Inside the new space, choose your username and password, then continue to **Before you begin** to review the early-access disclosure. Confirm that you are 18 or older, agree to the Terms of Service, and acknowledge the Privacy Policy before creating your account. This checkbox is required inside the space as well as on the signup email step. **Back** lets you revise your credentials. Signing in to an existing owner account does not repeat the signup checkbox.
 
 ## User Tokens
