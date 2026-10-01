@@ -15,9 +15,36 @@ The Desktop app can guide first-time setup:
 
 Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing GSV.
 
-The background service keeps the machine connected when the Desktop window closes. Desktop sign-out and machine revocation remain separate actions. The service updates itself when the installation moves ahead; new installs go to `~/.gsv/bin` and need no administrator rights.
+The background service keeps the machine connected when the Desktop window closes. Desktop sign-out and machine revocation remain separate actions. On Linux and macOS the service updates itself when the installation moves ahead; new installs go to `~/.gsv/bin` and need no administrator rights.
 
 The CLI can inspect and control the same service. Run `gsv daemon --help` for the commands supported by the installed version.
+
+## Windows Computers And Servers
+
+Windows 10 or newer on x64 supports Desktop, the CLI, the machine daemon, voice
+and gestures. Connecting the computer asks for administrator approval to install
+an automatic Windows service. The machine can reconnect after reboot before
+anyone signs in; signing out or closing Desktop does not disconnect it.
+
+Commands run as the dedicated `NT SERVICE\gsvd` account. Its default workspace
+is `%USERPROFILE%\GSV`, and installation grants that account access to the
+selected folder. Personal SSH keys, mapped drives and user-installed tools do
+not automatically become available to the service. Install tools for the machine
+and configure credentials for the service identity. Use UNC paths for network
+shares. An administrator can choose a different Log On account in Windows
+Services when that machine needs one.
+
+`gsv daemon status`, `stop`, `start`, `restart`, `diagnostics` and `logs` inspect
+or control the enrolled owner's service. `reload` applies that owner's changed
+device settings; run `gsv daemon install` again to change the workspace and its
+permissions. Uninstalling the service removes its workspace grant and keeps
+saved enrollment, logs and files. Desktop login and machine enrollment are
+separate credentials; removing one does not revoke the other.
+
+Windows service updates require administrator approval. Close Desktop and run
+the host installer again; it updates the service and rolls back if the new
+daemon cannot start. For servers, `install.ps1 -Headless` installs just the CLI
+and daemon. Voice, camera gestures and Desktop need an interactive login.
 
 ## Connect A Browser
 

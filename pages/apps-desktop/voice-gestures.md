@@ -15,7 +15,10 @@ pause it; sending is a separate action unless you use the send gesture.
 
 The first use may require operating-system permission for the microphone and
 downloads a local voice model; Desktop shows the download progress. Choose the
-intended microphone if more than one is available.
+intended microphone if more than one is available. On Windows, enable microphone
+and camera access for desktop apps in Windows Privacy settings. These controls
+run in the signed-in Desktop session; the background machine service does not
+capture audio or video before login.
 
 ## Hands-Free
 
