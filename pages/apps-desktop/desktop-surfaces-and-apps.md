@@ -17,6 +17,9 @@ Use the **Processes** block in **Fleet** when you want to:
 See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md)
 for the difference between sent messages and work activity.
 
+Code blocks in Ship replies and Memory have a **copy** action. Long lines scroll
+within the block; copy keeps indentation and line breaks without adding a final newline.
+
 ## Fleet
 
 Fleet is the operational view:
