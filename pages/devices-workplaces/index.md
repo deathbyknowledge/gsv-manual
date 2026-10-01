@@ -23,7 +23,8 @@ targets pair --name "My laptop" --platform mac
 ```
 
 The JSON result contains the install and `gsv pair CODE` commands for this space
-and release. Share them with the owner; skip installation if GSV is already installed.
+and release. Share each command with the owner in its own fenced code block so it
+can be copied directly; skip installation if GSV is already installed.
 The invitation lasts ten minutes and enrolls under the human owner's account.
 When the user says it finished, check `targets show my-laptop` before claiming it is connected.
 
