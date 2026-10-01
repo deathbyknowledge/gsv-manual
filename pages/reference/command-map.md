@@ -16,6 +16,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Read or send email | `mail` |
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
+| Connect a computer or browser for the owner | `targets pair` |
 | Make an HTTP request | `net` |
 | Use an MCP integration | `mcp` |
 | Connect or remove an OAuth account | `oauth` |

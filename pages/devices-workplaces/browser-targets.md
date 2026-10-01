@@ -6,6 +6,11 @@ A browser target is a browser profile the user paired with the **Your GSV** exte
 
 To connect one, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md).
 
+Ship can create the invitation with `targets pair --name "My browser" --platform browser`
+on `gsv`. Share the returned extension download, installation instructions and code
+with the owner. They paste the code into the extension panel; browsers do not use
+the terminal's `gsv pair` command.
+
 ## What A Browser Reaches
 
 - Any site the profile is signed into, through the user's own session.
