@@ -63,6 +63,7 @@ permissions. Uninstalling the service removes its workspace grant and keeps
 saved enrollment, logs and files. Desktop login and machine enrollment are
 separate credentials; removing one does not revoke the other.
 
+Setup upgrades remember the previously selected installation directory.
 Windows service updates require administrator approval. Close Desktop and run
 the host installer again; it updates the service and rolls back if the new
 daemon cannot start. For servers, `install.ps1 -Headless` installs just the CLI
