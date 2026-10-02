@@ -39,6 +39,8 @@ after a native program when its exact exit code matters. Keep drive-letter and U
 quote paths containing spaces, and check which service account owns the command.
 A mapped drive in your interactive desktop may not exist for the machine service;
 use a UNC path with permissions for that service account instead.
+Root-relative Windows paths stay on the current drive or share: `\docs` from
+`//server/share/current` resolves to `//server/share/docs`.
 
 ## Copy Or Work In Place
 
