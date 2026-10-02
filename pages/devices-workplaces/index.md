@@ -67,6 +67,10 @@ device settings; run `gsv daemon install` again to change the workspace and its
 permissions. Uninstalling the service removes its workspace grant and keeps
 saved enrollment, logs and files. Desktop login and machine enrollment are
 separate credentials; removing one does not revoke the other.
+Damaged configuration does not block service removal. If uninstall cannot revoke
+the workspace grant, it reports that an administrator must remove it manually.
+Reinstalling then uses the enrolling user's configuration instead of damaged
+daemon configuration retained from the removed service.
 
 Setup upgrades remember the previously selected installation directory.
 Windows service updates require administrator approval. Close Desktop and run
