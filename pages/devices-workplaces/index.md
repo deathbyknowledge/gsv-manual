@@ -56,7 +56,9 @@ selected folder. Personal SSH keys, mapped drives and user-installed tools do
 not automatically become available to the service. Install tools for the machine
 and configure credentials for the service identity. Use UNC paths for network
 shares. An administrator can choose a different Log On account in Windows
-Services when that machine needs one.
+Services when that machine needs one. Reinstallation and upgrades preserve the
+service's account, startup mode and recovery settings. If another service uses
+the `gsvd` registration, an administrator must resolve that conflict first.
 
 `gsv daemon status`, `stop`, `start`, `restart`, `diagnostics` and `logs` inspect
 or control the enrolled owner's service. `reload` applies that owner's changed
