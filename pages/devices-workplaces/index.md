@@ -44,7 +44,11 @@ and gestures. Connecting the computer asks for administrator approval to install
 an automatic Windows service. The machine can reconnect after reboot before
 anyone signs in; signing out or closing Desktop does not disconnect it.
 
-Commands run as the dedicated `NT SERVICE\gsvd` account. Its default workspace
+Commands run as the dedicated `NT SERVICE\gsvd` account. Choose a workspace
+whose permissions the enrolling user can change without elevation. Administrator
+approval installs the service; workspace access is granted using that user's
+existing permissions. Approval alone does not grant agents extra access to
+protected application or system folders. Its default workspace
 is `%USERPROFILE%\GSV`, and installation grants that account access to the
 selected folder. Personal SSH keys, mapped drives and user-installed tools do
 not automatically become available to the service. Install tools for the machine
