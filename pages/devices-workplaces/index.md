@@ -44,7 +44,9 @@ and gestures. Connecting the computer asks for administrator approval to install
 an automatic Windows service. The machine can reconnect after reboot before
 anyone signs in; signing out or closing Desktop does not disconnect it.
 
-Commands run as the dedicated `NT SERVICE\gsvd` account. Choose a workspace
+Commands run as the dedicated `NT SERVICE\gsvd` account. Machine tools share
+that account's OS permissions, including access to its daemon state; the workspace
+is a starting directory, not a sandbox. Choose a workspace
 whose permissions the enrolling user can change without elevation. Administrator
 approval installs the service; workspace access is granted using that user's
 existing permissions. Approval alone does not grant agents extra access to
