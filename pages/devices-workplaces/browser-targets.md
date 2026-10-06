@@ -47,7 +47,9 @@ web components. Click the desired button's reference; a reference addresses one
 element and takes no selector index. Click and type briefly wait for temporary
 overlays to clear before failing, without repeating input that was already sent.
 For a persistent obstruction, inspect a fresh snapshot and handle the visible
-dialog or menu.
+dialog or menu. If a control remains outside the viewport after scrolling, the
+command reports that no input was sent. Inspect `page screenshot` for a misplaced
+popup or other layout problem instead of repeating the click or scrolling again.
 
 Use `page key Space` (or a quoted literal space), `Enter`, `Tab`, `ArrowDown`,
 `Escape`, `Ctrl+a`, or `Shift+Tab` for keyboard interaction. Keys go to the focused
