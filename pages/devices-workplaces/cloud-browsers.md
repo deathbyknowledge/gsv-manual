@@ -52,13 +52,22 @@ stop an already admitted browser.
 
 ## Watch And Interact Together
 
-Clicking a cloud browser in Fleet opens its live view directly. The view follows
+Clicking a cloud browser below Zen's prompt, in a work receipt, or in Fleet opens
+its live view directly. Zen remains behind the browser window, which has tabs,
+an address strip, and the page filling its width. The view follows
 Ship's active tab and shows its cursor and clicks. Watching does not pause
 Ship. The person can click, scroll, paste and type in the same browser without
 entering a separate control mode. Clicking pins the view to that tab; **Follow
 Ship** resumes following. Human input gets brief priority and each browser action
 finishes intact before another actor's input runs. Closing the viewer leaves
 both the browser and Ship running.
+Use the window's secondary menu to stop it.
+
+A slow page or interrupted live frame does not by itself stop the browser.
+Health checks run independently of page JavaScript. A temporary provider
+failure gets a bounded recovery window within the original lifetime; a missing
+session or persistent failure stops the instance. Recovery does not repeat
+agent actions. Inspect the page before deciding how to continue.
 
 ## Ask The Person To Sign In
 

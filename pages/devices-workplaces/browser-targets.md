@@ -57,6 +57,34 @@ control, including controls inside open shadow roots. Action results distinguish
 input delivery from observed changes; inspect the resulting page to confirm the
 website did what the task required.
 
+Use `page fill` to replace a field's value, including native date/time inputs;
+`page type` inserts text. Form commands verify the resulting state:
+
+```bash
+page fill --label 'From' 'Amsterdam Centraal'
+page fill --role input-time '10:00'
+page select --label 'Class' --option-label 'First'
+page check --label 'Direct only'
+page click --role button --name 'Plan' --snapshot
+```
+
+Dates use `YYYY-MM-DD`; times use `HH:mm`. `page select` addresses native
+dropdowns; custom listboxes use `page click --role option --name '…'`. Use
+`--unchecked` to clear checked state. An already matching checkbox is not
+clicked again. Password values are omitted from snapshots and action results.
+
+Role/name and field-label locators require one exact accessible match and
+return candidate refs when ambiguous. Add `--within @ref` using a form or
+dialog reference from a snapshot to narrow the lookup. `page snapshot --within
+@ref` inspects just that region; action `--snapshot` returns fresh state and refs
+after input. `page wait` also accepts role/label locators. `page --help` is the
+current command reference.
+
+`snapshot | grep` is useful for reading a large page, but locating a known field
+or button should use a precise locator or reference. Do not depend on extracting
+reference IDs from prose. If an action succeeds but its optional snapshot fails,
+inspect again; the action receipt still records that input was delivered.
+
 ## Address Browser Files
 
 Target IDs containing a colon use brackets in file syntax:
