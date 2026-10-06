@@ -4,6 +4,13 @@
 
 ## Sign-In Sessions
 
+If a newly claimed space still needs setup, choose **Continue setup** and sign
+in with the email used to claim it. Select **Continue** beside the space to renew
+its setup link. This resumes the same space and does not require a new invite.
+For an invitation issued directly by an operator, ask the operator to renew it.
+Owner verification resumes setup; it does not sign in to an existing local account
+or reset its password.
+
 Web and Desktop sign in as a person. Locking, signing out, or switching users clears that client's private cached data and active session.
 
 A browser or Desktop session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
