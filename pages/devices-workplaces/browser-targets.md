@@ -42,6 +42,19 @@ The target description lists the operations, permissions, and online state of th
 
 Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
+Snapshots retain the individual controls inside calendar rows, list items, and
+web components. Click the desired button's reference; a reference addresses one
+element and takes no selector index. Click and type briefly wait for temporary
+overlays to clear before failing, without repeating input that was already sent.
+For a persistent obstruction, inspect a fresh snapshot and handle the visible
+dialog or menu.
+
+Use `page key Space` (or a quoted literal space), `Enter`, `Tab`, `ArrowDown`,
+`Escape`, `Ctrl+a`, or `Shift+Tab` for keyboard interaction. Keys go to the focused
+control, including controls inside open shadow roots. Action results distinguish
+input delivery from observed changes; inspect the resulting page to confirm the
+website did what the task required.
+
 ## Address Browser Files
 
 Target IDs containing a colon use brackets in file syntax:
