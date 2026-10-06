@@ -23,9 +23,11 @@ the terminal's `gsv pair` command.
 ## Find It
 
 An operator-enabled [cloud browser](cloud-browsers.md) is another browser target.
-It can run while personal devices are offline and restore a saved cloud profile.
-Use `instance catalog` to discover availability. Its first website login happens
-through GSV's human browser view.
+It can run while personal devices are offline and automatically remembers
+website logins for the local account. Use `instance catalog` to discover
+availability. Ordinary starts reuse the current browser; use tabs for additional
+work. Its first website login happens through GSV's browser view, which also lets
+the person watch and interact while Ship works.
 
 Check for a browser before telling the user that GSV cannot reach a service:
 
