@@ -129,6 +129,9 @@ connected personal browser; do not ask for the credential in chat.
 
 Browser automation is paused during this handoff. Human-only open, image, input
 and completion operations cannot be invoked by agents. Other work can continue.
+**continue** completes only after saving succeeds. If saving fails, human control
+and the waiting task remain open; the person can retry or cancel. Cancellation
+remains available during a save and cannot be undone by its late completion.
 Completion or cancellation reopens the matching waiting responsibility; its
 deadline provides a recovery check if completion is interrupted. Inspect with:
 
