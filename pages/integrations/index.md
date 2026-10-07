@@ -20,7 +20,7 @@ Connecting a provider account and proving which external person is the signed-in
 
 ## Email
 
-Managed email can receive, search, send, and reply to email. Ship receives new-mail summaries through restricted notification runs. See [Use email](email.md).
+This GSV has its own address, `<handle>@gsv.space`, kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. GSV reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use GSV's email address](email.md).
 
 ## MCP
 
@@ -43,5 +43,5 @@ OAuth lets a user authorize an external account without pasting an access token 
 
 - [Connect and route messaging](adapters-routing.md)
 - [Connect with another GSV](contacts.md)
-- [Use email](email.md)
+- [Use GSV's email address](email.md)
 - [MCP and OAuth](mcp-oauth.md)
