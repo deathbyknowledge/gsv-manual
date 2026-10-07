@@ -49,6 +49,16 @@ Read, Write, Shell and CodeMode operations. Run `tabs list`, `tabs open --active
 browser-target` for the shared page commands. The target has temporary files and
 a browser command shell; it is not a Linux machine.
 
+Large `tabs list` results include `nextOffset`; continue with
+`tabs list --offset <nextOffset>`. The cloud browser's `/proc/tabs.json` exposes
+the first bounded page and the same pagination metadata.
+
+Temporary storage is limited to 16 MiB per encoded file entry and 64 MiB in
+total, including encoding and metadata. Oversized transfers are rejected
+before reading their bodies. A failed save leaves existing files unchanged
+and does not publish a new file. These temporary-file limits are separate
+from the saved website-state allowance below.
+
 When finished, export useful files and close tabs you opened. Do not stop a
 shared browser just because one task ended. Stop an isolated browser you
 created with `instance stop <browser-id> --wait` when finished. You can

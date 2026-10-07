@@ -42,6 +42,11 @@ The target description lists the operations, permissions, and online state of th
 
 Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
+`tabs list` returns a bounded page of tabs. If it includes `nextOffset`, continue
+with `tabs list --offset <nextOffset>` until that field is absent. `count` is the
+number returned in this page and `total` is the current inventory size. An
+ellipsis marks shortened titles or URLs; use the tab ID to address the page.
+
 Snapshots retain the individual controls inside calendar rows, list items, and
 web components. Click the desired button's reference; a reference addresses one
 element and takes no selector index. Click and type briefly wait for temporary
