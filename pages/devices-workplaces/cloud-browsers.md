@@ -175,6 +175,10 @@ Saved state is discoverable in the native filesystem:
 
 Read `status.json` for save times, errors, duration and sizes. `sites.json` breaks
 down cookie domains, local storage and IndexedDB usage without login values.
+Byte and record totals include all measured storage. Detailed database lists and
+names are bounded; `databaseUsageTruncated` marks shortened or omitted details.
+`cookieDomainsTruncated` marks omitted domain details. These flags describe the
+metadata, independently of whether the website's state was saved successfully.
 Both expose `issues` for partial saves. Snapshot `savedAt` applies to the latest
 commit; each issue's optional `retainedAt` identifies that site's older saved
 data. No `retainedAt` means no earlier site snapshot was available. Parent-domain
