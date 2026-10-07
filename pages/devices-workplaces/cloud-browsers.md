@@ -175,8 +175,11 @@ Saved state is discoverable in the native filesystem:
 
 Read `status.json` for save times, errors, duration and sizes. `sites.json` breaks
 down cookie domains, local storage and IndexedDB usage without login values.
-Byte and record totals include all measured storage. Detailed database lists and
-names are bounded; `databaseUsageTruncated` marks shortened or omitted details.
+Byte and record totals include all measured storage. If export exceeds the
+allowance, collection stops early: `usage.complete` is false and the reported
+required bytes are a lower bound. The previous snapshot remains intact.
+Detailed database lists and names are bounded; `databaseUsageTruncated` marks
+shortened or omitted details.
 `cookieDomainsTruncated` marks omitted domain details. These flags describe the
 metadata, independently of whether the website's state was saved successfully.
 The complete usage breakdown is limited to 64 KiB. `sitesTruncated` means only
