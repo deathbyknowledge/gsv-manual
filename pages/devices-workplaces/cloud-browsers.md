@@ -179,6 +179,11 @@ Byte and record totals include all measured storage. Detailed database lists and
 names are bounded; `databaseUsageTruncated` marks shortened or omitted details.
 `cookieDomainsTruncated` marks omitted domain details. These flags describe the
 metadata, independently of whether the website's state was saved successfully.
+The complete usage breakdown is limited to 64 KiB. `sitesTruncated` means only
+some site details fit; the largest contributors are kept and `siteCount` retains
+the total measured count. This never truncates the saved website state.
+`browser profile list [--offset N]` returns up to 32 summaries and `nextOffset`
+when more remain. Use `browser profile get ID` for one profile's usage and issues.
 Both expose `issues` for partial saves. Snapshot `savedAt` applies to the latest
 commit; each issue's optional `retainedAt` identifies that site's older saved
 data. No `retainedAt` means no earlier site snapshot was available. Parent-domain
