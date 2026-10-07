@@ -8,6 +8,10 @@ the browser extension. Ordinary browsers automatically remember website logins
 for the local account in this space. They do not inherit the user's personal
 browser login.
 
+Each account has one automatic saved-login identity. Profiles created through
+advanced commands stay separate. Forgetting the automatic state makes the next
+ordinary start fresh, even when other saved profiles still exist.
+
 ## Start, Use, Stop
 
 On the `gsv` target:
@@ -222,6 +226,9 @@ was received, cleanup releases the concurrency slot three minutes after the
 acquisition attempt, independently of the requested browser lifetime.
 A browser that never became ready consumes no browser-time allowance. Its full
 reservation returns when cleanup completes.
+Runtime crossing a UTC month boundary is split between the monthly allowances,
+while total rounded runtime stays capped by the reserved lifetime. Active
+reservations remain held through rollover until confirmed termination.
 
 Device-bound sign-in, hardware security keys, local extensions, operating-system
 dialogs and websites that reject a cloud browser may require a connected
