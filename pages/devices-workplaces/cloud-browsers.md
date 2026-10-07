@@ -220,6 +220,8 @@ including human sign-in, and unused allowance returns after confirmed stop.
 An uncertain launch is never repeated automatically. If no provider session ID
 was received, cleanup releases the concurrency slot three minutes after the
 acquisition attempt, independently of the requested browser lifetime.
+A browser that never became ready consumes no browser-time allowance. Its full
+reservation returns when cleanup completes.
 
 Device-bound sign-in, hardware security keys, local extensions, operating-system
 dialogs and websites that reject a cloud browser may require a connected
