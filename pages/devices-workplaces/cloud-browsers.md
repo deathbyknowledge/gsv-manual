@@ -51,12 +51,19 @@ a browser command shell; it is not a Linux machine.
 
 When finished, export useful files and close tabs you opened. Do not stop a
 shared browser just because one task ended. Stop an isolated browser you
-created with `instance stop <browser-id>` when finished. You can
+created with `instance stop <browser-id> --wait` when finished. You can
 also stop by the original ID with `instance stop --request-id <id>`, even when
 the start response was lost. Stopped and failed instances remain terminal.
 An ordinary start after the current browser stops creates a different target
 and restores the saved login state. Cancelling a tool's wait does not
 stop an already admitted browser.
+
+Ordinary stop first saves successfully. If saving fails, the browser remains
+running within its original lifetime. Inspect `instance get <browser-id>` for
+`persistence` status and retry with `browser profile save <browser-id>`.
+`instance stop <browser-id> --wait` returns after termination and release of the
+saved-state lease. Use `--force` only for an intentional stop without preserving
+unsaved changes. Expiry and forced stops can lose changes since the last save.
 
 ## Watch And Interact Together
 
@@ -117,6 +124,36 @@ Saved login state retains cookies, local storage and IndexedDB between ordinary
 instances. No profile creation or selection is needed in the user flow. Advanced
 `browser profile` commands expose `saveStatus` and `savedAt`; do not promise that unsaved
 changes will survive. Websites can revoke sessions or require another login.
+Saves run periodically, after human input settles, on handoff completion and
+before an ordinary stop. Closing tabs does not remove their site data from the
+next snapshot. Restore completes before readiness; a failed restore never
+silently opens an empty browser. The viewer offers **retry save** and **stop
+without saving** after a save failure. Failed or oversized saves preserve the
+previous successful snapshot.
+
+Saved state is discoverable in the native filesystem:
+
+```text
+/var/lib/gsv/browser/<human-account>/
+  README.txt
+  status.json
+  sites.json
+  state.enc
+```
+
+Read `status.json` for save times, errors, duration and sizes. `sites.json` breaks
+down cookie domains, local storage and IndexedDB usage without login values.
+The raw serialized allowance defaults locally to 16 MiB; operators can set a
+different limit up to 32 MiB. The snapshot is compressed and encrypted. Unchanged
+state does not upload a new revision. `state.enc` is opaque and its key stays in
+the instance service; copying it alone is not a portable backup.
+
+Metadata and snapshot bytes are read-only. Deleting `state.enc`, or recursively
+removing the account directory, invokes the same forget operation as profile
+deletion: stop the browser using it, fence pending saves, erase snapshots and the
+key. Cleanup may finish after the directory disappears. The next ordinary start
+has fresh state. This mount requires the same owner and browser permissions as
+the API; it does not bypass them.
 Profile deletion removes stored login state and stops the browser using it:
 
 ```bash
@@ -134,3 +171,9 @@ Device-bound sign-in, hardware security keys, local extensions, operating-system
 dialogs and websites that reject a cloud browser may require a connected
 personal browser. Importing extension sessions is not supported. Linux container
 instances are not available in this first browser implementation.
+The saved state is not an entire Chrome user-data directory: session storage,
+service-worker caches and filesystem-backed storage are excluded. Binary
+buffers/views, dates, maps, sets, bigints and cycles in IndexedDB are preserved.
+Unsupported types, including CryptoKey and Blob records, fail a save visibly.
+Do not promise that any particular site's login survives until it has been
+tested through an actual stop and restart.
