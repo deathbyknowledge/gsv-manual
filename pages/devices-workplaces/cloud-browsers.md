@@ -14,14 +14,20 @@ On the `gsv` target:
 
 ```bash
 instance catalog
-instance start browser --request-id <fresh-persisted-id> --seconds 900
-instance get <instance-id>
+instance start browser --request-id <fresh-persisted-id> --seconds 900 --wait
+instance get <browser-id>
 ```
 
 An ordinary start reuses the account's current browser, including one that is
 still starting. Use another tab for additional work. Reuse does not extend its
 lifetime or reserve more usage. Every start request keeps its own receipt,
 including requests that reused an instance.
+The start result says `disposition: created` or `reused`. `--wait` returns when
+ready, with a default timeout of 60000 ms (`--timeout MS`, maximum 120000).
+A timeout stops waiting without stopping the browser; inspect the same saved
+request ID to recover. Instance commands accept the displayed eight-character
+target ID or full instance ID. An unknown instance ID is an error, including
+for stop.
 
 Request a separate temporary browser only when isolation is needed:
 
@@ -43,7 +49,9 @@ Read, Write, Shell and CodeMode operations. Run `tabs list`, `tabs open --active
 browser-target` for the shared page commands. The target has temporary files and
 a browser command shell; it is not a Linux machine.
 
-When finished, export useful files and run `instance stop <instance-id>`. You can
+When finished, export useful files and close tabs you opened. Do not stop a
+shared browser just because one task ended. Stop an isolated browser you
+created with `instance stop <browser-id>` when finished. You can
 also stop by the original ID with `instance stop --request-id <id>`, even when
 the start response was lost. Stopped and failed instances remain terminal.
 An ordinary start after the current browser stops creates a different target
@@ -63,6 +71,9 @@ finishes intact before another actor's input runs. Closing the viewer leaves
 both the browser and Ship running.
 The window uses Instrument's text controls: **expand** enlarges the view,
 **close** leaves the browser running, and **more → stop browser** stops it.
+The view streams page changes, drops superseded images on slow connections,
+and reconnects after an interruption. A hidden view pauses capture; reopening
+resumes the same browser. Viewing does not require repeated screenshot commands.
 
 A slow page or interrupted live frame does not by itself stop the browser.
 Health checks run independently of page JavaScript. A temporary provider

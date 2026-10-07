@@ -84,7 +84,12 @@ structured snapshot tree. `page wait` also accepts role/label locators.
 
 `snapshot | grep` is useful for reading a large page, but locating a known field
 or button should use a precise locator or reference. Do not depend on extracting
-reference IDs from prose. Use action `--snapshot` when input reveals new
+reference IDs from prose. Visible dialogs appear above the snapshot outline with
+usable references, even when the outline is truncated. A missing semantic
+locator also mentions visible dialogs. If a search is empty, inspect the dialog
+before retrying: it may hide background content from accessibility. Use
+`page snapshot --within <dialog-ref>` to inspect its controls.
+Use action `--snapshot` when input reveals new
 controls or you need to inspect the resulting form; a verified value change
 usually needs only its receipt. If the optional snapshot fails, `snapshotError`
 is included in the completed action's receipt. Inspect again instead of
