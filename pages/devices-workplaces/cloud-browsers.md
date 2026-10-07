@@ -61,7 +61,8 @@ entering a separate control mode. Clicking pins the view to that tab; **Follow
 Ship** resumes following. Human input gets brief priority and each browser action
 finishes intact before another actor's input runs. Closing the viewer leaves
 both the browser and Ship running.
-Use the window's secondary menu to stop it.
+The window uses Instrument's text controls: **expand** enlarges the view,
+**close** leaves the browser running, and **more → stop browser** stops it.
 
 A slow page or interrupted live frame does not by itself stop the browser.
 Health checks run independently of page JavaScript. A temporary provider

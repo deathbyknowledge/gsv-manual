@@ -76,14 +76,25 @@ clicked again. Password values are omitted from snapshots and action results.
 Role/name and field-label locators require one exact accessible match and
 return candidate refs when ambiguous. Add `--within @ref` using a form or
 dialog reference from a snapshot to narrow the lookup. `page snapshot --within
-@ref` inspects just that region; action `--snapshot` returns fresh state and refs
-after input. `page wait` also accepts role/label locators. `page --help` is the
-current command reference.
+@ref` inspects just that region. Action `--snapshot` returns the complete JSON
+receipt on its first line followed by a readable outline with fresh state and
+refs. Add `--json` when you need one JSON object containing the receipt and
+structured snapshot tree. `page wait` also accepts role/label locators.
+`page --help` is the current command reference.
 
 `snapshot | grep` is useful for reading a large page, but locating a known field
 or button should use a precise locator or reference. Do not depend on extracting
-reference IDs from prose. If an action succeeds but its optional snapshot fails,
-inspect again; the action receipt still records that input was delivered.
+reference IDs from prose. Use action `--snapshot` when input reveals new
+controls or you need to inspect the resulting form; a verified value change
+usually needs only its receipt. If the optional snapshot fails, `snapshotError`
+is included in the completed action's receipt. Inspect again instead of
+repeating the input.
+
+Keep action receipts intact instead of cutting them with `head`. Chain dependent
+actions with `&&` so a failure stops the sequence. If an action must be piped,
+enable `set -o pipefail`; otherwise the pipe reader can hide its failure. Exit
+zero means the command completed; check verification and observed state before
+proceeding. Prefer `page wait` for the expected control over a fixed sleep.
 
 ## Address Browser Files
 
