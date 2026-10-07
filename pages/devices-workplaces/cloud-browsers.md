@@ -58,12 +58,20 @@ An ordinary start after the current browser stops creates a different target
 and restores the saved login state. Cancelling a tool's wait does not
 stop an already admitted browser.
 
-Ordinary stop first saves successfully. If saving fails, the browser remains
-running within its original lifetime. Inspect `instance get <browser-id>` for
-`persistence` status and retry with `browser profile save <browser-id>`.
+Ordinary stop first commits saved state. If one site cannot be exported, the
+result is `persistence.saveStatus: "partial"`: other sites are saved, the failed
+site retains its previous saved storage and associated cookies, and normal stop
+still succeeds. Inspect `persistence.issues` for affected origins and reasons.
+If the whole save fails, the browser remains running within its original
+lifetime. Inspect `instance get <browser-id>` for the cause and diagnostic,
+then retry with `browser profile save <browser-id>` when appropriate.
 `instance stop <browser-id> --wait` returns after termination and release of the
 saved-state lease. Use `--force` only for an intentional stop without preserving
 unsaved changes. Expiry and forced stops can lose changes since the last save.
+Never use `--force` to test persistence or fix unsupported storage. For a restart
+test, use `instance stop <browser-id> --wait` and check whether the tested site
+appears in `persistence.issues` before starting again. Waiting or closing tabs
+does not fix an `unsupported` storage exception.
 
 ## Watch And Interact Together
 
@@ -128,8 +136,9 @@ Saves run periodically, after human input settles, on handoff completion and
 before an ordinary stop. Closing tabs does not remove their site data from the
 next snapshot. Restore completes before readiness; a failed restore never
 silently opens an empty browser. The viewer offers **retry save** and **stop
-without saving** after a save failure. Failed or oversized saves preserve the
-previous successful snapshot.
+without saving** after a whole-save failure. Failed or oversized saves preserve
+the previous successful snapshot. Partial saves show **saved with exceptions**;
+the failed sites may require another login after restarting.
 
 Saved state is discoverable in the native filesystem:
 
@@ -143,6 +152,10 @@ Saved state is discoverable in the native filesystem:
 
 Read `status.json` for save times, errors, duration and sizes. `sites.json` breaks
 down cookie domains, local storage and IndexedDB usage without login values.
+Both expose `issues` for partial saves. Snapshot `savedAt` applies to the latest
+commit; each issue's optional `retainedAt` identifies that site's older saved
+data. No `retainedAt` means no earlier site snapshot was available. Parent-domain
+cookies shared with the failed site's subdomains are retained too.
 The raw serialized allowance defaults locally to 16 MiB; operators can set a
 different limit up to 32 MiB. The snapshot is compressed and encrypted. Unchanged
 state does not upload a new revision. `state.enc` is opaque and its key stays in
@@ -174,6 +187,8 @@ instances are not available in this first browser implementation.
 The saved state is not an entire Chrome user-data directory: session storage,
 service-worker caches and filesystem-backed storage are excluded. Binary
 buffers/views, dates, maps, sets, bigints and cycles in IndexedDB are preserved.
-Unsupported types, including CryptoKey and Blob records, fail a save visibly.
+Unsupported types, including CryptoKey and Blob records, are reported as site
+exceptions; supported sites still save. The save command returns a warning for
+partial saves and a nonzero exit status for whole-save failures.
 Do not promise that any particular site's login survives until it has been
 tested through an actual stop and restart.
