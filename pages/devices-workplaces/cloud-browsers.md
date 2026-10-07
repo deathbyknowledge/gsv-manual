@@ -22,6 +22,9 @@ An ordinary start reuses the account's current browser, including one that is
 still starting. Use another tab for additional work. Reuse does not extend its
 lifetime or reserve more usage. Every start request keeps its own receipt,
 including requests that reused an instance.
+If a start is rejected because the browser is preparing to stop, wait for the
+stop to settle and retry the same request ID; that attempt has not been admitted.
+It can reuse the browser if saving failed, or create a new one after termination.
 The start result says `disposition: created` or `reused`. `--wait` returns when
 ready, with a default timeout of 60000 ms (`--timeout MS`, maximum 120000).
 A timeout stops waiting without stopping the browser; inspect the same saved
