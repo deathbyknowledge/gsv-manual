@@ -112,6 +112,11 @@ switch tabs when a login provider opens a popup. The link does not grant browser
 access without the person's GSV login. Do not request website passwords or
 verification codes in chat; the next chat message still belongs to Ship.
 
+Cloud browsers report passkeys and hardware security keys as unavailable so an
+invisible native prompt cannot block password sign-in. Use the site's password
+or another sign-in method it offers. If the site requires a passkey, use a
+connected personal browser; do not ask for the credential in chat.
+
 Browser automation is paused during this handoff. Human-only open, image, input
 and completion operations cannot be invoked by agents. Other work can continue.
 Completion or cancellation reopens the matching waiting responsibility; its
