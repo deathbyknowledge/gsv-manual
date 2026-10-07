@@ -119,7 +119,9 @@ Send the returned action URL to the person and yield. The request also appears
 in Ship in the Web app. The person signs into GSV, opens the browser view, enters
 the website's credentials there, and chooses **continue**. They can
 switch tabs when a login provider opens a popup. The link does not grant browser
-access without the person's GSV login. Do not request website passwords or
+access without the person's GSV login. Each link stays tied to its original
+request; an ended request cannot open or complete a later one. Send the current
+request's action URL when another handoff is needed. Do not request website passwords or
 verification codes in chat; the next chat message still belongs to Ship.
 
 Cloud browsers report passkeys and hardware security keys as unavailable so an
