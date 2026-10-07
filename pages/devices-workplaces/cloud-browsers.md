@@ -218,8 +218,13 @@ browser profile delete <profile-id>
 
 Fleet's **browser** action opens the current browser, starting one if needed.
 There is no profile picker or take-control step. Stopped browsers leave the
-ordinary Fleet list; `instance list --all` retains their records. Instance
-commands report usage and limits. Starting a new instance reserves its requested lifetime. Time counts while the browser is running,
+ordinary Fleet list. `instance list --all` includes your 64 most recently created
+terminal browsers alongside active ones, without per-site save issues. Use
+`instance get ID` for recent details. Older instances retain their identity,
+status and start-request receipts for exact lookup and safe retries; runtime
+and detailed save diagnostics are discarded. Saved logins and usage accounting
+have independent lifetimes. Instance commands report usage and limits.
+Starting a new instance reserves its requested lifetime. Time counts while the browser is running,
 including human sign-in, and unused allowance returns after confirmed stop.
 An uncertain launch is never repeated automatically. If no provider session ID
 was received, cleanup releases the concurrency slot three minutes after the
