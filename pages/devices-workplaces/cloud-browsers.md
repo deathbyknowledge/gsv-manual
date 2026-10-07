@@ -224,8 +224,10 @@ terminal browsers alongside active ones, without per-site save issues. Use
 status and start-request receipts for exact lookup and safe retries; runtime
 and detailed save diagnostics are discarded. Saved logins and usage accounting
 have independent lifetimes. Instance commands report usage and limits.
-Starting a new instance reserves its requested lifetime. Time counts while the browser is running,
-including human sign-in, and unused allowance returns after confirmed stop.
+Starting a new instance reserves its requested lifetime. Time counts from
+readiness until the earlier of its fixed expiry or confirmed stop, including
+human sign-in. Slow startup reduces usable time; cleanup after expiry adds no
+usage. Unused allowance returns after confirmed stop.
 An uncertain launch is never repeated automatically. If no provider session ID
 was received, cleanup releases the concurrency slot three minutes after the
 acquisition attempt, independently of the requested browser lifetime.
