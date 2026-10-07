@@ -75,6 +75,9 @@ Ordinary stop first commits saved state. If one site cannot be exported, the
 result is `persistence.saveStatus: "partial"`: other sites are saved, the failed
 site retains its previous saved storage and associated cookies, and normal stop
 still succeeds. Inspect `persistence.issues` for affected origins and reasons.
+Very wide or deeply nested storage can also produce a partial save: the browser
+bounds temporary serialization work as well as saved bytes. Earlier state for
+that site is retained when available, and other sites continue saving.
 If the whole save fails, the browser remains running within its original
 lifetime. Inspect `instance get <browser-id>` for the cause and diagnostic,
 then retry with `browser profile save <browser-id>` when appropriate.
@@ -214,6 +217,9 @@ There is no profile picker or take-control step. Stopped browsers leave the
 ordinary Fleet list; `instance list --all` retains their records. Instance
 commands report usage and limits. Starting a new instance reserves its requested lifetime. Time counts while the browser is running,
 including human sign-in, and unused allowance returns after confirmed stop.
+An uncertain launch is never repeated automatically. If no provider session ID
+was received, cleanup releases the concurrency slot three minutes after the
+acquisition attempt, independently of the requested browser lifetime.
 
 Device-bound sign-in, hardware security keys, local extensions, operating-system
 dialogs and websites that reject a cloud browser may require a connected
