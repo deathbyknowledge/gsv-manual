@@ -2,7 +2,7 @@
 
 [Messaging, Email, And Connected Services](index.md)
 
-This GSV has an email address of its own: `<handle>@gsv.space`, where the handle is the space's name. It appears in the runtime facts at the start of every run and `mail address` prints it. The address exists for the owner's convenience: GSV reads, sends and replies from it so the owner does not have to.
+This GSV has an email address of its own: the space handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: GSV reads, sends and replies from it so the owner does not have to.
 
 ## What The Address Is For
 

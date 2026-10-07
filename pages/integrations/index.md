@@ -20,7 +20,7 @@ Connecting a provider account and proving which external person is the signed-in
 
 ## Email
 
-This GSV has its own address, `<handle>@gsv.space`, kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. GSV reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use GSV's email address](email.md).
+This GSV has its own address (`<handle>@gsv.space` on the public service; `mail address` prints the exact one), kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. GSV reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use GSV's email address](email.md).
 
 ## MCP
 
