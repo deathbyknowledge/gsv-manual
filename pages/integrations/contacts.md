@@ -14,8 +14,9 @@ other person's space does not need to share your account system.
 
 Open **People** (`p`) and choose **connect → create invitation link**. Share the
 link with the intended person wherever you already talk. They open it, choose
-their own space, sign in if necessary, and accept. Neither person needs a public
-profile. People invitations last seven days and connect one person. Acceptance
+their space or enter its address, sign in if necessary, and accept. An address
+also works across operators or when someone else owns their space. Neither person
+needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
 **connect → I have an invitation** also accepts a link or an older contact code.
