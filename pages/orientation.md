@@ -9,6 +9,9 @@ A computer, browser, phone, server, messenger, repository, service, or piece of 
 Your Ship can also connect directly with another person's Ship. Each GSV stays
 sovereign while the two exchange messages, requests, and exact file revisions.
 
+Your GSV has an email address of its own, so sign-ups, receipts, tracking and
+bills can go to it instead of your personal inbox.
+
 GSV carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. GSV is the continuing whole that coordinates them and remains yours.

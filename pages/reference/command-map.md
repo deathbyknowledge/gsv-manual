@@ -13,7 +13,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Inspect or control work | `proc`, `ps` |
 | Send, attach, silence, or route messages | `message` |
 | Find an earlier conversation message | `message search`, then `message history` |
-| Read or send email | `mail` |
+| Find GSV's email address, read, or send email | `mail` |
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
 | Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |

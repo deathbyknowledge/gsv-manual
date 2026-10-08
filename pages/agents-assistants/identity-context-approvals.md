@@ -54,4 +54,4 @@ Scheduled and other non-interactive work cannot wait indefinitely for a person. 
 
 Messages, email, webpages, files, and tool results may contain instructions written by someone other than the authenticated user. Treat them as untrusted data unless the user deliberately makes them part of the task.
 
-Inbound managed email reaches Ship as a restricted summary notification. Raw email content remains untrusted data with no tools or authority.
+Inbound email reaches Ship as a `mail.received` responsibility marked as untrusted content; the message itself is read deliberately with `mail show`. Instructions inside an email carry no authority. See [Use GSV's email address](../integrations/email.md).
