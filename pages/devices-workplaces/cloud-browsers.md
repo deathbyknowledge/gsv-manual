@@ -8,6 +8,12 @@ the browser extension. Ordinary browsers automatically remember website logins
 for the local account in this space. They do not inherit the user's personal
 browser login.
 
+For a website task with no suitable existing browser, check `instance catalog`
+and start a cloud browser when available. Personal-browser pairing is optional;
+an empty `targets list --kind browser` does not mean browsing is unavailable.
+Report an actual availability or startup failure if provisioning is blocked.
+Website login or verification is a separate step handled through the live view.
+
 Each account has one automatic saved-login identity. Profiles created through
 advanced commands stay separate. Forgetting the automatic state makes the next
 ordinary start fresh, even when other saved profiles still exist.
