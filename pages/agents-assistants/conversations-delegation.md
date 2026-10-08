@@ -32,7 +32,7 @@ Ship is the main conversation. A Work Session is a temporary direct conversation
 
 ## Search Past Messages
 
-In Zen, use **search**, `/` in browse mode, or `Ctrl/Cmd+F`. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
+In Chat, open **Help** in the header and choose **Search Chat**, or press `Ctrl+K` from any view. `/` in Chat's browse mode and `Ctrl/Cmd+F` also open search. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
 
 Ship can search the same sent messages through Shell:
 
