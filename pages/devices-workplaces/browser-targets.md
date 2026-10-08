@@ -2,9 +2,19 @@
 
 [Computers And Browser](index.md)
 
-A browser target is a browser profile the user paired with the **Your GSV** extension. GSV works inside that profile, so it reaches whatever the user is signed into there: a calendar, mail, a billing portal, an admin dashboard, a private forum. A site the browser is already logged into needs no MCP server, OAuth account, or other integration.
+Browser use is a built-in GSV capability. A browser target can be the user's
+browser connected through the **Your GSV** extension, or an on-demand
+[cloud browser](cloud-browsers.md) that Ship starts and manages. Both use the
+same page and tab commands described below; inspect each target's advertised
+capabilities for additional features.
 
-To connect one, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md).
+The extension uses the user's existing signed-in sessions. A cloud browser
+keeps its own saved sessions, with the person signing in through GSV's live view.
+Either can reach a calendar, mail, billing portal, admin dashboard or private
+forum through its website. A site the selected browser is already logged into
+needs no MCP server, OAuth account or other integration.
+
+To connect the user's browser, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
 
 Ship can create the invitation with `targets pair --name "My browser" --platform browser`
 on `gsv`. Share the returned extension download, installation instructions and code
@@ -36,7 +46,11 @@ targets search "browser"
 targets show <browser-target-id>
 ```
 
-The target description lists the operations, permissions, and online state of that browser connection. If no browser is paired, say that pairing the Your GSV extension would give GSV that site through the user's signed-in session, and point to the connection steps above.
+The target description lists the operations, permissions and online state of
+that browser. If none is available, check `instance catalog` for cloud browser
+support or offer to pair the Your GSV extension. Choose the browser containing
+the relevant tab or website session; a new cloud browser does not inherit the
+extension browser's logins.
 
 ## Work In A Browser
 
