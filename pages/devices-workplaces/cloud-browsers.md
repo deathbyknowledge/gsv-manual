@@ -127,9 +127,11 @@ browser handoff request <instance-id> <tab-id> --request-id <fresh-persisted-id>
 
 Send the returned action URL to the person and yield. The request also appears
 in Ship in the Web app. The person signs into GSV, opens the browser view, enters
-the website's credentials there, and chooses **continue**. They can
-switch tabs when a login provider opens a popup. The link does not grant browser
-access without the person's GSV login. Each link stays tied to its original
+the website's credentials there, and can switch tabs when a login provider opens
+a popup. After finishing the requested sign-in or verification steps, they choose
+**I’m done — resume Ship**. Once saving succeeds, the view confirms completion and
+follows Ship again. The link does not grant browser access without the person's
+GSV login. Each link stays tied to its original
 request; an ended request cannot open or complete a later one. Send the current
 request's action URL when another handoff is needed. Do not request website passwords or
 verification codes in chat; the next chat message still belongs to Ship.
@@ -141,9 +143,9 @@ connected personal browser; do not ask for the credential in chat.
 
 Browser automation is paused during this handoff. Human-only open, image, input
 and completion operations cannot be invoked by agents. Other work can continue.
-**continue** completes only after saving succeeds. If saving fails, human control
-and the waiting task remain open; the person can retry or cancel. Cancellation
-remains available during a save and cannot be undone by its late completion.
+**I’m done — resume Ship** completes only after saving succeeds. If saving fails,
+human control and the waiting task remain open; the person can retry or cancel.
+Cancellation remains available during a save and cannot be undone by its late completion.
 Completion or cancellation reopens the matching waiting responsibility; its
 deadline provides a recovery check if completion is interrupted. Inspect with:
 
