@@ -75,3 +75,4 @@ Prefer a paired browser for:
 
 - [Run commands and copy files across targets](targets-copy.md)
 - [Use a browser target](browser-targets.md)
+- [Start a cloud browser and remember website logins](cloud-browsers.md)

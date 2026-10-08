@@ -16,6 +16,10 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Read or send email | `mail` |
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
+| Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |
+| Save and stop a cloud browser, waiting for release | `instance stop ID --wait` on `gsv`; a failed save leaves it running |
+| Retry saving website state | `browser profile save ID` on `gsv`; inspect the returned save status |
+| Inspect or forget remembered browser logins | `browser profile list`, `browser profile get <profile-id>`, `browser profile delete <profile-id>`; deletion stops its browser and forgets the state |
 | Connect a computer or browser for the owner | `targets pair` |
 | Make an HTTP request | `net` |
 | Use an MCP integration | `mcp` |
