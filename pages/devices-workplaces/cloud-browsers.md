@@ -66,10 +66,10 @@ before reading their bodies. A failed save leaves existing files unchanged
 and does not publish a new file. These temporary-file limits are separate
 from the saved website-state allowance below.
 
-When finished, export useful files and close tabs you opened. Do not stop a
-shared browser just because one task ended. Stop an isolated browser you
-created with `instance stop <browser-id> --wait` when finished. You can
-also stop by the original ID with `instance stop --request-id <id>`, even when
+When browser work is finished, export any files you need and stop the cloud
+browser with `instance stop <browser-id> --wait` on `gsv`. Keep it open if the
+user asks or ongoing work still needs it. You can also stop by the original ID
+with `instance stop --request-id <id>`, even when
 the start response was lost. Stopped and failed instances remain terminal.
 An ordinary start after the current browser stops creates a different target
 and restores the saved login state. Cancelling a tool's wait does not
