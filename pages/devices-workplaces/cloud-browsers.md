@@ -172,17 +172,8 @@ without saving** after a whole-save failure. Failed or oversized saves preserve
 the previous successful snapshot. Partial saves show **saved with exceptions**;
 the failed sites may require another login after restarting.
 
-Saved state is discoverable in the native filesystem:
-
-```text
-/var/lib/gsv/browser/<human-account>/
-  README.txt
-  status.json
-  sites.json
-  state.enc
-```
-
-Read `status.json` for save times, errors, duration and sizes. `sites.json` breaks
+Use `browser profile list` to find the saved state and `browser profile get
+<profile-id>` for save times, errors, duration and sizes. Its `usage` field breaks
 down cookie domains, local storage and IndexedDB usage without login values.
 Byte and record totals include all measured storage. If export exceeds the
 allowance, collection stops early: `usage.complete` is false and the reported
@@ -196,22 +187,19 @@ some site details fit; the largest contributors are kept and `siteCount` retains
 the total measured count. This never truncates the saved website state.
 `browser profile list [--offset N]` returns up to 32 summaries and `nextOffset`
 when more remain. Use `browser profile get ID` for one profile's usage and issues.
-Both expose `issues` for partial saves. Snapshot `savedAt` applies to the latest
+`profile get` exposes `issues` for partial saves. Snapshot `savedAt` applies to the latest
 commit; each issue's optional `retainedAt` identifies that site's older saved
 data. No `retainedAt` means no earlier site snapshot was available. Parent-domain
 cookies shared with the failed site's subdomains are retained too.
 The raw serialized allowance defaults locally to 16 MiB; operators can set a
 different limit up to 32 MiB. The snapshot is compressed and encrypted. Unchanged
-state does not upload a new revision. `state.enc` is opaque and its key stays in
-the instance service; copying it alone is not a portable backup.
+state does not upload a new revision. Snapshot bytes and their encryption key
+remain private to Instances.
 
-Metadata and snapshot bytes are read-only. Deleting `state.enc`, or recursively
-removing the account directory, invokes the same forget operation as profile
-deletion: stop the browser using it, fence pending saves, erase snapshots and the
-key. Cleanup may finish after the directory disappears. The next ordinary start
-has fresh state. This mount requires the same owner and browser permissions as
-the API; it does not bypass them.
-Profile deletion removes stored login state and stops the browser using it:
+Profile deletion stops the browser using the saved state, fences pending saves,
+and erases snapshots and the key. Cleanup can continue while the profile is
+marked `deleting`. The next ordinary start has fresh state. Profile access
+requires the same human owner and browser permissions as the instance API:
 
 ```bash
 browser profile get <profile-id>
