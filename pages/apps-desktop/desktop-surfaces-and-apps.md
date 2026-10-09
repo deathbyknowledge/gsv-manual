@@ -44,11 +44,14 @@ Open **People** (`p`) to connect with someone on another GSV space. **connect**
 creates an invitation link; **I have an invitation** accepts a link or code.
 Public profile addresses are another way to send a first message. Incoming
 requests wait for an explicit acceptance, which opens the conversation.
+Inviting and accepting ask each person to choose who handles new messages on
+their own side, with neither option preselected.
 
 You can message people yourself or choose **ask Ship** to open an editable request
 in your ordinary Ship chat. The first-use examples help you start with a concrete
-task, such as making plans together. **Ship replies** is a separate preference for
-handling future messages; connecting does not turn it on.
+task, such as making plans together. **Automatically handle new messages** changes
+your choice later. Replies associated with assigned tasks can still reach Ship
+when it is off; connecting or enabling it does not replay existing messages.
 
 A dot beside People marks unread activity. Zen also shows unread conversations
 and incoming requests in one compact line above the prompt, including after

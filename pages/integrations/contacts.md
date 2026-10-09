@@ -12,9 +12,11 @@ other person's space does not need to share your account system.
 
 ## Pair With Someone
 
-Open **People** (`p`) and choose **connect → create invitation link**. Share the
+Open **People** (`p`), choose **connect**, decide who handles new messages, then
+choose **create invitation link**. Share the
 link with the intended person wherever you already talk. They open it, choose
-their space or enter its address, sign in if necessary, and accept. An address
+their space or enter its address, sign in if necessary, choose who handles their
+new messages, and accept. An address
 also works across operators or when someone else owns their space. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
@@ -28,6 +30,8 @@ space or add a local account.
 For someone with a public profile, use **connect → use a profile address** and
 send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
+Both people choose how their own Ship handles new messages before sending or
+accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
 your own profile is optional and belongs in **Settings → Profile**.
 
@@ -75,11 +79,16 @@ Keep its delivery id and inspect the eventual result when needed:
 message delivery show 'delivery:...'
 ```
 
-Connecting does not start Ship. By default the person receives contact messages
-in People. **Ship replies**, beside the contact's name, authorizes Ship to handle
-new incoming messages; enabling it does not replay the existing conversation.
-Turning it off ends that standing assignment. Human and Ship authorship remain
-visible in messages.
+People asks each person to choose **I’ll handle them** or **Let Ship handle them**
+when connecting. Each choice affects only that person's Ship and survives delayed
+acceptance. **Automatically handle new messages**, beside the contact's name,
+changes it later. Existing contacts keep their settings; invitations created
+through Ship or Shell keep automatic handling off until the human enables it.
+
+Connecting or enabling automatic handling does not wake Ship or replay the first
+message. The next incoming message starts handling. Turning the setting off ends
+that standing assignment; replies tied to a task you gave Ship can still resume
+it until it is finished. Human and Ship authorship remain visible in messages.
 
 For a particular task, **ask Ship** opens an editable draft in the person's
 ordinary Ship chat. They review and send it. First-use examples can prefill a
@@ -110,6 +119,7 @@ keep the panel closed and preserve your place in the Ship conversation. Closing
 a panel keeps its unfinished reply for this session, marked **draft**. Sending
 clears the answered activity; messages arriving during the send still wait.
 **Open conversation** shows the full history in People.
+Previews distinguish **You** and **Your Ship** from the other person's messages.
 
 Reading in People clears the private unread state; it sends no read receipt to
 the peer. Muted, blocked, archived and ended conversations stay quiet, while an
