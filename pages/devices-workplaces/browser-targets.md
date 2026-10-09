@@ -8,13 +8,18 @@ browser connected through the **Your GSV** extension, or an on-demand
 same page and tab commands described below; inspect each target's advertised
 capabilities for additional features.
 
+For website tasks, load `skills show browser-target` even when no browser is
+connected. Use a suitable existing browser or provision a cloud browser. The
+user does not need to connect a personal browser or ask for cloud provisioning
+separately.
+
 The extension uses the user's existing signed-in sessions. A cloud browser
 keeps its own saved sessions, with the person signing in through GSV's live view.
 Either can reach a calendar, mail, billing portal, admin dashboard or private
 forum through its website. A site the selected browser is already logged into
 needs no MCP server, OAuth account or other integration.
 
-To connect the user's browser, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
+Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
 
 Ship can create the invitation with `targets pair --name "My browser" --platform browser`
 on `gsv`. Share the returned extension download, installation instructions and code
@@ -39,18 +44,25 @@ availability. Ordinary starts reuse the current browser; use tabs for additional
 work. Its first website login happens through GSV's browser view, which also lets
 the person watch and interact while Ship works.
 
-Check for a browser before telling the user that GSV cannot reach a service:
+Find a suitable existing browser on `gsv`:
 
 ```bash
-targets search "browser"
+targets list --kind browser
 targets show <browser-target-id>
 ```
 
 The target description lists the operations, permissions and online state of
-that browser. If none is available, check `instance catalog` for cloud browser
-support or offer to pair the Your GSV extension. Choose the browser containing
-the relevant tab or website session; a new cloud browser does not inherit the
-extension browser's logins.
+that browser. If none is suitable, check `instance catalog` on `gsv` and start an
+available cloud browser using the [cloud browser workflow](cloud-browsers.md).
+An empty target list does not rule out provisioning. Only report browser access
+unavailable after checking actual availability or receiving a start failure;
+explain that specific limitation. Personal-browser pairing is an alternative
+when cloud browsing is unavailable or the task needs the user's existing
+sessions or device features.
+
+Choose the browser containing the relevant tab or website session when one is
+available. A new cloud browser does not inherit the extension browser's logins;
+use the human handoff workflow when the website requires login or verification.
 
 ## Work In A Browser
 
