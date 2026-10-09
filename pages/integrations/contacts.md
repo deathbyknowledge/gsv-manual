@@ -35,15 +35,26 @@ accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
 your own profile is optional and belongs in **Settings → Profile**.
 
-You can ask Ship to do the same setup in natural language. Ship may create,
+You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; delegated work processes cannot
-change Contact trust.
+change Contact trust. Ask the owner who should handle new messages unless they
+already chose: **manual** leaves them for the person, and **ship** lets Ship read
+and respond to future incoming messages. Task-specific replies can still reach
+Ship with manual handling. Pass that choice explicitly; each person decides for
+their own side. The whole invitation flow works in the current Ship conversation,
+including WhatsApp and other private messaging surfaces.
+Public-profile message requests currently use People.
+
+Share the returned `url` with the owner. Creating it means the invitation is ready,
+not that the other person has connected. They can open it or give it to their own
+Ship to accept. Inspect `contact invite list` and `contact list` to confirm
+acceptance. Cancel an unused invitation before replacing it.
 
 From Shell, the same flow is:
 
 ```bash
-contact invite create --expires 30m
-contact invite accept 'gsv-contact-v1:...'
+contact invite create --handling ship --expires 7d
+contact invite accept 'gsv-contact-v1:...' --handling manual
 contact invite list
 contact invite cancel 'invite:...'
 contact list
@@ -82,8 +93,11 @@ message delivery show 'delivery:...'
 People asks each person to choose **I’ll handle them** or **Let Ship handle them**
 when connecting. Each choice affects only that person's Ship and survives delayed
 acceptance. **Automatically handle new messages**, beside the contact's name,
-changes it later. Existing contacts keep their settings; invitations created
-through Ship or Shell keep automatic handling off until the human enables it.
+changes it later. Existing contacts keep their settings. Ship-led invitations
+record the owner's explicit choice too. Ship can change it when asked: read
+`preferences.revision` from `contact list --json`, then run
+`contact handling CONTACT_ID manual|ship --revision N`. If the revision changed,
+reread the contact before applying the request.
 
 Connecting or enabling automatic handling does not wake Ship or replay the first
 message. The next incoming message starts handling. Turning the setting off ends
