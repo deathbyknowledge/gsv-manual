@@ -14,8 +14,8 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | Messaging connection | **Settings → messengers** |
 | MCP connection | **Settings → mcp** |
 | Action history, outcomes and request details | **Settings → Logs** |
-| Owner sign-in, tokens, and space ownership | **Settings → sign-in** (root only) |
-| Other people in this space | **Settings → people** (root only) |
+| Personal password reset and space ownership | **Settings → sign-in** (root only) |
+| Your public profile | Your display name at the bottom of **People**'s sidebar |
 | Computer or browser connection | **Fleet → Places → connect**, or Desktop machine setup |
 | Web microphone access | Browser site permissions; **record** in Zen starts capture |
 | Web audio transcription | The space's transcription configuration for the conversation process |

@@ -25,7 +25,7 @@ opens the conversation on each side when the invitation is open.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
 otherwise. These contact invitations are separate from invites to create a
-space or add a local account.
+space. Each space has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address** and
 send a first message. Your account's display name is prefilled and editable.
@@ -33,7 +33,11 @@ Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
-your own profile is optional and belongs in **Settings → Profile**.
+your own profile is optional. Click your display name at the bottom of the
+**People** sidebar to edit it. Save and publish are separate: later edits stay
+private until you publish them. Your public URL is `https://YOUR-SPACE/profile`;
+there is no separate alias to choose. Old published profile links continue to work.
+Profile drafts remain when you return to a conversation.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; delegated work processes cannot

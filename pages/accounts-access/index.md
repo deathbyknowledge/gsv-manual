@@ -12,7 +12,14 @@ Accounts identify who is acting. Permissions decide which actions that identity 
 - A **machine identity** authenticates one connected computer.
 - A linked messaging identity proves that an external sender represents the signed-in owner.
 
-Onboarding creates the first human, **root**. Root can invite further people into the space under **Settings → people**; each becomes an ordinary owner account with its own conversations, work, files, and approval policy. See [Passwords, sessions, tokens, and people](credentials-sharing.md).
+Each space has one personal human account. Setup creates that account, its Ship,
+and a Crew account for delegated work. Root is a separate administrative login;
+ordinary use does not run as root. Setup asks only for a password and derives the
+internal username from the space handle. Existing spaces retain their username,
+UID, home and paired devices. See [Passwords, sessions, and access](credentials-sharing.md).
+
+Other people have their own spaces. Connect with them through
+[People](../integrations/contacts.md), without adding a local account.
 
 ## Inspect Identity
 
