@@ -11,11 +11,13 @@ and camera processing stay on the computer.
 
 ### Web
 
-In web Zen, choose **record**, allow browser microphone access, then choose
-**stop recording** when finished. After **Transcribing…**, the words appear at
-the current cursor in your draft. Review or edit them and press Enter to send.
-Enter during recording only stops it for review. Recordings stop automatically
-after five minutes and are limited to 25 MiB, or the space's smaller limit.
+In web Zen, choose **record** and allow browser microphone access. The prompt
+becomes a live waveform that responds to your voice; your typed draft is kept
+underneath. Choose **stop** when finished. After **transcribing…**, the
+draft returns with the words added at its cursor. Review or edit them and press
+Enter to send. Enter during recording only stops it for review; Escape cancels
+and restores the draft. Recordings stop automatically after five minutes and
+are limited to 25 MiB, or the space's smaller limit.
 
 The browser sends the finished audio through your space to its configured
 transcription provider. The recording is not attached to the message. **cancel**
