@@ -13,8 +13,8 @@ or reset its password.
 
 ## Sign-In Sessions
 
-Web and Desktop ask for your personal password. **Administrator sign-in** explicitly
-selects root. The CLI also defaults to personal sign-in; use `gsv auth login
+Web and Desktop ask for your personal password. The small **admin** link in the
+sign-in footer explicitly selects root. The CLI also defaults to personal sign-in; use `gsv auth login
 --username root` for administration. Locking or signing out clears that client's private cached data and active session.
 
 A browser or Desktop session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
@@ -51,7 +51,7 @@ Contact invitations do not create local accounts or grant access to your machine
 
 **Forgot password?** can send a code through an eligible messenger you previously
 linked. It does not ask for a username. Without an eligible link, sign in through
-**Administrator sign-in**, then use **Settings → sign-in → Personal sign-in** to
+the **admin** link in the sign-in footer, then use **Settings → sign-in → Personal sign-in** to
 reset the personal password. This requires a direct root session; Ship cannot do
 it on your behalf. Reset revokes personal sessions and messenger links; sign in
 again and reconnect those messengers. Your account, files and running work remain.
