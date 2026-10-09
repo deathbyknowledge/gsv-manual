@@ -13,6 +13,8 @@ behind each reply, **Fleet** for places, processes, contacts,
 responsibilities and recent files, **Memory** for personal
 knowledge pages, and **Settings** for preferences, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
+Zen's **record** button turns a browser microphone recording into a draft using
+the space's transcription provider. Review the words before sending.
 
 Use **Desktop** when you want a native window, local voice and hands-free
 control, or a guided way to connect the current computer as a place. Desktop can

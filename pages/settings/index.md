@@ -17,7 +17,9 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | Owner sign-in, tokens, and space ownership | **Settings → sign-in** (root only) |
 | Other people in this space | **Settings → people** (root only) |
 | Computer or browser connection | **Fleet → Places → connect**, or Desktop machine setup |
-| Microphone, camera, voice, and gesture behavior | Desktop on that computer |
+| Web microphone access | Browser site permissions; **record** in Zen starts capture |
+| Web audio transcription | The space's transcription configuration for the conversation process |
+| Desktop microphone, camera, local voice, and gestures | Desktop on that computer |
 | Provider or service availability in a managed installation | installation operator policy |
 
 Start with the normal Web or Desktop settings. Use raw configuration only for an exact known key or recovery when the normal surface cannot load.
