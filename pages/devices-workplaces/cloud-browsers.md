@@ -8,6 +8,11 @@ the browser extension. Ordinary browsers automatically remember website logins
 for the local account in this space. They do not inherit the user's personal
 browser login.
 
+The default approval policy lets Ship use cloud-browser commands, files and
+network requests without asking for each action, including on signed-in sites.
+Custom policies still apply; use **Settings → permissions → Cloud browsers** to
+require approval. Connected personal browsers retain their separate requirements.
+
 For a website task with no suitable existing browser, check `instance catalog`
 and start a cloud browser when available. Personal-browser pairing is optional;
 an empty `targets list --kind browser` does not mean browsing is unavailable.
