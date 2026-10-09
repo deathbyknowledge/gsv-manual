@@ -2,11 +2,36 @@
 
 [Web And Desktop](index.md)
 
-Desktop can turn speech into a message draft and, on supported computers, use
-camera gestures to control that draft without touching the keyboard. Microphone
+Web and Desktop can turn speech into a message draft. Web records audio for
+transcription through your space. Desktop uses local transcription and, on
+supported computers, camera gestures to control the draft. Desktop microphone
 and camera processing stay on the computer.
 
 ## Dictate
+
+### Web
+
+In web Zen, choose **record** and allow browser microphone access. The prompt
+becomes a live waveform that responds to your voice; your typed draft is kept
+underneath. Choose **stop** when finished. After **transcribing…**, the
+draft returns with the words added at its cursor. Review or edit them and press
+Enter to send. Enter during recording only stops it for review; Escape cancels
+and restores the draft. Recordings stop automatically after five minutes and
+are limited to 25 MiB, or the space's smaller limit.
+
+The browser sends the finished audio through your space to its configured
+transcription provider. The recording is not attached to the message. **cancel**
+discards recording or transcription while keeping typed text. Leaving Zen,
+hiding the tab, switching conversations or places, disconnecting, or clearing
+the draft also cancels it. If transcription fails, **retry transcription** uses
+the audio still held in the tab.
+
+Use HTTPS and a browser that supports microphone recording. If permission is
+denied, enable the microphone in the browser's site settings. Provider or
+permission errors come from the space's transcription configuration; web voice
+does not need a connected computer or the Desktop helper.
+
+### Desktop
 
 In Zen, the composer's **Voice and hands-free** control has a **listen** button
 that dictates with the microphone. Partial transcription appears in the draft
@@ -51,14 +76,14 @@ To scroll, open the left palm and hold the right hand as a fist. Once the pose
 settles, tilt the line between the two hands to set direction and speed;
 return to level to stop, or release either hand.
 
-## Safety And Privacy
+## Desktop Safety And Privacy
 
 - Camera frames, hand landmarks, and microphone audio remain local to the computer.
 - Gestures act only on the visible voice draft, and each action is bound to the current request.
 - Losing hand tracking clears the active gesture state.
 - Hands-free and the camera stop when you leave Zen or the computer sleeps.
 
-## If Voice Or Gestures Do Not Work
+## If Desktop Voice Or Gestures Do Not Work
 
 1. Check the state shown by the **Voice and hands-free** control; **input needs
    attention** offers **reconnect input**.
