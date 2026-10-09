@@ -103,11 +103,17 @@ responsibility; an unthreaded reply does so only when one active responsibility
 awaits that contact. Resolving or cancelling the work ends the association.
 The other person chooses how their side is handled independently.
 
-The People indicator and the strip above the Ship prompt show unread contact
-conversations and incoming requests, including after reload or reconnect. Live
-messages can also be expanded and answered inline in the Ship chat. Reading in
-People clears the private unread state; it sends no read receipt to the peer.
-Muted, blocked, archived and ended conversations stay quiet.
+The People indicator and the compact line above the Ship prompt show unread
+contact conversations and incoming requests, including after reload or reconnect.
+Select a person's name to read and reply in a panel above the prompt. New messages
+keep the panel closed and preserve your place in the Ship conversation. Closing
+a panel keeps its unfinished reply for this session, marked **draft**. Sending
+clears the answered activity; messages arriving during the send still wait.
+**Open conversation** shows the full history in People.
+
+Reading in People clears the private unread state; it sends no read receipt to
+the peer. Muted, blocked, archived and ended conversations stay quiet, while an
+unfinished reply remains reachable.
 
 Reusing the same delivery id safely reconciles an uncertain attempt:
 

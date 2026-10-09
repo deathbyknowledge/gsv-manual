@@ -51,7 +51,9 @@ task, such as making plans together. **Ship replies** is a separate preference f
 handling future messages; connecting does not turn it on.
 
 A dot beside People marks unread activity. Zen also shows unread conversations
-and incoming requests above the prompt, including after reload. See
+and incoming requests in one compact line above the prompt, including after
+reload. Select a person to read and reply without leaving Zen. Closing the panel
+keeps an unfinished draft, and new messages do not move your reading position. See
 [Connect with another GSV](../integrations/contacts.md) for messages, private
 controls, and task-specific coordination.
 
