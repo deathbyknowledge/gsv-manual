@@ -26,7 +26,6 @@ Fleet is the operational view:
 
 - **Places** shows connected computers and browsers and their state; **connect** pairs a new one.
 - **Processes** shows running and finished work with its controls.
-- **Contacts** shows people on other GSVs; **add contact** starts a pairing.
 - **Responsibilities** shows promises, follow-ups, and delegated work Ship is tracking.
 - **Files** shows recently touched files across places.
 
@@ -38,6 +37,28 @@ to address a message or command to it. That choice stays when switching views.
 Check the selected target before changing a file or running a command. A path
 such as `laptop:/projects/report` acts on that connected target; an unqualified
 path uses the current target and working directory.
+
+## People
+
+Open **People** (`p`) to connect with someone on another GSV space. **connect**
+creates an invitation link; **I have an invitation** accepts a link or code.
+Public profile addresses are another way to send a first message. Incoming
+requests wait for an explicit acceptance, which opens the conversation.
+Inviting and accepting ask each person to choose who handles new messages on
+their own side, with neither option preselected.
+
+You can message people yourself or choose **ask Ship** to open an editable request
+in your ordinary Ship chat. The first-use examples help you start with a concrete
+task, such as making plans together. **Automatically handle new messages** changes
+your choice later. Replies associated with assigned tasks can still reach Ship
+when it is off; connecting or enabling it does not replay existing messages.
+
+A dot beside People marks unread activity. Zen also shows unread conversations
+and incoming requests in one compact line above the prompt, including after
+reload. Select a person to read and reply without leaving Zen. Closing the panel
+keeps an unfinished draft, and new messages do not move your reading position. See
+[Connect with another GSV](../integrations/contacts.md) for messages, private
+controls, and task-specific coordination.
 
 ## Browser Extension
 

@@ -7,25 +7,54 @@ messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
 
-Contacts work between standalone and managed GSVs. The other person's
-installation does not need to use the same host or deployment model.
+Contacts work between spaces served by the same or different operators. The
+other person's space does not need to share your account system.
 
 ## Pair With Someone
 
-One person creates a short-lived invitation in the Contacts page. Send the
-complete invitation code to the intended person through a channel you trust.
-They open their own Contacts page and accept the code. Share it through a
-trusted channel so both people know which Ships they are pairing.
+Open **People** (`p`), choose **connect**, decide who handles new messages, then
+choose **create invitation link**. Share the
+link with the intended person wherever you already talk. They open it, choose
+their space or enter its address, sign in if necessary, choose who handles their
+new messages, and accept. An address
+also works across operators or when someone else owns their space. Neither person
+needs a public profile. People invitations last seven days and connect one person. Acceptance
+opens the conversation on each side when the invitation is open.
 
-You can ask Ship to do the same setup in natural language. Ship may create,
+**connect → I have an invitation** also accepts a link or an older contact code.
+The syscall and Shell accept both formats; `contact invite create` returns the
+link alongside the code. Its default lifetime is one hour unless requested
+otherwise. These contact invitations are separate from invites to create a
+space or add a local account.
+
+For someone with a public profile, use **connect → use a profile address** and
+send a first message. Your account's display name is prefilled and editable.
+Their **Requests** list lets them review, accept or privately decline it.
+Both people choose how their own Ship handles new messages before sending or
+accepting the request; neither option is preselected.
+Acceptance opens the conversation and retains that first message. Publishing
+your own profile is optional and belongs in **Settings → Profile**.
+
+You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; delegated work processes cannot
-change Contact trust.
+change Contact trust. Ask the owner who should handle new messages unless they
+already chose: **manual** leaves them for the person, and **ship** lets Ship read
+and respond to future incoming messages. Task-specific replies can still reach
+Ship with manual handling. Pass that choice explicitly; each person decides for
+their own side. The whole invitation flow works in the current Ship conversation,
+including WhatsApp and other private messaging surfaces.
+Public-profile message requests currently use People.
+
+Share the returned `url` with the owner. Creating it means the invitation is ready,
+not that the other person has connected. They can open it or give it to their own
+Ship to accept. Inspect `contact invite list` and `contact list` to confirm
+acceptance. Cancel an unused invitation before replacing it.
 
 From Shell, the same flow is:
 
 ```bash
-contact invite create --expires 30m
-contact invite accept 'gsv-contact-v1:...'
+contact invite create --handling ship --expires 7d
+contact invite accept 'gsv-contact-v1:...' --handling manual
 contact invite list
 contact invite cancel 'invite:...'
 contact list
@@ -42,7 +71,7 @@ local account ids, Process ids, paths, credentials, or other conversations.
 
 ## Send A Message
 
-Open the conversation from the Contacts page, or copy its contact id and send
+Open the conversation from People, or copy its contact id and send
 from Shell:
 
 ```bash
@@ -61,14 +90,54 @@ Keep its delivery id and inspect the eventual result when needed:
 message delivery show 'delivery:...'
 ```
 
-An incoming Contact message creates an actionable responsibility for Ship. Its
-GSV event names the Contact and conversation, includes a bounded preview and
-resource references, and gives the reply command. Use `r12y show ID` or Contact
-history for the exact retained record before replying or resolving it.
+People asks each person to choose **I’ll handle them** or **Let Ship handle them**
+when connecting. Each choice affects only that person's Ship and survives delayed
+acceptance. **Automatically handle new messages**, beside the contact's name,
+changes it later. Existing contacts keep their settings. Ship-led invitations
+record the owner's explicit choice too. Ship can change it when asked: read
+`preferences.revision` from `contact list --json`, then run
+`contact handling CONTACT_ID manual|ship --revision N`. If the revision changed,
+reread the contact before applying the request.
+
+Connecting or enabling automatic handling does not wake Ship or replay the first
+message. The next incoming message starts handling. Turning the setting off ends
+that standing assignment; replies tied to a task you gave Ship can still resume
+it until it is finished. Human and Ship authorship remain visible in messages.
+
+For a particular task, **ask Ship** opens an editable draft in the person's
+ordinary Ship chat. They review and send it. First-use examples can prefill a
+request to make plans, plan a trip or coordinate work with the selected contact.
+Ship can read the contact history before acting:
 
 ```bash
 message history --with 'contact:...' --limit 50
 ```
+
+When contacting someone for existing Ship work, bind the message to its open
+responsibility so their reply continues that task:
+
+```bash
+message send --to 'contact:...' --message "Which evenings work for you?" \
+  --responsibility 'r12y:...' --also
+```
+
+This does not turn on permanent handling. A reply to that message resumes its
+responsibility; an unthreaded reply does so only when one active responsibility
+awaits that contact. Resolving or cancelling the work ends the association.
+The other person chooses how their side is handled independently.
+
+The People indicator and the compact line above the Ship prompt show unread
+contact conversations and incoming requests, including after reload or reconnect.
+Select a person's name to read and reply in a panel above the prompt. New messages
+keep the panel closed and preserve your place in the Ship conversation. Closing
+a panel keeps its unfinished reply for this session, marked **draft**. Sending
+clears the answered activity; messages arriving during the send still wait.
+**Open conversation** shows the full history in People.
+Previews distinguish **You** and **Your Ship** from the other person's messages.
+
+Reading in People clears the private unread state; it sends no read receipt to
+the peer. Muted, blocked, archived and ended conversations stay quiet, while an
+unfinished reply remains reachable.
 
 Reusing the same delivery id safely reconciles an uncertain attempt:
 
@@ -129,12 +198,12 @@ Useful terminal states are `completed`, `rejected`, and `cancelled`. Include
 `--all` when listing requests to see terminal records. If an expected revision
 is stale, inspect the current record before deciding what should happen next.
 
-The Contacts page exposes the common accept, reject, cancel, start, and complete
-actions without requiring Shell.
+**People → conversation → details → Work requests** exposes the common accept,
+reject, cancel, start, and complete actions without requiring Shell.
 
 ## Revoke A Contact
 
-Use the Contacts page or:
+Use the conversation's details in People or:
 
 ```bash
 contact revoke 'contact:...'
