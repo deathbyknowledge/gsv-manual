@@ -45,12 +45,13 @@ A policy is a default action plus ordered rules:
 
 - `action` is `auto`, `ask`, or `deny`.
 - `match` is an exact capability name or a domain wildcard such as `fs.*`.
-- `target` scopes a rule: omit it for every target, `gsv` for the installation itself, `targets/*` for any connected computer or browser, `cloud-browsers/*` for GSV-provisioned browsers, or one target id.
-- An exact target wins over `cloud-browsers/*`, which wins over `targets/*`, which wins over an unscoped rule. Then an exact capability match beats a wildcard, then list order breaks ties.
+- `target` scopes a rule: omit it for every target, `gsv` for the installation itself, `targets/*` for any connected computer or browser, or one target id.
+- A structured target selects existing target metadata: `{ "route": "instance", "platform": "browser" }` means GSV-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
+- An exact target id wins over route-and-platform selectors, then route-only selectors, then `targets/*`, then unscoped rules. Then an exact capability match beats a wildcard, then list order breaks ties.
 
 The default policy lets files, commands and network requests run automatically on `gsv` and GSV-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`.
 
-Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one target. The Kernel identifies cloud browsers from their provisioning record; naming a connected device like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
+Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one target. The Kernel identifies cloud browsers from their instance route and platform; naming a connected device like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
 
 Every call carries an optional purpose, one sentence written for the person. The approval prompt leads with it and the ledger records it, so a person can judge a request without reading the arguments.
 
