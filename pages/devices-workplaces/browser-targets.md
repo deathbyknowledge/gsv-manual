@@ -26,10 +26,13 @@ on `gsv`. The result includes an `extensionUrl` matched to this GSV release.
 When sharing it, link the friendly text **click here to download the extension**
 to that URL rather than displaying the raw address or command JSON. If the
 person only asks for the download, share
-[click here to download the extension](https://github.com/deathbyknowledge/gsv/releases/latest/download/gsv-browser-extension.zip).
+[click here to download the extension](https://gsv.space/browser).
 Share the installation instructions and put the invitation code in a fenced
-`text` block so it wraps and has a copy button in chat. They paste that code
-into the extension panel; browsers do not use the terminal's `gsv pair` command.
+`text` block so it wraps and has a copy button in chat. After they load the
+extension, tell them: "Click the **Your GSV** icon in your browser toolbar. If
+you don't see it, click the **Extensions** (puzzle-piece) button, then select
+**Your GSV**." They paste the code into that extension panel; browsers do not
+use the terminal's `gsv pair` command.
 
 ## What A Browser Reaches
 
