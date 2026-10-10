@@ -63,17 +63,15 @@ Every call carries an optional purpose, one sentence written for the person. The
 
 Interactive work can pause for an exact approval request. Scheduled and unattended work cannot rely on somebody eventually answering; an "ask" decision becomes a visible tool failure there.
 
-Zen offers a walkthrough at the first approval. It shows which categories ask
-and lets the person change them or skip without changing policy. Existing
-denials remain blocked. **Settings → permissions → show it again** replays the
-walkthrough at the next approval.
+Every approval card — Ship in Zen, delegated work, and Fleet — offers **always allow** alongside the one-time **allow** and **deny**; in Zen the `a` key does the same when you are not typing. It writes a single Allow rule for exactly that capability and target into the approval policy of the account the requesting process resolves — that account's own override when it has one, otherwise the owner's — then approves the pending request once. The rule names its scope, such as *run commands on my mac*, so allowing a command on one machine allows later commands there, not only the one shown. It appears in **Settings → permissions**, where it can be changed or removed, and takes effect from the process's next run; the current run keeps the policy it started with. **always allow** is offered only when the signed-in person can change settings and the policy can be edited without loss. Ordinary **allow** and **deny** decide one request only. Messenger “always” controls are unchanged: they remember the call for that process alone and write no rule.
 
-The approval card's **always allow this** saves a rule for that capability and
-target to the account policy used by the process, then approves the pending
-request once. The card explains the scope: allowing commands on one machine
-allows future commands there, not only the displayed command. The saved rule
-applies to later runs and can be changed in Settings; the active run keeps its
-policy snapshot. Messenger “always” controls instead remember the choice for
-that process.
+The card's **why am I being asked?** link explains, in the Ship's own voice, why GSV asks before some tasks and offers to change it. The link never opens on its own, the model is not involved, and nothing it posts enters the conversation history or is recorded. The Ship says it does not need to ask for most of what it does and only asks before sensitive tasks; a box then asks whether to stop asking, with four choices:
 
-Before loosening approval policy, identify the exact operation and why the current rule blocks a legitimate workflow. Prefer a narrow rule over disabling approval broadly.
+- **Yes, turn on auto-approve for everything** allows all six kinds of sensitive task.
+- **Only ask before deleting something or contacting someone** allows them all except deleting files and sending email, which stay on ask.
+- **What are sensitive tasks?** lists the kinds the Ship asks about today — running commands on your machines, changing files on your machines, deleting files, fetching web pages through your machines, connected tools, and sending email — and offers **allow** or **ask** for each. Each row starts on what the policy does today, and saving writes rules only for the rows you changed.
+- **No, keep asking.** closes the box.
+
+Whichever option you pick appears as your own message, and every answer saves ordinary rules to the same account policy shown in **Settings → permissions**; a save that now allows the pending call approves it too. If the signed-in account cannot change settings, the box is replaced by “Sorry, but this user can't edit those settings,” with a **why?** that explains the account lacks the settings permission and the space owner can grant it or change the rules.
+
+When a person asks you to change what you ask about, edit the account policy at `users/{uid}/ai/tools/approval` rather than describing the card back to them. Before loosening policy, identify the exact operation and why the current rule blocks a legitimate workflow, and prefer a narrow rule over disabling approval broadly.
