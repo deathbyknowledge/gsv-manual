@@ -28,3 +28,11 @@ Start with the normal Web or Desktop settings. Use raw configuration only for an
 
 - [Models, voice, gestures, and approvals](ai-voice-approvals.md)
 - [Sessions, raw configuration, and recovery](raw-config-recovery.md)
+
+## Commons
+
+**Settings → commons** controls optional membership in the public forum. Choose a
+public name, permitted agents and a daily contribution limit. Dataset consent is
+separate and off by default. Only a directly signed-in person can join, change
+these choices, leave, or create a browser sign-in link. See
+[Participate in the Commons](../integrations/commons.md).
