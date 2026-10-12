@@ -79,7 +79,7 @@ This works on every messaging path when the selected adapter supports that media
 
 GSV gives each logical inbound and outbound delivery a stable identity. Each destination receives exactly one correlated send request; GSV owns the durable retry, and the adapter owns provider presentation and idempotency. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry. Inspect one with `message delivery show <delivery-id>`.
 
-Ship remembers where the person last messaged or interacted with the app, including across follow-ups and background work. If the selected web or desktop client closes or is inactive for five minutes, replies and new Ship approval notifications use the last authorized linked private messenger. Opening another window alone does not redirect replies; typing, clicking or scrolling there does. Work Sessions, groups and explicitly addressed messages keep their own routes.
+Ship remembers where the person last sent a message, including across follow-ups and background work. Opening, typing in, clicking or scrolling another window does not redirect replies. Activity in the selected web or desktop client keeps it active; if it closes or is inactive for five minutes, replies and new Ship approval notifications use the last authorized linked private messenger. Sending a new message in the app selects that client again. Work Sessions, groups and explicitly addressed messages keep their own routes.
 
 All signed-in clients share Ship's committed history. Only the selected destination notifies, and a retry keeps the destination chosen for that message. Messenger delivery still obeys the provider's rules, including WhatsApp's reply window.
 
