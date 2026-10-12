@@ -5,26 +5,36 @@
 ## Connect Versus Link
 
 - **Connect** gives GSV access to the messaging service or bot account.
-- **Link** proves that a particular external sender is the signed-in GSV owner.
+- **Link** binds an external sender to the GSV owner through a short-lived code.
 
 Keeping these separate prevents an untrusted incoming username or chat ID from choosing a local account.
 
+## Connect For The Owner
+
+When the person asks to connect a messenger, handle the GSV side for them:
+
+1. Run `messenger list` on `gsv` to see which messengers are enabled.
+2. Run `messenger setup ADAPTER` and share its link or bot name and instructions for getting a code. Use the returned information rather than inventing a number or URL.
+3. Ask the person to paste their code back into this conversation. Write it to a temporary file, then run `messenger connect ADAPTER < /tmp/messenger-code.txt`. Read the code from the file so it stays out of logged shell command text, and delete the file afterwards.
+4. Report success only after the command returns `paired: true`. Ask them to send a new message in the messenger to start chatting there. If the code expired, get a new one.
+
+`messenger inspect ADAPTER < code.txt` can check the external identity without changing its link. Redemption links the process's human owner; neither a code nor an argument can select another account or space. Redeeming a code for an already-linked identity moves it to this space. Only redeem a code the person supplies to connect their own account.
+
+No Settings visit is needed for messaging. Password recovery through that messenger requires a direct confirmation in Settings; a process-created link does not authorize password resets. The manual Settings flows below remain available, and disconnect is still a signed-in human action. On older gateways without `messenger`, use those flows.
+
 ## Telegram
 
-The exact setup depends on the installation:
-
-- With managed Telegram, message the platform bot. It returns a short-lived one-time code. Enter that code while signed in to GSV, inspect the Telegram identity shown, and confirm the link.
-- With a standalone bot, connect the BotFather token through the Telegram settings first, message that bot, then redeem its link challenge while signed in.
+Message the operator's bot with `/link` to receive a short-lived code. Paste it back to Ship, or enter it in **Settings → Messengers → Telegram**, inspect the identity, and confirm.
 
 The message used to create the link may be consumed by setup. Send another message after confirmation to begin the conversation.
 
 ## Slack
 
-Connect a Slack app to the workspace through **Settings → messengers**; the operator's shared app, when the installation offers one, needs no app of your own. Then link your Slack identity with the one-time challenge while signed in to GSV. Direct messages to the app reach Ship; channels and threads keep explicit routes. Files shared in Slack become GSV files tied to exact revisions, and GSV can share files back into the conversation.
+Install the operator's Slack app using the setup link, then send `link` in a direct message to it. Paste the code back to Ship, or redeem it in **Settings → Messengers → Slack**. Direct messages to the app reach Ship; channels and threads keep explicit routes. Files shared in Slack become GSV files tied to exact revisions, and GSV can share files back into the conversation.
 
 ## WhatsApp
 
-When the operator offers WhatsApp Business, message its business number to get instructions followed by a code-only message you can copy. The code expires in 10 minutes. Enter it in **Settings → Messengers → WhatsApp**, inspect the name and masked number, and confirm while signed in. Send another message after linking to reach Ship. The operator owns the Meta credentials; people do not supply their own tokens.
+When the operator offers WhatsApp Business, open the setup link and send `/link` to get instructions followed by a code-only message you can copy. The code expires in 10 minutes. Paste it back to Ship, or enter it in **Settings → Messengers → WhatsApp**, inspect the name and masked number, and confirm while signed in. Send another message after linking to reach Ship. The operator owns the Meta credentials; people do not supply their own tokens.
 
 This connection supports direct messages to that number, including media and approval buttons. Ship’s prose paragraphs arrive as separate messages; headings stay with the following block and lists, quotations, tables and code stay together. It does not expose a person's WhatsApp account or group conversations. Availability depends on the operator's Meta account and regional eligibility.
 
@@ -32,7 +42,7 @@ Free-form replies require a message from the person within the last 24 hours. Ou
 
 ## Discord
 
-Connect a bot with the permissions required by the intended direct messages, servers, channels, and message content. Then link or route the desired surface through GSV. Owner identity is established by the authenticated link challenge.
+Add the operator's bot using the setup link, then send `pair` in a direct message to it. Paste the code back to Ship, or inspect and confirm it in **Settings → Messengers → Discord**. Send another message after linking to reach Ship.
 
 ## Ship And Direct Work Sessions
 
