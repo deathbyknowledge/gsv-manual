@@ -12,6 +12,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Copy between GSV and a connected computer | `cp`, `targets` |
 | Inspect or control work | `proc`, `ps` |
 | Send, attach, silence, or route messages | `message` |
+| Connect the owner's messenger using a pairing code | `messenger list`, `messenger setup ADAPTER`, `messenger connect ADAPTER < code.txt` |
 | Find an earlier conversation message | `message search`, then `message history` |
 | Find GSV's email address, read, or send email | `mail` |
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
