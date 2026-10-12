@@ -28,7 +28,7 @@ When the operator offers WhatsApp Business, message its business number to get i
 
 This connection supports direct messages to that number, including media and approval buttons. Ship’s prose paragraphs arrive as separate messages; headings stay with the following block and lists, quotations, tables and code stay together. It does not expose a person's WhatsApp account or group conversations. Availability depends on the operator's Meta account and regional eligibility.
 
-Free-form replies require a message from the person within the last 24 hours. Outside that window, a configured Meta-approved template says **Your GSV has a message for you.** Every original reply, including short replies and approvals, waits until the person taps **Read message** or writes back. The original formatting and approval buttons are preserved. One notification covers all waiting replies; held messages expire after seven days. Attachments cannot wait behind a template; use another authorized destination or ask the person to message again. Without a configured template, out-of-window delivery fails rather than silently disappearing.
+Free-form replies require a message from the person within the last 24 hours. Outside that window, a configured Meta-approved template carries the message or a shortened preview. The full message stays in the GSV conversation; the person can open GSV or reply in WhatsApp to ask Ship about it. **Show me** is an ordinary user reply, not a command to replay queued messages. There is no adapter backlog. Approval notifications direct the person to GSV. Attachments cannot use the text template; use another authorized destination or wait for a reply. Without a configured template, out-of-window delivery fails explicitly.
 
 ## Discord
 
