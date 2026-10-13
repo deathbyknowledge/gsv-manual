@@ -10,6 +10,12 @@ Ship normally runs as the person's personal-intelligence account. Other work may
 
 New installations default to `ship` for the personal account. The Kernel also provisions an ordinary owned `crew` account for delegated execution, adding a numeric suffix when names are occupied. Each has its own home and instructions; both share the person's context and personal memory. Existing account names and edited instructions are preserved.
 
+The person and their Ship have separate display names. Choose them in **People →
+your profile**; renaming preserves internal usernames, homes, permissions, and
+conversation identity. A Ship's chosen name is independent of the model powering
+a reply. Naming requires a signed-in human action, so direct the person to the
+profile editor instead of changing standing-context files to rename the Ship.
+
 Inspect the current shell identity with:
 
 ```bash
@@ -25,6 +31,11 @@ GSV builds standing context from:
 2. the active account's `~/context.d/*.md` files;
 3. shared personal context owned by the person;
 4. compact indexes of available skills and targets.
+
+The Kernel also supplies structured account identity with the current account
+and human-owner display names. A rename takes effect in the next run's context;
+it does not rewrite an active generation or archived context. Public-profile
+introductions remain separate from operating instructions.
 
 Use `proc delegate --as ACCOUNT` to select Crew or another owned account. Without `--as`, children inherit the parent's identity and account context.
 
