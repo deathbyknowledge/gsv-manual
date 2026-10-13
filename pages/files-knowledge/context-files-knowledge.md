@@ -42,6 +42,31 @@ along the way go in the person's `context.d/10-personal.md`.
 
 Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
+## Continuing Across Context Windows
+
+Save useful knowledge as you learn it. The human's `context.d/10-personal.md`
+stays loaded for Ship and owned workers; detailed knowledge remains searchable
+in the personal wiki. A history handover is working context, not another memory
+store. Keep commitments in `r12y` and artifacts in files.
+
+When the runtime requests a handover, update those stores and submit:
+
+```bash
+proc compact --summary 'The user corrected the deadline to Friday. The report is in /report.md; verify its citations next.'
+```
+
+This saves your handover for installation after the current tools finish. Your
+original request and unseen tool results remain intact; continue the same work.
+New input or cancellation may supersede the pending handover. No new process or
+responsibility is needed just to compact. Exact evidence stays available through
+`proc segments` and `proc segment ID`.
+
+Ship carries ongoing topics, decisions and unanswered questions across context
+windows. A worker carries its assignment, constraints, verified findings and next
+steps. Neither restarts completed onboarding or treats compaction as completing
+work. Avoid copying transcripts, standing context or the responsibility ledger
+into the handover.
+
 ## Skills
 
 Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; GSV reads the selected `SKILL.md` and any required supporting files before using it.
