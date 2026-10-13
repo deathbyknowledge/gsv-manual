@@ -36,6 +36,18 @@ mcp remove <server>
 
 Run `mcp help` before changing a connection. Adding needs the `sys.mcp.add` capability, and calling a tool asks for approval under the default policy. Availability depends on the current identity, configuration, server health, capability, and approval policy.
 
+GSV renews MCP OAuth tokens automatically when possible. If a server requires
+another browser authorization, its state becomes `authenticating` and its row in
+**Settings → mcp** shows **sign in**, including when discovery or a tool call
+finds the expired authorization. Follow that link to recover the same server ID.
+`mcp refresh <server>` retries a failed connection or replaces an expired sign-in
+link. Run the interrupted tool call again after the server returns to `ready`;
+GSV does not replay it automatically.
+
+An OAuth error returned inside a tool result may instead concern a downstream
+account managed by that service. Reconnect that account in the service that owns
+it; this is separate from authorizing GSV's MCP connection.
+
 ## OAuth Accounts
 
 OAuth authorizes an external account without exposing its bearer token in a message or file:
