@@ -56,7 +56,10 @@ proc compact --summary 'The user corrected the deadline to Friday. The report is
 ```
 
 This saves your handover for installation after the current tools finish. Your
-original request and unseen tool results remain intact; continue the same work.
+original request, unseen tool results and recent original exchanges remain
+intact; continue the same work. The runtime targets 40% of the usable input
+budget by default, including standing instructions, tools and the handover.
+History that already fits stays unchanged.
 New input or cancellation may supersede the pending handover. No new process or
 responsibility is needed just to compact. Exact evidence stays available through
 `proc segments` and `proc segment ID`.
@@ -69,9 +72,12 @@ into the handover.
 
 Newly archived Ship history can also create a memory-review responsibility. Ship
 delegates that bounded slice while continuing to respond to the user. Read its
-`archivePath` with `gzip -dc` on `gsv`, filtering the raw JSONL by the supplied
-generation and original message ID range, and page the output to avoid
-truncation. This archive remains readable after the source Process is replaced.
+`archivePath` with `proc history --archive PATH --generation N
+--after-message-id N --through-message-id N --limit 10 --full` on `gsv`, using
+the supplied generation and original message ID range. Continue with `--offset`
+set to `next_offset` until `has_more=false`, reducing the page size if output is
+truncated. This streams the archive and remains available after the source
+Process is replaced.
 Read current memory first, merge only useful new information with revision-checked
 repository writes, and resolve the responsibility after the whole slice has been
 reviewed and any writes have succeeded. A review may correctly make no changes.
