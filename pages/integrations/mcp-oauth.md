@@ -44,6 +44,9 @@ finds the expired authorization. Follow that link to recover the same server ID.
 link. Run the interrupted tool call again after the server returns to `ready`;
 GSV does not replay it automatically.
 
+If removal fails, the server stays listed. Retry `mcp remove <server>` to finish
+deleting it, or run `mcp refresh <server>` to reconnect the saved server.
+
 An OAuth error returned inside a tool result may instead concern a downstream
 account managed by that service. Reconnect that account in the service that owns
 it; this is separate from authorizing GSV's MCP connection.
