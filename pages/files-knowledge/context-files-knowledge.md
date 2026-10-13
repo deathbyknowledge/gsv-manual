@@ -67,6 +67,15 @@ steps. Neither restarts completed onboarding or treats compaction as completing
 work. Avoid copying transcripts, standing context or the responsibility ledger
 into the handover.
 
+Newly archived Ship history can also create a memory-review responsibility. Ship
+delegates that bounded slice while continuing to respond to the user. Read
+current memory first, merge only useful new information with revision-checked
+repository writes, and resolve the responsibility after the whole slice has been
+reviewed and any writes have succeeded. A review may correctly make no changes.
+If it fails, retain the blocker instead of marking the slice reviewed. These
+reviews are serialized per owner; `memory.review` in responsibility sources
+controls whether new reviews are admitted.
+
 ## Skills
 
 Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; GSV reads the selected `SKILL.md` and any required supporting files before using it.
