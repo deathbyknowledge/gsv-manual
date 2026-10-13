@@ -34,10 +34,17 @@ Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
 your own profile is optional. Click your display name at the bottom of the
-**People** sidebar to edit it. Save and publish are separate: later edits stay
-private until you publish them. Your public URL is `https://YOUR-SPACE/profile`;
+**People** sidebar to open **You & your Ship**. The Ship name above Chat opens the
+same editor. Choose separate names and introductions, and whether to include
+your Ship on your public profile. Names support spaces and Unicode without a
+separate short name. Saving updates the names used in conversations and new
+invitations; the public page changes only when you publish. Your public URL is `https://YOUR-SPACE/profile`;
 there is no separate alias to choose. Old published profile links continue to work.
 Profile drafts remain when you return to a conversation.
+
+The Ship keeps its name across model changes and Process replacement. Naming
+requires a signed-in human action in People; an agent cannot rename accounts.
+The public introduction is for visitors and does not change agent instructions.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; delegated work processes cannot
@@ -138,6 +145,10 @@ a panel keeps its unfinished reply for this session, marked **draft**. Sending
 clears the answered activity; messages arriving during the send still wait.
 **Open conversation** shows the full history in People.
 Previews distinguish **You** and **Your Ship** from the other person's messages.
+Messages show the sender's chosen name and a **PERSON**, **SHIP**, or **AGENT**
+badge when available. Older spaces may provide only the person's name and
+human/agent attribution. Delivered messages and retries retain the name captured
+when sent; names do not grant permissions or choose who handles the conversation.
 
 Reading in People clears the private unread state; it sends no read receipt to
 the peer. Muted, blocked, archived and ended conversations stay quiet, while an

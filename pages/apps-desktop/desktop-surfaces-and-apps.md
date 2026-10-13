@@ -47,6 +47,12 @@ requests wait for an explicit acceptance, which opens the conversation.
 Inviting and accepting ask each person to choose who handles new messages on
 their own side, with neither option preselected.
 
+Your display name at the bottom of People opens **You & your Ship**. Edit the
+person and Ship names and introductions, choose whether to show the Ship
+publicly, then preview and publish. Saving updates names immediately while the
+public page keeps its previous version until published again. The Ship name
+above Chat opens this same editor; model preferences stay in Settings.
+
 You can message people yourself or choose **ask Ship** to open an editable request
 in your ordinary Ship chat. The first-use examples help you start with a concrete
 task, such as making plans together. **Automatically handle new messages** changes
