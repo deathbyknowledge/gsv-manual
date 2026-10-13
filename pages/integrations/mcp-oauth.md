@@ -36,7 +36,8 @@ mcp remove <server>
 
 Run `mcp help` before changing a connection. Adding needs the `sys.mcp.add` capability, and calling a tool asks for approval under the default policy. Availability depends on the current identity, configuration, server health, capability, and approval policy.
 
-GSV renews MCP OAuth tokens automatically when possible. If a server requires
+GSV renews MCP OAuth tokens automatically when possible. Concurrent requests
+share the same renewal and sign-in flow. If a server requires
 another browser authorization, its state becomes `authenticating` and its row in
 **Settings → mcp** shows **sign in**, including when discovery or a tool call
 finds the expired authorization. Follow that link to recover the same server ID.
