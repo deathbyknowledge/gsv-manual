@@ -68,8 +68,11 @@ work. Avoid copying transcripts, standing context or the responsibility ledger
 into the handover.
 
 Newly archived Ship history can also create a memory-review responsibility. Ship
-delegates that bounded slice while continuing to respond to the user. Read
-current memory first, merge only useful new information with revision-checked
+delegates that bounded slice while continuing to respond to the user. Read its
+`archivePath` with `gzip -dc` on `gsv`, filtering the raw JSONL by the supplied
+generation and original message ID range, and page the output to avoid
+truncation. This archive remains readable after the source Process is replaced.
+Read current memory first, merge only useful new information with revision-checked
 repository writes, and resolve the responsibility after the whole slice has been
 reviewed and any writes have succeeded. A review may correctly make no changes.
 If it fails, retain the blocker instead of marking the slice reviewed. These
