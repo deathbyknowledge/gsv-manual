@@ -11,6 +11,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Read, write, edit, search, or delete files | the built-in file tools; `ls`, `stat`, `cp` in Shell |
 | Copy between GSV and a connected computer | `cp`, `targets` |
 | Inspect or control work | `proc`, `ps` |
+| Hand over the current working context | `proc compact --summary '...'` from the active process |
 | Send, attach, silence, or route messages | `message` |
 | Connect the owner's messenger using a pairing code | `messenger list`, `messenger setup ADAPTER`, `messenger connect ADAPTER < code.txt` |
 | Find an earlier conversation message | `message search`, then `message history` |

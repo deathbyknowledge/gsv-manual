@@ -42,6 +42,49 @@ along the way go in the person's `context.d/10-personal.md`.
 
 Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
+## Continuing Across Context Windows
+
+Save useful knowledge as you learn it. The human's `context.d/10-personal.md`
+stays loaded for Ship and owned workers; detailed knowledge remains searchable
+in the personal wiki. A history handover is working context, not another memory
+store. Keep commitments in `r12y` and artifacts in files.
+
+When the runtime requests a handover, update those stores and submit:
+
+```bash
+proc compact --summary 'The user corrected the deadline to Friday. The report is in /report.md; verify its citations next.'
+```
+
+This saves your handover for installation after the current tools finish. Your
+original request, unseen tool results and recent original exchanges remain
+intact; continue the same work. The runtime targets 40% of the usable input
+budget by default, including standing instructions, tools and the handover.
+History that already fits stays unchanged.
+New input or cancellation may supersede the pending handover. No new process or
+responsibility is needed just to compact. Exact evidence stays available through
+`proc segments` and `proc segment ID`.
+
+Ship carries ongoing topics, decisions and unanswered questions across context
+windows. A worker carries its assignment, constraints, verified findings and next
+steps. Neither restarts completed onboarding or treats compaction as completing
+work. Avoid copying transcripts, standing context or the responsibility ledger
+into the handover.
+
+Newly archived Ship history can also create a memory-review responsibility. Ship
+delegates that bounded slice while continuing to respond to the user. Read its
+`archivePath` with `proc history --archive PATH --generation N
+--after-message-id N --through-message-id N --limit 10 --full` on `gsv`, using
+the supplied generation and original message ID range. Continue with `--offset`
+set to `next_offset` until `has_more=false`, reducing the page size if output is
+truncated. This streams the archive and remains available after the source
+Process is replaced.
+Read current memory first, merge only useful new information with revision-checked
+repository writes, and resolve the responsibility after the whole slice has been
+reviewed and any writes have succeeded. A review may correctly make no changes.
+If it fails, retain the blocker instead of marking the slice reviewed. These
+reviews are serialized per owner; `memory.review` in responsibility sources
+controls whether new reviews are admitted.
+
 ## Skills
 
 Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; GSV reads the selected `SKILL.md` and any required supporting files before using it.
