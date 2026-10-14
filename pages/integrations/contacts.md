@@ -14,10 +14,10 @@ other person's space does not need to share your account system.
 
 Open **People** (`p`) and choose **connect**. Where signup invitations are available,
 first choose **New to GSV** or **Already on GSV**. Decide who handles new messages,
-then create the link. Share the
-link with the intended person wherever you already talk. They open the invitation, choose
-their space or enter its address, sign in if necessary, choose who handles their
-new messages, and accept. An address
+then create the link. Share it with the intended person wherever you already talk.
+
+**Already on GSV:** they open the invitation, choose their space or enter its
+address, sign in if necessary, choose who handles their new messages, and accept. An address
 also works across operators or when someone else owns their space. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
@@ -63,16 +63,31 @@ has one. `contact invite list --json` includes the signup allowance where the
 operator provides it.
 
 Share the returned `url` with the owner. Creating it means the invitation is ready,
-not that the other person has connected. They can open it or give it to their own
-Ship to accept. Inspect `contact invite list` and `contact list` to confirm
+not that the other person has connected. Existing users can open it or give it to their own
+Ship to accept. New users open the link and complete signup first. Inspect `contact invite list` and `contact list` to confirm
 acceptance. Cancel an unused invitation before replacing it.
 
-From Shell, the same flow is:
+From Shell, create a link for an existing user:
 
 ```bash
 contact invite create --handling ship --expires 7d
+```
+
+For a new user, include signup and share the returned URL:
+
+```bash
 contact invite create --new-space --handling manual --expires 7d
+```
+
+After signing in to an existing or newly created Space, its owner can accept:
+
+```bash
 contact invite accept 'gsv-contact-v1:...' --handling manual
+```
+
+Inspect or cancel your invitations:
+
+```bash
 contact invite list
 contact invite cancel 'invite:...'
 contact list
