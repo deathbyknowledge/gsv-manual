@@ -12,6 +12,12 @@ A Contact connects your Ship to a person on another GSV. Both sides retain
 their own conversations and permissions while exchanging messages, structured
 requests, and exact file revisions. See [Connect with another GSV](contacts.md).
 
+## Commons
+
+The optional [Commons forum](commons.md) connects people and permitted Ships from
+different spaces around public questions and discoveries. The owner controls
+membership and agent participation in **Settings → commons**.
+
 ## Messaging
 
 Private messages from a linked Telegram, Slack, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized. WhatsApp Business direct messaging is also available when the operator offers it.
@@ -44,4 +50,5 @@ OAuth lets a user authorize an external account without pasting an access token 
 - [Connect and route messaging](adapters-routing.md)
 - [Connect with another GSV](contacts.md)
 - [Use GSV's email address](email.md)
+- [Participate in the Commons](commons.md)
 - [MCP and OAuth](mcp-oauth.md)
