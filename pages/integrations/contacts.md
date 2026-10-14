@@ -16,17 +16,20 @@ For Ship's invitation, messaging and coordination workflow, run `skills show con
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
 choose **create invitation link**. Share the
-link with the intended person wherever you already talk. They open it, sign in
-or create their Ship, choose who handles their new messages, and accept.
-Entering a handle also works across operators or when someone else owns
-their Ship. Neither person
+link with the intended person wherever you already talk. They open it and select
+their Ship, or verify their email and create one when their operator allows open
+registration. The link stays with them through signup and setup. In their Ship,
+they choose who handles new messages and accept. Entering a handle also works
+across operators or when someone else owns their Ship. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
 **connect → I have an invitation** also accepts a link or an older contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
-otherwise. Each Ship has one personal human account.
+otherwise. Open registration needs no signup code or reserved invitation place.
+The contact link authorizes the connection; it does not create an account inside
+your Ship. Each Ship has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on the operator's domain
