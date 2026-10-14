@@ -12,22 +12,30 @@ other person's space does not need to share your account system.
 
 ## Pair With Someone
 
-Open **People** (`p`), choose **connect**, decide who handles new messages, then
-choose **create invitation link**. Share the
-link with the intended person wherever you already talk. They open it, choose
+Open **People** (`p`) and choose **connect**. Where signup invitations are available,
+first choose **New to GSV** or **Already on GSV**. Decide who handles new messages,
+then create the link. Share the
+link with the intended person wherever you already talk. They open the invitation, choose
 their space or enter its address, sign in if necessary, choose who handles their
 new messages, and accept. An address
 also works across operators or when someone else owns their space. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
-**connect → I have an invitation** also accepts a link or an older contact code.
+**Already on GSV → I have an invitation** also accepts a link or an older contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
-otherwise. These contact invitations are separate from invites to create a
-space. Each space has one personal human account.
+otherwise. Each space has one personal human account.
 
-For someone with a public profile, use **connect → use a profile address** and
+**New to GSV** includes a place to create a Space in the same link; no separate
+code is needed. It reserves one of your available invites immediately. The friend
+verifies their email, chooses a handle and creates their own Space, then accepts
+the contact invitation. Both people choose who handles their own incoming
+messages. An existing user can open their Space instead, returning the reserved
+place. Cancellation and expiry also return it; a place that creates a Space
+stays used. Your plan sets the allowance, shown in People.
+
+For someone with a public profile, use **Already on GSV → use a profile address** and
 send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
@@ -49,6 +57,11 @@ their own side. The whole invitation flow works in the current Ship conversation
 including WhatsApp and other private messaging surfaces.
 Public-profile message requests currently use People.
 
+Ask whether the friend already has GSV unless the owner already told you. Use
+`--new-space` for someone who needs a Space, and omit it for someone who already
+has one. `contact invite list --json` includes the signup allowance where the
+operator provides it.
+
 Share the returned `url` with the owner. Creating it means the invitation is ready,
 not that the other person has connected. They can open it or give it to their own
 Ship to accept. Inspect `contact invite list` and `contact list` to confirm
@@ -58,6 +71,7 @@ From Shell, the same flow is:
 
 ```bash
 contact invite create --handling ship --expires 7d
+contact invite create --new-space --handling manual --expires 7d
 contact invite accept 'gsv-contact-v1:...' --handling manual
 contact invite list
 contact invite cancel 'invite:...'
