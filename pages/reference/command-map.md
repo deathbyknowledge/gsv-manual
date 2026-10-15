@@ -63,7 +63,6 @@ A command may require a capability, connected target, configured provider, linke
 
 ## External CLI Name
 
-The installed host CLI can be invoked as `ship` or `gsv`; both use the same local
-configuration and connection. Examples such as `ship auth login`, `ship chat`,
-`ship pair` and `ship desktop` refer to that external CLI. Inside Ship's shell,
-continue using the native commands listed above without adding a `ship` prefix.
+The installed host CLI is `gsv`. Examples such as `gsv auth login`, `gsv chat`,
+`gsv pair` and `gsv desktop` refer to that external CLI. Inside Ship's shell,
+continue using the native commands listed above without adding a `gsv` prefix.
