@@ -26,8 +26,9 @@ Fleet is the operational view:
 
 - **Places** shows connected computers and browsers and their state; **connect** pairs a new one.
 - **Processes** shows running and finished work with its controls.
-- **Responsibilities** shows promises, follow-ups, and delegated work Ship is tracking.
-- **Files** shows recently touched files across places.
+- Open a place and choose **browse files** for its folders, file previews and reader/editor.
+
+On phones, places and processes use compact rows; their inspectors keep the additional details. Process responsibility counts open the matching list in Chat.
 
 Open **Settings → Logs** for the full action history, purposes and outcomes.
 
@@ -37,6 +38,33 @@ to address a message or command to it. That choice stays when switching views.
 Check the selected target before changing a file or running a command. A path
 such as `laptop:/projects/report` acts on that connected target; an unqualified
 path uses the current target and working directory.
+
+## Context In Chat
+
+Choose **plans** beside the Chat wordmark for responsibilities, routines and
+standing policies. The panel stays over the conversation. Responsibilities show
+blockers, assignees and next checks, with child steps grouped beneath their parent.
+Open one to inspect it, cancel it, or **ask Ship** about that exact responsibility.
+The **routines** tab shows cadence and next-run, paused or failed state, with
+pause/enable and edit controls. **Standing** shows the event-driven policies.
+
+The composer’s **+** menu offers:
+
+- **attach a file** from this device;
+- **find a person** by saved name or public GSV address, then mention them or open contact controls;
+- **reference a file** on a connected place;
+- **create a routine**, **connect a computer**, or **start a browser** as requests to Ship.
+
+Selecting a request preserves the current draft. Add details, remove the request,
+or send it normally. Selection alone sends nothing and grants no permissions.
+After sending, Chat shows the request’s type, title and your note. Open **request**
+to inspect the full readable instruction. Copies and other clients retain that
+text; the request rendering survives history reloads. Selecting its title reopens
+the relevant context. Routine and responsibility references use exact record IDs;
+file references name their target and path. Files can change after being referenced.
+
+**Ask Ship** in People and **ask about this** in Memory use the same composer and
+request presentation. A person mention does not contact them automatically.
 
 ## People
 

@@ -33,6 +33,11 @@ This sends the fixed text without asking a model to compose it at firing time.
 
 ## Inspect And Control Schedules
 
+In Web or Desktop, open **Chat → plans → routines**. Open a routine to inspect,
+pause/enable or edit it. **New routine**, or **+ → create a routine** beneath the
+Chat prompt, stages a request to Ship. Add the desired outcome and timing, then
+send it normally. The shortcut itself does not create a schedule.
+
 ```bash
 sched list --all
 sched disable <id>

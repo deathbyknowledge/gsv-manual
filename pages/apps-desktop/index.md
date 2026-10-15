@@ -8,9 +8,9 @@ work, files, machines, integrations, and permissions.
 ## Choose The App That Fits
 
 Use **Web** when you want GSV from any signed-in browser. The Web app is
-called **Instrument** and has five views: **Zen** for Ship and the activity
-behind each reply, **Fleet** for places, processes,
-responsibilities and recent files, **Memory** for personal
+called **Instrument** and has five views: **Chat** for Ship, reply activity and
+contextual responsibilities/routines, **Fleet** for places and processes (with
+files opened from a place), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other GSV spaces,
 and **Settings** for preferences, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
