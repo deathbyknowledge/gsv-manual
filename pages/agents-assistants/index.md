@@ -35,7 +35,7 @@ This separation keeps the conversation readable and the reasoning and tool use i
 | See visible work | Open **Fleet → Processes** or run `proc list` |
 | Inspect the current work item | Run `proc self`, then `proc history --pid <pid>` (`--tail` for the newest) |
 | See every action taken and why | Open **Settings → Logs** |
-| Review open promises and follow-ups | Open **Chat → + → plans → ongoing** or run `r12y list` |
+| Review open promises and follow-ups | Open **N ongoing** (or **plans**) above Chat's prompt, then **ongoing**; or run `r12y list` |
 | Hand off a bounded subtask | `proc delegate --as ACCOUNT --label LABEL --check-after DURATION TASK`; select the account named in Ship's `~/context.d/10-delegation.md` |
 | Stop only the active run | use **Abort** in the active client |
 | Clear activity but keep the work item | Reset / `proc reset --pid <pid>` |

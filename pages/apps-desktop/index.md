@@ -14,7 +14,7 @@ files opened from a place), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other GSV spaces,
 and **Settings** for preferences, standing responsibilities, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
-Zen's **record** button turns a browser microphone recording into a draft using
+Chat's **record** button turns a browser microphone recording into a draft using
 the space's transcription provider. Review the words before sending.
 
 Use **Desktop** when you want a native window, local voice and hands-free

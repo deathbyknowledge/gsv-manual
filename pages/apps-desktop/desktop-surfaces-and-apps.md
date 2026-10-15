@@ -3,13 +3,15 @@
 [Web And Desktop](index.md)
 
 The web app keeps its header, background and drafts while changing views.
+On phones, use **menu** in the header to choose a view.
 Browser **Back** and **Forward** retrace those destinations, including People lists,
-conversations, requests and your profile, without reloading the page. Reloading a
-People destination opens that selection; unsent drafts remain local to the session.
+conversations, requests and your profile, without reloading the page. Drafts are
+retained while navigating within the open app. Reloading a People destination
+restores the selected list, conversation, request or profile.
 
 ## Ship And Work
 
-**Zen** always opens the personal intelligence. Separate work opens in a visibly
+**Chat** always opens the personal intelligence. Separate work opens in a visibly
 labelled Work session with a Back action, while Ship remains available.
 
 Use the **Processes** block in **Fleet** when you want to:
@@ -21,6 +23,10 @@ Use the **Processes** block in **Fleet** when you want to:
 
 See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md)
 for the difference between sent messages and work activity.
+
+While Chat shows **Reconnecting…**, you can keep writing and editing the draft.
+Sending waits for the connection to return; reconnecting does not send the draft
+automatically.
 
 Code blocks in Ship replies and Memory have a **copy** action. Long lines scroll
 within the block; copy keeps indentation and line breaks without adding a final newline.
@@ -52,7 +58,7 @@ On phones, places and processes use compact rows; their inspectors keep the addi
 
 Open **Settings → Logs** for the full action history, purposes and outcomes.
 
-Zen's composer starts on **your cloud** (`gsv`). Choose another place explicitly
+Chat's composer starts on **your cloud** (`gsv`). Choose another place explicitly
 to address a message or command to it. That choice stays when switching views.
 
 Check the selected target before changing a file or running a command. A path
@@ -68,7 +74,7 @@ and **history** at one level. Responsibility rows show a short status, assignee 
 next check. Open one to read its full waiting explanation, inspect details,
 cancel it, or **ask Ship** about that exact responsibility. Child steps stay grouped
 beneath their parent. Routines show cadence and next-run, paused or failed state,
-with pause/enable and edit controls. Event-driven policies live in
+with pause/enable controls and editing for supported routine types. Event-driven policies live in
 **Settings → standing**.
 
 The composer’s **+** menu separates **add context** from **ask Ship** and offers:
@@ -87,7 +93,7 @@ root and stops there. Tapping a file name immediately adds its target and path t
 your Chat draft. Fleet’s file browser still opens a preview with **talk about it**.
 Files can change after being referenced.
 
-Selecting a request appends ordinary editable text and preserves existing text
+Selecting a request adds ordinary editable text and preserves existing text
 and attachments. Review, change or remove it before sending. Selection alone
 sends nothing and grants no permissions. Sent requests use the normal message
 rendering and history. Routine and responsibility references include exact record
@@ -130,9 +136,9 @@ conversation **details** changes your choice later. On phones, **more** holds
 full-height conversation list. Replies associated with assigned tasks can still reach Ship
 when it is off; connecting or enabling it does not replay existing messages.
 
-A dot beside People marks unread activity. Zen also shows unread conversations
+A dot beside People marks unread activity. Chat also shows unread conversations
 and incoming requests beside ongoing plans in one compact line above the prompt, including after
-reload. Select a person to read and reply without leaving Zen. Closing the panel
+reload. Select a person to read and reply without leaving Chat. Closing the panel
 keeps an unfinished draft, and new messages do not move your reading position. See
 [Connect with another GSV](../integrations/contacts.md) for messages, private
 controls, and task-specific coordination.
