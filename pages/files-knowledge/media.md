@@ -44,7 +44,7 @@ message send --message "I attached the report and supporting files."
 
 A document on a connected computer can be attached directly when that computer's daemon is current; older daemons can attach only images from that computer.
 
-Use `--mime` only when GSV cannot infer the type and only with one attachment. Attachment count and size limits are enforced before the message is committed.
+Use `--mime` only when Ship cannot infer the type and only with one attachment. Attachment count and size limits are enforced before the message is committed.
 
 ## Media On Another Target
 

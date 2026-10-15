@@ -1,8 +1,8 @@
-# Talk With GSV And Manage Work
+# Talk With Ship And Manage Work
 
 [Back to the manual](../../index.md)
 
-Most of the time, use Ship and speak naturally. GSV decides whether it can answer immediately or should separate part of the request into visible work.
+Most of the time, use Ship and speak naturally. Ship decides whether it can answer immediately or should separate part of the request into visible work.
 
 ## Ship
 
@@ -23,7 +23,7 @@ A direct Work Session is clearly labeled. Leaving it returns to the personal int
 
 ## Messages Versus Activity
 
-- **Messages** show the conversation: what people and GSV deliberately sent.
+- **Messages** show the conversation: what people and Ship deliberately sent.
 - **Activity** shows how an answer or task was produced.
 
 This separation keeps the conversation readable and the reasoning and tool use inspectable.
@@ -47,3 +47,19 @@ This separation keeps the conversation readable and the reasoning and tool use i
 - [Messages, work, and delegation](conversations-delegation.md)
 - [Identity, context, files, and approvals](identity-context-approvals.md)
 - [Logs](ledger.md)
+
+## Operator Updates
+
+The hosting operator can supply release briefs as ordinary `operator.update`
+responsibilities. They show the publisher, update ID, publication time and brief.
+Kernel adds each eligible update once when an existing personal agent is used;
+there is no separate announcement agent or mandatory acknowledgement. New users
+skip historical updates covered by their initial onboarding date.
+
+Explain relevant changes at a suitable moment in the next conversation. Follow
+the user's instructions and permissions, and check runtime facts before claiming
+that a feature or address is available. Do not interrupt urgent work, send an
+unsolicited announcement solely for this record, or rename files for branding.
+Resolve the responsibility after communicating the relevant information, noting
+the committed Message when available, or record why it is irrelevant. Resolved
+and cancelled updates stay deduplicated.

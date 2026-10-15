@@ -2,7 +2,7 @@
 
 [Computers And Browser](index.md)
 
-A target is a place where GSV can perform an action. `gsv` means the installation itself. Connected computers and browser profiles have their own target IDs.
+A target is a place where Ship can perform an action. `gsv` means the installation itself. Connected computers and browser profiles have their own target IDs.
 
 ## Discover The Right Target
 

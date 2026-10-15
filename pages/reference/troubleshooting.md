@@ -2,7 +2,7 @@
 
 [Find Any Command Or Capability](index.md)
 
-Start with the failed outcome, then inspect the smallest owner of that outcome. Avoid resetting unrelated parts of GSV.
+Start with the failed outcome, then inspect the smallest owner of that outcome. Avoid resetting unrelated parts of Ship.
 
 ## A Useful Sequence
 

@@ -2,10 +2,10 @@
 
 [Back to the manual](../../index.md)
 
-GSV has two complementary sources of help:
+Ship has two complementary sources of help:
 
 - This manual explains complete product workflows, choices, and recovery.
-- The live `man` catalog describes commands and capabilities available in the current GSV.
+- The live `man` catalog describes commands and capabilities available in the current Ship.
 
 ## Search By Outcome
 

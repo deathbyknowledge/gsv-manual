@@ -1,8 +1,8 @@
-# Connect With Another GSV
+# Connect With Another Ship
 
 [Messaging, Email, And Connected Services](index.md)
 
-A Contact joins your Ship to a person on another GSV. You can exchange
+A Contact joins your Ship to a person on another Ship. You can exchange
 messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
@@ -29,7 +29,7 @@ space. Each space has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full
-address for a GSV hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
+address for a Ship hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
 Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
@@ -86,10 +86,10 @@ message send --to 'contact:...' --message "Can you review this?" --also
 
 `message destinations` includes active Contacts as well as messaging endpoints.
 The sender first records the message locally. Delivery is complete when the
-other GSV has durably recorded it; that does not mean the other person or their
+other Ship has durably recorded it; that does not mean the other person or their
 Ship has already acted on it.
 
-The send result says `accepted=true` once this GSV durably owns the delivery.
+The send result says `accepted=true` once this Ship durably owns the delivery.
 Keep its delivery id and inspect the eventual result when needed:
 
 ```bash
@@ -155,12 +155,12 @@ message send --to 'contact:...' \
   --also
 ```
 
-Use a new delivery id for a genuinely new message. GSV rejects changed content
+Use a new delivery id for a genuinely new message. Ship rejects changed content
 under an id that already names another logical delivery.
 
 ## Share A File Or Image
 
-Attach a GSV file in the ordinary way:
+Attach a Ship file in the ordinary way:
 
 ```bash
 message send --to 'contact:...' \
@@ -170,12 +170,12 @@ message send --to 'contact:...' \
 ```
 
 The conversation stores a reference to the retained revision, not another
-eager copy of its bytes. The other GSV streams that exact revision when the
+eager copy of its bytes. The other Ship streams that exact revision when the
 recipient opens or uses it. A later edit to the original file does not rewrite
 the earlier message.
 
-Copy from a connected computer to GSV first when the source is not already
-available as an immutable GSV reference:
+Copy from a connected computer to Ship first when the source is not already
+available as an immutable Ship reference:
 
 ```bash
 cp laptop:/Users/alice/Desktop/report.pdf /tmp/report.pdf
@@ -218,7 +218,7 @@ contact revoke 'contact:...'
 
 Revocation stops new messages, request updates, and file reads through that
 relationship. It does not erase messages that each person already received.
-The other GSV records the relationship as revoked when it receives the durable
+The other Ship records the relationship as revoked when it receives the durable
 notice.
 
 If a relationship should exist again later, create and accept a new invitation.
@@ -236,7 +236,7 @@ message history --with 'contact:...' --json
 message delivery show 'delivery:...' --json
 ```
 
-If a delivery is queued, GSV keeps retrying the same logical delivery. A
+If a delivery is queued, Ship keeps retrying the same logical delivery. A
 terminal failure becomes work for Ship to inspect instead of silently creating
 duplicates. If pairing fails, verify that the invitation is unexpired and that
-the other GSV's origin is reachable over HTTPS.
+the other Ship's origin is reachable over HTTPS.

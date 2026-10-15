@@ -8,7 +8,7 @@ Use automation when something should happen later or repeat. Use delegation when
 
 | Need | Use |
 | --- | --- |
-| Ask GSV to think or act later | `sched add --here` |
+| Ask Ship to think or act later | `sched add --here` |
 | Send fixed text later without a model run | `sched add --to` |
 | Run a recurring shell command | `crontab` |
 | Hand off a bounded task and receive its result | [`proc delegate --as ACCOUNT --check-after`](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task) |

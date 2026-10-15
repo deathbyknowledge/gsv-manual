@@ -33,7 +33,7 @@ See [Computers and browser](../devices-workplaces/index.md).
 
 ## Messaging Identities
 
-Connecting a messaging account gives GSV access to the service. A separate, short-lived one-time challenge links an external sender to the owner from inside an authenticated GSV session.
+Connecting a messaging account gives Ship access to the service. A separate, short-lived one-time challenge links an external sender to the owner from inside an authenticated Ship session.
 
 An external identity is linked only through the authenticated challenge, not from a display name, typed provider ID, or untrusted message. See [Connect and route messaging](../integrations/adapters-routing.md).
 
