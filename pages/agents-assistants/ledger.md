@@ -11,6 +11,9 @@ Use it to answer "what happened" without depending on a work item's history, whi
 Open **Settings → Logs**; lines arrive live and update when a call completes. Open a line for its request details, duration and any failure. **Inspect process** opens that process in Fleet. The purpose column is the one-sentence reason the tool supplied for the person.
 
 The same record is available to clients through the `sys.ledger.list` capability, scoped to the owning person or root.
+On phones, each entry shows its action and outcome above the place and time.
+Tap it for its purpose, arguments and process. **raw** shows syscall names in
+place of action labels without requiring horizontal scrolling.
 
 ## What A Line Holds
 

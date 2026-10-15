@@ -19,6 +19,11 @@ for the difference between sent messages and work activity.
 
 Code blocks in Ship replies and Memory have a **copy** action. Long lines scroll
 within the block; copy keeps indentation and line breaks without adding a final newline.
+Scrolling Chat selects the message nearest the middle of the visible conversation;
+at either end it selects the first or latest message. On phones, the down arrow
+on the right returns to the latest message. Completed actions fold into **details**
+in the message footer. Tap it to inspect the work; active work, failures and
+approvals remain visible.
 
 ## Fleet
 
@@ -51,7 +56,7 @@ beneath their parent. Routines show cadence and next-run, paused or failed state
 with pause/enable and edit controls. Event-driven policies live in
 **Settings → standing**.
 
-The composer’s **+** menu offers:
+The composer’s **+** menu separates **add context** from **ask Ship** and offers:
 
 - **attach a file** from this device;
 - **find a person** by handle, saved name or public GSV address, then mention them or open contact controls;
