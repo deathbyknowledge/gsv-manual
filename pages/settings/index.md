@@ -10,6 +10,7 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | --- | --- |
 | Model order and reasoning | **Settings → preferences** (`users/{uid}/ai/models`, `users/{uid}/ai/reasoning`) |
 | When GSV asks before using a capability | **Settings → permissions** (`users/{uid}/ai/tools/approval`) |
+| Event-driven responsibilities Ship takes care of | **Settings → standing** |
 | Standing instructions for your agents | **Settings → instructions** (`~/context.d/`) |
 | Messaging connection | **Settings → messengers** |
 | MCP connection | **Settings → mcp** |

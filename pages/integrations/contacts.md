@@ -27,8 +27,10 @@ link alongside the code. Its default lifetime is one hour unless requested
 otherwise. These contact invitations are separate from invites to create a
 space. Each space has one personal human account.
 
-For someone with a public profile, use **connect → use a profile address** and
-send a first message. Your account's display name is prefilled and editable.
+For someone with a public profile, use **connect → use a profile address**.
+Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full
+address for a GSV hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
+Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.

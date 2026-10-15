@@ -12,7 +12,7 @@ called **Instrument** and has five views: **Chat** for Ship, reply activity and
 contextual responsibilities/routines, **Fleet** for places and processes (with
 files opened from a place), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other GSV spaces,
-and **Settings** for preferences, permissions, instructions,
+and **Settings** for preferences, standing responsibilities, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
 Zen's **record** button turns a browser microphone recording into a draft using
 the space's transcription provider. Review the words before sending.

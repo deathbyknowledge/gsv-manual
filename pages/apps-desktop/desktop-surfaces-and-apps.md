@@ -41,30 +41,44 @@ path uses the current target and working directory.
 
 ## Context In Chat
 
-Choose **plans** beside the Chat wordmark for responsibilities, routines and
-standing policies. The panel stays over the conversation. Responsibilities show
-blockers, assignees and next checks, with child steps grouped beneath their parent.
-Open one to inspect it, cancel it, or **ask Ship** about that exact responsibility.
-The **routines** tab shows cadence and next-run, paused or failed state, with
-pause/enable and edit controls. **Standing** shows the event-driven policies.
+Tap the summary above Chat’s prompt, or choose **+ → plans**, for responsibilities
+and routines. The panel stays over the conversation, with **ongoing**, **routines**
+and **history** at one level. Responsibility rows show a short status, assignee and
+next check. Open one to read its full waiting explanation, inspect details,
+cancel it, or **ask Ship** about that exact responsibility. Child steps stay grouped
+beneath their parent. Routines show cadence and next-run, paused or failed state,
+with pause/enable and edit controls. Event-driven policies live in
+**Settings → standing**.
 
 The composer’s **+** menu offers:
 
 - **attach a file** from this device;
-- **find a person** by saved name or public GSV address, then mention them or open contact controls;
+- **find a person** by handle, saved name or public GSV address, then mention them or open contact controls;
 - **reference a file** on a connected place;
+- **plans** for responsibilities, routines and their history;
 - **create a routine**, **connect a computer**, or **start a browser** as requests to Ship.
 
-Selecting a request preserves the current draft. Add details, remove the request,
-or send it normally. Selection alone sends nothing and grants no permissions.
-After sending, Chat shows the request’s type, title and your note. Open **request**
-to inspect the full readable instruction. Copies and other clients retain that
-text; the request rendering survives history reloads. Selecting its title reopens
-the relevant context. Routine and responsibility references use exact record IDs;
-file references name their target and path. Files can change after being referenced.
+A handle such as `esteve` or `@esteve` opens that person’s profile on `gsv.space`.
+Use a full address for a GSV hosted elsewhere. Saved people use the full available
+list height in the contextual panel.
 
-**Ask Ship** in People and **ask about this** in Memory use the same composer and
-request presentation. A person mention does not contact them automatically.
+In the file picker, **../** above a place’s entries moves toward its filesystem
+root and stops there. Tapping a file name immediately adds its target and path to
+your Chat draft. Fleet’s file browser still opens a preview with **talk about it**.
+Files can change after being referenced.
+
+Selecting a request appends ordinary editable text and preserves existing text
+and attachments. Review, change or remove it before sending. Selection alone
+sends nothing and grants no permissions. Sent requests use the normal message
+rendering and history. Routine and responsibility references include exact record
+IDs; person references include the profile URL.
+
+**Ask Ship** in People and **ask about this** in Memory use the same composer.
+A person mention does not contact them automatically.
+
+On phones, opening the keyboard shrinks the content area between the header and
+composer. Lists and message history scroll within the available space; the page
+itself stays fixed. The star field retains its full-screen background.
 
 ## People
 
