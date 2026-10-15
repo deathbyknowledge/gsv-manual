@@ -1,10 +1,10 @@
 # Messages, Work, And Delegation
 
-[Talk With GSV And Manage Work](index.md)
+[Talk With Ship And Manage Work](index.md)
 
 ## What Becomes A Message
 
-Reasoning and draft text belong to activity. A user-visible reply is sent only when the active GSV intelligence deliberately sends it with the Send tool: text alone sends the message and keeps working; text with `yield` sends it and finishes the run; `yield` alone finishes quietly, with no message. Several sends in one run each deliver exactly once, so progress messages are ordinary.
+Reasoning and draft text belong to activity. A user-visible reply is sent only when the active Ship intelligence deliberately sends it with the Send tool: text alone sends the message and keeps working; text with `yield` sends it and finishes the run; `yield` alone finishes quietly, with no message. Several sends in one run each deliver exactly once, so progress messages are ordinary.
 
 The Shell forms are the same actions:
 
@@ -22,7 +22,7 @@ message send --message "Here it is."
 
 Use `message current --json` to inspect the endpoint for the current interaction. Use `message destinations --all --json` when sending a separate message to another authorized destination.
 
-If a human-facing run ends in text without sending, GSV asks it to use Send, for up to three rounds. If that still fails, the person receives "I wrote a reply but did not send it. Ask me again." instead of silence.
+If a human-facing run ends in text without sending, Ship asks it to use Send, for up to three rounds. If that still fails, the person receives "I wrote a reply but did not send it. Ask me again." instead of silence.
 
 ## One Conversation, Separate Work
 
@@ -76,7 +76,7 @@ Use `proc --help` for the full current syntax.
 
 One work item has one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the active work item's next model context, so it can adjust the work already in progress. Scheduled work and other requests that need their own run remain queued in order.
 
-Only the active run can modify its state. If an older result arrives after the conversation has moved on, GSV decides whether it is still useful before sending anything.
+Only the active run can modify its state. If an older result arrives after the conversation has moved on, Ship decides whether it is still useful before sending anything.
 
 ## Abort, Reset, And Kill
 
@@ -96,4 +96,4 @@ A brief acknowledgment may precede bookkeeping. Record unfinished accepted outco
 
 ## Retention
 
-GSV keeps recent conversation messages readily searchable and archives older conversation history in segments as it grows. Work activity has its own retention and archive lifecycle, so conversation history and work history can each be retrieved at the level of detail they need.
+Ship keeps recent conversation messages readily searchable and archives older conversation history in segments as it grows. Work activity has its own retention and archive lifecycle, so conversation history and work history can each be retrieved at the level of detail they need.

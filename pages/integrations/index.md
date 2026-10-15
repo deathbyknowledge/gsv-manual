@@ -2,25 +2,25 @@
 
 [Back to the manual](../../index.md)
 
-GSV can continue conversations through messaging apps, receive and send managed email, and use external services connected through MCP or OAuth. What is available depends on the installation and the accounts the user has linked. Messengers are connected under **Settings → messengers** and MCP servers under **Settings → mcp** in the Web app.
+Ship can continue conversations through messaging apps, receive and send managed email, and use external services connected through MCP or OAuth. What is available depends on the installation and the accounts the user has linked. Messengers are connected under **Settings → messengers** and MCP servers under **Settings → mcp** in the Web app.
 
-A website the user is already signed into does not need an integration. A paired browser reaches it through the user's own session; see [Use a browser target](../devices-workplaces/browser-targets.md). Prefer the browser when the goal is to read or act on a web app, and use MCP or OAuth when a service exposes operations GSV should call directly.
+A website the user is already signed into does not need an integration. A paired browser reaches it through the user's own session; see [Use a browser target](../devices-workplaces/browser-targets.md). Prefer the browser when the goal is to read or act on a web app, and use MCP or OAuth when a service exposes operations Ship should call directly.
 
 ## Contacts
 
-A Contact connects your Ship to a person on another GSV. Both sides retain
+A Contact connects your Ship to a person on another Ship. Both sides retain
 their own conversations and permissions while exchanging messages, structured
-requests, and exact file revisions. See [Connect with another GSV](contacts.md).
+requests, and exact file revisions. See [Connect with another Ship](contacts.md).
 
 ## Messaging
 
 Private messages from a linked Telegram, Slack, or Discord identity normally continue Ship. Groups, channels, and threads can be directed to selected work when authorized. WhatsApp Business direct messaging is also available when the operator offers it.
 
-Connecting a provider account and proving which external person is the signed-in GSV owner are separate steps. See [Connect and route messaging](adapters-routing.md).
+Connecting a provider account and proving which external person is the signed-in Ship owner are separate steps. See [Connect and route messaging](adapters-routing.md).
 
 ## Email
 
-This GSV has its own address (`<handle>@gsv.space` on the public service; `mail address` prints the exact one), kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. GSV reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use GSV's email address](email.md).
+This Ship has its own address (`<handle>@gsv.space` on the public service; `mail address` prints the exact one), kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. Ship reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use Ship's email address](email.md).
 
 ## MCP
 
@@ -42,6 +42,6 @@ OAuth lets a user authorize an external account without pasting an access token 
 ## Pages In This Section
 
 - [Connect and route messaging](adapters-routing.md)
-- [Connect with another GSV](contacts.md)
-- [Use GSV's email address](email.md)
+- [Connect with another Ship](contacts.md)
+- [Use Ship's email address](email.md)
 - [MCP and OAuth](mcp-oauth.md)

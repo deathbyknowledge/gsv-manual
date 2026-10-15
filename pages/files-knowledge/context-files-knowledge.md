@@ -94,7 +94,7 @@ controls whether new reviews are admitted.
 
 ## Skills
 
-Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; GSV reads the selected `SKILL.md` and any required supporting files before using it.
+Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; Ship reads the selected `SKILL.md` and any required supporting files before using it.
 
 Useful commands:
 
@@ -112,4 +112,4 @@ Use context for a rule that applies broadly. Use a skill for a repeatable workfl
 
 ## Updating Memory Safely
 
-When a person explicitly asks GSV to remember or forget something, update the narrowest owning file or wiki page. Read before editing, preserve unrelated content, and report what changed without exposing private contents unnecessarily.
+When a person explicitly asks Ship to remember or forget something, update the narrowest owning file or wiki page. Read before editing, preserve unrelated content, and report what changed without exposing private contents unnecessarily.

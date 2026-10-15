@@ -4,7 +4,7 @@
 
 ## Everyday File Work
 
-GSV can read, search, create, edit, and delete files it is authorized to access. Use the dedicated file tools for direct work. Shell also provides familiar discovery and copy commands:
+Ship can read, search, create, edit, and delete files it is authorized to access. Use the dedicated file tools for direct work. Shell also provides familiar discovery and copy commands:
 
 ```bash
 ls /path
@@ -44,21 +44,21 @@ Use `targets list` and `targets show <id>` to find the right destination. An off
 
 ## Why Exact Revisions Matter
 
-A path can change. When a message or activity record must continue to mean the exact file used at that moment, GSV stores a reference containing the target, path, exact revision, content type, and size.
+A path can change. When a message or activity record must continue to mean the exact file used at that moment, Ship stores a reference containing the target, path, exact revision, content type, and size.
 
 For example:
 
-1. GSV reads `proposal.md`.
-2. GSV edits `proposal.md`.
-3. GSV reads it again.
+1. Ship reads `proposal.md`.
+2. Ship edits `proposal.md`.
+3. Ship reads it again.
 
 The two reads refer to different revisions even though the path is identical. Inspecting the earlier activity must still resolve the earlier content.
 
-Messages store references to exact bytes. Resolving a reference rechecks ownership and permission. If that revision is unavailable, GSV returns an exact-revision error while leaving newer bytes at the same path untouched.
+Messages store references to exact bytes. Resolving a reference rechecks ownership and permission. If that revision is unavailable, Ship returns an exact-revision error while leaving newer bytes at the same path untouched.
 
 ## Copy Versus Reference
 
 - Copy when another saved file should exist at the destination.
 - Keep an exact reference when a consumer only needs to retrieve the same bytes later.
 
-Before committing an attachment or work record whose original source may disappear, GSV preserves the exact referenced revision.
+Before committing an attachment or work record whose original source may disappear, Ship preserves the exact referenced revision.

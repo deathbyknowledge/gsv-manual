@@ -2,20 +2,20 @@
 
 [Find Any Command Or Capability](index.md)
 
-This page maps common outcomes to the command family that owns them. Run `man <command>` for the exact syntax supported by the current GSV.
+This page maps common outcomes to the command family that owns them. Run `man <command>` for the exact syntax supported by the current Ship.
 
 | Need | Start with |
 | --- | --- |
 | Find a command, skill, target, or integration | `man --search -- "goal"` |
-| Inspect the current identity or GSV version | `whoami`, `id`, `hostname`, `uname` |
+| Inspect the current identity or Ship version | `whoami`, `id`, `hostname`, `uname` |
 | Read, write, edit, search, or delete files | the built-in file tools; `ls`, `stat`, `cp` in Shell |
-| Copy between GSV and a connected computer | `cp`, `targets` |
+| Copy between Ship and a connected computer | `cp`, `targets` |
 | Inspect or control work | `proc`, `ps` |
 | Hand over the current working context | `proc compact --summary '...'` from the active process |
 | Send, attach, silence, or route messages | `message` |
 | Connect the owner's messenger using a pairing code | `messenger list`, `messenger setup ADAPTER`, `messenger connect ADAPTER < code.txt` |
 | Find an earlier conversation message | `message search`, then `message history` |
-| Find GSV's email address, read, or send email | `mail` |
+| Find Ship's email address, read, or send email | `mail` |
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
 | Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |
@@ -29,9 +29,9 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Search or maintain saved knowledge | `wiki` |
 | Search the web | `web search`, or the Search tool |
 | Track promises, follow-ups, and delegated work | `r12y` |
-| Connect with a person on another GSV | `contact` |
+| Connect with a person on another Ship | `contact` |
 | Find or maintain reusable procedures | `skills` |
-| Inspect or commit a GSV repository | `rgit` or `ripgit` |
+| Inspect or commit a Ship repository | `rgit` or `ripgit` |
 | Run a composed JavaScript workflow | `codemode` |
 | Generate text without starting a work loop | `llm` |
 | Read an image | `img2txt` |
@@ -42,7 +42,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 
 ## The Main Work Tools
 
-When GSV is handling a request, its compact work surface is eight tools: Read, Write, Edit, Delete, Search, Shell, CodeMode, and Send. These are the normal first choice:
+When Ship is handling a request, its compact work surface is eight tools: Read, Write, Edit, Delete, Search, Shell, CodeMode, and Send. These are the normal first choice:
 
 - Use Read, Write, Edit, Delete, and Search for direct file work and web search.
 - Use Shell for commands and the native command families above.
@@ -60,3 +60,10 @@ Many commands support `--json`. Use it when another operation must consume the r
 ## Availability
 
 A command may require a capability, connected target, configured provider, linked account, or human approval. Discovery output and command errors identify the missing prerequisite. The requested account, path, and destination stay unchanged until an authorized alternative is chosen.
+
+## External CLI Name
+
+The installed host CLI can be invoked as `ship` or `gsv`; both use the same local
+configuration and connection. Examples such as `ship auth login`, `ship chat`,
+`ship pair` and `ship desktop` refer to that external CLI. Inside Ship's shell,
+continue using the native commands listed above without adding a `ship` prefix.

@@ -1,13 +1,13 @@
-# GSV Manual
+# Ship Manual
 
-This is the operating manual for GSV and the person using it. It explains what GSV can do, how to do it, what to inspect when something goes wrong, and which actions need permission.
+This is the operating manual for Ship and the person using it. It explains what Ship can do, how to do it, what to inspect when something goes wrong, and which actions need permission.
 
 Start with the outcome you want. Each section begins with common actions and leads to exact commands, permissions, and recovery.
 
 ## Start Here
 
-- [Meet GSV](pages/orientation.md)
-- [Talk with GSV and manage work](pages/agents-assistants/index.md)
+- [Meet Ship](pages/orientation.md)
+- [Talk with Ship and manage work](pages/agents-assistants/index.md)
 - [Work with files, memory, and skills](pages/files-knowledge/index.md)
 - [Use your computers and browser](pages/devices-workplaces/index.md)
 - [Use messaging, email, and connected services](pages/integrations/index.md)
@@ -21,28 +21,28 @@ Start with the outcome you want. Each section begins with common actions and lea
 
 | Goal | Go here |
 | --- | --- |
-| Ask GSV something or continue a conversation | [Ship, messages, and work](pages/agents-assistants/index.md) |
-| See what GSV is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
+| Ask Ship something or continue a conversation | [Ship, messages, and work](pages/agents-assistants/index.md) |
+| See what Ship is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
 | Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
-| Connect with a person on another GSV | [Contacts and cross-GSV requests](pages/integrations/contacts.md) |
+| Connect with a person on another Ship | [Contacts and cross-Ship requests](pages/integrations/contacts.md) |
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
 | Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |
 | Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser target](pages/devices-workplaces/browser-targets.md) |
-| Give out an email address for a sign-up, receipt, tracking or bill, or read what arrived there | [Use GSV's email address](pages/integrations/email.md) |
+| Give out an email address for a sign-up, receipt, tracking or bill, or read what arrived there | [Use Ship's email address](pages/integrations/email.md) |
 | Connect Telegram, WhatsApp, Discord, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
 | Set a reminder or recurring job | [Schedules and automation](pages/automation/index.md) |
 | Create, inspect, reset, or stop a piece of work | [Work controls](pages/agents-assistants/conversations-delegation.md) |
 | Read an image, transcribe audio, or create media | [Media tools](pages/files-knowledge/media.md) |
 | Search the web | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Change which model answers first, or how reasoning is set | [Models and approvals](pages/settings/ai-voice-approvals.md) |
-| Decide when GSV asks before acting | [Models and approvals](pages/settings/ai-voice-approvals.md) |
-| See every action GSV took and why | [The ledger](pages/agents-assistants/ledger.md) |
+| Decide when Ship asks before acting | [Models and approvals](pages/settings/ai-voice-approvals.md) |
+| See every action Ship took and why | [The ledger](pages/agents-assistants/ledger.md) |
 | Invite another person into this space | [Passwords, sessions, and people](pages/accounts-access/credentials-sharing.md) |
 | Run shell commands, HTTP requests, or a composed workflow | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Diagnose a failure | [Troubleshooting](pages/reference/troubleshooting.md) |
 
-## When GSV Needs To Discover How
+## When Ship Needs To Discover How
 
 Search this manual for product workflows:
 
@@ -51,7 +51,7 @@ wiki search "what you need to do" --prefix gsv-manual
 wiki info gsv-manual
 ```
 
-Search the capabilities available in the current GSV:
+Search the capabilities available in the current Ship:
 
 ```bash
 man --search -- "plain-language goal"
@@ -62,9 +62,9 @@ The live search includes commands, connected computers, installed skills, and re
 
 ## Four Useful Ideas
 
-- **Ship** is the main conversation with GSV.
+- **Ship** is the main conversation with Ship.
 - **Work** is a task with its own activity and controls. Open it to inspect or intervene.
 - **Messages** are what was deliberately sent. **Activity** shows the reasoning, tools, retries, and errors behind the work.
-- A **target** is a place where an action can run, such as GSV itself, a connected computer, or a browser. The Web app calls connected targets **Places**.
-- **Send** is how GSV replies. Text is sent only when GSV deliberately sends it; everything else stays in activity.
-- The **ledger** is the record of every action GSV took: who asked, where it ran, what it did, why, and how it ended.
+- A **target** is a place where an action can run, such as Ship itself, a connected computer, or a browser. The Web app calls connected targets **Places**.
+- **Send** is how Ship replies. Text is sent only when Ship deliberately sends it; everything else stays in activity.
+- The **ledger** is the record of every action Ship took: who asked, where it ran, what it did, why, and how it ended.

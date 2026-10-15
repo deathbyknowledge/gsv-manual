@@ -6,7 +6,7 @@
 
 Text models form one ordered stack. The first entry answers first; if it cannot complete the reply, the next entry takes over. Edit the stack under **Settings → preferences → Model order**: **add model** connects a provider and key, **use first** moves an entry to the top, and the rows are labelled **First choice**, **Fallback 1**, and so on.
 
-The stack is layered. A person's own models at `users/{uid}/ai/models` sit ahead of the installation's list at `config/ai/models`, which sits ahead of the deployment's base models (GSV Included on a managed installation, the Workers AI pair on a self-hosted one). Nothing replaces the base. An owner may reorder across all layers with `users/{uid}/ai/model_order`, and an agent or a piece of work may prefer one entry by its stable id through `users/{uid}/ai/preferred_model`. Reasoning is a separate preference, `users/{uid}/ai/reasoning`, from `off` to `xhigh`.
+The stack is layered. A person's own models at `users/{uid}/ai/models` sit ahead of the installation's list at `config/ai/models`, which sits ahead of the deployment's base models (Ship Included on a managed installation, the Workers AI pair on a self-hosted one). Nothing replaces the base. An owner may reorder across all layers with `users/{uid}/ai/model_order`, and an agent or a piece of work may prefer one entry by its stable id through `users/{uid}/ai/preferred_model`. Reasoning is a separate preference, `users/{uid}/ai/reasoning`, from `off` to `xhigh`.
 
 In a self-hosted installation, availability follows the credentials and providers the owner configured. In a managed installation, the service may offer a curated set of models and enforce usage limits; when the managed route is unavailable, the next entry in the stack is tried.
 
@@ -30,7 +30,7 @@ connected computer is required.
 
 Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, the selected microphone, and the hands-free state (Off, Ready, Listening) in Chat's **Voice and hands-free** control there.
 
-Local voice and gesture settings belong to Desktop on that computer; model profiles belong to the GSV account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
+Local voice and gesture settings belong to Desktop on that computer; model profiles belong to the Ship account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
 
 ## Tool Approval
 
@@ -52,10 +52,10 @@ A policy is a default action plus ordered rules:
 - `action` is `auto`, `ask`, or `deny`.
 - `match` is an exact capability name or a domain wildcard such as `fs.*`.
 - `target` scopes a rule: omit it for every target, `gsv` for the installation itself, `targets/*` for any connected computer or browser, or one target id.
-- A structured target selects existing target metadata: `{ "route": "instance", "platform": "browser" }` means GSV-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
+- A structured target selects existing target metadata: `{ "route": "instance", "platform": "browser" }` means Ship-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
 - An exact target id wins over route-and-platform selectors, then route-only selectors, then `targets/*`, then unscoped rules. Then an exact capability match beats a wildcard, then list order breaks ties.
 
-The default policy lets files, commands and network requests run automatically on `gsv` and GSV-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`.
+The default policy lets files, commands and network requests run automatically on `gsv` and Ship-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`.
 
 Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one target. The Kernel identifies cloud browsers from their instance route and platform; naming a connected device like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
 

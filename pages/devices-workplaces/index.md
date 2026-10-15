@@ -2,7 +2,7 @@
 
 [Back to the manual](../../index.md)
 
-Connecting a computer lets GSV work with that computer's files, commands, private networks, installed software, and hardware without moving all of it into GSV.
+Connecting a computer lets Ship work with that computer's files, commands, private networks, installed software, and hardware without moving all of it into Ship.
 
 ## Connect A Computer
 
@@ -13,7 +13,7 @@ The Desktop app can guide first-time setup:
 3. Wait for **Connected**; Desktop pairs the computer and installs the background machine service.
 4. Verify that the computer appears online under **Places** in Fleet.
 
-Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing GSV.
+Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing Ship.
 
 Ship can also guide the connection. **Chat → + → connect a computer** stages that
 request without sending it. Ask what to call the computer and whether it
@@ -25,7 +25,7 @@ targets pair --name "My laptop" --platform mac
 
 The JSON result contains the install and `gsv pair CODE` commands for this space
 and release. Share each command with the owner in its own fenced code block so it
-can be copied directly; skip installation if GSV is already installed.
+can be copied directly; skip installation if Ship is already installed.
 The invitation lasts ten minutes and enrolls under the human owner's account.
 When the user says it finished, check `targets show my-laptop` before claiming it is connected.
 
@@ -81,7 +81,7 @@ and daemon. Voice, camera gestures and Desktop need an interactive login.
 
 ## Connect A Browser
 
-Pair the **Your GSV** extension to make a browser profile a target. GSV then reaches any site that profile is signed into, with no separate integration. See [Use a browser target](browser-targets.md).
+Pair the **Your Ship** extension to make a browser profile a target. Ship then reaches any site that profile is signed into, with no separate integration. See [Use a browser target](browser-targets.md).
 
 ## Find Where Work Can Run
 

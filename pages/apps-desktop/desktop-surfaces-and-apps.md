@@ -80,12 +80,12 @@ with pause/enable controls and editing for supported routine types. Event-driven
 The composer’s **+** menu separates **add context** from **ask Ship** and offers:
 
 - **attach a file** from this device;
-- **find a person** by handle, saved name or public GSV address, then mention them or open contact controls;
+- **find a person** by handle, saved name or public Ship address, then mention them or open contact controls;
 - **reference a file** on a connected place;
 - **create a routine**, **connect a computer**, or **start a browser** as requests to Ship.
 
 A handle such as `esteve` or `@esteve` opens that person’s profile on `gsv.space`.
-Use a full address for a GSV hosted elsewhere. Saved people use the full available
+Use a full address for a Ship hosted elsewhere. Saved people use the full available
 list height in the contextual panel.
 
 In the file picker, **../** above a place’s entries moves toward its filesystem
@@ -116,7 +116,7 @@ itself stays fixed. The star field retains its full-screen background.
 
 ## People
 
-Open **People** (`p`) to connect with someone on another GSV space. **connect**
+Open **People** (`p`) to connect with someone on another Ship space. **connect**
 creates an invitation link; **I have an invitation** accepts a link or code.
 Public profile addresses are another way to send a first message. Incoming
 requests wait for an explicit acceptance, which opens the conversation.
@@ -140,19 +140,19 @@ A dot beside People marks unread activity. Chat also shows unread conversations
 and incoming requests beside ongoing plans in one compact line above the prompt, including after
 reload. Select a person to read and reply without leaving Chat. Closing the panel
 keeps an unfinished draft, and new messages do not move your reading position. See
-[Connect with another GSV](../integrations/contacts.md) for messages, private
+[Connect with another Ship](../integrations/contacts.md) for messages, private
 controls, and task-specific coordination.
 
 ## Browser Extension
 
-**Your GSV** is the browser extension that makes a browser a place. In Fleet,
+**Your Ship** is the browser extension that makes a browser a place. In Fleet,
 choose **connect** beside Places and pick **Browser**, then load the extension
 and paste the invitation into it. Once it says **Ready**, the browser appears
 under Places and as a target.
 
 ## Attachments
 
-When an app attaches an image, document, audio recording, or other file, GSV
+When an app attaches an image, document, audio recording, or other file, Ship
 stores the media and puts a reference in the message. Other authorized clients
 load the referenced bytes when the attachment is displayed or used.
 
@@ -193,6 +193,6 @@ with the same display name and workspace.
 ## Signing Out
 
 **disconnect** ends the current app session and clears that session's private
-cached data. The GSV account, messages, work, and separately managed machine
+cached data. The Ship account, messages, work, and separately managed machine
 credentials remain in place; the connected computer stays connected until it is
 forgotten in Fleet.

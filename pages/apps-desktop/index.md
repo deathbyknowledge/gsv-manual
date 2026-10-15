@@ -2,16 +2,16 @@
 
 [Back to the manual](../../index.md)
 
-The Web and Desktop apps are two ways to use the same GSV. They share messages,
+The Web and Desktop apps are two ways to use the same Ship. They share messages,
 work, files, machines, integrations, and permissions.
 
 ## Choose The App That Fits
 
-Use **Web** when you want GSV from any signed-in browser. The Web app is
+Use **Web** when you want Ship from any signed-in browser. The Web app is
 called **Instrument** and has five views: **Chat** for Ship, reply activity and
 contextual responsibilities/routines, **Fleet** for places and processes (with
 files opened from a place), **Memory** for personal
-knowledge pages, **People** for conversations and contacts on other GSV spaces,
+knowledge pages, **People** for conversations and contacts on other Ship spaces,
 and **Settings** for preferences, standing responsibilities, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
 Chat's **record** button turns a browser microphone recording into a draft using

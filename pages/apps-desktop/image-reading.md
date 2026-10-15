@@ -36,7 +36,7 @@ instruction unless a narrower `--prompt` is supplied.
 
 ## Read From Another Target
 
-An image may be on GSV, a connected computer, or a browser target:
+An image may be on Ship, a connected computer, or a browser target:
 
 ```bash
 img2txt laptop:/home/alice/photos/receipt.jpg
@@ -45,7 +45,7 @@ img2txt detect --target "submit button" [browser:work]:/screenshots/form.png
 ```
 
 Target IDs containing colons use brackets. Reading a target-qualified path does
-not first create a duplicate GSV file. Use `cp` when preserving a separate copy
+not first create a duplicate Ship file. Use `cp` when preserving a separate copy
 is itself useful.
 
 ## Structured Results

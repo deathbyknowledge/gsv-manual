@@ -2,9 +2,9 @@
 
 [Schedule And Delegate Work](index.md)
 
-## Ask GSV To Act Later
+## Ask Ship To Act Later
 
-From an active GSV work shell, schedule a message back to that work item:
+From an active Ship work shell, schedule a message back to that work item:
 
 ```bash
 sched add --here --name follow-up --after 2h --message "Check whether the export completed."
@@ -22,7 +22,7 @@ A successful firing means the event reached the work item. Later model work and 
 
 ## Send Fixed Text Later
 
-Choose an authorized destination from GSV's destination list:
+Choose an authorized destination from Ship's destination list:
 
 ```bash
 message destinations --all --json

@@ -2,8 +2,8 @@
 
 [Computers And Browser](index.md)
 
-Browser use is a built-in GSV capability. A browser target can be the user's
-browser connected through the **Your GSV** extension, or an on-demand
+Browser use is a built-in Ship capability. A browser target can be the user's
+browser connected through the **Your Ship** extension, or an on-demand
 [cloud browser](cloud-browsers.md) that Ship starts and manages. Both use the
 same page and tab commands described below; inspect each target's advertised
 capabilities for additional features.
@@ -14,24 +14,24 @@ user does not need to connect a personal browser or ask for cloud provisioning
 separately.
 
 The extension uses the user's existing signed-in sessions. A cloud browser
-keeps its own saved sessions, with the person signing in through GSV's live view.
+keeps its own saved sessions, with the person signing in through Ship's live view.
 Either can reach a calendar, mail, billing portal, admin dashboard or private
 forum through its website. A site the selected browser is already logged into
 needs no MCP server, OAuth account or other integration.
 
-Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your GSV** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
+Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your Ship** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
 
 Ship can create the invitation with `targets pair --name "My browser" --platform browser`
-on `gsv`. The result includes an `extensionUrl` matched to this GSV release.
+on `gsv`. The result includes an `extensionUrl` matched to this Ship release.
 When sharing it, link the friendly text **click here to download the extension**
 to that URL rather than displaying the raw address or command JSON. If the
 person only asks for the download, share
 [click here to download the extension](https://gsv.space/browser).
 Share the installation instructions and put the invitation code in a fenced
 `text` block so it wraps and has a copy button in chat. After they load the
-extension, tell them: "Click the **Your GSV** icon in your browser toolbar. If
+extension, tell them: "Click the **Your Ship** icon in your browser toolbar. If
 you don't see it, click the **Extensions** (puzzle-piece) button, then select
-**Your GSV**." They paste the code into that extension panel; browsers do not
+**Your Ship**." They paste the code into that extension panel; browsers do not
 use the terminal's `gsv pair` command.
 
 ## What A Browser Reaches
@@ -49,7 +49,7 @@ An operator-enabled [cloud browser](cloud-browsers.md) is another browser target
 It can run while personal devices are offline and automatically remembers
 website logins for the local account. Use `instance catalog` to discover
 availability. Ordinary starts reuse the current browser; use tabs for additional
-work. Its first website login happens through GSV's browser view, which also lets
+work. Its first website login happens through Ship's browser view, which also lets
 the person watch and interact while Ship works.
 
 Find a suitable existing browser on `gsv`:
@@ -151,6 +151,6 @@ img2txt [browser:work]:/screenshots/error.png
 
 ## Permission And Presence
 
-Browser access uses the signed-in GSV identity and only the operations and permissions exposed by the current browser connection. Its target description is the complete list of what that browser can do for GSV.
+Browser access uses the signed-in Ship identity and only the operations and permissions exposed by the current browser connection. Its target description is the complete list of what that browser can do for Ship.
 
 If a requested action is unavailable, inspect the target before asking the user to reinstall or reconnect anything.

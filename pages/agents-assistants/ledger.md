@@ -1,8 +1,8 @@
 # Logs
 
-[Talk With GSV And Manage Work](index.md)
+[Talk With Ship And Manage Work](index.md)
 
-The ledger is the installation's record of what ran: one line per action that went through GSV, whoever asked for it. A process reading a file on a computer, a person running a command, an adapter delivering a message: each is one line with who asked, where it ran, the call, its arguments, the purpose the tool gave, the outcome, and the duration.
+The ledger is the installation's record of what ran: one line per action that went through Ship, whoever asked for it. A process reading a file on a computer, a person running a command, an adapter delivering a message: each is one line with who asked, where it ran, the call, its arguments, the purpose the tool gave, the outcome, and the duration.
 
 Use it to answer "what happened" without depending on a work item's history, which is compacted over time and was never meant to be an audit trail.
 

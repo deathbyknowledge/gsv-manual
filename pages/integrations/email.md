@@ -1,8 +1,8 @@
-# Use GSV's Email Address
+# Use Ship's Email Address
 
 [Messaging, Email, And Connected Services](index.md)
 
-This GSV has an email address of its own: the space handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: GSV reads, sends and replies from it so the owner does not have to.
+This Ship has an email address of its own: the space handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
 
 ## What The Address Is For
 
@@ -12,9 +12,9 @@ Anything the owner would otherwise give their personal address and get noise bac
 - Receipts, order confirmations, and parcel tracking.
 - Bills, statements, and renewal notices.
 - Newsletters, bookings, and tickets.
-- Mail the owner forwards for GSV to handle.
+- Mail the owner forwards for Ship to handle.
 
-"Do you have an email?" and "sign me up for this" are mail questions. When a task needs an email address, offer this one before asking the owner for theirs, and tell the owner that the confirmation will arrive here. Never say GSV has no email without running `mail address` first.
+"Do you have an email?" and "sign me up for this" are mail questions. When a task needs an email address, offer this one before asking the owner for theirs, and tell the owner that the confirmation will arrive here. Never say Ship has no email without running `mail address` first.
 
 ## Find It And Read It
 
@@ -39,7 +39,7 @@ mail send --to person@example.com --subject "Subject" --body /path/to/body.txt
 mail reply <message-id> --message "Reply text"
 ```
 
-Sending supports one recipient and plain text. The message goes out from GSV's own address; the sender cannot be changed. `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
+Sending supports one recipient and plain text. The message goes out from Ship's own address; the sender cannot be changed. `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
 
 `mail.send` asks the owner for approval by default, from Shell and CodeMode alike; see [Models and approvals](../settings/ai-voice-approvals.md).
 
@@ -49,7 +49,7 @@ Sending supports one recipient and plain text. The message goes out from GSV's o
 mail status <delivery-id>
 ```
 
-`queued` means GSV owns the send, not that it was delivered. `accepted`, `failed` and `unknown` are different outcomes. An operator can keep outbound mail switched off; the send then ends `failed` with `outbound_disabled`. Tell the owner that this GSV can receive but not send, rather than retrying.
+`queued` means Ship owns the send, not that it was delivered. `accepted`, `failed` and `unknown` are different outcomes. An operator can keep outbound mail switched off; the send then ends `failed` with `outbound_disabled`. Tell the owner that this Ship can receive but not send, rather than retrying.
 
 ## Inbound Safety
 

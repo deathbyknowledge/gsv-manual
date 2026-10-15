@@ -4,14 +4,14 @@
 
 ## Connect Versus Link
 
-- **Connect** gives GSV access to the messaging service or bot account.
-- **Link** binds an external sender to the GSV owner through a short-lived code.
+- **Connect** gives Ship access to the messaging service or bot account.
+- **Link** binds an external sender to the Ship owner through a short-lived code.
 
 Keeping these separate prevents an untrusted incoming username or chat ID from choosing a local account.
 
 ## Connect For The Owner
 
-When the person asks to connect a messenger, handle the GSV side for them:
+When the person asks to connect a messenger, handle the Ship side for them:
 
 1. Run `messenger list` on `gsv` to see which messengers are enabled.
 2. Run `messenger setup ADAPTER` and share its link or bot name and instructions for getting a code. Use the returned information rather than inventing a number or URL.
@@ -30,7 +30,7 @@ The message used to create the link may be consumed by setup. Send another messa
 
 ## Slack
 
-Install the operator's Slack app using the setup link, then send `link` in a direct message to it. Paste the code back to Ship, or redeem it in **Settings → Messengers → Slack**. Direct messages to the app reach Ship; channels and threads keep explicit routes. Files shared in Slack become GSV files tied to exact revisions, and GSV can share files back into the conversation.
+Install the operator's Slack app using the setup link, then send `link` in a direct message to it. Paste the code back to Ship, or redeem it in **Settings → Messengers → Slack**. Direct messages to the app reach Ship; channels and threads keep explicit routes. Files shared in Slack become Ship files tied to exact revisions, and Ship can share files back into the conversation.
 
 ## WhatsApp
 
@@ -38,7 +38,7 @@ When the operator offers WhatsApp Business, open the setup link and send `/link`
 
 This connection supports direct messages to that number, including media and approval buttons. Ship’s prose paragraphs arrive as separate messages; headings stay with the following block and lists, quotations, tables and code stay together. It does not expose a person's WhatsApp account or group conversations. Availability depends on the operator's Meta account and regional eligibility.
 
-Free-form replies require a message from the person within the last 24 hours. Outside that window, a configured Meta-approved template carries the message or a shortened preview. The full message stays in the GSV conversation; the person can open GSV or reply in WhatsApp to ask Ship about it. **Show me** is an ordinary user reply, not a command to replay queued messages. There is no adapter backlog. Approval notifications direct the person to GSV. Attachments cannot use the text template; use another authorized destination or wait for a reply. Without a configured template, out-of-window delivery fails explicitly.
+Free-form replies require a message from the person within the last 24 hours. Outside that window, a configured Meta-approved template carries the message or a shortened preview. The full message stays in the Ship conversation; the person can open Ship or reply in WhatsApp to ask Ship about it. **Show me** is an ordinary user reply, not a command to replay queued messages. There is no adapter backlog. Approval notifications direct the person to Ship. Attachments cannot use the text template; use another authorized destination or wait for a reply. Without a configured template, out-of-window delivery fails explicitly.
 
 ## Discord
 
@@ -51,9 +51,9 @@ An ordinary linked private message goes to Ship. In a messenger chat:
 - `/where` reports the current selection.
 - `/ship` returns future messages to Ship immediately.
 
-GSV can offer a direct line to an owned work item from the active private conversation. The messenger labels that selection as a Work Session. It affects future input on that chat; it does not replace Ship elsewhere or redirect a reply that was already being generated.
+Ship can offer a direct line to an owned work item from the active private conversation. The messenger labels that selection as a Work Session. It affects future input on that chat; it does not replace Ship elsewhere or redirect a reply that was already being generated.
 
-From GSV, inspect or change an authorized route with:
+From Ship, inspect or change an authorized route with:
 
 ```bash
 message route show --to here --json
@@ -61,7 +61,7 @@ message route set --process PID_OR_LABEL --to here --json
 message route clear --to here --json
 ```
 
-Groups, channels, and threads keep explicit routes. Choose their GSV destination or label from the destination list.
+Groups, channels, and threads keep explicit routes. Choose their Ship destination or label from the destination list.
 
 ## Attachments And Voice
 
@@ -77,7 +77,7 @@ This works on every messaging path when the selected adapter supports that media
 
 ## Delivery And Retries
 
-GSV gives each logical inbound and outbound delivery a stable identity. Each destination receives exactly one correlated send request; GSV owns the durable retry, and the adapter owns provider presentation and idempotency. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry. Inspect one with `message delivery show <delivery-id>`.
+Ship gives each logical inbound and outbound delivery a stable identity. Each destination receives exactly one correlated send request; Ship owns the durable retry, and the adapter owns provider presentation and idempotency. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry. Inspect one with `message delivery show <delivery-id>`.
 
 Ship remembers where the person last sent a message, including across follow-ups and background work. Opening, typing in, clicking or scrolling another window does not redirect replies. Activity in the selected web or desktop client keeps it active; if it closes or is inactive for five minutes, replies and new Ship approval notifications use the last authorized linked private messenger. Sending a new message in the app selects that client again. Work Sessions, groups and explicitly addressed messages keep their own routes.
 

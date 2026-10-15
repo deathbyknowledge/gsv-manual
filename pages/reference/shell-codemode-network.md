@@ -6,7 +6,7 @@ These tools overlap, but they are useful at different levels.
 
 ## Shell
 
-Use Shell for an ordinary command, a pipeline, or one native GSV command:
+Use Shell for an ordinary command, a pipeline, or one native Ship command:
 
 ```bash
 ls -la
@@ -15,7 +15,7 @@ mail list
 ```
 
 Select a connected target when the command belongs on that computer rather
-than on GSV. Check `targets list` first when the location matters.
+than on Ship. Check `targets list` first when the location matters.
 
 ## CodeMode
 
