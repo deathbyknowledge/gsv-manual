@@ -76,7 +76,7 @@ Use the section navigation in the [manual index](../index.md) when browsing as a
 
 Ship is the product name. GSV remains the runtime name and appears in the `gsv`
 target, protocol and package identifiers, and `.gsv` folders. The external CLI
-also accepts `ship` after updating the host applications; `gsv` remains compatible.
+command remains `gsv`.
 Do not rename user files, histories, targets, settings, services or stored paths
 to match the product name. Internal shell commands are unchanged.
 
