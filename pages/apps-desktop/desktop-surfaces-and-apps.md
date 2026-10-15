@@ -21,11 +21,19 @@ Code blocks in Ship replies and Memory have a **copy** action. Long lines scroll
 within the block; copy keeps indentation and line breaks without adding a final newline.
 Scrolling Chat selects the message nearest the middle of the visible conversation;
 at either end it selects the first or latest message. On phones, the down arrow
-on the right returns to the latest message. Completed actions fold into **details**
-in the message footer. Tap it to inspect the work; active work, failures and
-approvals remain visible.
-Long messages fold to their first four lines behind **read more**; **show less**
-folds them again. A reply you watched arrive stays open.
+on the right returns to the latest message. Closed completed action summaries are
+hidden on phones once Ship replies. Action records remain in **Settings → Logs**;
+active work, failures, approvals and already-open summaries stay visible.
+Direct `$` commands show a compact target heading on phones; expand it to read the
+full command, its output and terminal controls.
+Messages longer than eighteen rendered line-heights fold to twelve behind
+**read more**; **show less** folds them again. Shorter messages and replies you
+watched arrive stay open.
+Installed PWAs fill the screen behind the home indicator, with safe-area padding
+inside the page to keep the controls reachable.
+When the activity line is visible above the prompt, a lavender edge marks the
+bottom of the transcript only while text is being clipped there. It clears between
+lines and messages and at the end of the conversation.
 
 ## Fleet
 
