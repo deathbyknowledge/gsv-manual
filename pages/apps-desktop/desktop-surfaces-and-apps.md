@@ -24,6 +24,8 @@ at either end it selects the first or latest message. On phones, the down arrow
 on the right returns to the latest message. Completed actions fold into **details**
 in the message footer. Tap it to inspect the work; active work, failures and
 approvals remain visible.
+Long messages fold to their first four lines behind **read more**; **show less**
+folds them again. A reply you watched arrive stays open.
 
 ## Fleet
 
@@ -80,6 +82,14 @@ IDs; person references include the profile URL.
 
 **Ask Ship** in People and Memory uses the same composer.
 A person mention does not contact them automatically.
+
+Pasting more than 400 characters or eight lines creates a **pasted text** chip.
+Tap it to inspect the full text or use its remove button. Sending joins your typed
+words with the pasted blocks in order, preserving the pasted whitespace. Command
+pastes starting with `$` or `!` stay in the prompt.
+
+Chat failures show a short explanation and a next step. Open **details** for the
+original error when diagnosing a problem.
 
 On phones, opening the keyboard shrinks the content area between the header and
 composer. Lists and message history scroll within the available space; the page

@@ -9,6 +9,7 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | Setting | Where it belongs |
 | --- | --- |
 | Model order and reasoning | **Settings → preferences** (`users/{uid}/ai/models`, `users/{uid}/ai/reasoning`) |
+| Match system, Light or Dark appearance | **Settings → preferences → Appearance**, saved on this device |
 | When GSV asks before using a capability | **Settings → permissions** (`users/{uid}/ai/tools/approval`) |
 | Event-driven responsibilities Ship takes care of | **Settings → standing** |
 | Standing instructions for your agents | **Settings → instructions** (`~/context.d/`) |
