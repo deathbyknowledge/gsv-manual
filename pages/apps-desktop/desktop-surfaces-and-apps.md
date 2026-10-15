@@ -2,6 +2,11 @@
 
 [Web And Desktop](index.md)
 
+The web app keeps its header, background and drafts while changing views.
+Browser **Back** and **Forward** retrace those destinations, including People lists,
+conversations, requests and your profile, without reloading the page. Reloading a
+People destination opens that selection; unsent drafts remain local to the session.
+
 ## Ship And Work
 
 **Zen** always opens the personal intelligence. Separate work opens in a visibly
@@ -111,6 +116,11 @@ Public profile addresses are another way to send a first message. Incoming
 requests wait for an explicit acceptance, which opens the conversation.
 Inviting and accepting ask each person to choose who handles new messages on
 their own side, with neither option preselected.
+
+People uses the same growing prompt as Chat. Its **+** opens the attachment file
+picker, and **send** appears beside the prompt when there is something to send.
+The profile editor keeps its title and back arrow fixed while its form scrolls;
+the lavender edge appears only where that scrolling cuts through text.
 
 You can message people yourself or choose **ask Ship** to open an editable request
 in your ordinary Ship chat. The first-use examples help you start with a concrete
