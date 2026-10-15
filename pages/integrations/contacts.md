@@ -35,8 +35,8 @@ Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
-your own profile is optional. Click your display name at the bottom of the
-**People** sidebar to edit it. Save and publish are separate: later edits stay
+your own profile is optional. Choose **your profile** at the bottom of **People**
+to edit it. Save and publish are separate: later edits stay
 private until you publish them. Your public URL is `https://YOUR-SPACE/profile`;
 there is no separate alias to choose. Old published profile links continue to work.
 Profile drafts remain when you return to a conversation.
@@ -98,8 +98,9 @@ message delivery show 'delivery:...'
 
 People asks each person to choose **I’ll handle them** or **Let Ship handle them**
 when connecting. Each choice affects only that person's Ship and survives delayed
-acceptance. **Automatically handle new messages**, beside the contact's name,
-changes it later. Existing contacts keep their settings. Ship-led invitations
+acceptance. **Automatically handle new messages**, in conversation **details**,
+changes it later. On phones, open **more → details**; the short handling status
+beneath the name also opens details when space permits. Existing contacts keep their settings. Ship-led invitations
 record the owner's explicit choice too. Ship can change it when asked: read
 `preferences.revision` from `contact list --json`, then run
 `contact handling CONTACT_ID manual|ship --revision N`. If the revision changed,

@@ -14,6 +14,13 @@ These mechanisms answer different questions:
 
 ## Personal Memory
 
+In Instrument, open **Memory** to browse and read pages. On phones, selecting a
+page opens a full-height reader; **← pages** returns to the page browser. **edit**
+corrects the open page and **new page** starts another. Returning to the browser
+retains an unfinished edit; **continue editing →** resumes it. Wider screens keep
+the browser and reader side by side. **ask Ship** adds the page's path to an
+editable Chat draft without sending it.
+
 Use the `personal` wiki for long-term, searchable facts, people, projects, decisions, preferences, routines, and dated events. Search it when personal history could change the answer:
 
 ```bash

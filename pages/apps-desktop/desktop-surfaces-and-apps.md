@@ -41,8 +41,9 @@ path uses the current target and working directory.
 
 ## Context In Chat
 
-Tap the summary above Chat’s prompt, or choose **+ → plans**, for responsibilities
-and routines. The panel stays over the conversation, with **ongoing**, **routines**
+The activity line above Chat's prompt combines ongoing plans and People messages.
+Tap **N ongoing** (or **plans** when none are active) for responsibilities and
+routines. The panel stays over the conversation, with **ongoing**, **routines**
 and **history** at one level. Responsibility rows show a short status, assignee and
 next check. Open one to read its full waiting explanation, inspect details,
 cancel it, or **ask Ship** about that exact responsibility. Child steps stay grouped
@@ -55,7 +56,6 @@ The composer’s **+** menu offers:
 - **attach a file** from this device;
 - **find a person** by handle, saved name or public GSV address, then mention them or open contact controls;
 - **reference a file** on a connected place;
-- **plans** for responsibilities, routines and their history;
 - **create a routine**, **connect a computer**, or **start a browser** as requests to Ship.
 
 A handle such as `esteve` or `@esteve` opens that person’s profile on `gsv.space`.
@@ -73,7 +73,7 @@ sends nothing and grants no permissions. Sent requests use the normal message
 rendering and history. Routine and responsibility references include exact record
 IDs; person references include the profile URL.
 
-**Ask Ship** in People and **ask about this** in Memory use the same composer.
+**Ask Ship** in People and Memory uses the same composer.
 A person mention does not contact them automatically.
 
 On phones, opening the keyboard shrinks the content area between the header and
@@ -91,12 +91,14 @@ their own side, with neither option preselected.
 
 You can message people yourself or choose **ask Ship** to open an editable request
 in your ordinary Ship chat. The first-use examples help you start with a concrete
-task, such as making plans together. **Automatically handle new messages** changes
-your choice later. Replies associated with assigned tasks can still reach Ship
+task, such as making plans together. **Automatically handle new messages** in
+conversation **details** changes your choice later. On phones, **more** holds
+**ask Ship**, **search** and **details**, and the back arrow returns to the
+full-height conversation list. Replies associated with assigned tasks can still reach Ship
 when it is off; connecting or enabling it does not replay existing messages.
 
 A dot beside People marks unread activity. Zen also shows unread conversations
-and incoming requests in one compact line above the prompt, including after
+and incoming requests beside ongoing plans in one compact line above the prompt, including after
 reload. Select a person to read and reply without leaving Zen. Closing the panel
 keeps an unfinished draft, and new messages do not move your reading position. See
 [Connect with another GSV](../integrations/contacts.md) for messages, private
