@@ -9,15 +9,17 @@ Settings control models, tools, approvals, voice and gesture behavior, sessions,
 | Setting | Where it belongs |
 | --- | --- |
 | Model order and reasoning | **Settings → preferences** (`users/{uid}/ai/models`, `users/{uid}/ai/reasoning`) |
+| Match system, Light or Dark appearance | **Settings → preferences → Appearance**, saved on this device |
 | When GSV asks before using a capability | **Settings → permissions** (`users/{uid}/ai/tools/approval`) |
+| Event-driven responsibilities Ship takes care of | **Settings → standing** |
 | Standing instructions for your agents | **Settings → instructions** (`~/context.d/`) |
 | Messaging connection | **Settings → messengers** |
 | MCP connection | **Settings → mcp** |
 | Action history, outcomes and request details | **Settings → Logs** |
 | Personal password reset and space ownership | **Settings → sign-in** (root only) |
-| Your public profile | Your display name at the bottom of **People**'s sidebar |
+| Your public profile | **your profile** at the bottom of **People** |
 | Computer or browser connection | **Fleet → Places → connect**, or Desktop machine setup |
-| Web microphone access | Browser site permissions; **record** in Zen starts capture |
+| Web microphone access | Browser site permissions; **record** in Chat starts capture |
 | Web audio transcription | The space's transcription configuration for the conversation process |
 | Desktop microphone, camera, local voice, and gestures | Desktop on that computer |
 | Provider or service availability in a managed installation | installation operator policy |

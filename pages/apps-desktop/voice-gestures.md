@@ -11,17 +11,17 @@ and camera processing stay on the computer.
 
 ### Web
 
-In web Zen, choose **record** and allow browser microphone access. The prompt
+In web Chat, choose **record** and allow browser microphone access. The prompt
 becomes a live waveform that responds to your voice; your typed draft is kept
 underneath. Choose **stop** when finished. After **transcribing…**, the
-draft returns with the words added at its cursor. Review or edit them and press
-Enter to send. Enter during recording only stops it for review; Escape cancels
+draft returns with the words added at its cursor. Review or edit them and choose
+**send** or press Enter. Enter during recording only stops it for review; Escape cancels
 and restores the draft. Recordings stop automatically after five minutes and
 are limited to 25 MiB, or the space's smaller limit.
 
 The browser sends the finished audio through your space to its configured
 transcription provider. The recording is not attached to the message. **cancel**
-discards recording or transcription while keeping typed text. Leaving Zen,
+discards recording or transcription while keeping typed text. Leaving Chat,
 hiding the tab, switching conversations or places, disconnecting, or clearing
 the draft also cancels it. If transcription fails, **retry transcription** uses
 the audio still held in the tab.
@@ -33,7 +33,7 @@ does not need a connected computer or the Desktop helper.
 
 ### Desktop
 
-In Zen, the composer's **Voice and hands-free** control has a **listen** button
+In Chat, the composer's **Voice and hands-free** control has a **listen** button
 that dictates with the microphone. Partial transcription appears in the draft
 while you speak, and you can edit it before sending. Listening stops when you
 pause it; sending is a separate action unless you use the send gesture.
@@ -81,7 +81,7 @@ return to level to stop, or release either hand.
 - Camera frames, hand landmarks, and microphone audio remain local to the computer.
 - Gestures act only on the visible voice draft, and each action is bound to the current request.
 - Losing hand tracking clears the active gesture state.
-- Hands-free and the camera stop when you leave Zen or the computer sleeps.
+- Hands-free and the camera stop when you leave Chat or the computer sleeps.
 
 ## If Desktop Voice Or Gestures Do Not Work
 

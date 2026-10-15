@@ -15,7 +15,8 @@ The Desktop app can guide first-time setup:
 
 Without Desktop, choose **connect** beside Places in the Web app, name the computer, and run the `gsv pair` command it shows on that computer after installing GSV.
 
-Ship can also guide the connection. Ask what to call the computer and whether it
+Ship can also guide the connection. **Chat → + → connect a computer** stages that
+request without sending it. Ask what to call the computer and whether it
 runs macOS, Linux or Windows, then run on `gsv`:
 
 ```bash

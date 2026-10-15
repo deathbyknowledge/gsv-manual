@@ -106,8 +106,9 @@ does not fix an `unsupported` storage exception.
 
 ## Watch And Interact Together
 
-Clicking a cloud browser below Zen's prompt, in a work receipt, or in Fleet opens
-its live view directly. Zen remains behind the browser window, which has tabs,
+Open the place dropdown below Chat's prompt and choose a cloud browser marked
+**↗** to view it. A cloud browser link in a work receipt or Fleet opens the same
+live view. Chat remains behind the browser window, which has tabs,
 an address strip, and the page filling its width. The view follows
 Ship's active tab and shows its cursor and clicks. Watching does not pause
 Ship. The person can click, scroll, paste and type in the same browser without
@@ -117,6 +118,8 @@ finishes intact before another actor's input runs. Closing the viewer leaves
 both the browser and Ship running.
 The window uses Instrument's text controls: **expand** enlarges the view,
 **close** leaves the browser running, and **more → stop browser** stops it.
+On phones, the viewer uses the available screen width and **close** returns to
+the underlying app.
 The view streams page changes, drops superseded images on slow connections,
 and reconnects after an interruption. A hidden view pauses capture; reopening
 resumes the same browser. Viewing does not require repeated screenshot commands.

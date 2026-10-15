@@ -32,7 +32,7 @@ Ship is the main conversation. A Work Session is a temporary direct conversation
 
 ## Search Past Messages
 
-In Zen, use **search**, `/` in browse mode, or `Ctrl/Cmd+F`. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
+In Chat, use **search**, `/` in browse mode, or `Ctrl/Cmd+F`. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
 
 Ship can search the same sent messages through Shell:
 
@@ -88,7 +88,7 @@ None of these actions deletes already committed conversation messages.
 
 ## Responsibilities
 
-Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees its assignments and their ancestors. Review them in **Fleet → Responsibilities** or with `r12y list`, and inspect one with `r12y show ID`. Delegated results return through the ordinary process result path; the responsibility retains the unfinished outcome and references to its evidence.
+Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees its assignments and their ancestors. Open **N ongoing** (or **plans**) above Chat's prompt, then select **ongoing**. You can also list them with `r12y list` and inspect one with `r12y show ID`. Delegated results return through the ordinary process result path; the responsibility retains the unfinished outcome and references to its evidence.
 
 The initial context includes details for Ship assignments and assignments to the current process; work assigned to other processes stays summarized. New responsibilities and changes arrive as events, so an agent need not fetch details already shown. The snapshot has a size limit and marks omitted bodies with `r12y show ID`. Compaction rebuilds the snapshot from unresolved work.
 

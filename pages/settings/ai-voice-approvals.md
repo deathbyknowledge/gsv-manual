@@ -22,13 +22,13 @@ Search and bounded Read keep large files from consuming the context budget. Adju
 
 ## Voice And Gestures
 
-Web Zen has **record** and **stop** controls and a live waveform in the prompt.
+Web Chat has **record** and **stop** controls and a live waveform in the prompt.
 The finished audio is transcribed through the space's Gateway using the current conversation process's
 transcription configuration; the resulting text stays in the draft for review.
 Browser site permission controls microphone access. No Desktop helper or
 connected computer is required.
 
-Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, the selected microphone, and the hands-free state (Off, Ready, Listening) in Zen's **Voice and hands-free** control there.
+Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, the selected microphone, and the hands-free state (Off, Ready, Listening) in Chat's **Voice and hands-free** control there.
 
 Local voice and gesture settings belong to Desktop on that computer; model profiles belong to the GSV account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
 
@@ -63,7 +63,7 @@ Every call carries an optional purpose, one sentence written for the person. The
 
 Interactive work can pause for an exact approval request. Scheduled and unattended work cannot rely on somebody eventually answering; an "ask" decision becomes a visible tool failure there.
 
-Zen offers a walkthrough at the first approval. It shows which categories ask
+Chat offers a walkthrough at the first approval. It shows which categories ask
 and lets the person change them or skip without changing policy. Existing
 denials remain blocked. **Settings → permissions → show it again** replays the
 walkthrough at the next approval.
