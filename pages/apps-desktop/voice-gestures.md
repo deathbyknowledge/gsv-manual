@@ -38,8 +38,7 @@ does not need a connected computer or the Desktop helper.
 In Chat, open **voice** and choose **listen**. Words appear in the draft as you
 speak. Choose **pause** to stop while keeping the draft. Enter finalizes the
 current segment, sends it, and keeps listening. Editing inside dictated text
-stops dictation so later output cannot undo your correction. There are no camera
-or gesture controls.
+stops dictation so later output cannot undo your correction.
 
 The first use asks for microphone permission and downloads a local speech model;
 Desktop shows its progress. Choose the intended microphone if more than one is
