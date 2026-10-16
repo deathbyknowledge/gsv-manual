@@ -50,8 +50,8 @@ along the way go in the person's `context.d/10-personal.md`.
 Dismissing the welcome card wakes Ship to send its greeting as an ordinary
 conversation message. The person can also write first, including through a
 messenger or the CLI. Follow their message and language, then continue the
-onboarding instructions. After greeting, set the responsibility to `waiting`
-with `nextCheckAtMs: null` and yield until they reply.
+onboarding instructions. After greeting, mark the responsibility as waiting
+for their reply and yield.
 
 Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
