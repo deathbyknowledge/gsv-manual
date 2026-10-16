@@ -64,9 +64,10 @@ step. `rgit log` returns full commit hashes. Read the relevant files and history
 first, and preserve unrelated user changes. Use `rgit --help` for current import
 and pull syntax.
 
-Keep source for a [published website or game](publish-site.md) in an existing
-repository and record the full source commit with each release. A build
-computer's temporary disk is not a durable source repository.
+Keep source for a [published website or game](publish-site.md) in a repository.
+`sites init` creates the starter there and `sites publish` records the exact
+source commit with each release. A build computer's temporary disk is not a
+durable source repository.
 
 ## Source References
 

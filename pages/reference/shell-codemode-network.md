@@ -34,8 +34,8 @@ with `man codemode` and `mcp codemode` before composing the script.
 Use `shell.cancel({ target, sessionId })` to explicitly stop a durable command;
 cancelling a poll alone leaves that command running. See [cloud computer
 sessions](../devices-workplaces/cloud-computers.md#long-commands-and-cancellation).
-The `site.create`, `site.list`, `site.get`, `site.publish`, and `site.unpublish`
-methods manage [static site releases](../files-knowledge/publish-site.md).
+Use [`sites`](../files-knowledge/publish-site.md) in Shell to create and publish
+websites. Direct integrations can also use CodeMode's `site` methods.
 
 ## HTTP Requests
 

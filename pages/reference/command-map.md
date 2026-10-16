@@ -34,7 +34,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Connect with a person on another Ship | `contact` |
 | Find or maintain reusable procedures | `skills` |
 | Inspect a Ship repository's files and history | `rgit` or `ripgit`; file writes under `/src/repos/OWNER/REPO` commit automatically |
-| Publish, inspect, update, or unpublish a static website | [`site.create`, `site.list`, `site.get`, `site.publish`, `site.unpublish`](../files-knowledge/publish-site.md) in CodeMode |
+| Create, publish, update, or unpublish a website | [`sites init`, `sites publish`, `sites list`, `sites unpublish`](../files-knowledge/publish-site.md) on `gsv` |
 | Run a composed JavaScript workflow | `codemode` |
 | Generate text without starting a work loop | `llm` |
 | Read an image | `img2txt` |

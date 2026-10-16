@@ -23,7 +23,8 @@ Preserve other work in that repository.
 Files in the computer are temporary. Save source changes back to the repository
 and copy needed output to `gsv` before stopping. Stopping, expiry, or loss of the
 computer destroys files and running commands. There is no saved disk or automatic
-restore. For a website, continue with [Build and publish a site](../files-knowledge/publish-site.md).
+restore. For a website, `sites init` creates persistent source and `sites publish`
+handles the build and output transfers. See [Build and publish a site](../files-knowledge/publish-site.md).
 
 ## Start, Use, Stop
 
@@ -111,7 +112,7 @@ account named in Ship's `~/context.d/10-delegation.md`; replace `CREW_ACCOUNT`
 with it:
 
 ```bash
-proc delegate --as CREW_ACCOUNT --label site-build --check-after 10m "Build the requested site from the agreed GSV repository. Use a temporary cloud computer if needed. Save source changes and return the source commit, output path on gsv, checks, and computer status."
+proc delegate --as CREW_ACCOUNT --label "Build the site" --check-after 10m "Build the requested site from the agreed GSV repository. Use a temporary cloud computer if needed, publish with sites, and return the share URL, source repository, checks and computer status."
 ```
 
 Give Crew the chosen repository and task requirements. Assign one worker to
