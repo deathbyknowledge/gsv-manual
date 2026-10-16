@@ -7,18 +7,16 @@ and publish it at the space's `/public/SLUG` share URL. The share page embeds th
 build on a separate origin. Published files live with the space, so the build
 computer can stop after the files are published.
 
-This workflow serves static browser files. It provides no server process,
-database, GSV login, or connection to the hosting space's private files and
-syscalls. Owner-only app authentication and authorization to the hosting space
-are not implemented. Do not add a space credential to the build to simulate that
-access. If the task requires it, identify that missing capability before
-presenting a static page as a working authenticated app.
+This workflow serves static browser files. It provides no server process or
+database. An app can request the publishing owner's consent to read that space's
+responsibilities through the limited [app connection](#connect-an-app-to-its-publishing-space)
+below. Keep credentials and private records out of the public build.
 
 ## Discover And Divide The Work
 
-Publication must be enabled by the operator. The `site.*` syscalls are available
-through CodeMode's `site` object and the public client's `client.site` namespace.
-For example, on `gsv`:
+Publication must be enabled by the operator. The publication methods
+`site.create/list/get/publish/unpublish` are available through CodeMode's `site`
+object and the public client's `client.site` namespace. For example, on `gsv`:
 
 ```bash
 codemode -e 'return await site.list({})'
@@ -141,6 +139,60 @@ isolation is not enabled.
 The public content origin cannot log in to the installation or use its `/ws`
 endpoint and does not share the installation's browser storage. Public builds
 must be treated as public even when a URL has only been shared with one person.
+
+## Connect An App To Its Publishing Space
+
+Use the optional `@humansandmachines/gsv/site-client` browser helper for an app
+that reads the publishing owner's responsibilities. Its current permission
+profile provides `r12y.list`, `r12y.get`, and the `r12y.changed` signal. It cannot
+change responsibilities, read files, run commands, create tokens, or register a
+target. Kernel authorization enforces these limits independently of the app.
+
+Prepare the helper during page initialization, then enable the Connect button.
+Call `connect()` directly from the click handler so the browser can open the
+consent popup from the user's gesture:
+
+```js
+import { prepareSiteClient } from "@humansandmachines/gsv/site-client";
+
+connectButton.disabled = true;
+const site = await prepareSiteClient();
+connectButton.disabled = false;
+connectButton.onclick = async () => {
+  const session = await site.connect();
+  const responsibilities = await session.client.r12y.list({});
+  // Render responsibilities; use r12y.get({ id }) for selected details.
+  // Subscribe with session.client.onSignal and refresh on "r12y.changed".
+  // Call session.close() when the user disconnects.
+};
+```
+
+The helper reads public identity metadata from the reserved `/_gsv/site.json`
+route on the site's own origin. It selects that site's publishing Space; do not
+ask the visitor for another gateway address. Visitors cannot use this flow to
+sign in to a different Space. Only the publishing human owner can approve access
+in the trusted Space popup, which shows the site and requested permission.
+
+The popup returns a credential restricted to that site and Space. The helper
+checks the popup identity, exact origins, and one-time request nonce before
+connecting. It keeps the credential in memory, with no stored login or automatic
+renewal. Access lasts at most one hour and can end sooner if the authorizing
+session expires. Opening the page again requires another consent flow.
+
+Handle cancellation, failed sign-in, expiry, and disconnection in the app. Clear
+displayed private records when the connection ends. The
+[responsibility-board example](https://github.com/deathbyknowledge/gsv/tree/main/examples/responsibility-board)
+shows initialization, consent, list and detail views, change subscriptions, and
+cleanup. Build and publish it through the same source and immutable-release
+workflow above; credentials and private sample records are not build inputs.
+
+Use the owner's existing [token controls](../accounts-access/credentials-sharing.md#user-tokens)
+to inspect or revoke a grant. For example, the installed CLI provides
+`gsv auth token list` and `gsv auth token revoke TOKEN_ID`. Expiry or revocation
+ends calls and signals, including on a connection restored after hibernation.
+`session.close()` disconnects the app locally; it does not revoke the token.
+Unpublishing removes public content but does not revoke an already approved
+connection. Revoke its token separately when immediate access removal is needed.
 
 ## Edit Later Or Unpublish
 

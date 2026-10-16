@@ -16,6 +16,7 @@ Use ordinary files for documents and deliverables, personal memory for facts wor
 | Save a reusable procedure | `skills.d` / `skills` |
 | Inspect history, diffs, or commits in a Ship repository | `rgit` |
 | Build and publish a static site, browser game, or WASM project | [Site publication](publish-site.md) |
+| Give an app read-only access to its publishing Space's responsibilities | [Owner consent for a published app](publish-site.md#connect-an-app-to-its-publishing-space) |
 | Read or create image/audio media | `img2txt`, `txt2img`, `stt`, or `tts` |
 
 ## Pages In This Section

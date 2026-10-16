@@ -25,6 +25,12 @@ User tokens support non-interactive clients with bounded authority. Create, list
 
 A newly created raw token may be shown once. Do not place it in a message, prompt, ordinary file, log, or screenshot.
 
+An owner-approved [published app](../files-knowledge/publish-site.md#connect-an-app-to-its-publishing-space)
+uses a separate token restricted to that app's publishing Space. The current
+profile can only read responsibilities and receive their changes, for at most
+one hour. These grants appear in the ordinary token list and can be revoked
+there. Closing the app or unpublishing its files does not revoke its grant.
+
 ## Machine Credentials
 
 Each connected computer has a credential bound to its machine identity. Desktop can enroll the computer and install its background service. Revoking that machine stops its connection without signing the person out everywhere else.
