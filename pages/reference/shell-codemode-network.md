@@ -28,8 +28,14 @@ codemode ./check.js --cwd ~/projects/example -- input-one input-two
 ```
 
 A CodeMode script is an asynchronous JavaScript function body. It can use
-`shell`, `fs`, `mail.send`, and discovered MCP functions. Inspect exact inputs
+`shell`, `fs`, `mail.send`, `site`, and discovered MCP functions. Inspect exact inputs
 with `man codemode` and `mcp codemode` before composing the script.
+
+Use `shell.cancel({ target, sessionId })` to explicitly stop a durable command;
+cancelling a poll alone leaves that command running. See [cloud computer
+sessions](../devices-workplaces/cloud-computers.md#long-commands-and-cancellation).
+The `site.create`, `site.list`, `site.get`, `site.publish`, and `site.unpublish`
+methods manage [static site releases](../files-knowledge/publish-site.md).
 
 ## HTTP Requests
 

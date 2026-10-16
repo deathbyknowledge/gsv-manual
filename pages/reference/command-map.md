@@ -19,6 +19,8 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
 | Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |
+| Start a temporary Linux build computer | [`instance start computer --request-id ID --wait`](../devices-workplaces/cloud-computers.md) on `gsv` |
+| Stop a cloud computer after saving source and output | `instance stop ID --wait` on `gsv`; its disk is temporary |
 | Save and stop a cloud browser, waiting for release | `instance stop ID --wait` on `gsv`; a failed save leaves it running |
 | Retry saving website state | `browser profile save ID` on `gsv`; inspect the returned save status |
 | Inspect or forget remembered browser logins | `browser profile list`, `browser profile get <profile-id>`, `browser profile delete <profile-id>`; deletion stops its browser and forgets the state |
@@ -31,7 +33,8 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Track promises, follow-ups, and delegated work | `r12y` |
 | Connect with a person on another Ship | `contact` |
 | Find or maintain reusable procedures | `skills` |
-| Inspect or commit a Ship repository | `rgit` or `ripgit` |
+| Inspect a Ship repository's files and history | `rgit` or `ripgit`; file writes under `/src/repos/OWNER/REPO` commit automatically |
+| Publish, inspect, update, or unpublish a static website | [`site.create`, `site.list`, `site.get`, `site.publish`, `site.unpublish`](../files-knowledge/publish-site.md) in CodeMode |
 | Run a composed JavaScript workflow | `codemode` |
 | Generate text without starting a work loop | `llm` |
 | Read an image | `img2txt` |

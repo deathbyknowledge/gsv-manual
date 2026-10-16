@@ -4,6 +4,10 @@
 
 Connecting a computer lets Ship work with that computer's files, commands, private networks, installed software, and hardware without moving all of it into Ship.
 
+For builds and scripts when your devices are offline, use an operator-enabled
+[cloud computer](cloud-computers.md). It is a temporary Linux target; save source
+and outputs to the space before stopping it.
+
 ## Connect A Computer
 
 The Desktop app can guide first-time setup:
@@ -117,3 +121,4 @@ Prefer a paired browser for:
 - [Run commands and copy files across targets](targets-copy.md)
 - [Use a browser target](browser-targets.md)
 - [Start a cloud browser and remember website logins](cloud-browsers.md)
+- [Use a cloud computer for builds and scripts](cloud-computers.md)

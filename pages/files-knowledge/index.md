@@ -15,6 +15,7 @@ Use ordinary files for documents and deliverables, personal memory for facts wor
 | Keep a stable preference visible in every request | personal `context.d` |
 | Save a reusable procedure | `skills.d` / `skills` |
 | Inspect history, diffs, or commits in a Ship repository | `rgit` |
+| Build and publish a static site, browser game, or WASM project | [Site publication](publish-site.md) |
 | Read or create image/audio media | `img2txt`, `txt2img`, `stt`, or `tts` |
 
 ## Pages In This Section
@@ -23,3 +24,4 @@ Use ordinary files for documents and deliverables, personal memory for facts wor
 - [Memory, context, and skills](context-files-knowledge.md)
 - [Wikis and repositories](repositories.md)
 - [Images, audio, and attachments](media.md)
+- [Build, publish, and update a site](publish-site.md)
