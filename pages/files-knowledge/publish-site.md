@@ -15,7 +15,8 @@ sites init my-game
 ```
 
 This creates a Vite, React and TypeScript project at
-`/src/repos/YOUR-ACCOUNT/my-game`. Edit it with ordinary file tools; writes commit
+`/src/repos/OWNER/my-game`, using the human owner's account so Ship and Crew can
+both edit it. Edit it with ordinary file tools; writes commit
 automatically. Keep source there so a later process can update the site without
 the original build computer. Init never overwrites an existing project's files.
 
