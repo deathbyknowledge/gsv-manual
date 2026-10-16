@@ -40,8 +40,7 @@ The CLI can inspect and control the same service. Run `gsv daemon --help` for th
 
 ## Windows Computers And Servers
 
-Windows 10 or newer on x64 supports Desktop, the CLI, the machine daemon, voice
-and gestures. Connecting the computer asks for administrator approval to install
+Windows 10 or newer on x64 supports Desktop, the CLI, the machine daemon and local voice. Connecting the computer asks for administrator approval to install
 an automatic Windows service. The machine can reconnect after reboot before
 anyone signs in; signing out or closing Desktop does not disconnect it.
 
@@ -77,7 +76,7 @@ Setup upgrades remember the previously selected installation directory.
 Windows service updates require administrator approval. Close Desktop and run
 the host installer again; it updates the service and rolls back if the new
 daemon cannot start. For servers, `install.ps1 -Headless` installs just the CLI
-and daemon. Voice, camera gestures and Desktop need an interactive login.
+and daemon. Voice and Desktop need an interactive login.
 
 ## Connect A Browser
 

@@ -162,7 +162,7 @@ transcribing media.
 ## The Desktop App
 
 Desktop is the same Instrument app in a native window, with local voice and
-hands-free input and a built-in way to connect the computer it runs on. On first
+a built-in way to connect the computer it runs on. On first
 launch it asks for a space: type a handle (it fills in the space domain) or paste
 a custom address. Owner verification opens in the system browser.
 
