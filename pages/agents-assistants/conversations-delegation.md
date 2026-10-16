@@ -57,7 +57,7 @@ proc delegate --as ACCOUNT --label research --check-after 10m "Find the answer a
 
 The delegated task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. The caller evaluates that result and then sends a useful answer or yields quietly.
 
-Delegated work is supervised rather than killed on a timer: at each `--check-after` checkpoint (default 10 minutes) the caller is told the child is still running and can intervene. `--timeout` is accepted as an alias for `--check-after` and no longer kills the child.
+At each `--check-after` checkpoint (default 10 minutes), the caller is told the delegated child is still running and can intervene. `--timeout` is an alias for `--check-after`.
 
 Useful commands:
 

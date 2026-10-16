@@ -17,8 +17,7 @@ messengers, MCP, Logs, and (for root) sign-in and people.
 Chat's **record** button turns a browser microphone recording into a draft using
 the space's transcription provider. Review the words before sending.
 
-Use **Desktop** when you want a native window, local voice and hands-free
-control, or a guided way to connect the current computer as a place. Desktop can
+Use **Desktop** when you want a native window, local live dictation, or a guided way to connect the current computer as a place. Desktop can
 still chat when the computer itself is not connected.
 
 ## What Stays In Sync
@@ -60,5 +59,5 @@ error. A receipt does not mean the issue has been fixed.
 ## Pages In This Section
 
 - [Use the Web and Desktop surfaces](desktop-surfaces-and-apps.md)
-- [Use voice and gestures](voice-gestures.md)
+- [Use voice](voice-gestures.md)
 - [Read images with `img2txt`](image-reading.md)

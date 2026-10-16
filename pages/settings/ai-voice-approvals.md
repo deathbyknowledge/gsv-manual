@@ -1,4 +1,4 @@
-# Models, Voice, Gestures, And Approvals
+# Models, Voice, And Approvals
 
 [Settings And Recovery](index.md)
 
@@ -20,7 +20,7 @@ When generation behaves unexpectedly, inspect:
 
 Search and bounded Read keep large files from consuming the context budget. Adjust context limits only when the task itself needs more model context.
 
-## Voice And Gestures
+## Voice
 
 Web Chat has **record** and **stop** controls and a live waveform in the prompt.
 The finished audio is transcribed through the space's Gateway using the current conversation process's
@@ -28,9 +28,9 @@ transcription configuration; the resulting text stays in the draft for review.
 Browser site permission controls microphone access. No Desktop helper or
 connected computer is required.
 
-Desktop owns microphone, camera, transcription, and gesture settings for that computer. Check operating-system permission, the selected microphone, and the hands-free state (Off, Ready, Listening) in Chat's **Voice and hands-free** control there.
+Desktop owns microphone selection and local live transcription on that computer. Check operating-system permission and Chat's **voice** control. Choose **listen** to start and **pause** to stop while keeping the draft.
 
-Local voice and gesture settings belong to Desktop on that computer; model profiles belong to the Ship account. See [Use voice and gestures](../apps-desktop/voice-gestures.md).
+Local voice settings belong to Desktop on that computer; model profiles belong to the Ship account. See [Use voice](../apps-desktop/voice-gestures.md).
 
 ## Tool Approval
 
