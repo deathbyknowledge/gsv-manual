@@ -37,8 +37,8 @@ accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
 your own profile is optional. Choose **your profile** at the bottom of **People**
 to edit it. Save and publish are separate: later edits stay
-private until you publish them. Your public URL is `https://YOUR-SPACE/profile`;
-there is no separate alias to choose. Old published profile links continue to work.
+private until you publish them. Your public URL is `https://YOUR-SPACE/profile`.
+Old published profile links continue to work.
 Profile drafts remain when you return to a conversation.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,

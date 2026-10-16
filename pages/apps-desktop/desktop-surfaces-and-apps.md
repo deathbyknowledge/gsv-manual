@@ -171,9 +171,9 @@ and offers **this computer** (connect or inspect this computer), **disconnect**
 (sign out of the space and return to the space picker), and **quit**. When a
 locked account needs recovery, **recover account** appears there too.
 
-There is no background tray application. Closing the window is the same as
-**quit**: unsent work is guarded, credentials are flushed, and the app exits. The
-computer's background machine service, `gsvd`, is independent and keeps the
+Closing the window is the same as **quit**: unsent work is guarded, credentials
+are flushed, and the app exits. The computer's background machine service,
+`gsvd`, is independent and keeps the
 computer connected after Desktop closes.
 
 ## Connect This Computer

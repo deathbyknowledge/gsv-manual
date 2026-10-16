@@ -221,9 +221,9 @@ browser profile delete <profile-id>
 ```
 
 Fleet's **browser** action opens the current browser, starting one if needed.
-There is no profile picker or take-control step. Stopped browsers leave the
-ordinary Fleet list. `instance list --all` includes your 64 most recently created
-terminal browsers alongside active ones, without per-site save issues. Use
+Stopped browsers leave the ordinary Fleet list. `instance list --all` includes
+your 64 most recently created terminal browsers alongside active ones, without
+per-site save issues. Use
 `instance get ID` for recent details. Older instances retain their identity,
 status and start-request receipts for exact lookup and safe retries; runtime
 and detailed save diagnostics are discarded. Saved logins and usage accounting

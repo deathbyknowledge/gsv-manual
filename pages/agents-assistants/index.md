@@ -52,9 +52,8 @@ This separation keeps the conversation readable and the reasoning and tool use i
 
 The hosting operator can supply release briefs as ordinary `operator.update`
 responsibilities. They show the publisher, update ID, publication time and brief.
-Kernel adds each eligible update once when an existing personal agent is used;
-there is no separate announcement agent or mandatory acknowledgement. New users
-skip historical updates covered by their initial onboarding date.
+Kernel adds each eligible update once when an existing personal agent is used.
+New users skip historical updates covered by their initial onboarding date.
 
 Explain relevant changes at a suitable moment in the next conversation. Follow
 the user's instructions and permissions, and check runtime facts before claiming
