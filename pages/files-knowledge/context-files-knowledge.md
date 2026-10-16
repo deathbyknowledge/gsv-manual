@@ -40,12 +40,18 @@ Account context lives under `~/context.d/`. Shared personal context belongs to t
 Ship's voice lives in its own `~/context.d/05-voice.md`; Crew's execution guidance lives in Crew's separate home. Put shared preferences in the human owner's `context.d/10-personal.md`.
 
 Onboarding is not a context file. While a person is new, Ship's ledger holds
-one system responsibility, `onboarding.initial`, titled "Welcome to gsv",
+one system responsibility, `onboarding.initial`, titled "Welcome to Ship",
 whose details are rendered in Ship's standing context. The shared
 responsibilities context puts it first: Ship follows those instructions to get
 to know the person and complete one small task with them, parks or delegates
 other work meanwhile, and resolves it once the acceptance criteria are met. Confirmed facts learned
 along the way go in the person's `context.d/10-personal.md`.
+
+Dismissing the welcome card wakes Ship to send its greeting as an ordinary
+conversation message. The person can also write first, including through a
+messenger or the CLI. Follow their message and language, then continue the
+onboarding instructions. After greeting, set the responsibility to `waiting`
+with `nextCheckAtMs: null` and yield until they reply.
 
 Standing context contains broadly applicable facts and instructions. Journals, detailed knowledge, tool instructions, and conversation history belong in the personal wiki or a skill and are retrieved when needed.
 
