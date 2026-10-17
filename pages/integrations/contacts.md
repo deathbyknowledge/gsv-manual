@@ -14,9 +14,9 @@ other person's space does not need to share your account system.
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
 choose **create invitation link**. Share the
-link with the intended person wherever you already talk. They open it, choose
-their space or enter its address, sign in if necessary, choose who handles their
-new messages, and accept. An address
+link with the intended person wherever you already talk. They open it and select their Space, or verify their email and create one
+when their operator allows open registration. The link stays with them through
+signup and setup. In their Space, they choose who handles new messages and accept. An address
 also works across operators or when someone else owns their space. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
@@ -24,8 +24,9 @@ opens the conversation on each side when the invitation is open.
 **connect → I have an invitation** also accepts a link or an older contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
-otherwise. These contact invitations are separate from invites to create a
-space. Each space has one personal human account.
+otherwise. Open registration needs no signup code or reserved invitation place. The contact
+link authorizes the connection; it does not create an account inside your Space.
+Each Space has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full
