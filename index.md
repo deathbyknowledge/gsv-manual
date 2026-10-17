@@ -28,6 +28,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
 | Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |
+| Analyze data, work with documents or media, or run tools on demand | [Use a cloud computer](pages/devices-workplaces/cloud-computers.md) |
 | Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser target](pages/devices-workplaces/browser-targets.md) |
 | Give out an email address for a sign-up, receipt, tracking or bill, or read what arrived there | [Use Ship's email address](pages/integrations/email.md) |
 | Connect Telegram, WhatsApp, Discord, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
@@ -65,6 +66,6 @@ The live search includes commands, connected computers, installed skills, and re
 - **Ship** is the main conversation with Ship.
 - **Work** is a task with its own activity and controls. Open it to inspect or intervene.
 - **Messages** are what was deliberately sent. **Activity** shows the reasoning, tools, retries, and errors behind the work.
-- A **target** is a place where an action can run, such as Ship itself, a connected computer, or a browser. The Web app calls connected targets **Places**.
+- A **target** is a place where an action can run, such as Ship itself, a connected user device, or an on-demand computer or browser. The Web app calls connected targets **Places**.
 - **Send** is how Ship replies. Text is sent only when Ship deliberately sends it; everything else stays in activity.
 - The **ledger** is the record of every action Ship took: who asked, where it ran, what it did, why, and how it ended.
