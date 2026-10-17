@@ -8,9 +8,9 @@ A website the user is already signed into does not need an integration. A paired
 
 ## Contacts
 
-A Contact connects your Ship to a person on another Ship. Both sides retain
+A Contact connects your ship to a person on another ship. Both sides retain
 their own conversations and permissions while exchanging messages, structured
-requests, and exact file revisions. See [Connect with another Ship](contacts.md).
+requests, and exact file revisions. See [Connect with another ship](contacts.md).
 
 ## Messaging
 
@@ -20,7 +20,7 @@ Connecting a provider account and proving which external person is the signed-in
 
 ## Email
 
-This Ship has its own address (`<handle>@gsv.space` on the public service; `mail address` prints the exact one), kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. Ship reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use Ship's email address](email.md).
+Your ship has its own address (`<handle>@gsv.space` on the public service; `mail address` prints the exact one), kept for the owner's convenience: sign-ups, verification codes, receipts, parcel tracking, bills and newsletters can go there instead of the owner's personal inbox. Ship reads, searches, sends and replies from it, and each new message becomes a `mail.received` responsibility for Ship. See [Use Ship's email address](email.md).
 
 ## MCP
 
@@ -42,6 +42,6 @@ OAuth lets a user authorize an external account without pasting an access token 
 ## Pages In This Section
 
 - [Connect and route messaging](adapters-routing.md)
-- [Connect with another Ship](contacts.md)
+- [Connect with another ship](contacts.md)
 - [Use Ship's email address](email.md)
 - [MCP and OAuth](mcp-oauth.md)

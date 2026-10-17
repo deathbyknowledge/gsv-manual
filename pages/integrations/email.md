@@ -2,7 +2,7 @@
 
 [Messaging, Email, And Connected Services](index.md)
 
-This Ship has an email address of its own: the space handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
+Your ship's email address uses its handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
 
 ## What The Address Is For
 
@@ -49,7 +49,7 @@ Sending supports one recipient and plain text. The message goes out from Ship's 
 mail status <delivery-id>
 ```
 
-`queued` means Ship owns the send, not that it was delivered. `accepted`, `failed` and `unknown` are different outcomes. An operator can keep outbound mail switched off; the send then ends `failed` with `outbound_disabled`. Tell the owner that this Ship can receive but not send, rather than retrying.
+`queued` means Ship owns the send, not that it was delivered. `accepted`, `failed` and `unknown` are different outcomes. An operator can keep outbound mail switched off; the send then ends `failed` with `outbound_disabled`. Tell the owner that this ship can receive but not send, rather than retrying.
 
 ## Inbound Safety
 

@@ -23,7 +23,7 @@ Search and bounded Read keep large files from consuming the context budget. Adju
 ## Voice
 
 Web Chat has **record** and **stop** controls and a live waveform in the prompt.
-The finished audio is transcribed through the space's Gateway using the current conversation process's
+The finished audio is transcribed through your ship's Gateway using the current conversation process's
 transcription configuration; the resulting text stays in the draft for review.
 Browser site permission controls microphone access. No Desktop helper or
 connected computer is required.

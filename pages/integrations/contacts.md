@@ -1,38 +1,37 @@
-# Connect With Another Ship
+# Connect with another ship
 
 [Messaging, Email, And Connected Services](index.md)
 
-A Contact joins your Ship to a person on another Ship. You can exchange
+A Contact joins your ship to a person on another ship. You can exchange
 messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
 
-Contacts work between spaces served by the same or different operators. The
-other person's space does not need to share your account system.
+Contacts work between ships served by the same or different operators. The
+other person's ship does not need to share your account system.
 
 ## Pair With Someone
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
 choose **create invitation link**. Share the
-link with the intended person wherever you already talk. They open it, choose
-their space or enter its address, sign in if necessary, choose who handles their
-new messages, and accept. An address
-also works across operators or when someone else owns their space. Neither person
+link with the intended person wherever you already talk. They open it, sign in
+or create their ship, choose who handles their new messages, and accept.
+Entering a ship address also works across operators or when someone else owns
+their ship. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
 **connect → I have an invitation** also accepts a link or an older contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
-otherwise. These contact invitations are separate from invites to create a
-space. Each space has one personal human account.
+otherwise. Each ship has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full
-address for a Ship hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
+address for a ship hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
 Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
-Both people choose how their own Ship handles new messages before sending or
+Both people choose how their own ship handles new messages before sending or
 accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. Publishing
 your own profile is optional. Choose **your profile** at the bottom of **People**
@@ -86,10 +85,10 @@ message send --to 'contact:...' --message "Can you review this?" --also
 
 `message destinations` includes active Contacts as well as messaging endpoints.
 The sender first records the message locally. Delivery is complete when the
-other Ship has durably recorded it; that does not mean the other person or their
-Ship has already acted on it.
+other ship has durably recorded it; that does not mean the other person or their
+ship has already acted on it.
 
-The send result says `accepted=true` once this Ship durably owns the delivery.
+The send result says `accepted=true` once this ship durably owns the delivery.
 Keep its delivery id and inspect the eventual result when needed:
 
 ```bash
@@ -97,7 +96,7 @@ message delivery show 'delivery:...'
 ```
 
 People asks each person to choose **I’ll handle them** or **Let Ship handle them**
-when connecting. Each choice affects only that person's Ship and survives delayed
+when connecting. Each choice affects only that person's ship and survives delayed
 acceptance. **Automatically handle new messages**, in conversation **details**,
 changes it later. On phones, open **more → details**; the short handling status
 beneath the name also opens details when space permits. Existing contacts keep their settings. Ship-led invitations
@@ -140,7 +139,7 @@ keep the panel closed and preserve your place in the Ship conversation. Closing
 a panel keeps its unfinished reply for this session, marked **draft**. Sending
 clears the answered activity; messages arriving during the send still wait.
 **Open conversation** shows the full history in People.
-Previews distinguish **You** and **Your Ship** from the other person's messages.
+Previews distinguish **You** and **Your ship** from the other person's messages.
 
 Reading in People clears the private unread state; it sends no read receipt to
 the peer. Muted, blocked, archived and ended conversations stay quiet, while an
@@ -170,7 +169,7 @@ message send --to 'contact:...' \
 ```
 
 The conversation stores a reference to the retained revision, not another
-eager copy of its bytes. The other Ship streams that exact revision when the
+eager copy of its bytes. The other ship streams that exact revision when the
 recipient opens or uses it. A later edit to the original file does not rewrite
 the earlier message.
 
@@ -184,7 +183,7 @@ message send --to 'contact:...' --message "Report" --attach /tmp/report.pdf --al
 
 ## Coordinate A Request
 
-A request is useful when both Ships need a shared state rather than only a
+A request is useful when both ships need a shared state rather than only a
 message. It has a kind, title, optional structured details, and a revisioned
 lifecycle.
 
@@ -218,7 +217,7 @@ contact revoke 'contact:...'
 
 Revocation stops new messages, request updates, and file reads through that
 relationship. It does not erase messages that each person already received.
-The other Ship records the relationship as revoked when it receives the durable
+The other ship records the relationship as revoked when it receives the durable
 notice.
 
 If a relationship should exist again later, create and accept a new invitation.
@@ -239,4 +238,4 @@ message delivery show 'delivery:...' --json
 If a delivery is queued, Ship keeps retrying the same logical delivery. A
 terminal failure becomes work for Ship to inspect instead of silently creating
 duplicates. If pairing fails, verify that the invitation is unexpired and that
-the other Ship's origin is reachable over HTTPS.
+the other ship's origin is reachable over HTTPS.

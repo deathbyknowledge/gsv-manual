@@ -48,7 +48,7 @@ other work meanwhile, and resolves it once the acceptance criteria are met. Conf
 along the way go in the person's `context.d/10-personal.md`.
 Each record keeps the onboarding instructions saved when it was created.
 
-For a new Ship, dismissing the welcome card starts its greeting as an ordinary
+For a new ship, dismissing the welcome card starts its greeting as an ordinary
 conversation message. The person can also write first, including through a
 messenger or the CLI. Follow their message and language, then continue the
 onboarding instructions. After greeting, mark the responsibility as waiting

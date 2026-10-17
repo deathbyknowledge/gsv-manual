@@ -116,7 +116,7 @@ itself stays fixed. The star field retains its full-screen background.
 
 ## People
 
-Open **People** (`p`) to connect with someone on another Ship space. **connect**
+Open **People** (`p`) to connect with someone on another ship. **connect**
 creates an invitation link; **I have an invitation** accepts a link or code.
 Public profile addresses are another way to send a first message. Incoming
 requests wait for an explicit acceptance, which opens the conversation.
@@ -140,7 +140,7 @@ A dot beside People marks unread activity. Chat also shows unread conversations
 and incoming requests beside ongoing plans in one compact line above the prompt, including after
 reload. Select a person to read and reply without leaving Chat. Closing the panel
 keeps an unfinished draft, and new messages do not move your reading position. See
-[Connect with another Ship](../integrations/contacts.md) for messages, private
+[Connect with another ship](../integrations/contacts.md) for messages, private
 controls, and task-specific coordination.
 
 ## Browser Extension
@@ -162,13 +162,16 @@ transcribing media.
 ## The Desktop App
 
 Desktop is the same Instrument app in a native window, with local voice and
-a built-in way to connect the computer it runs on. On first
-launch it asks for a space: type a handle (it fills in the space domain) or paste
-a custom address. Owner verification opens in the system browser.
+a built-in way to connect the computer it runs on. On first launch, choose:
 
-The space name at the top of the window is a menu. It shows the space address
+- **Create your ship**: choose a handle, verify your email, and set a password.
+  No invite code is needed.
+- **Open Ship**: sign in with your email to choose your ship, or enter its handle
+  or custom address directly. Then sign in with your ship's password.
+
+Your ship's name at the top of the window is a menu. It shows its address
 and offers **this computer** (connect or inspect this computer), **disconnect**
-(sign out of the space and return to the space picker), and **quit**. When a
+(sign out and return to the ship picker), and **quit**. When a
 locked account needs recovery, **recover account** appears there too.
 
 Closing the window is the same as **quit**: unsent work is guarded, credentials
@@ -178,16 +181,16 @@ computer connected after Desktop closes.
 
 ## Connect This Computer
 
-After sign-in, Desktop offers **Connect this computer** so your Ship can use
+After sign-in, Desktop offers **Connect this computer** so your ship can use
 this computer's files and commands even when the app is closed. Give it a
 display name and choose **connect**; Desktop creates the same device invitation
 Fleet would, pairs the computer, and installs the background service. Choose
-**Not now** to skip it for this session; **this computer** in the space menu
+**Not now** to skip it for this session; **this computer** in the ship menu
 opens the same dialog later and shows the connection's status.
 
-An existing connection for the same space and account resumes automatically. A
-connection to another space or account, and a separate CLI login, are left
-alone. If the space forgets the computer, Desktop offers to connect it again
+A connection for the same ship and account resumes automatically. A
+connection to another ship or account, and a separate CLI login, are left
+alone. If the ship forgets the computer, Desktop offers to connect it again
 with the same display name and workspace.
 
 ## Signing Out
