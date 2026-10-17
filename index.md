@@ -24,7 +24,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Ask Ship something or continue a conversation | [Ship, messages, and work](pages/agents-assistants/index.md) |
 | See what Ship is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
 | Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
-| Connect with a person on another ship | [Contacts and cross-ship requests](pages/integrations/contacts.md) |
+| Connect with a person on another Ship | [Contacts and cross-Ship requests](pages/integrations/contacts.md) |
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
 | Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |

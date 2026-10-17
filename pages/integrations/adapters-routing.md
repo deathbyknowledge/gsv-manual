@@ -18,7 +18,7 @@ When the person asks to connect a messenger, handle the Ship side for them:
 3. Ask the person to paste their code back into this conversation. Write it to a temporary file, then run `messenger connect ADAPTER < /tmp/messenger-code.txt`. Read the code from the file so it stays out of logged shell command text, and delete the file afterwards.
 4. Report success only after the command returns `paired: true`. Ask them to send a new message in the messenger to start chatting there. If the code expired, get a new one.
 
-`messenger inspect ADAPTER < code.txt` can check the external identity without changing its link. Redemption links the process's human owner; neither a code nor an argument can select another account or ship. Redeeming a code for an already-linked identity moves it to this ship. Only redeem a code the person supplies to connect their own account.
+`messenger inspect ADAPTER < code.txt` can check the external identity without changing its link. Redemption links the process's human owner; neither a code nor an argument can select another account or Ship. Redeeming a code for an already-linked identity moves it to this Ship. Only redeem a code the person supplies to connect their own account.
 
 No Settings visit is needed for messaging. Password recovery through that messenger requires a direct confirmation in Settings; a process-created link does not authorize password resets. The manual Settings flows below remain available, and disconnect is still a signed-in human action. On older gateways without `messenger`, use those flows.
 

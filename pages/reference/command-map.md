@@ -31,7 +31,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Search or maintain saved knowledge | `wiki` |
 | Search the web | `web search`, or the Search tool |
 | Track promises, follow-ups, and delegated work | `r12y` |
-| Connect with a person on another ship | `contact` |
+| Connect with a person on another Ship | `contact` |
 | Find or maintain reusable procedures | `skills` |
 | Inspect or commit a Ship repository | `rgit` or `ripgit` |
 | Run a composed JavaScript workflow | `codemode` |

@@ -127,7 +127,7 @@ there is no automatic restore or replay.
 Default permissions allow agent shell, filesystem, and network work on cloud
 computers. **Settings → permissions → Cloud computers** changes that policy;
 custom policies still apply. Connected user devices have separate approval
-rules. Computers belong to their initiating human account and ship.
+rules. Computers belong to their initiating human account and Ship.
 
 Computer concurrency and monthly seconds are separate from browser limits.
 Starting reserves the requested lifetime. Usage runs from readiness until stop

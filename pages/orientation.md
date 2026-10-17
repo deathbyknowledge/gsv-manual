@@ -2,25 +2,25 @@
 
 [Back to the manual](../index.md)
 
-Ship is your personal spaceship. It stays in orbit while you live your life down here on Earth. You can talk to your ship, give it work, and keep your files and projects aboard. It uses the technology you connect to it and keeps work running while you are away.
+Ship is your personal spaceship. It stays in orbit while you live your life down here on Earth. You can talk to your Ship, give it work, and keep your files and projects aboard. It uses the technology you connect to it and keeps work running while you are away.
 
 A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that system. Each can provide a place to reach Ship, something Ship can use, or both. The system grows by capability, so specialized technology can join alongside familiar apps and devices.
 
-Your ship can also connect directly with another person's ship. Each ship stays
+Your Ship can also connect directly with another person's Ship. Each Ship stays
 sovereign while the two exchange messages, requests, and exact file revisions.
 
-Your ship has an email address of its own, so sign-ups, receipts, tracking and
+Your Ship has an email address of its own, so sign-ups, receipts, tracking and
 bills can go to it instead of your personal inbox.
 
 Ship carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. Ship is the continuing whole that coordinates them and remains yours.
 
-## Your ship
+## Your Ship
 
-Ship names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same ship.
+Ship names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Ship.
 
-The Web app is called **Instrument**. It has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Fleet** lists your places and processes, with files opened from a place; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across ships; **Settings** holds preferences, standing responsibilities, permissions, instructions, messengers, MCP connections, and Logs.
+The Web app is called **Instrument**. It has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Fleet** lists your places and processes, with files opened from a place; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across Ships; **Settings** holds preferences, standing responsibilities, permissions, instructions, messengers, MCP connections, and Logs.
 
 Ship may do work in separate work sessions, but results return through the same personal intelligence unless you deliberately open a direct work session.
 

@@ -12,13 +12,13 @@ Accounts identify who is acting. Permissions decide which actions that identity 
 - A **machine identity** authenticates one connected computer.
 - A linked messaging identity proves that an external sender represents the signed-in owner.
 
-Each ship has one personal human account. Setup also creates a personal-intelligence
+Each Ship has one personal human account. Setup also creates a personal-intelligence
 account and a Crew account for delegated work. Root is a separate administrative login;
 ordinary use does not run as root. The final local-account setup step asks for a
-password and derives the internal username from the ship's handle. Existing ships
+password and derives the internal username from the Ship's handle. Existing Ships
 retain their username, UID, home and paired devices. See [Passwords, sessions, and access](credentials-sharing.md).
 
-Other people have their own ships. Connect with them through
+Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
 ## Inspect Identity

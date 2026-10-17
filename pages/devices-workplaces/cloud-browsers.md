@@ -5,7 +5,7 @@
 When the operator enables cloud browsers, Ship can start one even while the
 user's own devices are offline. It uses the same `tabs` and `page` commands as
 the browser extension. Ordinary browsers automatically remember website logins
-for the local account in this ship. They do not inherit the user's personal
+for the local account in this Ship. They do not inherit the user's personal
 browser login.
 
 The default approval policy lets Ship use cloud-browser commands, files and
