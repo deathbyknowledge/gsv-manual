@@ -1,4 +1,4 @@
-# Connect With Another Ship
+# Connect with another Ship
 
 [Messaging, Email, And Connected Services](index.md)
 
@@ -7,25 +7,24 @@ messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
 
-Contacts work between spaces served by the same or different operators. The
-other person's space does not need to share your account system.
+Contacts work between Ships served by the same or different operators. The
+other person's Ship does not need to share your account system.
 
 ## Pair With Someone
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
 choose **create invitation link**. Share the
-link with the intended person wherever you already talk. They open it, choose
-their space or enter its address, sign in if necessary, choose who handles their
-new messages, and accept. An address
-also works across operators or when someone else owns their space. Neither person
+link with the intended person wherever you already talk. They open it, sign in
+or create their Ship, choose who handles their new messages, and accept.
+Entering a Ship address also works across operators or when someone else owns
+their Ship. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
 **connect → I have an invitation** also accepts a link or an older contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
-otherwise. These contact invitations are separate from invites to create a
-space. Each space has one personal human account.
+otherwise. Each Ship has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full

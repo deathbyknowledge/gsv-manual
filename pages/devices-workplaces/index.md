@@ -14,8 +14,8 @@ temporary computer stops.
 
 The Desktop app can guide first-time setup:
 
-1. Sign in to the space in Desktop.
-2. In the **Connect this computer** prompt, give the computer a display name and choose **connect**. (**Not now** skips it; **this computer** in the space menu opens it later.)
+1. Sign in to your Ship in Desktop.
+2. In the **Connect this computer** prompt, give the computer a display name and choose **connect**. (**Not now** skips it; **this computer** in the Ship menu opens it later.)
 3. Wait for **Connected**; Desktop pairs the computer and installs the background machine service.
 4. Verify that the computer appears online under **Places** in Fleet.
 
@@ -29,7 +29,7 @@ runs macOS, Linux or Windows, then run on `gsv`:
 targets pair --name "My laptop" --platform mac
 ```
 
-The JSON result contains the install and `gsv pair CODE` commands for this space
+The JSON result contains the install and `gsv pair CODE` commands for this Ship
 and release. Share each command with the owner in its own fenced code block so it
 can be copied directly; skip installation if Ship is already installed.
 The invitation lasts ten minutes and enrolls under the human owner's account.

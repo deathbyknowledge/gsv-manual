@@ -11,11 +11,11 @@ Use **Web** when you want Ship from any signed-in browser. The Web app is
 called **Instrument** and has five views: **Chat** for Ship, reply activity and
 contextual responsibilities/routines, **Fleet** for places and processes (with
 files opened from a place), **Memory** for personal
-knowledge pages, **People** for conversations and contacts on other Ship spaces,
+knowledge pages, **People** for conversations and contacts on other Ships,
 and **Settings** for preferences, standing responsibilities, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
 Chat's **record** button turns a browser microphone recording into a draft using
-the space's transcription provider. Review the words before sending.
+your Ship's transcription provider. Review the words before sending.
 
 Use **Desktop** when you want a native window, local live dictation, or a guided way to connect the current computer as a place. Desktop can
 still chat when the computer itself is not connected.
@@ -35,7 +35,7 @@ see it.
 
 If your operator enables it, choose **feedback** in the header to report a bug or
 suggest an improvement. Write what happened and press **Send**. A failed send
-keeps your draft. Reports include your space, account, and app/server versions.
+keeps your draft. Reports include your Ship, account, and app/server versions.
 **Include last 20 Ship messages** is off by default. Check it to attach a snapshot
 of recent messages, thinking, tool inputs/results and runtime events. Use
 **Review** to inspect it before sending; tool results can contain private content.

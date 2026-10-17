@@ -17,11 +17,13 @@ Settings control models, tools, approvals, voice input, sessions, integrations, 
 | Messaging connection | **Settings → messengers** |
 | MCP connection | **Settings → mcp** |
 | Action history, outcomes and request details | **Settings → Logs** |
-| Personal password reset and space ownership | **Settings → sign-in** (root only) |
+| Personal password reset | **Settings → sign-in → Personal sign-in** (root only) |
+| Set up administrator recovery | **Settings → sign-in → Account recovery → set up recovery** (root only) |
+| Recover administrator access | **My Ships**; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
 | Your public profile | **your profile** at the bottom of **People** |
 | Computer or browser connection | **Fleet → Places → connect**, or Desktop machine setup |
 | Web microphone access | Browser site permissions; **record** in Chat starts capture |
-| Web audio transcription | The space's transcription configuration for the conversation process |
+| Web audio transcription | Your Ship's transcription configuration for the conversation process |
 | Desktop microphone and local voice | Desktop on that computer |
 | Provider or service availability in a managed installation | installation operator policy |
 

@@ -39,7 +39,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Change which model answers first, or how reasoning is set | [Models and approvals](pages/settings/ai-voice-approvals.md) |
 | Decide when Ship asks before acting | [Models and approvals](pages/settings/ai-voice-approvals.md) |
 | See every action Ship took and why | [The ledger](pages/agents-assistants/ledger.md) |
-| Invite another person into this space | [Passwords, sessions, and people](pages/accounts-access/credentials-sharing.md) |
+| Invite someone to connect | [Passwords, sessions, and people](pages/accounts-access/credentials-sharing.md) |
 | Run shell commands, HTTP requests, or a composed workflow | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Diagnose a failure | [Troubleshooting](pages/reference/troubleshooting.md) |
 

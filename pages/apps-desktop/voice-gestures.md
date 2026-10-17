@@ -3,7 +3,7 @@
 [Web And Desktop](index.md)
 
 Web and Desktop turn speech into a message draft. Web records audio for
-transcription through your space. Desktop transcribes locally as you speak.
+transcription through your Ship. Desktop transcribes locally as you speak.
 Review the words before sending them.
 
 ## Web
@@ -13,10 +13,10 @@ becomes a live waveform; your typed draft stays underneath. Choose **stop** when
 finished. After **transcribing…**, the draft returns with the words added at its
 cursor. Enter during recording stops it for review. **cancel** or Escape discards
 recording or pending transcription and restores the typed draft. Recordings stop
-automatically after five minutes and are limited to 25 MiB, or the space's smaller
+automatically after five minutes and are limited to 25 MiB, or your Ship's smaller
 limit.
 
-The finished audio goes through your space to its configured transcription
+The finished audio goes through your Ship to its configured transcription
 provider. It is not attached to the message. If the connection drops or the tab
 is hidden, capture stops and the audio stays in that tab. When ready, choose
 **retry transcription**; returning to the tab or reconnecting does not upload it
@@ -30,7 +30,7 @@ another conversation.
 
 Use HTTPS and a browser that supports microphone recording. If permission is
 denied, enable the microphone in the browser's site settings. Provider or
-permission errors come from the space's transcription configuration; web voice
+permission errors come from your Ship's transcription configuration; web voice
 does not need a connected computer or the Desktop helper.
 
 ## Desktop
@@ -61,5 +61,5 @@ AVX2 and AVX-512 are optional.
 4. Start voice again. Text already in the draft remains available.
 
 Voice input belongs to Desktop on that computer. Its machine connection is
-separate; check **this computer** in the space menu for that connection. Typing,
+separate; check **this computer** in the Ship menu for that connection. Typing,
 clicking and ordinary message sending remain available when voice is unavailable.

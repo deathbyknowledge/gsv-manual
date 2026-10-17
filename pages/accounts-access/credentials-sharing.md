@@ -2,12 +2,18 @@
 
 [Accounts And Permissions](index.md)
 
-## Setup Recovery
+## Create your Ship
 
-If a newly claimed space still needs setup, choose **Continue setup** and sign
-in with the email used to claim it. Select **Continue** beside the space to renew
-its setup link. This resumes the same space and does not require a new invite.
-For an invitation issued directly by an operator, ask the operator to renew it.
+Choose **Create your Ship** in Desktop or open your operator's signup page.
+Choose a handle, verify your email, and set a password. Registration does not
+require an invite code.
+
+## Finish setup
+
+If your Ship still needs setup, choose **Continue setup** and sign
+in with the email used to claim it. Select **Continue** beside your Ship to renew
+its setup link. This resumes the same setup.
+For a setup link issued directly by an operator, ask the operator to renew it.
 Owner verification resumes setup; it does not sign in to an existing local account
 or reset its password.
 
@@ -43,8 +49,8 @@ Provider tokens and OAuth credentials belong to the connection that uses them. P
 
 ## Connecting With People
 
-Each space has one personal account. Invite someone through
-[People](../integrations/contacts.md) to connect your separate spaces.
+Each Ship has one personal account. Invite someone through
+[People](../integrations/contacts.md) to connect your Ships.
 Contact invitations do not create local accounts or grant access to your machines.
 
 ## Password Recovery
@@ -56,6 +62,10 @@ reset the personal password. This requires a direct root session; Ship cannot do
 it on your behalf. Reset revokes personal sessions and messenger links; sign in
 again and reconnect those messengers. Your account, files and running work remain.
 
-Root recovery goes through the installation's owner sign-in: start recovery from
-**My spaces** and complete the fresh verification bound to that attempt. An
-ordinary owner session cannot reset root. Passkeys are not supported.
+To set up recovery for a Ship not yet linked to your verified identity, sign in
+as root and choose **Settings → sign-in → Account recovery → set up recovery**.
+Verify your email or sign in with the identity provider offered by your operator.
+
+To recover administrator access, start from **My Ships** and complete the fresh
+verification bound to that attempt. An ordinary owner session cannot reset root.
+Passkeys are not supported.
