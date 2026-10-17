@@ -2,136 +2,134 @@
 
 [Computers And Browser](index.md)
 
-A cloud computer is a temporary Linux target for builds, scripts, compilation,
-and other work while the owner's devices are offline. It uses ordinary Read,
-Write, Edit, Shell, and network operations. It is a place where Ship or Crew
-works, not a separate agent.
+Computer fluency is part of Ship's personal intelligence. Ship and Crew can use
+an on-demand Linux computer to work with documents, analyze spreadsheets, make
+charts, process media, or run software for the user. The user does not need to
+operate a terminal or keep a personal computer running.
 
-The operator must enable the `computer` template. Check `instance catalog` on
-`gsv` before saying a computer needs to be connected. The initial image includes
-Node.js, npm, Python, Git, and build tools. Use `/workspace` for working files;
-check or install additional project toolchains there as needed.
+Connected user devices and cloud instances use the same target and tool
+interfaces. Choose a connected user device when the work needs files, programs,
+private networks, or hardware there. Choose a cloud computer when it suits the
+work. For website interaction, use a [browser target](browser-targets.md),
+connected or [on demand](cloud-browsers.md).
 
-## Keep Source Before Starting
+## Choose A Computer
 
-Use an existing GSV repository for editable source and build instructions.
-Inspect `rgit list` and `rgit info OWNER/REPO`, then read and edit its files under
-`/src/repos/OWNER/REPO`. Writable repository file operations create commits
-automatically; `rgit log OWNER/REPO --limit 1` shows the latest full commit hash.
-Preserve other work in that repository.
-
-Files in the computer are temporary. Save source changes back to the repository
-and copy needed output to `gsv` before stopping. Stopping, expiry, or loss of the
-computer destroys files and running commands. There is no saved disk or automatic
-restore. For a website, `sites init` creates persistent source and `sites publish`
-handles the build and output transfers. See [Build and publish a site](../files-knowledge/publish-site.md).
-
-## Start, Use, Stop
-
-Persist a fresh request ID in the work record before dispatch. Run on `gsv`,
-replacing `REQUEST_ID` with that saved value:
+Run discovery on `gsv` before asking the owner to connect a device or declaring
+that a required tool is unavailable:
 
 ```bash
+targets list
 instance catalog
-instance start computer --request-id REQUEST_ID --name "Website build" --seconds 1800 --wait
 ```
 
-Read the returned instance and use its `targetId` for ordinary tools. Select that
-target in Shell to run, for example:
+Reuse a suitable ready computer or start an available `computer` template.
+Availability and limits come from the operator. The initial image includes
+Python, Node.js, npm, Git, and build tools. Install additional software as the
+task requires. Use `/workspace` for working files.
+
+Run GSV management commands on `gsv`; run Python, Node.js, and installed software
+on the computer target. A missing program on `gsv` does not mean Ship cannot use
+it on a computer.
+
+## Start And Use It
+
+Save a fresh request ID with the work before dispatch. Replace `REQUEST_ID`
+with that saved value and run on `gsv`:
 
 ```bash
-cd /workspace && node --version
+instance start computer --request-id REQUEST_ID --name "Spending analysis" --wait
 ```
 
-Do not run the lifecycle commands inside the Linux shell; they belong to `gsv`:
+Use the returned `targetId` with ordinary Read, Write, Edit, Shell, and network
+tools. For example, select that target in Shell and run:
+
+```bash
+cd /workspace && python3 --version
+```
+
+Retrying the same request ID and arguments returns the same instance, including
+after it stops. If the wait times out or is cancelled, check its outcome rather
+than starting another computer:
 
 ```bash
 instance get --request-id REQUEST_ID
 instance list
-targets show TARGET_ID
+```
+
+A fresh ID requests a separate computer. The fixed expiry is not extended by
+work or retries. Browser profiles and `--new` do not apply to computers.
+
+## Save And Deliver The Result
+
+Keep files the user needs in their home on `gsv`. Preserve scripts or source
+needed for later edits there too; a [GSV repository](../files-knowledge/repositories.md)
+is useful for reusable projects. Files and installed software on the computer
+are temporary: stop, expiry, or loss destroys them.
+
+Copy input and output files using `cp` on `gsv`. Replace `OWNER` with the human
+owner's account and `TARGET_ID` with the computer's target:
+
+```bash
+cp /home/OWNER/expenses.csv TARGET_ID:/workspace/expenses.csv
+cp TARGET_ID:/workspace/spending.xlsx /home/OWNER/spending.xlsx
+cp TARGET_ID:/workspace/spending.png /home/OWNER/spending.png
+```
+
+Use `[TARGET_ID]:/path` if the ID contains a colon. `cp` copies one file per call;
+it does not recursively copy directories. Enumerate the needed files or call
+the `fs.copy` syscall with explicit source and destination targets. Transfers
+preserve binary bytes, including spreadsheets, PDFs, and images.
+
+Check the result before delivering it. Give the useful answer in the message,
+use a visual when it explains the result better, and attach the usable files
+when they are the deliverable. Keep working notes in GSV. Stop the computer when
+its work is finished and needed files are saved; run on `gsv`:
+
+```bash
 instance stop TARGET_ID --wait
 ```
 
-Repeating the start with the same request ID and arguments returns the same
-instance, even after it stops. A fresh ID requests a separate computer. A timeout
-or cancellation of `--wait` only ends the wait; recover with `instance get
---request-id REQUEST_ID` instead of creating another computer. Browser profile
-options and `--new` do not apply. The computer's fixed expiry is not extended by
-work or retries.
-
-## Copy Files Across Targets
-
-Run cross-target copies on `gsv`. Replace `TARGET_ID` and the repository path:
-
-```bash
-cp /src/repos/OWNER/REPO/package.json TARGET_ID:/workspace/app/package.json
-cp TARGET_ID:/workspace/app/dist/index.html /tmp/site-build/index.html
-```
-
-Use `[TARGET_ID]:/path` if the ID contains a colon. The GSV `cp` command copies
-one file per call; it does not support recursive directory copies. Enumerate the
-needed files and copy each while preserving relative paths, or use the existing
-`fs.copy` syscall with explicit source and destination targets. These transfers
-handle binary bytes; do not turn WASM, images, or archives into chat text.
+Use ordinary [Crew delegation](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task)
+for substantial work. Share the outcome, input files, constraints, and where to
+save the result. Keep the request ID, target, and command sessions with the
+[responsibility](../agents-assistants/conversations-delegation.md#responsibilities)
+so work can be recovered. Ship checks the outcome and delivers it to the user.
 
 ## Long Commands And Cancellation
 
-For a command that must be recoverable after a lost response, save a fresh UUID
-as its `sessionId` before starting. The `shell.exec` syscall accepts:
+For a recoverable command, save a fresh UUIDv4 as its `sessionId` before dispatch.
+In CodeMode, replace `TARGET_ID` and `SAVED_UUIDV4`:
 
-```json
-{
-  "target": "TARGET_ID",
-  "input": "npm ci && npm run build",
-  "cwd": "/workspace/app",
-  "sessionId": "SAVED_FRESH_UUID",
-  "start": true,
-  "timeout": 900000
-}
+```javascript
+return await shell("python3 analyze.py", {
+  target: "TARGET_ID",
+  cwd: "/workspace",
+  sessionId: "SAVED_UUIDV4",
+  start: true,
+  timeout: 600000
+});
 ```
 
-The equivalent CodeMode call is `shell(command, options)`, with `target`, `cwd`,
-`sessionId`, `start`, and `timeout` in the options. Set a timeout that fits the
-remaining computer lifetime; the ordinary new-command default is two minutes.
-Poll with `shell("", { target: targetId, sessionId })` in CodeMode, or `shell.exec`
-with the same target and session ID, `input: ""`, and no `start`. Do not replay a
-start or uncertain stdin to recover a response.
+This uses `shell.exec` with `start: true`. Set a timeout within the remaining
+computer lifetime; new commands otherwise default to two minutes. Poll with
+`shell("", { target, sessionId })`, omitting `start`. Do not replay a start or
+uncertain stdin to recover a lost response.
 
-Cancelling a poll or losing the connection does not kill a detached command.
-Use `await shell.cancel({ target: targetId, sessionId })` in CodeMode to stop the
-session and its process tree. It invokes the ordinary `shell.cancel` syscall;
-polling can then retrieve the terminal result.
-Stopping the computer ends every command on it. If the computer itself is lost,
-recover explicitly on a new one from saved source; the runtime does not rerun
-work automatically.
-
-## Delegate The Work Normally
-
-Use ordinary Crew delegation when a separate worker is useful. Read the Crew
-account named in Ship's `~/context.d/10-delegation.md`; replace `CREW_ACCOUNT`
-with it:
-
-```bash
-proc delegate --as CREW_ACCOUNT --label "Build the site" --check-after 10m "Build the requested site from the agreed GSV repository. Use a temporary cloud computer if needed, publish with sites, and return the share URL, source repository, checks and computer status."
-```
-
-Give Crew the chosen repository and task requirements. Assign one worker to
-write a shared checkout and retain the start request ID, target ID, and command
-session IDs with the task. Delegated work follows the owner's capabilities and
-approval policy. Ship remains responsible for assessing the result, completing
-the requested delivery, and stopping a computer whose work is finished. Use
-the existing [responsibility workflow](../agents-assistants/conversations-delegation.md#responsibilities)
-for unfinished commitments.
+Cancelling a poll or disconnecting does not kill a detached command. Use
+`await shell.cancel({ target, sessionId })` to stop the session and its process
+tree, then poll for its terminal result. Stopping the computer ends all commands.
+If the computer is lost, recover explicitly on a new one from saved files;
+there is no automatic restore or replay.
 
 ## Permissions And Usage
 
 Default permissions allow agent shell, filesystem, and network work on cloud
 computers. **Settings → permissions → Cloud computers** changes that policy;
-custom policies still apply. Personal computers have separate approval rules.
-Computers belong to their initiating human account and space.
+custom policies still apply. Connected user devices have separate approval
+rules. Computers belong to their initiating human account and space.
 
 Computer concurrency and monthly seconds are separate from browser limits.
 Starting reserves the requested lifetime. Usage runs from readiness until stop
 or expiry; unused reservation is released after termination is confirmed. Check
-the catalog and instance state when admission fails. Keep a computer running
-while authorized work needs it, and stop it after the required files are saved.
+the catalog and instance state when admission fails.

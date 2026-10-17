@@ -14,8 +14,10 @@ rg "invoice" ~/documents
 mail list
 ```
 
-Select a connected target when the command belongs on that computer rather
-than on Ship. Check `targets list` first when the location matters.
+Select a connected user device or cloud computer when the command belongs
+there. Run GSV management commands on `gsv`; use a computer target for Python,
+Node.js, and installed software. Check `targets list` and `instance catalog`
+before declaring a required environment unavailable.
 
 ## CodeMode
 
@@ -28,14 +30,12 @@ codemode ./check.js --cwd ~/projects/example -- input-one input-two
 ```
 
 A CodeMode script is an asynchronous JavaScript function body. It can use
-`shell`, `fs`, `mail.send`, `site`, and discovered MCP functions. Inspect exact inputs
+`shell`, `fs`, `mail.send`, and discovered MCP functions. Inspect exact inputs
 with `man codemode` and `mcp codemode` before composing the script.
 
 Use `shell.cancel({ target, sessionId })` to explicitly stop a durable command;
 cancelling a poll alone leaves that command running. See [cloud computer
 sessions](../devices-workplaces/cloud-computers.md#long-commands-and-cancellation).
-Use [`sites`](../files-knowledge/publish-site.md) in Shell to create and publish
-websites. Direct integrations can also use CodeMode's `site` methods.
 
 ## HTTP Requests
 

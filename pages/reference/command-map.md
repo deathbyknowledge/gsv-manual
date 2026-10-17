@@ -9,7 +9,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Find a command, skill, target, or integration | `man --search -- "goal"` |
 | Inspect the current identity or Ship version | `whoami`, `id`, `hostname`, `uname` |
 | Read, write, edit, search, or delete files | the built-in file tools; `ls`, `stat`, `cp` in Shell |
-| Copy between Ship and a connected computer | `cp`, `targets` |
+| Copy between Ship and a connected or cloud computer | `cp`, `targets` |
 | Inspect or control work | `proc`, `ps` |
 | Hand over the current working context | `proc compact --summary '...'` from the active process |
 | Send, attach, silence, or route messages | `message` |
@@ -19,8 +19,8 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Create reminders or scheduled work | `sched`; use `crontab` for recurring shell commands |
 | Discover a computer or browser target | `targets` or `devices` |
 | Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |
-| Start a temporary Linux build computer | [`instance start computer --request-id ID --wait`](../devices-workplaces/cloud-computers.md) on `gsv` |
-| Stop a cloud computer after saving source and output | `instance stop ID --wait` on `gsv`; its disk is temporary |
+| Start an on-demand computer for documents, data, media, or software | [`instance start computer --request-id ID --wait`](../devices-workplaces/cloud-computers.md) on `gsv` |
+| Stop a cloud computer after saving needed files | `instance stop ID --wait` on `gsv`; its disk is temporary |
 | Save and stop a cloud browser, waiting for release | `instance stop ID --wait` on `gsv`; a failed save leaves it running |
 | Retry saving website state | `browser profile save ID` on `gsv`; inspect the returned save status |
 | Inspect or forget remembered browser logins | `browser profile list`, `browser profile get <profile-id>`, `browser profile delete <profile-id>`; deletion stops its browser and forgets the state |
@@ -33,8 +33,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Track promises, follow-ups, and delegated work | `r12y` |
 | Connect with a person on another Ship | `contact` |
 | Find or maintain reusable procedures | `skills` |
-| Inspect a Ship repository's files and history | `rgit` or `ripgit`; file writes under `/src/repos/OWNER/REPO` commit automatically |
-| Create, publish, update, or unpublish a website | [`sites init`, `sites publish`, `sites list`, `sites unpublish`](../files-knowledge/publish-site.md) on `gsv` |
+| Inspect or commit a Ship repository | `rgit` or `ripgit` |
 | Run a composed JavaScript workflow | `codemode` |
 | Generate text without starting a work loop | `llm` |
 | Read an image | `img2txt` |

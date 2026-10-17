@@ -4,9 +4,11 @@
 
 Connecting a computer lets Ship work with that computer's files, commands, private networks, installed software, and hardware without moving all of it into Ship.
 
-For builds and scripts when your devices are offline, use an operator-enabled
-[cloud computer](cloud-computers.md). It is a temporary Linux target; save source
-and outputs to the space before stopping it.
+Ship and Crew can also use an on-demand [cloud computer](cloud-computers.md) for
+documents, spreadsheets, charts, media, or other software. Connected user devices
+and cloud instances share the same target and tool interfaces; choose the place
+with the resources and access the work needs. Save useful files to GSV before a
+temporary computer stops.
 
 ## Connect A Computer
 
@@ -121,4 +123,4 @@ Prefer a paired browser for:
 - [Run commands and copy files across targets](targets-copy.md)
 - [Use a browser target](browser-targets.md)
 - [Start a cloud browser and remember website logins](cloud-browsers.md)
-- [Use a cloud computer for builds and scripts](cloud-computers.md)
+- [Use a cloud computer](cloud-computers.md)

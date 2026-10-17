@@ -46,28 +46,19 @@ than replaced. Inspect those edits with the owner before changing them.
 
 ## Ship Repositories
 
-The `rgit` command works with repositories stored by Ship. It can list repositories, inspect files and history, search, compare revisions, show commit diffs, import content, and pull updates.
+The `rgit` command works with repositories stored by Ship. It can list repositories, inspect files and history, search, compare revisions, show status and diffs, commit changes, import content, and pull updates.
 
 Start with:
 
 ```bash
 rgit list
 rgit info <repo>
-rgit refs <repo>
-rgit log <repo> --limit 1
-rgit diff <repo> <commit>
+rgit status <repo>
+rgit diff <repo>
+rgit log <repo>
 ```
 
-Edit files under `/src/repos/OWNER/REPO` with ordinary file tools. Writable
-filesystem operations commit immediately; there is no separate `rgit commit`
-step. `rgit log` returns full commit hashes. Read the relevant files and history
-first, and preserve unrelated user changes. Use `rgit --help` for current import
-and pull syntax.
-
-Keep source for a [published website or game](publish-site.md) in a repository.
-`sites init` creates the starter there and `sites publish` records the exact
-source commit with each release. A build computer's temporary disk is not a
-durable source repository.
+Use `rgit --help` for exact syntax before a write, discard, import, or commit. Read the relevant files and diff first. A repository operation should preserve unrelated user changes.
 
 ## Source References
 
