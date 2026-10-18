@@ -81,8 +81,12 @@ Raw audio is not saved for replay.
 stay off. Sending a typed message to your personal Ship ends the voice
 conversation. Old history is not read on opening or reconnecting, and replies
 arriving while recording stay in Chat without being spoken. Code blocks and
-tables get a short cue to inspect Chat. Speech is generated locally, with English
-and Spanish voice presets.
+tables get a short cue to inspect Chat. Speech is generated locally and follows
+**Settings → Preferences → Response language**. Regional codes such as `es-MX`
+use the matching language; changes saved there apply without restarting Desktop.
+Without a saved preference, it uses the device's language. The preview supports
+English and Spanish; other preferences show an availability message in voice
+settings while recording remains available.
 
 Choose **change** beside a shortcut, press the desired keys, then **save shortcuts**.
 On Wayland, the desktop controls key assignment; use its shortcut settings or
