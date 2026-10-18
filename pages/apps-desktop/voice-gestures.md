@@ -84,7 +84,7 @@ arriving while recording stay in Chat without being spoken. Code blocks and
 tables get a short cue to inspect Chat. Speech is generated locally and follows
 **Settings → Preferences → Response language**. Regional codes such as `es-MX`
 use the matching language; changes saved there apply without restarting Desktop.
-Without a saved preference, it uses the device's language. The preview supports
+Without a saved preference, it uses the device's language when supported, otherwise English. The preview supports
 English and Spanish; other preferences show an availability message in voice
 settings while recording remains available.
 
