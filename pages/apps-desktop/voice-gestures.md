@@ -81,7 +81,8 @@ Raw audio is not saved for replay.
 stay off. Sending a typed message to your personal Ship ends the voice
 conversation. Old history is not read on opening or reconnecting, and replies
 arriving while recording stay in Chat without being spoken. Code blocks and
-tables get a short cue to inspect Chat. Speech is generated locally and follows
+tables get a short cue to inspect Chat. Very long replies stop with a spoken cue
+to read the rest in Chat. Speech is generated locally and follows
 **Settings → Preferences → Response language**. Regional codes such as `es-MX`
 use the matching language; changes saved there apply without restarting Desktop.
 Without a saved preference, it uses the device's language when supported, otherwise English. Spoken replies support
