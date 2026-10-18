@@ -40,6 +40,10 @@ speak. Choose **pause** to stop while keeping the draft. Enter finalizes the
 current segment, sends it, and keeps listening. Editing inside dictated text
 stops dictation so later output cannot undo your correction.
 
+Open **Settings → voice** to choose the microphone and, in the Desktop voice
+preview, configure Handsfree mode and spoken replies. These preferences stay on
+that computer. Leaving Chat stops local dictation and keeps the typed draft.
+
 The first use asks for microphone permission and downloads a local speech model;
 Desktop shows its progress. Choose the intended microphone if more than one is
 available. After the model is ready, transcription runs on the computer without
@@ -51,6 +55,38 @@ drops, words already displayed in the prompt remain available for editing.
 Desktop does not retain the original audio for replay, so words not yet
 transcribed may need repeating. Local voice includes a baseline CPU backend;
 AVX2 and AVX-512 are optional.
+
+## Handsfree Mode (Desktop Preview)
+
+Enable **Handsfree mode** under **Settings → voice**. Keep Desktop running and
+signed in; any page can stay selected, and the window can be minimized or behind
+another application. The talk shortcut starts recording; pressing it again
+finishes and sends. **Hold to talk** instead sends when you release it. Wait for
+the listening sound before speaking. The stop shortcut stops spoken replies and
+cancels recording while retaining transcribed words.
+
+Handsfree uses a separate voice draft and always sends to your personal Ship.
+It leaves Chat's typed text, attachments and selected place untouched, including
+while you view a People conversation or another process. Starting a recording
+interrupts the current spoken reply without changing pages or focusing Desktop.
+
+The small handsfree status panel follows you between pages. Cancelled recordings
+stay under **review voice draft**, with edit, send and discard controls; starting
+again continues that draft. Connection loss stops recording and keeps its text.
+Failed sends remain available for explicit **retry** or **discard**. Reconnecting
+does not send automatically. Sign-out and Quit warn before discarding unsent work.
+Raw audio is not saved for replay.
+
+**Read replies** can follow the voice conversation, read all new Ship replies or
+stay off. Sending a typed message to your personal Ship ends the voice
+conversation. Old history is not read on opening or reconnecting, and replies
+arriving while recording stay in Chat without being spoken. Code blocks and
+tables get a short cue to inspect Chat. Speech is generated locally, with English
+and Spanish voice presets.
+
+Choose **change** beside a shortcut, press the desired keys, then **save shortcuts**.
+On Wayland, the desktop controls key assignment; use its shortcut settings or
+bind the registered `talk` and `stop` actions in the compositor configuration.
 
 ## If Desktop Voice Does Not Work
 
