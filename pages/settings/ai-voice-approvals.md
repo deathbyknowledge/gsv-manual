@@ -30,12 +30,12 @@ connected computer is required.
 
 Desktop owns microphone selection and local live transcription on that computer.
 Check operating-system permission and **Settings → voice**. Chat's **voice**
-control offers **listen** and **pause** while keeping the draft. In the Desktop
-voice preview, the same settings section configures Handsfree mode, global
+control offers **listen** and **pause** while keeping the draft. The same
+settings section configures Handsfree mode, global
 shortcuts and local spoken replies. Handsfree works across pages while Desktop
 stays running and signed in, using a separate draft addressed to your personal Ship.
 Spoken replies follow **Preferences → Response language**, which is shared with
-your Ship. Regional tags use the matching voice language; this preview supports
+your Ship. Regional tags use the matching voice language; spoken replies support
 English and Spanish.
 
 Local voice settings belong to Desktop on that computer; model profiles belong to the Ship account. See [Use voice](../apps-desktop/voice-gestures.md).

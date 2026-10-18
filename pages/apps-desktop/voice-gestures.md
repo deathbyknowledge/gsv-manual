@@ -40,8 +40,8 @@ speak. Choose **pause** to stop while keeping the draft. Enter finalizes the
 current segment, sends it, and keeps listening. Editing inside dictated text
 stops dictation so later output cannot undo your correction.
 
-Open **Settings → voice** to choose the microphone and, in the Desktop voice
-preview, configure Handsfree mode and spoken replies. These preferences stay on
+Open **Settings → voice** to choose the microphone and configure Handsfree mode
+and spoken replies. These preferences stay on
 that computer. Leaving Chat stops local dictation and keeps the typed draft.
 
 The first use asks for microphone permission and downloads a local speech model;
@@ -56,7 +56,7 @@ Desktop does not retain the original audio for replay, so words not yet
 transcribed may need repeating. Local voice includes a baseline CPU backend;
 AVX2 and AVX-512 are optional.
 
-## Handsfree Mode (Desktop Preview)
+## Handsfree Mode
 
 Enable **Handsfree mode** under **Settings → voice**. Keep Desktop running and
 signed in; any page can stay selected, and the window can be minimized or behind
@@ -84,9 +84,14 @@ arriving while recording stay in Chat without being spoken. Code blocks and
 tables get a short cue to inspect Chat. Speech is generated locally and follows
 **Settings → Preferences → Response language**. Regional codes such as `es-MX`
 use the matching language; changes saved there apply without restarting Desktop.
-Without a saved preference, it uses the device's language when supported, otherwise English. The preview supports
+Without a saved preference, it uses the device's language when supported, otherwise English. Spoken replies support
 English and Spanish; other preferences show an availability message in voice
 settings while recording remains available.
+
+The normal Desktop installation includes the speech runtime. On first use it
+downloads and verifies the voice model, then generates speech locally from its
+cache. Spoken replies require macOS 13 or newer on a Mac. Recording remains
+available on Desktop's other supported macOS versions.
 
 Choose **change** beside a shortcut, press the desired keys, then **save shortcuts**.
 On Wayland, the desktop controls key assignment; use its shortcut settings or
