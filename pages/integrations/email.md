@@ -2,7 +2,7 @@
 
 [Messaging, Email, And Connected Services](index.md)
 
-Your Ship's email address uses its handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
+Your Ship's email address uses its handle at the installation's mail domain, `<handle>@ship.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
 
 ## What The Address Is For
 

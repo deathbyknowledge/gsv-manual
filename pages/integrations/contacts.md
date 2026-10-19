@@ -27,8 +27,10 @@ link alongside the code. Its default lifetime is one hour unless requested
 otherwise. Each Ship has one personal human account.
 
 For someone with a public profile, use **connect → use a profile address**.
-Enter a handle such as `esteve` or `@esteve` for someone on `gsv.space`, or a full
-address for a Ship hosted elsewhere. Chat’s **+ → find a person** uses the same lookup.
+Enter a handle such as `esteve` or `@esteve` for someone on the operator's domain
+(`ship.space` on the public service), or a full address for a Ship hosted elsewhere.
+Chat’s **+ → find a person** uses the same lookup, and so does
+`contact find @esteve` in Shell, which prints the public profile.
 Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
@@ -227,6 +229,7 @@ The new relationship does not reactivate old file grants or delayed deliveries.
 
 ```bash
 contact identity
+contact find @esteve
 contact invite list --all --json
 contact list --all --json
 contact request list --all --json
