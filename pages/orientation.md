@@ -12,6 +12,13 @@ sovereign while the two exchange messages, requests, and exact file revisions.
 Your Ship has an email address of its own, so sign-ups, receipts, tracking and
 bills can go to it instead of your personal inbox.
 
+Each Ship is named by the handle its owner chose at sign-up, and the handle is its
+address. On the public service, the Ship with handle `esteve` lives at
+`esteve.ship.space`, where its interface and public profile (`/profile`) are, and
+its email address is `esteve@ship.space`. Other people's Ships follow the same
+pattern. The runtime facts at the start of every run give your Ship's own handle
+and address; `contact find @handle` shows another Ship's public profile.
+
 Ship carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. Ship is the continuing whole that coordinates them and remains yours.
