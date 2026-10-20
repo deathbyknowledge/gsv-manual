@@ -2,19 +2,23 @@
 
 [Web And Desktop](index.md)
 
-Web and Desktop turn speech into a message draft. Web records audio for
+Web and Desktop turn speech into a message. Web records audio for
 transcription through your Ship. Desktop transcribes locally as you speak.
-Review the words before sending them.
+While you record, both offer the same three choices: **send** delivers what you
+said straight away, **pause** stops and keeps the words in the draft for editing
+or more dictation, and **cancel** discards them.
 
 ## Web
 
 In Chat, choose **record** and allow browser microphone access. The prompt
-becomes a live waveform; your typed draft stays underneath. Choose **stop** when
-finished. After **transcribing…**, the draft returns with the words added at its
-cursor. Enter during recording stops it for review. **cancel** or Escape discards
-recording or pending transcription and restores the typed draft. Recordings stop
-automatically after five minutes and are limited to 25 MiB, or your Ship's smaller
-limit.
+becomes a live waveform; your typed draft stays underneath. Choose **send** or
+press Enter to transcribe and send straight away; the words join any typed draft
+and go out as one message. Choose **pause** to review first: after
+**transcribing…**, the draft returns with the words added at its cursor, ready to
+edit, extend or send. If a message cannot be sent, for example while offline, the
+words stay in the draft. **cancel** or Escape discards recording or pending
+transcription and restores the typed draft. Recordings stop automatically after
+five minutes and are limited to 25 MiB, or your Ship's smaller limit.
 
 The finished audio goes through your Ship to its configured transcription
 provider. It is not attached to the message. If the connection drops or the tab
@@ -36,7 +40,8 @@ does not need a connected computer or the Desktop helper.
 ## Desktop
 
 In Chat, open **voice** and choose **listen**. Words appear in the draft as you
-speak. Choose **pause** to stop while keeping the draft. Enter finalizes the
+speak. Choose **send** to deliver what you dictated and stop listening, **pause**
+to stop while keeping the draft, or **cancel** to discard it. Enter finalizes the
 current segment, sends it, and keeps listening. Editing inside dictated text
 stops dictation so later output cannot undo your correction.
 

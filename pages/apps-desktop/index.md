@@ -14,8 +14,8 @@ files opened from a place), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other Ships,
 and **Settings** for preferences, standing responsibilities, permissions, instructions,
 messengers, MCP, Logs, and (for root) sign-in and people.
-Chat's **record** button turns a browser microphone recording into a draft using
-your Ship's transcription provider. Review the words before sending.
+Chat's **record** button turns a browser microphone recording into a message using
+your Ship's transcription provider: send it straight away, or pause to review the words first.
 
 Use **Desktop** when you want a native window, local live dictation, or a guided way to connect the current computer as a place. Desktop can
 still chat when the computer itself is not connected.
