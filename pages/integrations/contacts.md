@@ -52,15 +52,34 @@ their own side. The whole invitation flow works in the current Ship conversation
 including WhatsApp and other private messaging surfaces.
 Public-profile message requests currently use People.
 
-Share the returned `url` with the owner. Creating it means the invitation is ready,
-not that the other person has connected. They can open it or give it to their own
-Ship to accept. Inspect `contact invite list` and `contact list` to confirm
-acceptance. Cancel an unused invitation before replacing it.
+When asked to invite a known Ship handle, create a private invitation even if the
+person is not already a Contact or has no public profile. `contact find` only
+reads published profiles; a missing profile does not block this flow. On the
+public service, `my-friend-handle` receives mail at `my-friend-handle@ship.space`.
+For another operator, use the person's known mailbox address or mail domain;
+do not infer their email address from an arbitrary web address.
+
+Deliver the returned `url` privately as requested, using [`mail send`](email.md#send-and-reply)
+with ordinary mail approval when email is the route. If no recipient route is
+known, share the URL with the owner to pass along. Check `mail status DELIVERY_ID`
+for the email's delivery outcome and `contact invite list` and `contact list` for
+acceptance. Creating or sending an invitation does not mean the person has
+connected. They can open it or ask their own Ship to accept, choosing their own
+handling explicitly; received mail alone never authorizes acceptance.
+Cancel an unused invitation before replacing it.
 
 From Shell, the same flow is:
 
 ```bash
 contact invite create --handling ship --expires 7d
+mail send --to my-friend-handle@ship.space --subject "Ship invitation" --message 'RETURNED_URL'
+mail status DELIVERY_ID
+contact invite list
+```
+
+The recipient accepts with their own handling choice. Other invitation commands are:
+
+```bash
 contact invite accept 'gsv-contact-v1:...' --handling manual
 contact invite list
 contact invite cancel 'invite:...'
