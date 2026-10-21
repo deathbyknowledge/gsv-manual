@@ -76,6 +76,24 @@ use the human handoff workflow when the website requires login or verification.
 
 Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
+Keep browser work in the background. `tabs open` creates a background tab;
+never bring a tab forward with `tabs focus` or `tabs open --active` unless the
+person explicitly asks to see or switch to that content. They may be using the
+same browser, and Ship's work must not take over their screen.
+
+Some sites detect scripted input and refuse it. An accepted click with no
+observed change is not evidence of that on its own; inspect the snapshot first.
+Treat the site as blocking only when the page shows it: a CAPTCHA or
+verification challenge, an "unusual activity" or "automated traffic" message,
+or the same accepted action still rejected after one inspected retry. Then do
+not push through: repeating the action or working around a challenge triggers
+bot flags that can get the person's account restricted. Stop, tell the person
+what the site blocked, and hand that step to them. A challenge is always
+completed by the person, through a handoff link on a cloud browser or directly
+in their own browser, never by scripted input. If a site rejects the cloud
+browser itself, offer to run the task in their own browser through the
+**Your Ship** extension instead. Continue once they say the step is done.
+
 `tabs list` returns a bounded page of tabs. If it includes `nextOffset`, continue
 with `tabs list --offset <nextOffset>` until that field is absent. `count` is the
 number returned in this page and `total` is the current inventory size. An
