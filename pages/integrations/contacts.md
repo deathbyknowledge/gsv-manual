@@ -128,8 +128,12 @@ record the owner's explicit choice too. Ship can change it when asked: read
 `contact handling CONTACT_ID manual|ship --revision N`. If the revision changed,
 reread the contact before applying the request.
 
-Connecting or enabling automatic handling does not wake Ship or replay the first
-message. The next incoming message starts handling. Turning the setting off ends
+Choosing **Let Ship handle them** gives your Ship standing permission for
+appropriate replies to that contact. Ship should reply within your preferences,
+bring important updates to you, and ask when a decision needs you.
+
+Connecting or enabling automatic handling does not wake Ship or replay earlier
+messages. The next incoming message starts handling. Turning the setting off ends
 that standing assignment; replies tied to a task you gave Ship can still resume
 it until it is finished. Human and Ship authorship remain visible in messages.
 
