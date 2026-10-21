@@ -15,10 +15,10 @@ require approval. Connected personal browsers retain their separate requirements
 
 For a website task with no suitable existing browser, check `instance catalog`
 and start a cloud browser when available. Connecting a personal browser is
-optional; an empty `targets list --kind browser` does not mean browsing is
-unavailable. Report an actual availability or startup failure if provisioning
-is blocked. Website login or verification is a separate step handled through
-the live view.
+optional; an empty `targets list --online --search browser --json` does not mean
+browsing is unavailable. Report an actual availability or startup failure if
+provisioning is blocked. Website login or verification is a separate step
+handled through the live view.
 
 Each account has one automatic saved-login identity. Profiles created through
 advanced commands stay separate. Forgetting the automatic state makes the next
@@ -130,6 +130,27 @@ Health checks run independently of page JavaScript. A temporary provider
 failure gets a bounded recovery window within the original lifetime; a missing
 session or persistent failure stops the instance. Recovery does not repeat
 Ship's actions. Inspect the page before deciding how to continue.
+
+## Two Ways To Stay Signed In
+
+Explain both routes only when the person asks how sign-in or sessions work,
+or when the conversation requires it. Keep it brief and name the tradeoffs
+that matter for their site.
+
+**Cloud browser with saved logins.** Lead with convenience: it keeps working
+with their computer off, they sign in once through a handoff link, the login
+is remembered from then on, and credentials stay out of chat. If they want to
+see it work first, they can watch it in their own browser through the Your
+Ship extension before giving it any logins. Set expectations with the limits
+when relevant: passkeys and hardware keys do not work, nothing is copied from
+their personal browser, some sites ask to sign in again, sessions can expire,
+and some sites, such as social media and email, detect and reject clicks from
+a cloud browser.
+
+**Their own browser through the Your Ship extension.** Costs: Chrome must be
+open on their machine with the extension paired, actions run on their real
+profile, connected browsers ask for approval by default, and they can pause
+or stop the connection at any time.
 
 ## Ask The Person To Sign In
 

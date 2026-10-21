@@ -55,7 +55,7 @@ the person watch and interact while Ship works.
 Find a suitable existing browser on `gsv`:
 
 ```bash
-targets list --kind browser
+targets list --online --search browser --limit 100 --json
 targets show <browser-target-id>
 ```
 
