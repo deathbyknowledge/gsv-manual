@@ -11,7 +11,7 @@ Use a reminder when something should happen once later, a routine when it should
 | Ask Ship to think or act later | `sched add --here` |
 | Send fixed text later without a model run | `sched add --to` |
 | Run a recurring shell command | `crontab` |
-| Hand off a bounded task and receive its result | [`proc delegate --as ACCOUNT --check-after`](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task) |
+| Hand off a bounded task and receive its result | [`proc delegate --as ACCOUNT --check-after`](../agents-assistants/conversations-delegation.md#handing-off-a-bounded-task) |
 | Keep independent work with its own history and controls | a separate helper |
 
 ## Before Creating A Routine
@@ -29,4 +29,4 @@ Create a recurring routine for an intent that genuinely recurs. Keep one-time wo
 
 ## More Detail
 
-- [Schedules, queues, and delegation](schedules-processes-delegation.md)
+- [Routines, queues, and handing off](schedules-processes-delegation.md)

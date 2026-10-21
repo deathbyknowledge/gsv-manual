@@ -47,7 +47,7 @@ Search defaults to Ship's conversation. Words match prefixes and all words must 
 
 Search covers messages saved after the feature was enabled, including those later archived, within the conversation's storage budget. The oldest search entries can expire; their original messages remain readable through history. Pre-feature messages are not indexed retroactively. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; handed-off work does not inherit that access.
 
-## Delegating A Bounded Task
+## Handing Off A Bounded Task
 
 Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Hand off when parallel work, separate context, lengthy investigation, or waiting makes a helper useful. Replace `ACCOUNT` with the helper account named in Ship's `~/context.d/10-delegation.md`:
 

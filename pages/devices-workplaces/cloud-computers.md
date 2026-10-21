@@ -90,7 +90,7 @@ its work is finished and needed files are saved; run on `gsv`:
 instance stop TARGET_ID --wait
 ```
 
-[Hand off to a helper](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task)
+[Hand off to a helper](../agents-assistants/conversations-delegation.md#handing-off-a-bounded-task)
 as usual for substantial work. Share the outcome, input files, constraints, and
 where to save the result. Keep the request ID, connection, and command sessions
 with the [responsibility](../agents-assistants/conversations-delegation.md#responsibilities)
