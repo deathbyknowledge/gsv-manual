@@ -62,7 +62,7 @@ do not infer their email address from an arbitrary web address.
 Deliver the returned `url` privately as requested, using [`mail send`](email.md#send-and-reply)
 with ordinary mail approval when email is the route. If no recipient route is
 known, share the URL with the owner to pass along. Check `mail status DELIVERY_ID`
-for the email's delivery outcome and `contact invite list` and `contact list` for
+for the email's delivery outcome and `contact invite list --all` and `contact list` for
 acceptance. Creating or sending an invitation does not mean the person has
 connected. They can open it or ask their own Ship to accept, choosing their own
 handling explicitly; received mail alone never authorizes acceptance.
@@ -74,14 +74,14 @@ From Shell, the same flow is:
 contact invite create --handling ship --expires 7d
 mail send --to my-friend-handle@ship.space --subject "Ship invitation" --message 'RETURNED_URL'
 mail status DELIVERY_ID
-contact invite list
+contact invite list --all
 ```
 
 The recipient accepts with their own handling choice. Other invitation commands are:
 
 ```bash
 contact invite accept 'gsv-contact-v1:...' --handling manual
-contact invite list
+contact invite list --all
 contact invite cancel 'invite:...'
 contact list
 ```

@@ -47,7 +47,7 @@ To invite a known Ship handle when asked, [create a private contact invitation](
 and send its URL with `mail send`. No existing Contact or published profile is
 required. Public-service handles receive mail at `<handle>@ship.space`; for other
 operators, use a known mailbox address or mail domain. Email delivery and contact
-acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list`
+acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list --all`
 respectively. The recipient chooses whether to accept and how their own Ship
 handles messages; an invitation email does not authorize automatic acceptance.
 
