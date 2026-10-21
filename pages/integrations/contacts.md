@@ -10,6 +10,8 @@ control.
 Contacts work between Ships served by the same or different operators. The
 other person's Ship does not need to share your account system.
 
+For Ship's invitation, messaging and coordination workflow, run `skills show contacts`.
+
 ## Pair With Someone
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
@@ -52,17 +54,36 @@ their own side. The whole invitation flow works in the current Ship conversation
 including WhatsApp and other private messaging surfaces.
 Public-profile message requests currently use People.
 
-Share the returned `url` with the owner. Creating it means the invitation is ready,
-not that the other person has connected. They can open it or give it to their own
-Ship to accept. Inspect `contact invite list` and `contact list` to confirm
-acceptance. Cancel an unused invitation before replacing it.
+When asked to invite a known Ship handle, create a private invitation even if the
+person is not already a Contact or has no public profile. `contact find` only
+reads published profiles; a missing profile does not block this flow. On the
+public service, `my-friend-handle` receives mail at `my-friend-handle@ship.space`.
+For another operator, use the person's known mailbox address or mail domain;
+do not infer their email address from an arbitrary web address.
+
+Deliver the returned `url` privately as requested, using [`mail send`](email.md#send-and-reply)
+with ordinary mail approval when email is the route. If no recipient route is
+known, share the URL with the owner to pass along. Check `mail status DELIVERY_ID`
+for the email's delivery outcome and `contact invite list --all` and `contact list` for
+acceptance. Creating or sending an invitation does not mean the person has
+connected. They can open it or ask their own Ship to accept, choosing their own
+handling explicitly; received mail alone never authorizes acceptance.
+Cancel an unused invitation before replacing it.
 
 From Shell, the same flow is:
 
 ```bash
 contact invite create --handling ship --expires 7d
+mail send --to my-friend-handle@ship.space --subject "Ship invitation" --message 'RETURNED_URL'
+mail status DELIVERY_ID
+contact invite list --all
+```
+
+The recipient accepts with their own handling choice. Other invitation commands are:
+
+```bash
 contact invite accept 'gsv-contact-v1:...' --handling manual
-contact invite list
+contact invite list --all
 contact invite cancel 'invite:...'
 contact list
 ```
@@ -107,8 +128,12 @@ record the owner's explicit choice too. Ship can change it when asked: read
 `contact handling CONTACT_ID manual|ship --revision N`. If the revision changed,
 reread the contact before applying the request.
 
-Connecting or enabling automatic handling does not wake Ship or replay the first
-message. The next incoming message starts handling. Turning the setting off ends
+Choosing **Let Ship handle them** gives your Ship standing permission for
+appropriate replies to that contact. Ship should reply within your preferences,
+bring important updates to you, and ask when a decision needs you.
+
+Connecting or enabling automatic handling does not wake Ship or replay earlier
+messages. The next incoming message starts handling. Turning the setting off ends
 that standing assignment; replies tied to a task you gave Ship can still resume
 it until it is finished. Human and Ship authorship remain visible in messages.
 

@@ -43,6 +43,14 @@ Sending supports one recipient and plain text. The message goes out from Ship's 
 
 `mail.send` asks the owner for approval by default, from Shell and CodeMode alike; see [Models and approvals](../settings/ai-voice-approvals.md).
 
+To invite a known Ship handle when asked, [create a private contact invitation](contacts.md#pair-with-someone)
+and send its URL with `mail send`. No existing Contact or published profile is
+required. Public-service handles receive mail at `<handle>@ship.space`; for other
+operators, use a known mailbox address or mail domain. Email delivery and contact
+acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list --all`
+respectively. The recipient chooses whether to accept and how their own Ship
+handles messages; an invitation email does not authorize automatic acceptance.
+
 ## Check Delivery
 
 ```bash
