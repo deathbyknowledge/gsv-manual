@@ -14,7 +14,7 @@ restores the selected list, conversation, request or profile.
 **Chat** always opens Ship. Separate work opens as a visibly labelled helper
 with a Back action, while Ship remains available.
 
-Use the **Helpers** section in **Work** when you want to:
+Use the **Ship and helpers** section in **Work** when you want to:
 
 - see which helpers are active, waiting, finished, or failed;
 - inspect reasoning, tool calls, approvals, and errors;
@@ -51,7 +51,7 @@ lines and messages and at the end of the conversation.
 Work is the view for connections and helpers:
 
 - **Connections** shows connected computers and browsers and their state; **connect** adds a new one.
-- **Helpers** shows running and finished work with its controls.
+- **Ship and helpers** shows running and finished work with its controls.
 - Open a connection and choose **browse files** for its folders, file previews and reader/editor.
 
 On phones, connections and helpers use compact rows; their inspectors keep the additional details. Helper responsibility counts open the matching list in Chat.

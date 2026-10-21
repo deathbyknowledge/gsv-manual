@@ -42,7 +42,7 @@ Use Messages for the conversation. Open a helper's Activity when you want to ins
 
 ## Work You Can See And Control
 
-Ship can hand off parts of a request or keep longer tasks separate so Ship remains responsive. The **Helpers** block in Work shows those tasks and lets you inspect, reset, stop, or open one directly.
+Ship can hand off parts of a request or keep longer tasks separate so Ship remains responsive. The **Ship and helpers** block in Work shows those tasks and lets you inspect, reset, stop, or open one directly.
 
 Sent messages remain in the conversation when work stops. Returning to Ship leaves other work running; Abort, Reset, and Kill provide explicit lifecycle controls.
 

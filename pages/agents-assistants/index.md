@@ -32,7 +32,7 @@ This separation keeps the conversation readable and the reasoning and tool use i
 
 | Goal | Action |
 | --- | --- |
-| See helpers | Open **Work → Helpers** or run `proc list` |
+| See helpers | Open **Work → Ship and helpers** or run `proc list` |
 | Inspect Ship or the current helper | Run `proc self`, then `proc history --pid <pid>` (`--tail` for the newest) |
 | See every action taken and why | Open **Settings → Logs** |
 | Review open promises and follow-ups | Open **N ongoing** (or **plans**) above Chat's prompt, then **ongoing**; or run `r12y list` |
