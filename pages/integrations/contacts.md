@@ -10,6 +10,8 @@ control.
 Contacts work between Ships served by the same or different operators. The
 other person's Ship does not need to share your account system.
 
+For Ship's invitation, messaging and coordination workflow, run `skills show contacts`.
+
 ## Pair With Someone
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
