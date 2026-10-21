@@ -1,10 +1,10 @@
-# Run Commands And Copy Files Across Targets
+# Run Commands And Copy Files Across Connections
 
-[Computers And Browser](index.md)
+[Connections](index.md)
 
-A target is a place where Ship can perform an action. `gsv` means the installation itself. Connected computers and browser profiles have their own target IDs.
+An action runs in Ship's home or on a connection. `gsv` means Ship's home. Connected computers and browser profiles have their own connection IDs.
 
-## Discover The Right Target
+## Discover The Right Connection
 
 ```bash
 targets list
@@ -14,18 +14,18 @@ targets show <target-id>
 
 Check that it is online and implements the needed operation before starting work that depends on it.
 
-## Use A Target
+## Use A Connection
 
-Target-aware file, shell, and network operations keep the same meaning wherever they run. Select the intended target and keep the operation itself unchanged.
+Connection-aware file, shell, and network operations keep the same meaning wherever they run. Select the intended connection and keep the operation itself unchanged.
 
-Use a target-qualified path to read or copy a remote file:
+Use a connection-qualified path to read or copy a remote file:
 
 ```bash
 cp laptop:/home/sam/report.pdf ~/reports/report.pdf
 cp ~/exports/data.csv laptop:/home/sam/Downloads/data.csv
 ```
 
-Use brackets when a target ID itself contains a colon:
+Use brackets when a connection ID itself contains a colon:
 
 ```bash
 cp [browser:work]:/downloads/invoice.pdf ~/invoices/invoice.pdf
@@ -37,7 +37,7 @@ Windows computer commands use PowerShell. The final statement determines success
 (0 or 1); use `exit N` for an explicit code, or `exit $LASTEXITCODE` immediately
 after a native program when its exact exit code matters. Keep drive-letter and UNC paths intact,
 quote paths containing spaces, and check which service account owns the command.
-A mapped drive in your interactive desktop may not exist for the machine service;
+A mapped drive in your interactive desktop may not exist for the background service;
 use a UNC path with permissions for that service account instead.
 Root-relative Windows paths stay on the current drive or share: `\docs` from
 `//server/share/current` resolves to `//server/share/docs`.
@@ -50,10 +50,10 @@ Root-relative Windows paths stay on the current drive or share: `\docs` from
 
 ## Disconnects And Cancellation
 
-If a target disconnects, the active operation fails, accepted file or network streams are cancelled, and partial files are discarded. A retry remains bound to the selected target unless the user chooses another.
+If a connection drops, the active operation fails, accepted file or network streams are cancelled, and partial files are discarded. A retry remains bound to the selected connection unless the user chooses another.
 
 After reconnection, inspect whether the original operation had an external side effect before retrying it.
 
 ## Permissions
 
-Target selection is followed by authorization of the current identity, capability, path, and operation. Remote work may also require human approval.
+Connection selection is followed by authorization of the current identity, capability, path, and operation. Remote work may also require human approval.

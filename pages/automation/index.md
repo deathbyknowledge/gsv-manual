@@ -1,8 +1,8 @@
-# Schedule And Delegate Work
+# Routines And Handing Off Work
 
 [Back to the manual](../../index.md)
 
-Use automation when something should happen later or repeat. Use delegation when an active request needs a bounded piece of separate work now.
+Use a reminder when something should happen once later, a routine when it should repeat. Hand off to a helper when an active request needs a bounded piece of separate work now.
 
 ## Choose The Mechanism
 
@@ -12,9 +12,9 @@ Use automation when something should happen later or repeat. Use delegation when
 | Send fixed text later without a model run | `sched add --to` |
 | Run a recurring shell command | `crontab` |
 | Hand off a bounded task and receive its result | [`proc delegate --as ACCOUNT --check-after`](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task) |
-| Keep independent work with its own history and controls | a separate Work item |
+| Keep independent work with its own history and controls | a separate helper |
 
-## Before Creating Automation
+## Before Creating A Routine
 
 Confirm:
 
@@ -22,10 +22,10 @@ Confirm:
 - when and in which timezone;
 - whether it repeats;
 - where any result should be delivered;
-- which identity and target own the action;
+- which identity and connection own the action;
 - how the user can inspect, disable, or remove it.
 
-Create recurring automation for an intent that genuinely recurs. Keep one-time work as a one-time schedule or ordinary request.
+Create a recurring routine for an intent that genuinely recurs. Keep one-time work as a reminder or ordinary request.
 
 ## More Detail
 

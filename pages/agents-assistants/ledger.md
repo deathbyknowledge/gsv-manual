@@ -2,30 +2,30 @@
 
 [Talk With Ship And Manage Work](index.md)
 
-The ledger is the installation's record of what ran: one line per action that went through Ship, whoever asked for it. A process reading a file on a computer, a person running a command, an adapter delivering a message: each is one line with who asked, where it ran, the call, its arguments, the purpose the tool gave, the outcome, and the duration.
+Logs is your Ship's record of what ran: one line per action that went through Ship, whoever asked for it. A helper reading a file on a computer, a person running a command, a messenger delivering a message: each is one line with who asked, where it ran, the call, its arguments, the purpose the tool gave, the outcome, and the duration.
 
-Use it to answer "what happened" without depending on a work item's history, which is compacted over time and was never meant to be an audit trail.
+Use it to answer "what happened" without depending on Ship's or a helper's history, which is compacted over time and was never meant to be an audit trail.
 
 ## Read It
 
-Open **Settings → Logs**; lines arrive live and update when a call completes. Open a line for its request details, duration and any failure. **Inspect process** opens that process in Fleet. The purpose column is the one-sentence reason the tool supplied for the person.
+Open **Settings → Logs**; lines arrive live and update when a call completes. Open a line for its request details, duration and any failure. **Inspect helper** opens that helper in Work. The purpose column is the one-sentence reason the tool supplied for the person.
 
-The same record is available to clients through the `sys.ledger.list` capability, scoped to the owning person or root.
-On phones, each entry shows its action and outcome above the place and time.
-Tap it for its purpose, arguments and process. **raw** shows syscall names in
+The same record is available to clients through the `sys.ledger.list` capability, scoped to the owning person or the administrator.
+On phones, each entry shows its action and outcome above the connection and time.
+Tap it for its purpose, arguments and helper. **raw** shows syscall names in
 place of action labels without requiring horizontal scrolling.
 
 ## What A Line Holds
 
-- who asked: the principal kind and account, and the process and run when a process asked;
-- where: a target id, or `gsv` for the installation itself;
+- who asked: the principal kind and account, and Ship or the helper and its run when one of them asked;
+- where: a connection id, or `gsv` for Ship's home;
 - the call and its arguments as sent, whole, cut at 16 KB with the cut marked;
 - the purpose, when the tool supplied one;
 - the outcome: `ok`, `failed`, `denied`, or `cancelled`, or empty while in flight;
 - the duration, and token and cost figures for a text generation.
 
-Nothing is redacted: the ledger is the owner's own record. A credential handed to a command as an argument is recorded like anything else, so treat ledger output as sensitive when sharing it.
+Nothing is redacted: Logs is the owner's own record. A credential handed to a command as an argument is recorded like anything else, so treat Logs output as sensitive when sharing it.
 
 ## What Is Not Recorded
 
-Model calls a process makes through the inference service, and federation reads served to a contact, do not cross this path; each keeps its own record.
+Model calls Ship or a helper makes through the inference service, and federation reads served to a contact, do not cross this path; each keeps its own record.

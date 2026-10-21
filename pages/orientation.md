@@ -4,7 +4,7 @@
 
 Ship is your personal spaceship. It stays in orbit while you live your life down here on Earth. You can talk to your Ship, give it work, and keep your files and projects aboard. It uses the technology you connect to it and keeps work running while you are away.
 
-A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that system. Each can provide a place to reach Ship, something Ship can use, or both. The system grows by capability, so specialized technology can join alongside familiar apps and devices.
+A computer, browser, phone, server, messenger, repository, service, or piece of hardware can become part of that system. Each can provide a way to reach Ship, something Ship can use, or both. The system grows by capability, so specialized technology can join alongside familiar apps and devices.
 
 Your Ship can also connect directly with another person's Ship. Each Ship stays
 sovereign while the two exchange messages, requests, and exact file revisions.
@@ -12,24 +12,24 @@ sovereign while the two exchange messages, requests, and exact file revisions.
 Your Ship has an email address of its own, so sign-ups, receipts, tracking and
 bills can go to it instead of your personal inbox.
 
-Each Ship is named by the handle its owner chose at sign-up, and the handle is its
-address. On the public service, the Ship with handle `esteve` lives at
+Each Ship is named by the handle its owner chose when creating it, and the handle
+is its address. On the public service, the Ship with handle `esteve` lives at
 `esteve.ship.space`, where its interface and public profile (`/profile`) are, and
 its email address is `esteve@ship.space`. Other people's Ships follow the same
 pattern. The runtime facts at the start of every run give your Ship's own handle
 and address; `contact find @handle` shows another Ship's public profile.
 
-Ship carries identity, memory, permissions, conversation, and ongoing work across those places. Begin in Web, continue through a messenger, inspect work from Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
+Ship carries identity, memory, permissions, conversation, and ongoing work across all of them. Begin in the web app, continue through a messenger, inspect work from Ship Desktop, and let that work use a connected computer or service. You decide what joins the system and what it may expose.
 
 Models and specialized agents can contribute to the work. Ship is the continuing whole that coordinates them and remains yours.
 
 ## Your Ship
 
-Ship names your continuing relationship with the personal intelligence. The Web app, Desktop app, and linked private messengers all open that same Ship.
+Ship is one continuing relationship, however you reach it. The web app, Ship Desktop, and connected private messengers all open that same Ship.
 
-The Web app is called **Instrument**. It has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Fleet** lists your places and processes, with files opened from a place; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across Ships; **Settings** holds preferences, standing responsibilities, permissions, instructions, messengers, MCP connections, and Logs.
+The web app has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Work** lists your connections and helpers, with files opened from a connection; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across Ships; **Settings** holds Preferences, Standing responsibilities, Permissions, Instructions, Messengers, MCP servers, and Logs.
 
-Ship may do work in separate work sessions, but results return through the same personal intelligence unless you deliberately open a direct work session.
+Ship may do work in separate helpers, but results return through the same Ship unless you deliberately open a helper directly.
 
 ## Messages And Activity
 
@@ -38,11 +38,11 @@ Ship separates two things that are useful for different reasons:
 - **Messages** are what you or Ship deliberately sent in the conversation.
 - **Activity** is how a piece of work happened: reasoning, drafts, commands, tools, approvals, retries, and errors.
 
-Use Messages for the conversation. Open a work item's Activity when you want to inspect, debug, approve, interrupt, or understand how something was done.
+Use Messages for the conversation. Open a helper's Activity when you want to inspect, debug, approve, interrupt, or understand how something was done.
 
 ## Work You Can See And Control
 
-Ship can hand off parts of a request or keep longer tasks separate so Ship remains responsive. The **Processes** block in Fleet shows those tasks and lets you inspect, reset, stop, or open one directly.
+Ship can hand off parts of a request or keep longer tasks separate so Ship remains responsive. The **Helpers** block in Work shows those tasks and lets you inspect, reset, stop, or open one directly.
 
 Sent messages remain in the conversation when work stops. Returning to Ship leaves other work running; Abort, Reset, and Kill provide explicit lifecycle controls.
 
@@ -51,12 +51,12 @@ Sent messages remain in the conversation when work stops. Returning to Ship leav
 Connected technology contributes one or more roles:
 
 - a **surface** where you and Ship exchange messages;
-- a **target** where Ship can use files, commands, networks, software, or hardware;
+- a **connection** where Ship can use files, commands, networks, software, or hardware;
 - a **service** that contributes an account or specialized capability.
 
-A messenger can be a surface, a laptop can be a target, and a browser or Desktop app can contribute more than one role. Ship combines their capabilities while preserving the identity and permission of every action.
+A messenger can be a surface, a computer can be a connection, and a browser or Ship Desktop can contribute more than one role. Ship combines their capabilities while preserving the identity and permission of every action.
 
-Ship discovers available targets and integrations before acting:
+Ship discovers available connections and integrations before acting:
 
 ```bash
 targets list
@@ -66,7 +66,7 @@ oauth list
 
 ## Permission Is Part Of The Action
 
-Every action is authorized against the signed-in account, connected target, file ownership, capabilities, and approval rules. When authority or confirmation is missing, Ship reports that exact requirement and keeps the requested destination unchanged.
+Every action is authorized against the signed-in account, the connection, file ownership, capabilities, and approval rules. When authority or confirmation is missing, Ship reports that exact requirement and keeps the requested destination unchanged.
 
 ## Find The Next Step
 

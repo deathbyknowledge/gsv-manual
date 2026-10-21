@@ -11,14 +11,14 @@ restores the selected list, conversation, request or profile.
 
 ## Ship And Work
 
-**Chat** always opens the personal intelligence. Separate work opens in a visibly
-labelled Work session with a Back action, while Ship remains available.
+**Chat** always opens Ship. Separate work opens as a visibly labelled helper
+with a Back action, while Ship remains available.
 
-Use the **Processes** block in **Fleet** when you want to:
+Use the **Helpers** section in **Work** when you want to:
 
-- see which tasks are active, waiting, finished, or failed;
+- see which helpers are active, waiting, finished, or failed;
 - inspect reasoning, tool calls, approvals, and errors;
-- continue, abort, reset, or remove a particular task;
+- continue, abort, reset, or remove a particular helper;
 - return to Ship without stopping the work.
 
 See [Messages, work, and delegation](../agents-assistants/conversations-delegation.md)
@@ -33,9 +33,9 @@ within the block; copy keeps indentation and line breaks without adding a final 
 Scrolling Chat selects the message nearest the middle of the visible conversation;
 at either end it selects the first or latest message. On phones, the down arrow
 on the right returns to the latest message. Closed completed action summaries are
-hidden on phones once Ship replies. Action records remain in **Settings → Logs**;
+hidden on phones once Ship replies. Actions remain in **Settings → Logs**;
 active work, failures, approvals and already-open summaries stay visible.
-Direct `$` commands show a compact target heading on phones; expand it to read the
+Direct `$` commands show a compact connection heading on phones; expand it to read the
 full command, its output and terminal controls.
 Messages longer than eighteen rendered line-heights fold to twelve behind
 **read more**; **show less** folds them again. Shorter messages and replies you
@@ -46,24 +46,25 @@ When the activity line is visible above the prompt, a lavender edge marks the
 bottom of the transcript only while text is being clipped there. It clears between
 lines and messages and at the end of the conversation.
 
-## Fleet
+## Work
 
-Fleet is the operational view:
+Work is the view for connections and helpers:
 
-- **Places** shows connected computers and browsers and their state; **connect** pairs a new one.
-- **Processes** shows running and finished work with its controls.
-- Open a place and choose **browse files** for its folders, file previews and reader/editor.
+- **Connections** shows connected computers and browsers and their state; **connect** adds a new one.
+- **Helpers** shows running and finished work with its controls.
+- Open a connection and choose **browse files** for its folders, file previews and reader/editor.
 
-On phones, places and processes use compact rows; their inspectors keep the additional details. Process responsibility counts open the matching list in Chat.
+On phones, connections and helpers use compact rows; their inspectors keep the additional details. Helper responsibility counts open the matching list in Chat.
 
-Open **Settings → Logs** for the full action history, purposes and outcomes.
+Open **Settings → Logs** for every action, its purpose and outcome.
 
-Chat's composer starts on **your cloud** (`gsv`). Choose another place explicitly
-to address a message or command to it. That choice stays when switching views.
+Chat's composer starts on **Ship's home** (`gsv`). Choose another connection
+explicitly to address a message or command to it. That choice stays when
+switching views.
 
-Check the selected target before changing a file or running a command. A path
-such as `laptop:/projects/report` acts on that connected target; an unqualified
-path uses the current target and working directory.
+Check the selected connection before changing a file or running a command. A path
+such as `laptop:/projects/report` acts on that connection; an unqualified
+path uses the current connection and working directory.
 
 ## Context In Chat
 
@@ -75,22 +76,23 @@ next check. Open one to read its full waiting explanation, inspect details,
 cancel it, or **ask Ship** about that exact responsibility. Child steps stay grouped
 beneath their parent. Routines show cadence and next-run, paused or failed state,
 with pause/enable controls and editing for supported routine types. Event-driven policies live in
-**Settings → standing**.
+**Settings → Standing responsibilities**.
 
 The composer’s **+** menu separates **add context** from **ask Ship** and offers:
 
 - **attach a file** from this device;
-- **find a person** by handle, saved name or public Ship address, then mention them or open contact controls;
-- **reference a file** on a connected place;
+- **find a person** by handle or saved name, then mention them or open contact controls;
+- **reference a file** on a connection;
 - **create a routine**, **connect a computer**, or **start a browser** as requests to Ship.
 
 A handle such as `esteve` or `@esteve` opens that person’s profile on `gsv.space`.
 Use a full address for a Ship hosted elsewhere. Saved people use the full available
 list height in the contextual panel.
 
-In the file picker, **../** above a place’s entries moves toward its filesystem
-root and stops there. Tapping a file name immediately adds its target and path to
-your Chat draft. Fleet’s file browser still opens a preview with **talk about it**.
+In the file picker, **../** above a connection’s entries moves toward its
+filesystem root and stops there. Tapping a file name immediately adds its
+connection and path to your Chat draft. Work’s file browser still opens a preview
+with **talk about it**.
 Files can change after being referenced.
 
 Selecting a request adds ordinary editable text and preserves existing text
@@ -118,7 +120,7 @@ itself stays fixed. The star field retains its full-screen background.
 
 Open **People** (`p`) to connect with someone on another Ship. **connect**
 creates an invitation link; **I have an invitation** accepts a link or code.
-Public profile addresses are another way to send a first message. Incoming
+Handles are another way to send a first message. Incoming
 requests wait for an explicit acceptance, which opens the conversation.
 Inviting and accepting ask each person to choose who handles new messages on
 their own side, with neither option preselected.
@@ -145,10 +147,10 @@ controls, and task-specific coordination.
 
 ## Browser Extension
 
-**Your Ship** is the browser extension that makes a browser a place. In Fleet,
-choose **connect** beside Places and pick **Browser**, then load the extension
+**Your Ship** is the browser extension that makes a browser a connection. In Work,
+choose **connect** beside Connections and pick **Browser**, then load the extension
 and paste the invitation into it. Once it says **Ready**, the browser appears
-under Places and as a target.
+under Connections.
 
 ## Attachments
 
@@ -161,7 +163,7 @@ transcribing media.
 
 ## The Desktop App
 
-Desktop is the same Instrument app in a native window, with local voice and
+Ship Desktop is the same web app in a native window, with local voice and
 a built-in way to connect the computer it runs on. On first launch, choose:
 
 - **Create your Ship**: choose a handle, verify your email, and set a password.
@@ -169,33 +171,33 @@ a built-in way to connect the computer it runs on. On first launch, choose:
 - **Open Ship**: sign in with your email to choose your Ship, or enter its handle
   or custom address directly. Then sign in with your Ship's password.
 
-Your Ship's name at the top of the window is a menu. It shows its address
+Your Ship's name at the top of the window is a menu. It shows its handle
 and offers **this computer** (connect or inspect this computer), **disconnect**
 (sign out and return to the Ship picker), and **quit**. When a
 locked account needs recovery, **recover account** appears there too.
 
 Closing the window is the same as **quit**: unsent work is guarded, credentials
-are flushed, and the app exits. The computer's background machine service,
+are flushed, and the app exits. The computer's background service,
 `gsvd`, is independent and keeps the
-computer connected after Desktop closes.
+computer connected after the desktop app closes.
 
 ## Connect This Computer
 
-After sign-in, Desktop offers **Connect this computer** so your Ship can use
-this computer's files and commands even when the app is closed. Give it a
-display name and choose **connect**; Desktop creates the same device invitation
-Fleet would, pairs the computer, and installs the background service. Choose
-**Not now** to skip it for this session; **this computer** in the Ship menu
-opens the same dialog later and shows the connection's status.
+After sign-in, the desktop app offers **Connect this computer** so your Ship can
+use this computer's files and commands even when the app is closed. Give it a
+display name and choose **connect**; the desktop app creates the same connection
+invitation Work would, connects the computer, and installs the background
+service. Choose **Not now** to skip it for this session; **this computer** in the
+Ship menu opens the same dialog later and shows the connection's status.
 
 A connection for the same Ship and account resumes automatically. A
 connection to another Ship or account, and a separate CLI login, are left
-alone. If the Ship forgets the computer, Desktop offers to connect it again
+alone. If the Ship forgets the computer, the desktop app offers to connect it again
 with the same display name and workspace.
 
 ## Signing Out
 
 **disconnect** ends the current app session and clears that session's private
-cached data. The Ship account, messages, work, and separately managed machine
+cached data. The Ship account, messages, work, and separately managed computer
 credentials remain in place; the connected computer stays connected until it is
-forgotten in Fleet.
+forgotten in Work.

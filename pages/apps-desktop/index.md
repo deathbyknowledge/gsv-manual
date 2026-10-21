@@ -2,22 +2,22 @@
 
 [Back to the manual](../../index.md)
 
-The Web and Desktop apps are two ways to use the same Ship. They share messages,
-work, files, machines, integrations, and permissions.
+The web app and Ship Desktop are two ways to use the same Ship. They share
+messages, work, files, connections, integrations, and permissions.
 
 ## Choose The App That Fits
 
-Use **Web** when you want Ship from any signed-in browser. The Web app is
-called **Instrument** and has five views: **Chat** for Ship, reply activity and
-contextual responsibilities/routines, **Fleet** for places and processes (with
-files opened from a place), **Memory** for personal
+Use **the web app** when you want Ship from any signed-in browser. It has five
+views: **Chat** for Ship, reply activity and
+contextual responsibilities/routines, **Work** for connections and helpers (with
+files opened from a connection), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other Ships,
 and **Settings** for preferences, standing responsibilities, permissions, instructions,
-messengers, MCP, Logs, and (for root) sign-in and people.
+messengers, MCP servers, Logs, and (for the administrator) sign-in and people.
 Chat's **record** button turns a browser microphone recording into a draft using
 your Ship's transcription provider. Review the words before sending.
 
-Use **Desktop** when you want a native window, local live dictation, or a guided way to connect the current computer as a place. Desktop can
+Use **Ship Desktop** when you want a native window, local live dictation, or a guided way to connect the current computer. The desktop app can
 still chat when the computer itself is not connected.
 
 ## What Stays In Sync
@@ -42,7 +42,7 @@ of recent messages, thinking, tool inputs/results and runtime events. Use
 Uncheck it to remove it. No files or media are fetched. Long activity is visibly shortened, and retries
 keep the same selected snapshot. Logs are not attached automatically.
 
-You can also ask Ship to report an issue. On the `gsv` target it uses:
+You can also ask Ship to report an issue. In Ship's home (the `gsv` target) it uses:
 
 ```bash
 feedback < report.txt

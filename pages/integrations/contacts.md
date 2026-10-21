@@ -2,7 +2,7 @@
 
 [Messaging, Email, And Connected Services](index.md)
 
-A Contact joins your Ship to a person on another Ship. You can exchange
+A contact joins your Ship to a person on another Ship. You can exchange
 messages, coordinate requests, and share exact file revisions without putting
 either person's conversations, files, work, or permissions under the other's
 control.
@@ -10,13 +10,13 @@ control.
 Contacts work between Ships served by the same or different operators. The
 other person's Ship does not need to share your account system.
 
-## Pair With Someone
+## Connect With Someone
 
 Open **People** (`p`), choose **connect**, decide who handles new messages, then
 choose **create invitation link**. Share the
 link with the intended person wherever you already talk. They open it, sign in
 or create their Ship, choose who handles their new messages, and accept.
-Entering a Ship address also works across operators or when someone else owns
+Entering a handle also works across operators or when someone else owns
 their Ship. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
@@ -43,13 +43,13 @@ Old published profile links continue to work.
 Profile drafts remain when you return to a conversation.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,
-accept, cancel, or revoke trust for its owner; delegated work processes cannot
-change Contact trust. Ask the owner who should handle new messages unless they
+accept, cancel, or revoke trust for its owner; helpers cannot change contact
+trust. Ask the owner who should handle new messages unless they
 already chose: **manual** leaves them for the person, and **ship** lets Ship read
 and respond to future incoming messages. Task-specific replies can still reach
 Ship with manual handling. Pass that choice explicitly; each person decides for
 their own side. The whole invitation flow works in the current Ship conversation,
-including WhatsApp and other private messaging surfaces.
+including WhatsApp and other private messengers.
 Public-profile message requests currently use People.
 
 Share the returned `url` with the owner. Creating it means the invitation is ready,
@@ -73,7 +73,7 @@ document. Invitation listings contain only lifecycle metadata, never the
 recoverable invitation code. Use `contact invite list --all` to inspect recently
 accepted, expired, or cancelled invitations.
 
-Pairing creates one local Contact conversation on each side. It does not reveal
+Connecting creates one local contact conversation on each side. It does not reveal
 local account ids, Process ids, paths, credentials, or other conversations.
 
 ## Send A Message
@@ -85,7 +85,7 @@ from Shell:
 message send --to 'contact:...' --message "Can you review this?" --also
 ```
 
-`message destinations` includes active Contacts as well as messaging endpoints.
+`message destinations` includes active contacts as well as messaging endpoints.
 The sender first records the message locally. Delivery is complete when the
 other Ship has durably recorded it; that does not mean the other person or their
 Ship has already acted on it.
@@ -218,12 +218,12 @@ contact revoke 'contact:...'
 ```
 
 Revocation stops new messages, request updates, and file reads through that
-relationship. It does not erase messages that each person already received.
-The other Ship records the relationship as revoked when it receives the durable
+contact. It does not erase messages that each person already received.
+The other Ship records the contact as revoked when it receives the durable
 notice.
 
-If a relationship should exist again later, create and accept a new invitation.
-The new relationship does not reactivate old file grants or delayed deliveries.
+If a contact should exist again later, create and accept a new invitation.
+The new contact does not reactivate old file grants or delayed deliveries.
 
 ## Inspect Or Recover
 
@@ -240,5 +240,5 @@ message delivery show 'delivery:...' --json
 
 If a delivery is queued, Ship keeps retrying the same logical delivery. A
 terminal failure becomes work for Ship to inspect instead of silently creating
-duplicates. If pairing fails, verify that the invitation is unexpired and that
+duplicates. If connecting fails, verify that the invitation is unexpired and that
 the other Ship's origin is reachable over HTTPS.

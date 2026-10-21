@@ -24,7 +24,7 @@ For a workflow involving several calls, use CodeMode or the server's generated C
 
 ## Add, Refresh, Or Remove MCP
 
-In the Web app, open **Settings → mcp** and choose **add MCP server**: a name, the server URL, a transport (automatic, streamable HTTP, or server-sent events), and any custom headers such as an API key. A server that uses OAuth shows **sign in** on its row afterwards. Each row offers **refresh** and **remove**; servers added by another account are read only.
+In the web app, open **Settings → MCP servers** and choose **add MCP server**: a name, the server URL, a transport (automatic, streamable HTTP, or server-sent events), and any custom headers such as an API key. A server that uses OAuth shows **sign in** on its row afterwards. Each row offers **refresh** and **remove**; servers added by another account are read only.
 
 From Shell:
 
@@ -39,7 +39,7 @@ Run `mcp help` before changing a connection. Adding needs the `sys.mcp.add` capa
 Ship renews MCP OAuth tokens automatically when possible. Concurrent requests
 share the same renewal and sign-in flow. If a server requires
 another browser authorization, its state becomes `authenticating` and its row in
-**Settings → mcp** shows **sign in**, including when discovery or a tool call
+**Settings → MCP servers** shows **sign in**, including when discovery or a tool call
 finds the expired authorization. Follow that link to recover the same server ID.
 `mcp refresh <server>` retries a failed connection or replaces an expired sign-in
 link. Run the interrupted tool call again after the server returns to `ready`;
@@ -69,7 +69,7 @@ OAuth and MCP solve different parts of a connection: OAuth grants account access
 
 ## Troubleshoot A Missing Tool
 
-If the goal is a website the user is signed into, check for a paired browser first with `targets search "browser"`; it may already provide the access with no integration. See [Use a browser target](../devices-workplaces/browser-targets.md). Otherwise check in this order:
+If the goal is a website the user is signed into, check for a connected browser first with `targets search "browser"`; it may already provide the access with no integration. See [Use a browser connection](../devices-workplaces/browser-targets.md). Otherwise check in this order:
 
 1. the OAuth account exists and has not expired;
 2. the MCP server is connected and healthy;

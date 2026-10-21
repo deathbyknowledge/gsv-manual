@@ -1,11 +1,11 @@
-# Use A Browser Target
+# Use A Browser Connection
 
-[Computers And Browser](index.md)
+[Connections](index.md)
 
-Browser use is a built-in Ship capability. A browser target can be the user's
-browser connected through the **Your Ship** extension, or an on-demand
+Browser use is a built-in Ship capability. A browser connection can be the
+user's browser connected through the **Your Ship** extension, or an on-demand
 [cloud browser](cloud-browsers.md) that Ship starts and manages. Both use the
-same page and tab commands described below; inspect each target's advertised
+same page and tab commands described below; inspect each connection's advertised
 capabilities for additional features.
 
 For website tasks, load `skills show browser-target` even when no browser is
@@ -19,7 +19,7 @@ Either can reach a calendar, mail, billing portal, admin dashboard or private
 forum through its website. A site the selected browser is already logged into
 needs no MCP server, OAuth account or other integration.
 
-Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Places in Fleet, pick **Browser**, and pair the **Your Ship** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
+Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Connections in Work, pick **Browser**, and connect the **Your Ship** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
 
 Ship can create the invitation with `targets pair --name "My browser" --platform browser`
 on `gsv`. The result includes an `extensionUrl` matched to this Ship release.
@@ -38,14 +38,14 @@ use the terminal's `gsv pair` command.
 
 - Any site the profile is signed into, through the user's own session.
 - Web apps with no API or export: read the page, fill a form, download a file.
-- Pages to watch: open one on a schedule and report when something changes.
+- Pages to watch: open one as a routine and report when something changes.
 - Browser-local state such as tabs, history, bookmarks, cookies, and downloads, when the task calls for it.
 
-"Can you see my calendar?" is a browser question. When a browser is paired, open the calendar's web app in a tab and read it rather than asking the user to describe their schedule or to connect an integration.
+"Can you see my calendar?" is a browser question. When a browser is connected, open the calendar's web app in a tab and read it rather than asking the user to describe their schedule or to connect an integration.
 
 ## Find It
 
-An operator-enabled [cloud browser](cloud-browsers.md) is another browser target.
+An operator-enabled [cloud browser](cloud-browsers.md) is another browser connection.
 It can run while personal devices are offline and automatically remembers
 website logins for the local account. Use `instance catalog` to discover
 availability. Ordinary starts reuse the current browser; use tabs for additional
@@ -59,14 +59,14 @@ targets list --kind browser
 targets show <browser-target-id>
 ```
 
-The target description lists the operations, permissions and online state of
-that browser. If none is suitable, check `instance catalog` on `gsv` and start an
-available cloud browser using the [cloud browser workflow](cloud-browsers.md).
-An empty target list does not rule out provisioning. Only report browser access
-unavailable after checking actual availability or receiving a start failure;
-explain that specific limitation. Personal-browser pairing is an alternative
-when cloud browsing is unavailable or the task needs the user's existing
-sessions or device features.
+The connection's description lists the operations, permissions and online state
+of that browser. If none is suitable, check `instance catalog` on `gsv` and start
+an available cloud browser using the [cloud browser workflow](cloud-browsers.md).
+An empty connection list does not rule out provisioning. Only report browser
+access unavailable after checking actual availability or receiving a start
+failure; explain that specific limitation. Connecting a personal browser is an
+alternative when cloud browsing is unavailable or the task needs the user's
+existing sessions or device features.
 
 Choose the browser containing the relevant tab or website session when one is
 available. A new cloud browser does not inherit the extension browser's logins;
@@ -74,7 +74,7 @@ use the human handoff workflow when the website requires login or verification.
 
 ## Work In A Browser
 
-Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
+Load `skills show browser-target` for the exact commands. The usual sequence on the browser connection is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
 `tabs list` returns a bounded page of tabs. If it includes `nextOffset`, continue
 with `tabs list --offset <nextOffset>` until that field is absent. `count` is the
@@ -142,7 +142,7 @@ proceeding. Prefer `page wait` for the expected control over a fixed sleep.
 
 ## Address Browser Files
 
-Target IDs containing a colon use brackets in file syntax:
+Connection IDs containing a colon use brackets in file syntax:
 
 ```bash
 cp [browser:work]:/downloads/report.pdf ~/reports/report.pdf
@@ -151,6 +151,6 @@ img2txt [browser:work]:/screenshots/error.png
 
 ## Permission And Presence
 
-Browser access uses the signed-in Ship identity and only the operations and permissions exposed by the current browser connection. Its target description is the complete list of what that browser can do for Ship.
+Browser access uses the signed-in Ship identity and only the operations and permissions exposed by the current browser connection. Its connection description is the complete list of what that browser can do for Ship.
 
-If a requested action is unavailable, inspect the target before asking the user to reinstall or reconnect anything.
+If a requested action is unavailable, inspect the connection before asking the user to reinstall or reconnect anything.

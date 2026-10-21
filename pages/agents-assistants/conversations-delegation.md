@@ -4,7 +4,7 @@
 
 ## What Becomes A Message
 
-Reasoning and draft text belong to activity. A user-visible reply is sent only when the active Ship intelligence deliberately sends it with the Send tool: text alone sends the message and keeps working; text with `yield` sends it and finishes the run; `yield` alone finishes quietly, with no message. Several sends in one run each deliver exactly once, so progress messages are ordinary.
+Reasoning and draft text belong to activity. A user-visible reply is sent only when Ship deliberately sends it with the Send tool: text alone sends the message and keeps working; text with `yield` sends it and finishes the run; `yield` alone finishes quietly, with no message. Several sends in one run each deliver exactly once, so progress messages are ordinary.
 
 The Shell forms are the same actions:
 
@@ -26,9 +26,9 @@ If a human-facing run ends in text without sending, Ship asks it to use Send, fo
 
 ## One Conversation, Separate Work
 
-The conversation stores sent messages. Each work item separately stores its inputs, reasoning, tools, results, approvals, retries, and errors. Removing a work item therefore does not erase messages that were already exchanged.
+The conversation stores sent messages. Ship and each helper separately store their inputs, reasoning, tools, results, approvals, retries, and errors. Removing a helper therefore does not erase messages that were already exchanged.
 
-Ship is the main conversation. A Work Session is a temporary direct conversation with one selected work item. Groups and channels have their own conversations.
+Ship is the main conversation. A direct conversation with one selected helper is temporary. Groups and channels have their own conversations.
 
 ## Search Past Messages
 
@@ -45,54 +45,54 @@ message history --with CONVERSATION --before NEXT_SEQUENCE --limit 1 --json
 
 Search defaults to Ship's conversation. Words match prefixes and all words must match; results include a snippet, message ID, sequence, author, and date. `--before` pages older matches using `nextBeforeSequence`. To read an exact message, use its sequence plus one as `NEXT_SEQUENCE` in the history command.
 
-Search covers messages saved after the feature was enabled, including those later archived, within the conversation's storage budget. The oldest search entries can expire; their original messages remain readable through history. Pre-feature messages are not indexed retroactively. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; delegated work does not inherit that access.
+Search covers messages saved after the feature was enabled, including those later archived, within the conversation's storage budget. The oldest search entries can expire; their original messages remain readable through history. Pre-feature messages are not indexed retroactively. Attachment contents and internal work activity are not searched. Only a signed-in user and their Ship can read these conversations; handed-off work does not inherit that access.
 
 ## Delegating A Bounded Task
 
-Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Delegate when parallel work, separate context, lengthy investigation, or waiting makes a worker useful. Replace `ACCOUNT` with the Crew account named in Ship's `~/context.d/10-delegation.md`:
+Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Hand off when parallel work, separate context, lengthy investigation, or waiting makes a helper useful. Replace `ACCOUNT` with the helper account named in Ship's `~/context.d/10-delegation.md`:
 
 ```bash
 proc delegate --as ACCOUNT --label research --check-after 10m "Find the answer and return the evidence."
 ```
 
-The delegated task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. The caller evaluates that result and then sends a useful answer or yields quietly.
+The handed-off task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. The caller evaluates that result and then sends a useful answer or yields quietly.
 
-At each `--check-after` checkpoint (default 10 minutes), the caller is told the delegated child is still running and can intervene. `--timeout` is an alias for `--check-after`.
+At each `--check-after` checkpoint (default 10 minutes), the caller is told the helper is still running and can intervene. `--timeout` is an alias for `--check-after`.
 
 Useful commands:
 
 ```bash
 proc agents --json                    # available specialized identities
-proc delegate --as ACCOUNT ...        # delegate as a specialized identity
+proc delegate --as ACCOUNT ...        # hand off as a specialized identity
 proc list                              # visible work
 proc history --pid PID                 # inspect activity
-proc send PID "message"               # asynchronous process message
-proc call PID "request"               # wait for a bounded process reply
+proc send PID "message"               # asynchronous message to a helper
+proc call PID "request"               # wait for a bounded reply from a helper
 ```
 
 Use `proc --help` for the full current syntax.
 
 ## New Input, Queues, And Late Results
 
-One work item has one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the active work item's next model context, so it can adjust the work already in progress. Scheduled work and other requests that need their own run remain queued in order.
+Ship and each helper have one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the next model context of Ship or the active helper, so it can adjust the work already in progress. Routines and other requests that need their own run remain queued in order.
 
 Only the active run can modify its state. If an older result arrives after the conversation has moved on, Ship decides whether it is still useful before sending anything.
 
 ## Abort, Reset, And Kill
 
 - **Abort** stops only the active run and keeps its history.
-- **Reset** archives and clears activity while keeping the work item and its identity.
-- **Kill** permanently removes that work item after cleanup.
+- **Reset** archives and clears activity while keeping the helper and its identity.
+- **Kill** permanently removes that helper after cleanup.
 
 None of these actions deletes already committed conversation messages.
 
 ## Responsibilities
 
-Promises, follow-ups, delegated work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a delegated child sees its assignments and their ancestors. Open **N ongoing** (or **plans**) above Chat's prompt, then select **ongoing**. You can also list them with `r12y list` and inspect one with `r12y show ID`. Delegated results return through the ordinary process result path; the responsibility retains the unfinished outcome and references to its evidence.
+Promises, follow-ups, handed-off work, and recovery that must survive a run are recorded as responsibilities. Ship sees the whole list; a helper sees its assignments and their ancestors. Open **N ongoing** (or **plans**) above Chat's prompt, then select **ongoing**. You can also list them with `r12y list` and inspect one with `r12y show ID`. Handed-off results return through the ordinary helper result path; the responsibility retains the unfinished outcome and references to its evidence.
 
-The initial context includes details for Ship assignments and assignments to the current process; work assigned to other processes stays summarized. New responsibilities and changes arrive as events, so an agent need not fetch details already shown. The snapshot has a size limit and marks omitted bodies with `r12y show ID`. Compaction rebuilds the snapshot from unresolved work.
+The initial context includes details for Ship assignments and assignments to the current helper; work assigned to other helpers stays summarized. New responsibilities and changes arrive as events, so an agent need not fetch details already shown. The snapshot has a size limit and marks omitted bodies with `r12y show ID`. Compaction rebuilds the snapshot from unresolved work.
 
-A brief acknowledgment may precede bookkeeping. Record unfinished accepted outcomes before delegation or yielding; pass the record with `proc delegate --as ACCOUNT --responsibility ID ...`. Keep assignments, blockers, and next checks current. A worker's result is evidence for Ship to assess, not automatic completion of the user's outcome. Immediate answers, short tasks completed in the run, and ordinary retries do not need separate records.
+A brief acknowledgment may precede bookkeeping. Record unfinished accepted outcomes before handing off or yielding; pass the record with `proc delegate --as ACCOUNT --responsibility ID ...`. Keep assignments, blockers, and next checks current. A helper's result is evidence for Ship to assess, not automatic completion of the user's outcome. Immediate answers, short tasks completed in the run, and ordinary retries do not need separate records.
 
 ## Retention
 

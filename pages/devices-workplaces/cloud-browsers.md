@@ -1,6 +1,6 @@
 # Use A Cloud Browser
 
-[Computers And Browser](index.md)
+[Connections](index.md)
 
 When the operator enables cloud browsers, Ship can start one even while the
 user's own devices are offline. It uses the same `tabs` and `page` commands as
@@ -10,14 +10,15 @@ browser login.
 
 The default approval policy lets Ship use cloud-browser commands, files and
 network requests without asking for each action, including on signed-in sites.
-Custom policies still apply; use **Settings → permissions → Cloud browsers** to
+Custom policies still apply; use **Settings → Permissions → Cloud browsers** to
 require approval. Connected personal browsers retain their separate requirements.
 
 For a website task with no suitable existing browser, check `instance catalog`
-and start a cloud browser when available. Personal-browser pairing is optional;
-an empty `targets list --kind browser` does not mean browsing is unavailable.
-Report an actual availability or startup failure if provisioning is blocked.
-Website login or verification is a separate step handled through the live view.
+and start a cloud browser when available. Connecting a personal browser is
+optional; an empty `targets list --kind browser` does not mean browsing is
+unavailable. Report an actual availability or startup failure if provisioning
+is blocked. Website login or verification is a separate step handled through
+the live view.
 
 Each account has one automatic saved-login identity. Profiles created through
 advanced commands stay separate. Forgetting the automatic state makes the next
@@ -25,7 +26,7 @@ ordinary start fresh, even when other saved profiles still exist.
 
 ## Start, Use, Stop
 
-On the `gsv` target:
+In Ship's home (the `gsv` target):
 
 ```bash
 instance catalog
@@ -44,7 +45,7 @@ The start result says `disposition: created` or `reused`. `--wait` returns when
 ready, with a default timeout of 60000 ms (`--timeout MS`, maximum 120000).
 A timeout stops waiting without stopping the browser; inspect the same saved
 request ID to recover. Instance commands accept the displayed eight-character
-target ID or full instance ID. An unknown instance ID is an error, including
+connection ID or full instance ID. An unknown instance ID is an error, including
 for stop.
 
 Request a separate temporary browser only when isolation is needed:
@@ -53,7 +54,7 @@ Request a separate temporary browser only when isolation is needed:
 instance start browser --new --name 'Separate research' --request-id <fresh-persisted-id>
 ```
 
-That browser has its own name and short target ID. It does not share saved
+That browser has its own name and short connection ID. It does not share saved
 logins or replace the ordinary browser. The default saved login state is used
 by only one running browser at a time.
 
@@ -61,11 +62,11 @@ Persist the start request ID before dispatch. If the response is lost, query
 `instance get --request-id <id>` or repeat the exact same start and arguments.
 Do not invent another request ID to recover an uncertain start.
 
-Wait until the instance is `ready`, then use its returned target ID for ordinary
+Wait until the instance is `ready`, then use its returned connection ID for ordinary
 Read, Write, Shell and CodeMode operations. Run `tabs list`, `tabs open --active
-<url>` and `page snapshot` on that browser target. Consult `skills show
-browser-target` for the shared page commands. The target has temporary files and
-a browser command shell; it is not a Linux machine.
+<url>` and `page snapshot` on that browser connection. Consult `skills show
+browser-target` for the shared page commands. The connection has temporary files
+and a browser command shell; it is not a Linux computer.
 
 Large `tabs list` results include `nextOffset`; continue with
 `tabs list --offset <nextOffset>`. The cloud browser's `/proc/tabs.json` exposes
@@ -82,7 +83,7 @@ browser with `instance stop <browser-id> --wait` on `gsv`. Keep it open if the
 user asks or ongoing work still needs it. You can also stop by the original ID
 with `instance stop --request-id <id>`, even when
 the start response was lost. Stopped and failed instances remain terminal.
-An ordinary start after the current browser stops creates a different target
+An ordinary start after the current browser stops creates a different connection
 and restores the saved login state. Cancelling a tool's wait does not
 stop an already admitted browser.
 
@@ -106,8 +107,8 @@ does not fix an `unsupported` storage exception.
 
 ## Watch And Interact Together
 
-Open the place dropdown below Chat's prompt and choose a cloud browser marked
-**↗** to view it. A cloud browser link in a work receipt or Fleet opens the same
+Open the connection dropdown below Chat's prompt and choose a cloud browser marked
+**↗** to view it. A cloud browser link in a work receipt or Work opens the same
 live view. Chat remains behind the browser window, which has tabs,
 an address strip, and the page filling its width. The view follows
 Ship's active tab and shows its cursor and clicks. Watching does not pause
@@ -116,7 +117,7 @@ entering a separate control mode. Clicking pins the view to that tab; **Follow
 Ship** resumes following. Human input gets brief priority and each browser action
 finishes intact before another actor's input runs. Closing the viewer leaves
 both the browser and Ship running.
-The window uses Instrument's text controls: **expand** enlarges the view,
+The window uses the web app's text controls: **expand** enlarges the view,
 **close** leaves the browser running, and **more → stop browser** stops it.
 On phones, the viewer uses the available screen width and **close** returns to
 the underlying app.
@@ -128,7 +129,7 @@ A slow page or interrupted live frame does not by itself stop the browser.
 Health checks run independently of page JavaScript. A temporary provider
 failure gets a bounded recovery window within the original lifetime; a missing
 session or persistent failure stops the instance. Recovery does not repeat
-agent actions. Inspect the page before deciding how to continue.
+Ship's actions. Inspect the page before deciding how to continue.
 
 ## Ask The Person To Sign In
 
@@ -140,7 +141,7 @@ browser handoff request <instance-id> <tab-id> --request-id <fresh-persisted-id>
 ```
 
 Send the returned action URL to the person and yield. The request also appears
-in Ship in the Web app. The person signs into Ship, opens the browser view, enters
+in Ship in the web app. The person signs into Ship, opens the browser view, enters
 the website's credentials there, and can switch tabs when a login provider opens
 a popup. After finishing the requested sign-in or verification steps, they choose
 **I’m done — resume Ship**. Once saving succeeds, the view confirms completion and
@@ -156,9 +157,10 @@ or another sign-in method it offers. If the site requires a passkey, use a
 connected personal browser; do not ask for the credential in chat.
 
 Browser automation is paused during this handoff. Human-only open, image, input
-and completion operations cannot be invoked by agents. Other work can continue.
-**I’m done — resume Ship** completes only after saving succeeds. If saving fails,
-human control and the waiting task remain open; the person can retry or cancel.
+and completion operations cannot be invoked by Ship or its helpers. Other work
+can continue. **I’m done — resume Ship** completes only after saving succeeds.
+If saving fails, human control and the waiting task remain open; the person can
+retry or cancel.
 Cancellation remains available during a save and cannot be undone by its late completion.
 Completion or cancellation reopens the matching waiting responsibility; its
 deadline provides a recovery check if completion is interrupted. Inspect with:
@@ -220,8 +222,8 @@ browser profile get <profile-id>
 browser profile delete <profile-id>
 ```
 
-Fleet's **browser** action opens the current browser, starting one if needed.
-Stopped browsers leave the ordinary Fleet list. `instance list --all` includes
+Work's **browser** action opens the current browser, starting one if needed.
+Stopped browsers leave the ordinary Work list. `instance list --all` includes
 your 64 most recently created terminal browsers alongside active ones, without
 per-site save issues. Use
 `instance get ID` for recent details. Older instances retain their identity,
