@@ -103,6 +103,20 @@ controls whether new reviews are admitted.
 
 Skills are reusable procedures loaded only for relevant work. The standing prompt contains a compact index; Ship reads the selected `SKILL.md` and any required supporting files before using it.
 
+Every process sees three layers, in this order:
+
+| Layer | Path | Who changes it |
+|---|---|---|
+| Built-in | `/sys/skills.d/<name>/SKILL.md` | Ships with GSV; read-only and updated with each release |
+| Owner | the human owner's `~/skills.d/` | the person, or Ship on their behalf |
+| Agent | the running account's `~/skills.d/` | that account, such as a Crew worker |
+
+Built-in skills, such as `browser-target`, `contacts` and `memory`, are the same for Ship and for delegated Crew work. Read them with `skills show <name>` or `cat /sys/skills.d/<name>/SKILL.md`. Writes under `/sys/skills.d` are refused.
+
+Built-in names are reserved. `skills create browser-target` is refused: `'browser-target' is a built-in skill; choose another name`. A home folder that uses a built-in name is ignored, so the built-in always applies; choose a different name for a variant, such as `browser-target-work`.
+
+Earlier releases copied built-in skills into homes. Ship removes copies that were never edited and renames edited copies to `<name>-custom` (or `<name>-custom-2` and so on) so the person's changes stay available under their own name.
+
 Useful commands:
 
 ```bash

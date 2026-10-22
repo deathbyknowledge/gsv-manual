@@ -19,7 +19,7 @@ Read returns a bounded amount by default so one large file cannot consume an ent
 `~` means the home of the account performing the work. Home commonly contains:
 
 - `~/context.d/` for small standing context;
-- `~/skills.d/` for reusable procedures;
+- `~/skills.d/` for your own reusable procedures (built-in skills live read-only in `/sys/skills.d/`);
 - user-created files and project material;
 - retained resources associated with past work.
 
