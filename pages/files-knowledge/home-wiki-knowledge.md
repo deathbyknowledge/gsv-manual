@@ -18,7 +18,7 @@ Read returns a bounded amount by default so one large file cannot consume an ent
 
 `~` means the home of the account performing the work. Home commonly contains:
 
-- `~/context.d/` for small standing context;
+- `~/context.d/` for short Instructions;
 - `~/skills.d/` for your own reusable procedures (built-in skills live read-only in `/sys/skills.d/`);
 - user-created files and project material;
 - retained resources associated with past work.
@@ -28,9 +28,9 @@ The current working directory can be elsewhere without changing what `~` means.
 ## The Public Folder
 
 Every Ship has a `/public` folder. Anything saved there is readable by anyone on
-the internet, without signing in, at `https://YOUR-SPACE/public/PATH`. The path
+the internet, without signing in, at `https://YOUR-SHIP/public/PATH`. The path
 after `/public/` is the file's path inside the folder, so `/public/reports/q3.pdf`
-is available at `https://YOUR-SPACE/public/reports/q3.pdf`.
+is available at `https://YOUR-SHIP/public/reports/q3.pdf`.
 
 Use it to share a document, image, export, or plain page with someone who does
 not use Ship. Ship, Crew, and the person can all create files there:
@@ -53,24 +53,24 @@ leave it alone.
 
 ## Files On Another Computer
 
-Prefix a path with a target ID to address an authorized connected computer or browser target:
+Prefix a path with a connection ID to address an authorized connected computer or browser:
 
 ```bash
 cp laptop:/Users/sam/Desktop/photo.jpg ~/photos/photo.jpg
 cp ~/exports/report.pdf laptop:/Users/sam/Downloads/report.pdf
 ```
 
-If the target ID contains a colon, wrap it in brackets:
+If the connection ID contains a colon, wrap it in brackets:
 
 ```bash
 cp [browser:work]:/downloads/invoice.pdf ~/invoices/invoice.pdf
 ```
 
-Use `targets list` and `targets show <id>` to find the right destination. An offline target remains selected until the user chooses another.
+Use `targets list` and `targets show <id>` to find the right destination. An offline connection remains selected until the user chooses another.
 
 ## Why Exact Revisions Matter
 
-A path can change. When a message or activity record must continue to mean the exact file used at that moment, Ship stores a reference containing the target, path, exact revision, content type, and size.
+A path can change. When a message or activity record must continue to mean the exact file used at that moment, Ship stores a reference containing the connection, path, exact revision, content type, and size.
 
 For example:
 

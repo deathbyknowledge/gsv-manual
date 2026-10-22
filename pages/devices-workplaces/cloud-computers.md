@@ -1,21 +1,21 @@
 # Use A Cloud Computer
 
-[Computers And Browser](index.md)
+[Connections](index.md)
 
-Computer fluency is part of Ship's personal intelligence. Ship and Crew can use
+Computer fluency is part of Ship. Ship and its helpers can use
 an on-demand Linux computer to work with documents, analyze spreadsheets, make
 charts, process media, or run software for the user. The user does not need to
 operate a terminal or keep a personal computer running.
 
-Connected user devices and cloud instances use the same target and tool
-interfaces. Choose a connected user device when the work needs files, programs,
+Connected computers and cloud computers use the same connection and tool
+interfaces. Choose a connected computer when the work needs files, programs,
 private networks, or hardware there. Choose a cloud computer when it suits the
-work. For website interaction, use a [browser target](browser-targets.md),
+work. For website interaction, use a [browser connection](browser-targets.md),
 connected or [on demand](cloud-browsers.md).
 
 ## Choose A Computer
 
-Run discovery on `gsv` before asking the owner to connect a device or declaring
+Run discovery on `gsv` before asking the owner to connect a computer or declaring
 that a required tool is unavailable:
 
 ```bash
@@ -29,7 +29,7 @@ Python, Node.js, npm, Git, and build tools. Install additional software as the
 task requires. Use `/workspace` for working files.
 
 Run GSV management commands on `gsv`; run Python, Node.js, and installed software
-on the computer target. A missing program on `gsv` does not mean Ship cannot use
+on the computer. A missing program on `gsv` does not mean Ship cannot use
 it on a computer.
 
 ## Start And Use It
@@ -42,7 +42,7 @@ instance start computer --request-id REQUEST_ID --name "Spending analysis" --wai
 ```
 
 Use the returned `targetId` with ordinary Read, Write, Edit, Shell, and network
-tools. For example, select that target in Shell and run:
+tools. For example, select that connection in Shell and run:
 
 ```bash
 cd /workspace && python3 --version
@@ -68,7 +68,7 @@ is useful for reusable projects. Files and installed software on the computer
 are temporary: stop, expiry, or loss destroys them.
 
 Copy input and output files using `cp` on `gsv`. Replace `OWNER` with the human
-owner's account and `TARGET_ID` with the computer's target:
+owner's account and `TARGET_ID` with the computer's connection ID:
 
 ```bash
 cp /home/OWNER/expenses.csv TARGET_ID:/workspace/expenses.csv
@@ -90,10 +90,10 @@ its work is finished and needed files are saved; run on `gsv`:
 instance stop TARGET_ID --wait
 ```
 
-Use ordinary [Crew delegation](../agents-assistants/conversations-delegation.md#delegating-a-bounded-task)
-for substantial work. Share the outcome, input files, constraints, and where to
-save the result. Keep the request ID, target, and command sessions with the
-[responsibility](../agents-assistants/conversations-delegation.md#responsibilities)
+[Hand off to a helper](../agents-assistants/conversations-delegation.md#handing-off-a-bounded-task)
+as usual for substantial work. Share the outcome, input files, constraints, and
+where to save the result. Keep the request ID, connection, and command sessions
+with the [responsibility](../agents-assistants/conversations-delegation.md#responsibilities)
 so work can be recovered. Ship checks the outcome and delivers it to the user.
 
 ## Long Commands And Cancellation
@@ -124,9 +124,9 @@ there is no automatic restore or replay.
 
 ## Permissions And Usage
 
-Default permissions allow agent shell, filesystem, and network work on cloud
-computers. **Settings → permissions → Cloud computers** changes that policy;
-custom policies still apply. Connected user devices have separate approval
+Default permissions allow Ship's shell, filesystem, and network work on cloud
+computers. **Settings → Permissions → Cloud computers** changes that policy;
+custom policies still apply. Your connected computers have separate approval
 rules. Computers belong to their initiating human account and Ship.
 
 Computer concurrency and monthly seconds are separate from browser limits.

@@ -9,9 +9,9 @@ Start with the outcome you want. Each section begins with common actions and lea
 - [Meet Ship](pages/orientation.md)
 - [Talk with Ship and manage work](pages/agents-assistants/index.md)
 - [Work with files, memory, and skills](pages/files-knowledge/index.md)
-- [Use your computers and browser](pages/devices-workplaces/index.md)
+- [Use your connections](pages/devices-workplaces/index.md)
 - [Use messaging, email, and connected services](pages/integrations/index.md)
-- [Schedule and delegate work](pages/automation/index.md)
+- [Routines and handing off work](pages/automation/index.md)
 - [Manage accounts and permissions](pages/accounts-access/index.md)
 - [Change settings and recover from problems](pages/settings/index.md)
 - [Use the Web and Desktop apps](pages/apps-desktop/index.md)
@@ -28,18 +28,18 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Share a file by public link with someone who does not use Ship | [The public folder](pages/files-knowledge/home-wiki-knowledge.md#the-public-folder) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
-| Run something on a laptop, server, or browser | [Computers and targets](pages/devices-workplaces/targets-copy.md) |
+| Run something on a computer, server, or browser | [Run commands and copy files across connections](pages/devices-workplaces/targets-copy.md) |
 | Analyze data, work with documents or media, or run tools on demand | [Use a cloud computer](pages/devices-workplaces/cloud-computers.md) |
-| Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser target](pages/devices-workplaces/browser-targets.md) |
+| Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser connection](pages/devices-workplaces/browser-targets.md) |
 | Give out an email address for a sign-up, receipt, tracking or bill, or read what arrived there | [Use Ship's email address](pages/integrations/email.md) |
 | Connect Telegram, WhatsApp, Discord, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
-| Set a reminder or recurring job | [Schedules and automation](pages/automation/index.md) |
-| Create, inspect, reset, or stop a piece of work | [Work controls](pages/agents-assistants/conversations-delegation.md) |
+| Set a reminder or routine | [Routines and handing off work](pages/automation/index.md) |
+| Create, inspect, reset, or stop a helper | [Helper controls](pages/agents-assistants/conversations-delegation.md) |
 | Read an image, transcribe audio, or create media | [Media tools](pages/files-knowledge/media.md) |
 | Search the web | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Change which model answers first, or how reasoning is set | [Models and approvals](pages/settings/ai-voice-approvals.md) |
 | Decide when Ship asks before acting | [Models and approvals](pages/settings/ai-voice-approvals.md) |
-| See every action Ship took and why | [The ledger](pages/agents-assistants/ledger.md) |
+| See every action Ship took and why | [Logs](pages/agents-assistants/ledger.md) |
 | Invite someone to connect | [Passwords, sessions, and people](pages/accounts-access/credentials-sharing.md) |
 | Run shell commands, HTTP requests, or a composed workflow | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Diagnose a failure | [Troubleshooting](pages/reference/troubleshooting.md) |
@@ -65,8 +65,8 @@ The live search includes commands, connected computers, installed skills, and re
 ## Four Useful Ideas
 
 - **Ship** is the main conversation with Ship.
-- **Work** is a task with its own activity and controls. Open it to inspect or intervene.
+- A **helper** is a separate conversation Ship runs for a task, with its own activity and controls. Open it to inspect or intervene.
 - **Messages** are what was deliberately sent. **Activity** shows the reasoning, tools, retries, and errors behind the work.
-- A **target** is a place where an action can run, such as Ship itself, a connected user device, or an on-demand computer or browser. The Web app calls connected targets **Places**.
+- A **connection** is a computer or browser you have connected to your Ship. An action can run there, in **Ship's home** (where your Ship lives and keeps its files), or on an on-demand cloud computer or browser. The web app lists connections under **Work → Connections**.
 - **Send** is how Ship replies. Text is sent only when Ship deliberately sends it; everything else stays in activity.
-- The **ledger** is the record of every action Ship took: who asked, where it ran, what it did, why, and how it ended.
+- **Logs** is the record of every action Ship took: who asked, where it ran, what it did, why, and how it ended.

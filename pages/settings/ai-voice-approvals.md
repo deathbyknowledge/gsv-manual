@@ -4,11 +4,11 @@
 
 ## Model Order
 
-Text models form one ordered stack. The first entry answers first; if it cannot complete the reply, the next entry takes over. Edit the stack under **Settings → preferences → Model order**: **add model** connects a provider and key, **use first** moves an entry to the top, and the rows are labelled **First choice**, **Fallback 1**, and so on.
+Text models form one ordered stack. The first entry answers first; if it cannot complete the reply, the next entry takes over. Edit the stack under **Settings → Preferences → Model order**: **add model** connects a provider and key, **use first** moves an entry to the top, and the rows are labelled **First choice**, **Fallback 1**, and so on.
 
-The stack is layered. A person's own models at `users/{uid}/ai/models` sit ahead of the installation's list at `config/ai/models`, which sits ahead of the deployment's base models (Ship Included on a managed installation, the Workers AI pair on a self-hosted one). Nothing replaces the base. An owner may reorder across all layers with `users/{uid}/ai/model_order`, and an agent or a piece of work may prefer one entry by its stable id through `users/{uid}/ai/preferred_model`. Reasoning is a separate preference, `users/{uid}/ai/reasoning`, from `off` to `xhigh`.
+The stack is layered. A person's own models at `users/{uid}/ai/models` sit ahead of the operator's list at `config/ai/models`, which sits ahead of the base models (Ship Included on a managed Ship, the Workers AI pair on a self-hosted one). Nothing replaces the base. An owner may reorder across all layers with `users/{uid}/ai/model_order`, and Ship, a helper or a piece of work may prefer one entry by its stable id through `users/{uid}/ai/preferred_model`. Reasoning is a separate preference, `users/{uid}/ai/reasoning`, from `off` to `xhigh`.
 
-In a self-hosted installation, availability follows the credentials and providers the owner configured. In a managed installation, the service may offer a curated set of models and enforce usage limits; when the managed route is unavailable, the next entry in the stack is tried.
+In a self-hosted Ship, availability follows the credentials and providers the owner configured. In a managed Ship, the service may offer a curated set of models and enforce usage limits; when the managed route is unavailable, the next entry in the stack is tried.
 
 When generation behaves unexpectedly, inspect:
 
@@ -22,27 +22,27 @@ Search and bounded Read keep large files from consuming the context budget. Adju
 
 ## Voice
 
-Web Chat has **record** and **stop** controls and a live waveform in the prompt.
-The finished audio is transcribed through your Ship's Gateway using the current conversation process's
-transcription configuration; the resulting text stays in the draft for review.
-Browser site permission controls microphone access. No Desktop helper or
-connected computer is required.
+Chat in the web app has **record** and **stop** controls and a live waveform in
+the prompt. The finished audio is transcribed through your Ship using the current
+conversation's transcription configuration; the resulting text stays in the draft
+for review. Browser site permission controls microphone access. Neither the
+desktop app's speech engine nor a connected computer is required.
 
-Desktop owns microphone selection and local live transcription on that computer.
-Check operating-system permission and **Settings → voice**. Chat's **voice**
-control offers **listen** and **pause** while keeping the draft. The same
-settings section configures Handsfree mode, global
-shortcuts and local spoken replies. Handsfree works across pages while Desktop
-stays running and signed in, using a separate draft addressed to your personal Ship.
-Spoken replies follow **Preferences → Language**, which is shared with
+The desktop app owns microphone selection and local live transcription on that
+computer. Check operating-system permission and **Settings → Voice**. Chat's
+**voice** control offers **listen** and **pause** while keeping the draft. The
+same settings section configures Handsfree mode, global shortcuts and local
+spoken replies. Handsfree works across pages while the desktop app stays running
+and signed in, using a separate draft addressed to your Ship.
+Spoken replies follow **Settings → Preferences → Language**, which is shared with
 your Ship. Regional tags use the matching voice language; spoken replies support
 English and Spanish.
 
-Local voice settings belong to Desktop on that computer; model profiles belong to the Ship account. See [Use voice](../apps-desktop/voice-gestures.md).
+Local voice settings belong to the desktop app on that computer; model profiles belong to the Ship account. See [Use voice](../apps-desktop/voice-gestures.md).
 
 ## Tool Approval
 
-The approval policy decides whether an agent's tool call runs, asks the person first, or is refused. The installation default lives at `config/ai/tools/approval`; each person's override lives at `users/{uid}/ai/tools/approval` and is edited under **Settings → permissions**, where the actions are shown as **Allow**, **Ask**, and **Block**.
+The approval policy decides whether a tool call from Ship or a helper runs, asks the person first, or is refused. The operator's default lives at `config/ai/tools/approval`; each person's override lives at `users/{uid}/ai/tools/approval` and is edited under **Settings → Permissions**, where the actions are shown as **Allow**, **Ask**, and **Block**.
 
 A policy is a default action plus ordered rules:
 
@@ -59,29 +59,29 @@ A policy is a default action plus ordered rules:
 
 - `action` is `auto`, `ask`, or `deny`.
 - `match` is an exact capability name or a domain wildcard such as `fs.*`.
-- `target` scopes a rule: omit it for every target, `gsv` for the installation itself, `targets/*` for any connected computer or browser, or one target id.
-- A structured target selects existing target metadata: `{ "route": "instance", "platform": "browser" }` means Ship-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
-- An exact target id wins over route-and-platform selectors, then route-only selectors, then `targets/*`, then unscoped rules. Then an exact capability match beats a wildcard, then list order breaks ties.
+- `target` scopes a rule: omit it to match everywhere, `gsv` for Ship's home, `targets/*` for any connected computer or browser, or one connection id.
+- A structured target selects existing connection metadata: `{ "route": "instance", "platform": "browser" }` means Ship-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
+- An exact connection id wins over route-and-platform selectors, then route-only selectors, then `targets/*`, then unscoped rules. Then an exact capability match beats a wildcard, then list order breaks ties.
 
 The default policy lets files, commands and network requests run automatically on `gsv` and Ship-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`.
 
-Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one target. The Kernel identifies cloud browsers from their instance route and platform; naming a connected device like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
+Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one connection. The Kernel identifies cloud browsers from their instance route and platform; naming a connection like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
 
-Every call carries an optional purpose, one sentence written for the person. The approval prompt leads with it and the ledger records it, so a person can judge a request without reading the arguments.
+Every call carries an optional purpose, one sentence written for the person. The approval prompt leads with it and Logs record it, so a person can judge a request without reading the arguments.
 
-Interactive work can pause for an exact approval request. Scheduled and unattended work cannot rely on somebody eventually answering; an "ask" decision becomes a visible tool failure there.
+Interactive work can pause for an exact approval request. Routines and unattended work cannot rely on somebody eventually answering; an "Ask" decision becomes a visible tool failure there.
 
 Chat offers a walkthrough at the first approval. It shows which categories ask
 and lets the person change them or skip without changing policy. Existing
-denials remain blocked. **Settings → permissions → show it again** replays the
+denials remain blocked. **Settings → Permissions → show it again** replays the
 walkthrough at the next approval.
 
-The approval card's **always allow this** saves a rule for that capability and
-target to the account policy used by the process, then approves the pending
-request once. The card explains the scope: allowing commands on one machine
+The approval card's **Always allow** saves a rule for that capability and
+connection to the account policy used by Ship or the helper, then allows the pending
+request once. The card explains the scope: allowing commands on one computer
 allows future commands there, not only the displayed command. The saved rule
 applies to later runs and can be changed in Settings; the active run keeps its
-policy snapshot. Messenger “always” controls instead remember the choice for
-that process.
+policy snapshot. Messenger **Always allow** buttons instead remember the choice for
+that conversation.
 
 Before loosening approval policy, identify the exact operation and why the current rule blocks a legitimate workflow. Prefer a narrow rule over disabling approval broadly.

@@ -13,7 +13,7 @@ img2txt ocr scan.png
 img2txt detect --target "submit button" screenshot.png
 ```
 
-See [Reading images with `img2txt`](../apps-desktop/image-reading.md) for modes, structured output, and target-qualified paths.
+See [Reading images with `img2txt`](../apps-desktop/image-reading.md) for modes, structured output, and connection-qualified paths.
 
 ## Generate An Image
 
@@ -46,9 +46,9 @@ A document on a connected computer can be attached directly when that computer's
 
 Use `--mime` only when Ship cannot infer the type and only with one attachment. Attachment count and size limits are enforced before the message is committed.
 
-## Media On Another Target
+## Media On Another Connection
 
-Commands that accept a target-qualified file can read directly from an authorized connected computer:
+Commands that accept a connection-qualified file can read directly from an authorized connected computer:
 
 ```bash
 img2txt laptop:/Users/sam/Desktop/photo.jpg
