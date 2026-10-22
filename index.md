@@ -26,6 +26,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
 | Connect with a person on another Ship | [Contacts and cross-Ship requests](pages/integrations/contacts.md) |
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
+| Share a file by public link with someone who does not use Ship | [The public folder](pages/files-knowledge/home-wiki-knowledge.md#the-public-folder) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
 | Run something on a computer, server, or browser | [Run commands and copy files across connections](pages/devices-workplaces/targets-copy.md) |
 | Analyze data, work with documents or media, or run tools on demand | [Use a cloud computer](pages/devices-workplaces/cloud-computers.md) |

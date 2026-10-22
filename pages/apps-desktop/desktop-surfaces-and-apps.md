@@ -163,6 +163,16 @@ transcribing media.
 
 ## The Desktop App
 
+The install script opens Desktop automatically when run in a local graphical
+terminal. Set `GSV_NO_LAUNCH=1` to skip opening it; headless, SSH, CI and
+redirected sessions keep the installation without launching a window. You can
+open it later with `gsv desktop`.
+
+The installer puts the `gsv` command on `PATH` for future shells. On Linux and
+macOS, the `curl ... | bash` installation cannot change the parent terminal's
+environment; to use the CLI there immediately after a default installation, run
+`export PATH="$HOME/.gsv/bin:$PATH"`. Desktop opens without that extra step.
+
 Ship Desktop is the same web app in a native window, with local voice and
 a built-in way to connect the computer it runs on. On first launch, choose:
 
