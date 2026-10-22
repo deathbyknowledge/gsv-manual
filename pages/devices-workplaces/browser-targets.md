@@ -76,10 +76,26 @@ use the human handoff workflow when the website requires login or verification.
 
 Load `skills show browser-target` for the exact commands. The usual sequence on the browser target is `tabs open <url>`, then `page text` or `page snapshot` to read, and `page click` or `page type` to act. Approval follows the policy in [Models and approvals](../settings/ai-voice-approvals.md).
 
-Keep browser work in the background. `tabs open` creates a background tab;
-never bring a tab forward with `tabs focus` or `tabs open --active` unless the
-person explicitly asks to see or switch to that content. They may be using the
-same browser, and Ship's work must not take over their screen.
+Choose the shortest and simplest path to the task. With no browser connected,
+a cloud browser answers a public question at once; a form the person already
+has open in their own browser is completed there in the background rather than
+searched for again. Account creation, a first sign-in and profile edits on a
+site known to reject datacenter traffic, such as social media and email, run in
+the person's own browser on their own connection, never from a cloud browser.
+
+Never take the person's focus. Opening or activating a tab in a browser they
+are using pulls them out of their work. Keep all browser work in the background:
+never bring a tab forward with `tabs focus` or `tabs open --active`, never open
+a new window or popout, and never act on the tab they are looking at. If a step
+needs the foreground, ask them to leave that browser alone for the duration or
+wait until they are elsewhere; if they say they are being moved, stop at once.
+Run one job per browser, and on a flaky connected browser retry once, then
+report. A tab deliberately left waiting for a code or an approval stays open and
+is named in the report.
+
+Some browser features refuse synthetic input: clipboard access, file pickers,
+permission prompts and payment sheets. That is not a block; the page is waiting
+for a real gesture, so ask the person for that one click and continue.
 
 Some sites detect scripted input and refuse it. An accepted click with no
 observed change is not evidence of that on its own; inspect the snapshot first.
@@ -87,12 +103,21 @@ Treat the site as blocking only when the page shows it: a CAPTCHA or
 verification challenge, an "unusual activity" or "automated traffic" message,
 or the same accepted action still rejected after one inspected retry. Then do
 not push through: repeating the action or working around a challenge triggers
-bot flags that can get the person's account restricted. Stop, tell the person
-what the site blocked, and hand that step to them. A challenge is always
-completed by the person, through a handoff link on a cloud browser or directly
-in their own browser, never by scripted input. If a site rejects the cloud
-browser itself, offer to run the task in their own browser through the
-**Your Ship** extension instead. Continue once they say the step is done.
+bot flags that can get the person's account restricted, and a wall is never
+worked around with another number, a temporary number, a VPN or a new account.
+Stop, tell the person what the site blocked, and hand that step to them. A
+challenge is always completed by the person, through a handoff link on a cloud
+browser or directly in their own browser, never by scripted input. If a site
+rejects the cloud browser itself, offer to run the task in their own browser
+through the **Your Ship** extension instead. Continue once they say the step is
+done.
+
+Speed alone reads as a bot. On anything account-facing, take one action at a
+time with real pauses: no bursts, no reload-and-resubmit, one attempt per step.
+A "suspended" or "locked" screen is often a challenge that clears once the
+person completes it, so inspect and report before escalating or recreating
+anything. Codes and approval prompts expire within minutes; handle them in the
+same pass.
 
 `tabs list` returns a bounded page of tabs. If it includes `nextOffset`, continue
 with `tabs list --offset <nextOffset>` until that field is absent. `count` is the
