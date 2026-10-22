@@ -28,9 +28,9 @@ The current working directory can be elsewhere without changing what `~` means.
 ## The Public Folder
 
 Every Ship has a `/public` folder. Anything saved there is readable by anyone on
-the internet, without signing in, at `https://YOUR-SPACE/public/PATH`. The path
+the internet, without signing in, at `https://YOUR-SHIP/public/PATH`. The path
 after `/public/` is the file's path inside the folder, so `/public/reports/q3.pdf`
-is available at `https://YOUR-SPACE/public/reports/q3.pdf`.
+is available at `https://YOUR-SHIP/public/reports/q3.pdf`.
 
 Use it to share a document, image, export, or plain page with someone who does
 not use Ship. Ship, Crew, and the person can all create files there:

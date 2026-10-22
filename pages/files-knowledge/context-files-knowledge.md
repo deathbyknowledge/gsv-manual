@@ -107,7 +107,7 @@ Every process sees three layers, in this order:
 
 | Layer | Path | Who changes it |
 |---|---|---|
-| Built-in | `/sys/skills.d/<name>/SKILL.md` | Ships with GSV; read-only and updated with each release |
+| Built-in | `/sys/skills.d/<name>/SKILL.md` | Comes with Ship; read-only and updated with each release |
 | Owner | the human owner's `~/skills.d/` | the person, or Ship on their behalf |
 | Agent | the running account's `~/skills.d/` | that account, such as a Crew worker |
 
