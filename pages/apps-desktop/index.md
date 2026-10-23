@@ -41,7 +41,7 @@ Open **? Help** in the header, or **Help** in the menu on a phone. It introduces
 - **Permissions** opens Settings → Permissions.
 - **Privacy and your data** opens [Ship's privacy policy](https://ship.space/privacy).
 
-**Keyboard shortcuts** replaces the Help panel with **Search Chat** and the complete shortcut reference, including platform-appropriate modifier labels. Choose **← Help** to return to getting-started guidance.
+**Keyboard shortcuts** replaces the Help panel with **Search Chat**, general shortcuts and shortcuts for the current screen, including platform-appropriate modifier labels. Choose **← Help** to return to getting-started guidance.
 
 **Need more help?** links to the Ship manual inside Memory, [email support](mailto:hello@humansandmachin.es), and the [Discord community](https://discord.gg/hy9ExJJFvn).
 
