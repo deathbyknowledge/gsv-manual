@@ -46,6 +46,18 @@ A document on a connected computer can be attached directly when that computer's
 
 Use `--mime` only when Ship cannot infer the type and only with one attachment. Attachment count and size limits are enforced before the message is committed.
 
+## Open A File From A Chat
+
+A file that arrives in a chat opens in a read-only viewer instead of downloading straight away. Select the filename under the message.
+
+Text, code, JSON and CSV appear as plain text, Markdown renders as it does in a message, and a PDF opens in your browser's own viewer. In the Desktop app an image keeps opening in the app's native preview.
+
+Download stays in the viewer header, so nothing is trapped behind it.
+
+Formats the viewer will not interpret download directly — HTML, SVG and XHTML among them, since they can carry scripts — as do text files larger than 1 MiB and types the viewer does not handle.
+
+An open viewer stays put: it survives scrolling past, or paging away from, the message that carried the file.
+
 ## Media On Another Connection
 
 Commands that accept a connection-qualified file can read directly from an authorized connected computer:
