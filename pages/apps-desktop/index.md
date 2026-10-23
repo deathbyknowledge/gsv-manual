@@ -31,6 +31,20 @@ Draft text and transient interface state may remain local to the app where they
 were created. Attach a file or send the message before expecting another app to
 see it.
 
+## Find Help
+
+Open **? Help** in the header, or **Help** in the menu on a phone. It introduces what Ship can help with and offers five getting-started topics:
+
+- **Talking to Ship** expands examples inline.
+- **Use Ship on WhatsApp** opens the existing Messenger connections in Settings.
+- **Memory** opens your knowledge pages.
+- **Permissions** opens Settings → Permissions.
+- **Privacy and your data** opens the operator's configured privacy policy.
+
+**Search Chat** is a separate action at the top. **Keyboard shortcuts** is collapsed by default; expand it for the complete reference, including platform-appropriate modifier labels.
+
+**Need more help?** links to the Ship manual inside Memory, [email support](mailto:hello@humansandmachin.es), and the [Discord community](https://discord.gg/hy9ExJJFvn).
+
 ## Send Feedback
 
 If your operator enables it, choose **feedback** in the header to report a bug or
