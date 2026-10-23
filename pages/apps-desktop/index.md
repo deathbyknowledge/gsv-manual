@@ -39,9 +39,9 @@ Open **? Help** in the header, or **Help** in the menu on a phone. It introduces
 - **Use Ship on WhatsApp** opens the existing Messenger connections in Settings.
 - **Memory** opens your knowledge pages.
 - **Permissions** opens Settings → Permissions.
-- **Privacy and your data** opens the operator's configured privacy policy.
+- **Privacy and your data** opens [Ship's privacy policy](https://ship.space/privacy).
 
-**Search Chat** is a separate action at the top. **Keyboard shortcuts** is collapsed by default; expand it for the complete reference, including platform-appropriate modifier labels.
+**Keyboard shortcuts** replaces the Help panel with **Search Chat** and the complete shortcut reference, including platform-appropriate modifier labels. Choose **← Help** to return to getting-started guidance.
 
 **Need more help?** links to the Ship manual inside Memory, [email support](mailto:hello@humansandmachin.es), and the [Discord community](https://discord.gg/hy9ExJJFvn).
 
