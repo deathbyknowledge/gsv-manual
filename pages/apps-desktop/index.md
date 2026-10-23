@@ -33,6 +33,8 @@ see it.
 
 ## Find Help
 
+Hover over or focus a top-right navigation control for a short explanation and its shortcut. Press **w** outside a text field to open **Work**.
+
 Open **? Help** in the header, or **Help** in the menu on a phone. It introduces what Ship can help with and offers five getting-started topics:
 
 - **Talking to Ship** expands examples inline.
