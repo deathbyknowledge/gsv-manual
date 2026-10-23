@@ -40,10 +40,13 @@ Review the profile and send a first message. Your account's display name is pref
 Their **Requests** list lets them review, accept or privately decline it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
-Acceptance opens the conversation and retains that first message. Publishing
-your own profile is optional. Choose **your profile** at the bottom of **People**
-to edit it. Save and publish are separate: later edits stay
-private until you publish them. Your public URL is `https://YOUR-SPACE/profile`.
+Acceptance opens the conversation and retains that first message. A new Ship's
+profile is public from the owner's first sign-in, named by their handle and open to
+message requests; a Ship whose owner already saved or unpublished a profile keeps it
+as it was. Choose your handle at the bottom of **People** to see your profile as
+others do, and **edit** to change it. On a private profile the main button is
+**publish**; on a public one it is **save**. **save as draft** keeps changes private
+and leaves the public page as it is. Your public URL is `https://YOUR-SHIP/profile`.
 Old published profile links continue to work.
 Profile drafts remain when you return to a conversation.
 
@@ -55,11 +58,24 @@ and respond to future incoming messages. Task-specific replies can still reach
 Ship with manual handling. Pass that choice explicitly; each person decides for
 their own side. The whole invitation flow works in the current Ship conversation,
 including WhatsApp and other private messengers.
-Public-profile message requests currently use People.
 
-When asked to invite a known Ship handle, create a private invitation even if the
-person is not already a Contact or has no public profile. `contact find` only
-reads published profiles; a missing profile does not block this flow. On the
+When the owner says "add @handle", check `contact list --json` for an existing
+connection, then send a message request in the owner's voice:
+
+```bash
+contact connect @esteve --message "Hi, it's Ada from the climbing club." --handling manual
+```
+
+Sending asks the owner for approval unless their approval policy allows
+`approach.create`. Report the request as sent, not as connected: the other person
+decides whether to accept. The same message to the same person returns the open
+request; once it was declined, withdrawn or expired, sending it again makes a new
+one. A request still waiting for an answer cannot change its name or handling;
+withdraw it first.
+
+If `contact connect` fails because the profile is unavailable or not receiving
+message requests, create a private invitation instead. `contact find` only reads
+published profiles; a missing profile does not block an invitation. On the
 public service, `my-friend-handle` receives mail at `my-friend-handle@ship.space`.
 For another operator, use the person's known mailbox address or mail domain;
 do not infer their email address from an arbitrary web address.
