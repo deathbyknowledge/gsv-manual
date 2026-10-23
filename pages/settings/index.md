@@ -16,7 +16,7 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | When Ship asks before using a capability | **Settings → Permissions** (`users/{uid}/ai/tools/approval`) |
 | Event-driven responsibilities Ship takes care of | **Settings → Standing responsibilities** |
 | Instructions for Ship and its helpers | **Settings → Instructions** (`~/context.d/`) |
-| Messenger | **Settings → Messengers**, with WhatsApp first; Slack and Discord are marked Coming soon |
+| Messenger | **Settings → Messengers**, with WhatsApp first; Slack and Discord are marked Coming soon and cannot be connected or reconnected from Settings |
 | MCP server | **Settings → MCP servers** |
 | Actions, outcomes and request details | **Settings → Logs**; select an entry for details |
 | Request account deletion | **Settings → Account**; email [hello@humansandmachin.es](mailto:hello@humansandmachin.es) for manual deletion during early access |
@@ -34,7 +34,7 @@ Start with the normal settings in the web app or the desktop app. Use raw config
 
 ## Saving Preferences
 
-Appearance is first in Preferences. Theme and background stars apply immediately on this device. Model order, reasoning, language and timezone share one **Save changes** bar that stays visible while scrolling. The language dropdown includes **Automatic**, common languages and **Other language…** for a language code.
+Appearance is first in Preferences. Theme and background stars apply immediately on this device. Model order, reasoning, language and timezone share one **Save changes** bar that stays visible while scrolling. The language dropdown offers English, Spanish and Portuguese. Regional saved codes display the matching supported language without changing the saved value until you choose one.
 
 Changes are checked before saving. If a save fails, the draft remains available to retry; individual preferences may already have saved. Leaving unsaved Preferences prompts first and keeps the draft in the open app if you continue. **Discard changes** restores the saved values. Reloading or closing the app warns before losing unsaved work.
 
