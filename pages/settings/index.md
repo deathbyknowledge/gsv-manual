@@ -10,6 +10,7 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | --- | --- |
 | Model order and reasoning | **Settings → Preferences** (`users/{uid}/ai/models`, `users/{uid}/ai/reasoning`) |
 | Language | **Settings → Preferences → Language** (`users/{uid}/locale/language`), initially detected from the browser; Ship starts in it and follows explicit language requests and the language the person is speaking. The interface uses it when a translation exists: English or Spanish |
+| Optional Ship product-update emails | **Settings → Preferences → Product email preferences** opens verified Accounts settings |
 | Match system, Light or Dark appearance | **Settings → Preferences → Appearance**, saved on this device |
 | When Ship asks before using a capability | **Settings → Permissions** (`users/{uid}/ai/tools/approval`) |
 | Event-driven responsibilities Ship takes care of | **Settings → Standing responsibilities** |
@@ -31,5 +32,6 @@ Start with the normal settings in the web app or the desktop app. Use raw config
 
 ## Pages In This Section
 
+- [Product emails and essential notices](product-emails.md)
 - [Models, voice, and approvals](ai-voice-approvals.md)
 - [Sessions, raw configuration, and recovery](raw-config-recovery.md)
