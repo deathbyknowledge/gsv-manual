@@ -38,8 +38,8 @@ active work, failures, approvals and already-open summaries stay visible.
 Direct `$` commands show a compact connection heading on phones; expand it to read the
 full command, its output and terminal controls.
 Messages longer than eighteen rendered line-heights fold to twelve behind
-**read more**; **show less** folds them again. Shorter messages and replies you
-watched arrive stay open.
+**read more**; **show less** folds them again. Shorter messages and newly received Ship replies stay open, including replies
+that arrive all at once without streaming. You can still use **show less** to fold them.
 Installed PWAs fill the screen behind the home indicator, with safe-area padding
 inside the page to keep the controls reachable.
 When the activity line is visible above the prompt, a lavender edge marks the
