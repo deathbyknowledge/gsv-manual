@@ -147,7 +147,12 @@ controls, and task-specific coordination.
 
 ## Browser Extension
 
-**Your Ship** is the browser extension that makes a browser a connection. In Work,
+**Your Ship** is the browser extension that makes a browser a connection.
+
+The Your Ship extension requires a Chromium-based browser, such as Google Chrome
+or Microsoft Edge. Firefox and Safari are not supported.
+
+In Work,
 choose **connect** beside Connections and pick **Browser**, then load the extension
 and paste the invitation into it. Once it says **Ready**, the browser appears
 under Connections.
