@@ -2,21 +2,6 @@
 
 [Accounts And Permissions](index.md)
 
-## Create your Ship
-
-Choose **Create your Ship** in Ship Desktop or open your operator's signup page.
-Choose a handle, verify your email, and set a password. Creating your Ship does
-not require an invite code.
-
-## Activate your Ship
-
-If your Ship still needs activation, choose **Continue setup** and sign
-in with the email used to claim it. Select **Continue** beside your Ship to renew
-its activation link. This resumes the same activation.
-For an activation link issued directly by an operator, ask the operator to renew
-it. Owner verification resumes activation; it does not sign in to an existing
-local account or reset its password.
-
 ## Sign-In Sessions
 
 The web app and the desktop app ask for your personal password. The small
@@ -24,14 +9,6 @@ The web app and the desktop app ask for your personal password. The small
 --username root` for administration. Locking or signing out clears that client's private cached data and active session.
 
 A browser or desktop app session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
-
-## Creating Your Ship
-
-Open the operator's signup page or **Create your Ship** in Desktop and enter your invite code. On the email step, confirm that you are 18 or older, agree to the [Terms of Service](https://gsv.space/terms), and acknowledge the [Privacy Policy](https://gsv.space/privacy) before requesting a verification code. Verify your email and choose a handle for your Ship.
-
-If you sign in through **Open your space** first, choosing **Use an invite** asks for the same age, Terms and Privacy confirmation on **Before you begin**, before claiming the invite. When resuming signup after reopening the browser or app, confirm again before claiming an invite or continuing Ship creation.
-
-Inside the new Ship, choose your username and password, then continue to **Before you begin** to review the early-access disclosure. Confirm that you are 18 or older, agree to the Terms of Service, and acknowledge the Privacy Policy before creating your account. This checkbox is required inside the Ship as well as on the signup email step. **Back** lets you revise your credentials. Signing in to an existing owner account does not repeat the signup checkbox.
 
 ## User Tokens
 
@@ -60,6 +37,7 @@ Provider tokens and OAuth credentials belong to the connection that uses them. P
 Each Ship has one personal account. Invite someone through
 [People](../integrations/contacts.md) to connect your Ships.
 Contact invitations do not create local accounts or grant access to your connections.
+Someone without a Ship creates their own from their operator's signup page; no invite code is needed.
 
 ## Password Recovery
 
