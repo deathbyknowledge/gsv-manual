@@ -44,6 +44,8 @@ Local voice settings belong to the desktop app on that computer; model profiles 
 
 The approval policy decides whether a tool call from Ship or a helper runs, asks the person first, or is refused. The operator's default lives at `config/ai/tools/approval`; each person's override lives at `users/{uid}/ai/tools/approval` and is edited under **Settings → Permissions**, where the actions are shown as **Allow**, **Ask**, and **Block**.
 
+Permission rows use compact controls. Use the up and down arrows to change rule order; **remove** sits directly under each tool selector. Save the policy to apply changes.
+
 A policy is a default action plus ordered rules:
 
 ```json
