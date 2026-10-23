@@ -46,6 +46,10 @@ When the activity line is visible above the prompt, a lavender edge marks the
 bottom of the transcript only while text is being clipped there. It clears between
 lines and messages and at the end of the conversation.
 
+The latest message and consecutive messages from the same sender stay bright when each pair is no more than five minutes apart. Your latest message group remains bright after Ship replies. Pointing at an older message brightens it without selecting it.
+
+After the first welcome card is dismissed, the empty Ship chat shows a quiet privacy note. It disappears when you or Ship starts talking. During activation, **Opening Ship** cycles through three, two, one and no dots; reduced motion keeps them still.
+
 ## Work
 
 Work is the view for connections and helpers:
