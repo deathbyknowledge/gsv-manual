@@ -25,6 +25,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | See what Ship is thinking or doing | [Messages and activity](pages/agents-assistants/conversations-delegation.md) |
 | Send a reply, attachment, or message somewhere else | [Messaging and routing](pages/integrations/adapters-routing.md) |
 | Connect with a person on another Ship | [Contacts and cross-Ship requests](pages/integrations/contacts.md) |
+| Publish something public, or find the Ship's DID and handle | [Publish on the open network](pages/integrations/open-network.md) |
 | Read, edit, find, copy, or preserve a file | [Files and exact revisions](pages/files-knowledge/home-wiki-knowledge.md) |
 | Share a file by public link with someone who does not use Ship | [The public folder](pages/files-knowledge/home-wiki-knowledge.md#the-public-folder) |
 | Remember something or create a reusable procedure | [Memory, context, and skills](pages/files-knowledge/context-files-knowledge.md) |
