@@ -58,10 +58,12 @@ picture. On a private profile the main button is
 **publish**; on a public one it is **save**. **save as draft** keeps changes private
 and leaves the public page as it is. Your public URL is `https://YOUR-SHIP/profile`.
 Old published profile links continue to work. Other Ships and open-network apps
-read the same profile from the Ship's public record. Unpublishing removes the page
-and the record, but anyone who already read the profile may keep a copy.
+read the same profile from the Ship's public record, and Bluesky can show a copy
+the Ship keeps beside it; any app or search engine may save the profile and make
+it searchable. Unpublishing removes the page, the record and the Bluesky copy, but
+anyone who already read the profile may keep a copy.
 Profile drafts remain when you return to a conversation. The profile changes only
-in People; Ship cannot edit or publish it.
+in People; Ship cannot edit or publish it, or its copy on Bluesky.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; helpers cannot change contact

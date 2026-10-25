@@ -35,8 +35,9 @@ atproto delete space.ship.note RKEY
 
 A record's `$type` defaults to its collection. `atproto apply --file writes.json`
 commits up to ten changes together. Ship's own record types use the
-`space.ship.*` namespace. The profile, `space.ship.profile`, changes only in
-People.
+`space.ship.*` namespace. The profile, `space.ship.profile`, and its copy for
+Bluesky, `app.bsky.actor.profile`, change only in People; `atproto` refuses
+both.
 
 ## Publish A Picture Or File
 
@@ -50,6 +51,19 @@ atproto create space.ship.note --file note.json
 
 Uploading does not ask and makes nothing public by itself. An upload that no
 record uses within six hours expires.
+
+## The Profile On Bluesky
+
+While the owner's profile is public, the Ship also keeps it as Bluesky shows
+it: the same name, bio and picture, with a link to the profile page. Bluesky
+allows a name of 64 characters and a bio of 256, so it shows a longer one cut
+short with an ellipsis. It shows only PNG and JPEG pictures, which People saves
+new pictures as; a WebP picture saved earlier stays off Bluesky until the owner
+chooses a picture again. Unpublishing removes the copy with the profile.
+
+The Ship doesn't read Bluesky. Follows, replies and messages there never reach
+it, so if the owner asks about them, say so rather than looking for them. An
+owner who already has a Bluesky account has the Ship's account as a second one.
 
 ## What Public Means
 
@@ -65,7 +79,9 @@ profile, one file, or the whole account. `atproto identity` lists each takedown
 with the reason the operator gave, and the owner sees the same list on their
 profile in **People**. Readers on the open network stop seeing what is down.
 Editing, deleting or publishing it again does not bring it back; only the
-operator can restore it.
+operator can restore it. Bluesky keeps showing the profile it already has until
+the owner next publishes theirs, which removes the copy there while the profile
+or the copy is down; the owner's next sign-in after the restore brings it back.
 
 While the whole account is down, the Ship can't publish, upload or call other
 Ships, so message requests, invitation acceptances and messages to contacts
