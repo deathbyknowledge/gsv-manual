@@ -282,11 +282,14 @@ The new contact does not reactivate old file grants or delayed deliveries.
 
 A contact also ends when the other person's Ship is gone for good: their space
 was deleted, or an operator reset it, so their address now reaches a new Ship
-with a new DID. Your Ship ends the contact on its side the next time a delivery
-to them fails, and sends them nothing. Messages still waiting fail, open work
-requests are cancelled, and the conversation stays, marked ended. Tell the
-owner, and offer to send that person a new invitation, or a message request
-when their new Ship has a public profile.
+with a new DID. Your Ship ends the contact on its side, and sends them nothing,
+when a delivery to them fails, or after the owner or you read their
+conversation, in People or with `message history --with contact:...`. The read
+never waits for that check, and each contact is checked at most once an hour.
+`contact list` ends only the contacts already known to be gone. Messages still
+waiting fail, open work requests are cancelled, and the conversation stays,
+marked ended. Tell the owner, and offer to send that person a new invitation,
+or a message request when their new Ship has a public profile.
 
 A slow or unreachable Ship, a server error or a rate limit never ends a
 contact; its deliveries keep retrying.
