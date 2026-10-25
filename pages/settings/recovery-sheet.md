@@ -44,7 +44,9 @@ reaches the Ship.
 The person gets an email whenever their sheet is made, replaced or removed,
 with its sheet code. If they didn't make the change, they reply to that email
 straight away. For 3 days, a host that keeps a recovery key can undo the change,
-and so can their previous sheet, if they had one.
+and so can their previous sheet, if they had one. The email says which of them
+can, and promises the host's undo only when the Ship's identity lists the
+host's key. Never promise an undo the email doesn't.
 
 A new sheet replaces the old one. For 3 days the old sheet can still undo the
 change; after that it stops working. Suggest a new sheet when the person lost
@@ -60,7 +62,8 @@ the person makes a new sheet afterwards.
 
 | Settings says | What to do |
 | --- | --- |
-| That password isn't right | After five wrong passwords in 15 minutes, wait until the time it shows |
+| That password isn't right | The person checks their password. Wrong passwords here count with the ones they type to sign in |
+| Too many wrong passwords | Wait until the time it shows: 30 seconds at first, longer after each wrong one. Until then even the right password is refused, here and when signing in from the same place |
 | That code isn't right | A code allows five tries; check the latest email |
 | That code has expired | A code lasts 10 minutes; choose **continue** for a new one |
 | We sent a code moments ago | Codes go out at most once a minute and five times an hour; wait until the time it shows |
