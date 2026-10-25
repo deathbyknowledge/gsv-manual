@@ -69,7 +69,10 @@ operator can restore it.
 
 While the whole account is down, the Ship can't publish, upload or call other
 Ships, so message requests, invitation acceptances and messages to contacts
-don't go through. The rest of the Ship keeps working. When an open-network
-action fails, check `atproto identity`. Tell the owner what is down and the
-operator's reason, and that their operator can restore it. Don't publish what
-was taken down again under another record or file.
+don't go through. Each fails at once, without retrying, and says "Your Ship is
+taken down on the open network, so it can't reach other Ships"; don't send it
+again until the operator restores the account. Messages from contacts still
+arrive, and the rest of the Ship keeps working. When an open-network action
+fails, check `atproto identity`. Tell the owner what is down and the operator's
+reason, and that their operator can restore it. Don't publish what was taken
+down again under another record or file.
