@@ -280,18 +280,13 @@ The new contact does not reactivate old file grants or delayed deliveries.
 
 ## Contacts From Before The Open Network
 
-When an operator moves its Ships to the open network, each Ship's contacts move
-too, so that every person is named by their Ship's DID. Conversations and their
-messages stay. Until the move finishes, creating or accepting an invitation,
-sending a message request, and sending to an existing contact fail with "Your
-contacts are moving to the open network. Try again in a few minutes." Nothing
-was sent: tell the owner and try again later.
-
-A contact whose Ship is on another operator's deployment ends with the move.
-The conversation stays, marked ended. To keep in touch, offer to send that person
-a new invitation, or a message request when they have a public profile. An
-outgoing message request the other person never received expires, and can be
-sent again.
+Every active contact is named by its person's DID, and contacts from before the
+open network keep their conversations and messages. A contact that ended with
+the move to the open network, such as one whose Ship is on another operator's
+deployment, stays ended and has no DID: `contact list --all` shows
+`(before DIDs)` as its address. To keep in touch, offer to send that person a
+new invitation, or a message request when they have a public profile.
+Invitation codes from before the open network are refused; create a new one.
 
 ## Inspect Or Recover
 
