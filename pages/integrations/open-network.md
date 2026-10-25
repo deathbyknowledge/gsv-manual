@@ -15,7 +15,8 @@ message request creates it.
 atproto identity
 ```
 
-prints the DID and handle, or `null` until then.
+prints the DID and handle, or `null` until then, and anything the operator has
+[taken down](#if-the-operator-takes-something-down).
 
 ## Publish A Record
 
@@ -56,3 +57,22 @@ Anyone can read a published record or file, and other services may copy it.
 Deleting a record removes it from the Ship's public repository, not from copies
 others already made. Publish only what the owner asked to make public, in words
 they reviewed.
+
+## If The Operator Takes Something Down
+
+The operator that hosts the Ship's account can take down one record, such as the
+profile, one file, or the whole account. `atproto identity` lists each takedown
+with the reason the operator gave, and the owner sees the same list on their
+profile in **People**. Readers on the open network stop seeing what is down.
+Editing, deleting or publishing it again does not bring it back; only the
+operator can restore it.
+
+While the whole account is down, the Ship can't publish, upload or call other
+Ships, so message requests, invitation acceptances and messages to contacts
+don't go through. Each fails at once, without retrying, and says "Your Ship is
+taken down on the open network, so it can't reach other Ships"; don't send it
+again until the operator restores the account. Messages from contacts still
+arrive, and the rest of the Ship keeps working. When an open-network action
+fails, check `atproto identity`. Tell the owner what is down and the operator's
+reason, and that their operator can restore it. Don't publish what was taken
+down again under another record or file.

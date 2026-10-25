@@ -33,7 +33,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Track promises, follow-ups, and handed-off work | `r12y` |
 | Find a person's Ship by handle or address | `contact find` |
 | Connect with a person on another Ship | `contact` |
-| Publish a public record or file, or print the Ship's DID | [`atproto`](../integrations/open-network.md) |
+| Publish a public record or file, print the Ship's DID, or see what the operator took down | [`atproto`](../integrations/open-network.md) |
 | Find or maintain reusable procedures | `skills` |
 | Inspect or commit a Ship repository | `rgit` or `ripgit` |
 | Run a composed JavaScript workflow | `codemode` |
