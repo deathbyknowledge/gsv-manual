@@ -278,6 +278,19 @@ notice.
 If a contact should exist again later, create and accept a new invitation.
 The new contact does not reactivate old file grants or delayed deliveries.
 
+## When A Contact's Ship Is Gone
+
+A contact also ends when the other person's Ship is gone for good: their space
+was deleted, or an operator reset it, so their address now reaches a new Ship
+with a new DID. Your Ship ends the contact on its side the next time a delivery
+to them fails, and sends them nothing. Messages still waiting fail, open work
+requests are cancelled, and the conversation stays, marked ended. Tell the
+owner, and offer to send that person a new invitation, or a message request
+when their new Ship has a public profile.
+
+A slow or unreachable Ship, a server error or a rate limit never ends a
+contact; its deliveries keep retrying.
+
 ## Contacts From Before The Open Network
 
 Every active contact is named by its person's DID, and contacts from before the
