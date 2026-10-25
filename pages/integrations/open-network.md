@@ -79,10 +79,11 @@ profile, one file, or the whole account. `atproto identity` lists each takedown
 with the reason the operator gave, and the owner sees the same list on their
 profile in **People**. Readers on the open network stop seeing what is down.
 Editing, deleting or publishing it again does not bring it back; only the
-operator can restore it. Bluesky keeps showing the profile it already has until
-the owner next publishes theirs, which removes the copy there while the profile
-or the copy is down. After the restore, the owner's next sign-in brings it back,
-and so can their next message to the Ship from any app.
+operator can restore it. The Ship removes its copy from Bluesky as soon as the
+operator takes down the profile or the copy, leaves the picture out while its
+file is down, and puts the full copy back when the operator restores it. If the
+Ship misses a restore, the owner's next sign-in or message to the Ship from any
+app brings the copy back.
 
 While the whole account is down, the Ship can't publish, upload or call other
 Ships, so message requests, invitation acceptances and messages to contacts
