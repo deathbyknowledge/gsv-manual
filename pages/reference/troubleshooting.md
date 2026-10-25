@@ -25,6 +25,7 @@ Start with the failed outcome, then inspect the smallest owner of that outcome. 
 | An integration tool is absent | `mcp status`, `mcp list`, OAuth status, and current capability |
 | A website or web app seems out of reach | `targets search "browser"`; a connected [browser](../devices-workplaces/browser-targets.md) reaches signed-in sites without an integration |
 | A message is not delivered externally | connected destination, route, attachment limits, and provider result |
+| A contact message, message request or publish fails | `atproto identity` for an operator [takedown](../integrations/open-network.md#if-the-operator-takes-something-down), then `message delivery show` |
 | A model fails | the model order in **Settings → Preferences**, provider availability, allowance, context size, and cancellation |
 | An action is waiting | pending approval, active tool, connection, or queued work |
 | An action was refused or asked for approval | the approval policy in **Settings → Permissions**, and the Logs entry's purpose and outcome |

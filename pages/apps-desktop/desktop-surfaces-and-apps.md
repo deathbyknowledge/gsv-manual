@@ -129,6 +129,9 @@ People uses the same growing prompt as Chat. Its **+** opens the attachment file
 picker, and **send** appears beside the prompt when there is something to send.
 The profile editor keeps its title and back arrow fixed while its form scrolls;
 the lavender edge appears only where that scrolling cuts through text.
+If your operator takes something down, your handle at the bottom of People
+reads **taken down**, and your profile lists each takedown with the reason your
+operator gave. See [the open network](../integrations/open-network.md#if-the-operator-takes-something-down).
 
 You can message people yourself or choose **ask Ship** to open an editable request
 in your ordinary Ship chat. The first-use examples help you start with a concrete
