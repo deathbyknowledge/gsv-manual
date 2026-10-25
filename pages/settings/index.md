@@ -21,6 +21,7 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | Configure administrator recovery | **Settings → Sign-in → Account recovery → set up recovery** (administrator only) |
 | Recover administrator access | **My Ships**; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
 | Your public profile | **your profile** at the bottom of **People** |
+| Keep the Ship's identity on paper | **Settings → Recovery sheet** (the person only); see [Recovery sheet](recovery-sheet.md) |
 | Computer or browser connection | **Work → Connections → connect**, or **Connect this computer** in the desktop app |
 | Web app microphone access | Browser site permissions; **record** in Chat starts capture |
 | Web app audio transcription | Your Ship's transcription configuration for the conversation |
@@ -33,3 +34,4 @@ Start with the normal settings in the web app or the desktop app. Use raw config
 
 - [Models, voice, and approvals](ai-voice-approvals.md)
 - [Sessions, raw configuration, and recovery](raw-config-recovery.md)
+- [Recovery sheet](recovery-sheet.md)
