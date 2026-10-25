@@ -40,6 +40,13 @@ Chat’s **+ → find a person** uses the same lookup, and so does
 `contact find @esteve` in Shell, which prints the public profile.
 Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
+The person who receives a request from a stranger can also **report** it to
+their operator, from the request in People. The report names the sender's
+address and the reason they chose; the sender's name and message go with it only
+if they choose to include them. Reporting declines the request privately, and the
+sender isn't told. Only the owner can report, in People: Ship doesn't see the
+requests its owner receives. If the owner says a request was abusive, point them
+to **report** on it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
 Acceptance opens the conversation and retains that first message. A new Ship's
