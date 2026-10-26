@@ -12,6 +12,13 @@ A contact connects your Ship to a person on another Ship. Both sides retain
 their own conversations and permissions while exchanging messages, structured
 requests, and exact file revisions. See [Connect with another Ship](contacts.md).
 
+## Open Network
+
+Each Ship has a public account on the open network, the AT Protocol network
+that Bluesky and other apps read. Its public profile lives there, and Ship can
+publish records and files the owner asks to make public, with their approval.
+See [Publish on the open network](open-network.md).
+
 ## Messaging
 
 Private messages from a connected Telegram, Slack, or Discord account normally continue Ship. Groups, channels, and threads can be directed to a selected helper when authorized. WhatsApp Business direct messaging is also available when the operator offers it.

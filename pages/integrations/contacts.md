@@ -24,12 +24,14 @@ across operators or when someone else owns their Ship. Neither person
 needs a public profile. People invitations last seven days and connect one person. Acceptance
 opens the conversation on each side when the invitation is open.
 
-**connect → I have an invitation** also accepts a link or an older contact code.
+**connect → I have an invitation** also accepts a link or its contact code.
 The syscall and Shell accept both formats; `contact invite create` returns the
 link alongside the code. Its default lifetime is one hour unless requested
 otherwise. Open registration needs no signup code or reserved invitation place.
 The contact link authorizes the connection; it does not create an account inside
-your Ship. Each Ship has one personal human account.
+your Ship. Each Ship has one personal human account. An invitation from before
+the open network no longer works; accepting one says it is from before an
+update, so ask the person for a new one.
 
 For someone with a public profile, use **connect → use a profile address**.
 Enter a handle such as `esteve` or `@esteve` for someone on the operator's domain
@@ -38,14 +40,30 @@ Chat’s **+ → find a person** uses the same lookup, and so does
 `contact find @esteve` in Shell, which prints the public profile.
 Review the profile and send a first message. Your account's display name is prefilled and editable.
 Their **Requests** list lets them review, accept or privately decline it.
+The person who receives a request from a stranger can also **report** it to
+their operator, from the request in People. The report names the sender's
+address and the reason they chose; the sender's name and message go with it only
+if they choose to include them. Reporting declines the request privately, and the
+sender isn't told. Only the owner can report, in People: Ship doesn't see the
+requests its owner receives. If the owner says a request was abusive, point them
+to **report** on it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
-Acceptance opens the conversation and retains that first message. Publishing
-your own profile is optional. Choose **your profile** at the bottom of **People**
-to edit it. Save and publish are separate: later edits stay
-private until you publish them. Your public URL is `https://YOUR-SPACE/profile`.
-Old published profile links continue to work.
-Profile drafts remain when you return to a conversation.
+Acceptance opens the conversation and retains that first message. A new Ship's
+profile is public on the open network from the owner's first sign-in, named by
+their handle and open to message requests; a Ship whose owner already saved or
+unpublished a profile keeps it as it was. Choose your handle at the bottom of
+**People** to see your profile as others do, and **edit** to change it or choose a
+picture. On a private profile the main button is
+**publish**; on a public one it is **save**. **save as draft** keeps changes private
+and leaves the public page as it is. Your public URL is `https://YOUR-SHIP/profile`.
+Old published profile links continue to work. Other Ships and open-network apps
+read the same profile from the Ship's public record, and Bluesky can show a copy
+the Ship keeps beside it; any app or search engine may save the profile and make
+it searchable. Unpublishing removes the page, the record and the Bluesky copy, but
+anyone who already read the profile may keep a copy.
+Profile drafts remain when you return to a conversation. The profile changes only
+in People; Ship cannot edit or publish it, or its copy on Bluesky.
 
 You can ask Ship to create or accept a private invitation in natural language. Ship may create,
 accept, cancel, or revoke trust for its owner; helpers cannot change contact
@@ -55,11 +73,27 @@ and respond to future incoming messages. Task-specific replies can still reach
 Ship with manual handling. Pass that choice explicitly; each person decides for
 their own side. The whole invitation flow works in the current Ship conversation,
 including WhatsApp and other private messengers.
-Public-profile message requests currently use People.
 
-When asked to invite a known Ship handle, create a private invitation even if the
-person is not already a Contact or has no public profile. `contact find` only
-reads published profiles; a missing profile does not block this flow. On the
+When the owner says "add @handle", check `contact list --json` for an existing
+connection, then send a message request in the owner's voice:
+
+```bash
+contact connect @esteve --message "Hi, it's Ada from the climbing club." --handling manual
+```
+
+Sending asks the owner for approval unless their approval policy allows
+`approach.create`. Report the request as sent, not as connected: the other person
+decides whether to accept. The same message to the same person returns the open
+request; once it was declined, withdrawn or expired, sending it again makes a new
+one. A request still waiting for an answer cannot change its name or handling;
+withdraw it first. A request carries the version of the profile it was sent
+from. If sending says "This profile changed; review it again before sending",
+run `contact find` again, check the profile still accepts message requests, and
+send again.
+
+If `contact connect` fails because the profile is unavailable or not receiving
+message requests, create a private invitation instead. `contact find` only reads
+published profiles; a missing profile does not block an invitation. On the
 public service, `my-friend-handle` receives mail at `my-friend-handle@ship.space`.
 For another operator, use the person's known mailbox address or mail domain;
 do not infer their email address from an arbitrary web address.
@@ -85,7 +119,7 @@ contact invite list --all
 The recipient accepts with their own handling choice. Other invitation commands are:
 
 ```bash
-contact invite accept 'gsv-contact-v1:...' --handling manual
+contact invite accept 'gsv-contact-v2:...' --handling manual
 contact invite list --all
 contact invite cancel 'invite:...'
 contact list
@@ -253,10 +287,36 @@ notice.
 If a contact should exist again later, create and accept a new invitation.
 The new contact does not reactivate old file grants or delayed deliveries.
 
+## When A Contact's Ship Is Gone
+
+A contact also ends when the other person's Ship is gone for good: their space
+was deleted, or an operator reset it, so their address now reaches a new Ship
+with a new DID. Your Ship ends the contact on its side, and sends them nothing,
+when a delivery to them fails, or after the owner or you read their
+conversation, in People or with `message history --with contact:...`. The read
+never waits for that check, and each contact is checked at most once an hour.
+`contact list` ends only the contacts already known to be gone. Messages still
+waiting fail, open work requests are cancelled, and the conversation stays,
+marked ended. Tell the owner, and offer to send that person a new invitation,
+or a message request when their new Ship has a public profile.
+
+A slow or unreachable Ship, a server error or a rate limit never ends a
+contact; its deliveries keep retrying.
+
+## Contacts From Before The Open Network
+
+Every active contact is named by its person's DID, and contacts from before the
+open network keep their conversations and messages. A contact that ended with
+the move to the open network, such as one whose Ship is on another operator's
+deployment, stays ended and has no DID: `contact list --all` shows
+`(before DIDs)` as its address. To keep in touch, offer to send that person a
+new invitation, or a message request when they have a public profile.
+Invitation codes from before the open network are refused; create a new one.
+
 ## Inspect Or Recover
 
 ```bash
-contact identity
+atproto identity
 contact find @esteve
 contact invite list --all --json
 contact list --all --json
@@ -268,5 +328,7 @@ message delivery show 'delivery:...' --json
 
 If a delivery is queued, Ship keeps retrying the same logical delivery. A
 terminal failure becomes work for Ship to inspect instead of silently creating
-duplicates. If connecting fails, verify that the invitation is unexpired and that
-the other Ship's origin is reachable over HTTPS.
+duplicates. `atproto identity` prints this Ship's DID and handle, or `null` until
+the Ship first publishes, invites or contacts someone. If connecting fails,
+verify that the invitation is unexpired and that the other Ship's address, such
+as `alice.ship.space`, answers over HTTPS.

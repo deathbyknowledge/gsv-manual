@@ -44,6 +44,8 @@ Local voice settings belong to the desktop app on that computer; model profiles 
 
 The approval policy decides whether a tool call from Ship or a helper runs, asks the person first, or is refused. The operator's default lives at `config/ai/tools/approval`; each person's override lives at `users/{uid}/ai/tools/approval` and is edited under **Settings → Permissions**, where the actions are shown as **Allow**, **Ask**, and **Block**.
 
+Permission rows use compact controls. Use the up and down arrows to change rule order; **remove** sits directly under each tool selector. Save the policy to apply changes.
+
 A policy is a default action plus ordered rules:
 
 ```json
@@ -63,7 +65,7 @@ A policy is a default action plus ordered rules:
 - A structured target selects existing connection metadata: `{ "route": "instance", "platform": "browser" }` means Ship-provisioned browsers. Routes are `machine`, `adapter`, or `instance`; platform is optional.
 - An exact connection id wins over route-and-platform selectors, then route-only selectors, then `targets/*`, then unscoped rules. Then an exact capability match beats a wildcard, then list order breaks ties.
 
-The default policy lets files, commands and network requests run automatically on `gsv` and Ship-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`.
+The default policy lets files, commands and network requests run automatically on `gsv` and Ship-provisioned cloud browsers, and permits web search anywhere. On connected personal computers or browsers, it reads, searches and transfers files automatically but asks before changing files, running commands or making network requests. `sys.mcp.call` and `mail.send` ask everywhere. Mail is guarded separately: sending mail without asking needs an explicit `auto` rule for `mail.send`, even when the default is `auto`. Publishing on the [open network](../integrations/open-network.md) is guarded the same way: Ship's `atproto.write` asks unless an explicit rule allows or blocks it.
 
 Cloud browsers can retain website logins. To restrict their use, select **Cloud browsers** in Settings and choose **Ask** or **Block**, or set a rule for one connection. The Kernel identifies cloud browsers from their instance route and platform; naming a connection like a cloud browser does not change its permissions. Capability and ownership checks still apply. Existing custom policies retain their rules.
 
