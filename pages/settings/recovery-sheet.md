@@ -43,10 +43,9 @@ reaches the Ship.
 
 The person gets an email whenever their sheet is made, replaced or removed,
 with its sheet code. If they didn't make the change, they reply to that email
-straight away. For 3 days, a host that keeps a recovery key can undo the change,
-and so can their previous sheet, if they had one. The email says which of them
-can, and promises the host's undo only when the Ship's identity lists the
-host's key. Never promise an undo the email doesn't.
+straight away. For 3 days, the host can undo the change with its recovery key,
+and so can their previous sheet, if they had one. After 3 days nothing can, so
+never suggest waiting.
 
 A new sheet replaces the old one. For 3 days the old sheet can still undo the
 change; after that it stops working. Suggest a new sheet when the person lost
