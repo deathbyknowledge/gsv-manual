@@ -21,7 +21,7 @@ Existing Ships retain their username, UID, home and connections. See [Passwords,
 Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
-During signup, **Email me Ship product updates** is optional and starts unchecked.
+During signup, **Keep me posted on what’s new with Ship** is optional and starts unchecked.
 It is separate from the required account agreement. Only an explicit choice made
 while creating a Ship with a verified email requests a subscription; signing in
 or verifying an email alone does not. Use the unsubscribe link in a product email
