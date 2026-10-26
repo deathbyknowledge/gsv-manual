@@ -38,13 +38,17 @@ active work, failures, approvals and already-open summaries stay visible.
 Direct `$` commands show a compact connection heading on phones; expand it to read the
 full command, its output and terminal controls.
 Messages longer than eighteen rendered line-heights fold to twelve behind
-**read more**; **show less** folds them again. Shorter messages and replies you
-watched arrive stay open.
+**read more**; **show less** folds them again. Shorter messages and newly received Ship replies stay open, including replies
+that arrive all at once without streaming. You can still use **show less** to fold them.
 Installed PWAs fill the screen behind the home indicator, with safe-area padding
 inside the page to keep the controls reachable.
 When the activity line is visible above the prompt, a lavender edge marks the
 bottom of the transcript only while text is being clipped there. It clears between
 lines and messages and at the end of the conversation.
+
+The latest message and consecutive messages from the same sender stay bright when each pair is no more than five minutes apart. Your latest message group remains bright after Ship replies. Pointing at an older message brightens it without selecting it.
+
+After the first welcome card is dismissed, the empty Ship chat shows a quiet privacy note. It disappears when you or Ship starts talking. During activation, **Opening Ship** cycles through three, two, one and no dots; reduced motion keeps them still.
 
 ## Work
 
