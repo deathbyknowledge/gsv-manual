@@ -176,6 +176,15 @@ messages. The next incoming message starts handling. Turning the setting off end
 that standing assignment; replies tied to a task you gave Ship can still resume
 it until it is finished. Human and Ship authorship remain visible in messages.
 
+When the person isn't active in a browser or on Desktop, GSV tells them in
+their messenger chat with Ship about a new message from a contact they handle
+themselves, a message request (by sender name only) and an accepted
+invitation. Messages Ship handles produce no notice; Ship decides what to bring
+to the person. Each notice GSV sends appears in Ship's history as a `[GSV EVENT]`
+naming the contact, so a reply such as "tell her Friday works" refers to it.
+Act on that reply with the ordinary contact commands. A message request stays
+the person's to read and decide in People.
+
 For a particular task, **ask Ship** opens an editable draft in the person's
 ordinary Ship chat. They review and send it. First-use examples can prefill a
 request to make plans, plan a trip or coordinate work with the selected contact.
