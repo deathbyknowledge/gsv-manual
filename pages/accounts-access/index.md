@@ -21,11 +21,11 @@ Existing Ships retain their username, UID, home and connections. See [Passwords,
 Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
-On the website, **Go to your space** opens the choices to create a Ship or open
-an existing one by email or space address. The Ship logo on signup returns to
-the homepage. The handle/email form has no Back button.
+Signup and sign-in start in light mode unless you have saved a theme choice.
+The Ship logo on signup returns to the homepage. The handle/email form has no
+Back button.
 
-During signup, **Email me occasionally with fun new Ship updates** is optional and starts unchecked.
+During signup, **Email me occasionally with fun Ship updates** is optional and starts unchecked.
 It is separate from the required account agreement. Only an explicit choice made
 while creating a Ship with a verified email requests a subscription; signing in
 or verifying an email alone does not. Use the unsubscribe link in a product email
