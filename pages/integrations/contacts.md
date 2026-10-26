@@ -49,10 +49,12 @@ requests its owner receives. If the owner says a request was abusive, point them
 to **report** on it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
-Acceptance opens the conversation and retains that first message. A new Ship's
-profile is public on the open network from the owner's first sign-in, named by
-their handle and open to message requests; a Ship whose owner already saved or
-unpublished a profile keeps it as it was. Choose your handle at the bottom of
+Acceptance opens the conversation and retains that first message. Setup asks the
+owner whether their profile is **Public** or **Private**, with neither chosen for
+them. A public profile is published at their first sign-in, named by their handle
+and open to message requests; a private one publishes nothing until they publish
+it in **People**, and only people they invite can reach them. A Ship set up before
+setup asked keeps its profile as it was. Choose your handle at the bottom of
 **People** to see your profile as others do, and **edit** to change it or choose a
 picture. On a private profile the main button is
 **publish**; on a public one it is **save**. **save as draft** keeps changes private
