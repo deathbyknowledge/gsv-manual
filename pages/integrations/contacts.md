@@ -49,9 +49,9 @@ requests its owner receives. If the owner says a request was abusive, point them
 to **report** on it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
-Acceptance opens the conversation and retains that first message. Setup asks the
-owner whether their profile is **Public** or **Private**, with neither chosen for
-them. A public profile is published at their first sign-in, named by their handle
+Acceptance opens the conversation and retains that first message. Setup offers the
+owner **I'm OK with a public profile**, unticked by default, beside the terms or the
+password. Ticked, the profile is published at their first sign-in, named by their handle
 and open to message requests; a private one publishes nothing until they publish
 it in **People**, and only people they invite can reach them. A Ship set up before
 setup asked keeps its profile as it was. Choose your handle at the bottom of
