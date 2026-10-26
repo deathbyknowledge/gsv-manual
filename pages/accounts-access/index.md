@@ -25,7 +25,7 @@ Signup and sign-in start in light mode unless you have saved a theme choice.
 The Ship logo on signup returns to the homepage. The handle/email form has no
 Back button.
 
-During signup, **Email me occasionally with fun Ship updates** is optional and starts unchecked.
+During signup, **Email me occasionally with cool Ship updates** is optional and starts unchecked.
 It is separate from the required account agreement. Only an explicit choice made
 while creating a Ship with a verified email requests a subscription; signing in
 or verifying an email alone does not. Use the unsubscribe link in a product email
