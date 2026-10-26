@@ -165,7 +165,7 @@ Send the returned action URL to the person and yield. The request also appears
 in Ship in the web app. The person signs into Ship, opens the browser view, enters
 the website's credentials there, and can switch tabs when a login provider opens
 a popup. After finishing the requested sign-in or verification steps, they choose
-**I’m done — resume Ship**. Once saving succeeds, the view confirms completion and
+**I’m done, resume Ship**. Once saving succeeds, the view confirms completion and
 follows Ship again. The link does not grant browser access without the person's
 Ship login. Each link stays tied to its original
 request; an ended request cannot open or complete a later one. Send the current
@@ -179,7 +179,7 @@ connected personal browser; do not ask for the credential in chat.
 
 Browser automation is paused during this handoff. Human-only open, image, input
 and completion operations cannot be invoked by Ship or its helpers. Other work
-can continue. **I’m done — resume Ship** completes only after saving succeeds.
+can continue. **I’m done, resume Ship** completes only after saving succeeds.
 If saving fails, human control and the waiting task remain open; the person can
 retry or cancel.
 Cancellation remains available during a save and cannot be undone by its late completion.
