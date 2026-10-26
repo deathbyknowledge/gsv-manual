@@ -23,7 +23,8 @@ Other people have their own Ships. Connect with them through
 
 Signup and sign-in start in light mode unless you have saved a theme choice.
 The Ship logo on signup returns to the homepage. The handle/email form has no
-Back button.
+Back button. **Already have a Ship?** in the top bar opens the page where you
+can create a Ship or open an existing one.
 
 During signup, **Email me occasionally with cool Ship updates** is optional and starts unchecked.
 It is separate from the required account agreement. Only an explicit choice made
