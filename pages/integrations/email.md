@@ -25,7 +25,7 @@ mail search "verification code"
 mail show <message-id>
 ```
 
-`mail list` pages the inbox newest first and `mail search` filters it by sender, subject or text. `mail show` prints the full message, which is where verification codes, links and order details live; `--raw` keeps the original source. Treat message IDs as opaque identifiers. Received messages are also stored under `~/.gsv/mail/inbox/<message-id>/` as `message.txt` and `raw.eml`.
+`mail list` pages the inbox newest first. `mail search` finds messages that contain every word you give, in the sender, subject, summary or text; short words match the start of longer ones. When more messages remain, the last line reads `More:` followed by the command for the next older page; run it as shown. `mail show` prints the full message, which is where verification codes, links and order details live; `--raw` keeps the original source. Treat message IDs as opaque identifiers. Received messages are also stored under `~/.gsv/mail/inbox/<message-id>/` as `message.txt` and `raw.eml`.
 
 ## When Mail Arrives
 
