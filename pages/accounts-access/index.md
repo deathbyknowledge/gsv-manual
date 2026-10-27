@@ -30,8 +30,11 @@ During signup, **Email me occasionally with cool Ship updates** is optional and 
 It is separate from the required account agreement. Only an explicit choice made
 while creating a Ship with a verified email requests a subscription; signing in
 or verifying an email alone does not. Use the unsubscribe link in a product email
-to stop receiving updates. Existing subscribers, including unsubscribed addresses,
-are left unchanged.
+to stop receiving updates. Checked signups join the same `newsletter` audience
+as the website newsletter form. Existing subscribed addresses keep tags such as
+`early-access` and gain `newsletter`; their subscription status is unchanged.
+Pending, unsubscribed and blocked addresses remain untouched. Early-access
+signup alone does not add someone to the ongoing newsletter.
 
 ## Inspect Identity
 
