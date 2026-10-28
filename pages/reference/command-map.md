@@ -67,6 +67,25 @@ A command may require a capability, connection, configured provider, linked acco
 
 ## External CLI Name
 
-The installed host CLI is `gsv`. Examples such as `gsv auth login`, `gsv chat`,
+The installed host CLI is `gsv`. Examples such as `gsv login`, `gsv ship`,
 `gsv pair` and `gsv desktop` refer to that external CLI. Inside Ship's shell,
 continue using the native commands listed above without adding a `gsv` prefix.
+
+When a person asks how to do something from their own terminal, point them to
+the CLI's own commands:
+
+- `gsv login SPACE` signs in, `gsv status` checks sign-in and pairing, and
+  `gsv logout` signs out.
+- `gsv ship "MESSAGE"` talks to Ship; `gsv ship` alone opens a prompt.
+- `gsv contacts`, `gsv requests` and `gsv mail` cover people and mail.
+- `gsv work` lists running work; `gsv work show ID`, `open`, `stop`, `reset`
+  and `end` act on one piece of it.
+- `gsv routines`, `gsv memory` and `gsv activity` cover schedules, the wiki and
+  recent activity.
+- `gsv files` and `gsv places` reach files and connected places, and
+  `gsv run [--on PLACE] COMMAND` runs one command, including a native command
+  on Ship such as `gsv run r12y list`.
+
+The older `gsv chat` still works as an alias of `gsv ship`. `gsv shell`,
+`gsv proc`, `gsv auth login` and remote `gsv config` were replaced; they print
+the new command instead of running.
