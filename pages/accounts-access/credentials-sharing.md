@@ -5,20 +5,20 @@
 ## Sign-In Sessions
 
 The web app and the desktop app ask for your personal password. The small
-**admin** link in the sign-in footer explicitly selects the administrator. The CLI also defaults to personal sign-in; use `gsv auth login
---username root` for administration. Locking or signing out clears that client's private cached data and active session.
+**admin** link in the sign-in footer explicitly selects the administrator. The CLI also defaults to personal sign-in with `gsv login SPACE`; use
+`gsv login SPACE --username root` for administration. Locking or signing out clears that client's private cached data and active session.
 
 A browser or desktop app session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
 
 ## User Tokens
 
-User tokens support non-interactive clients with bounded authority. Create, list, and revoke them with the corresponding `gsv auth token` CLI command. Label each token by purpose and revoke it when that purpose ends.
+User tokens support non-interactive clients with bounded authority. Create, list, and revoke them with `gsv auth token create`, `list` and `revoke`, which remain available for one release for CI and other scripts. Label each token by purpose and revoke it when that purpose ends.
 
 A newly created raw token may be shown once. Do not place it in a message, prompt, ordinary file, log, or screenshot.
 
 ## Computer Credentials
 
-Each connected computer has a credential bound to its computer identity. The desktop app can connect the computer and install its background service. Revoking that computer stops its connection without signing the person out everywhere else.
+Each connected computer has a credential bound to its computer identity. The desktop app can connect the computer and install its background service. Pairing with `gsv pair CODE` saves that credential; do not create a token and copy it into the computer's configuration by hand. Revoking that computer, with `gsv places forget NAME` or `gsv unpair` on the computer itself, stops its connection without signing the person out everywhere else.
 
 See [Connections](../devices-workplaces/index.md).
 
