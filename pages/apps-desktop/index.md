@@ -12,7 +12,7 @@ views: **Chat** for Ship, reply activity and
 contextual responsibilities/routines, **Work** for connections and helpers (with
 files opened from a connection), **Memory** for personal
 knowledge pages, **People** for conversations and contacts on other Ships,
-and **Settings** for preferences, standing responsibilities, permissions, instructions,
+and **Settings** for preferences, when things happen, permissions, instructions,
 messengers, MCP servers, Logs, and (for the administrator) sign-in and people.
 Chat's **record** button turns a browser microphone recording into a message using
 your Ship's transcription provider: send it straight away, or pause to review the words first.

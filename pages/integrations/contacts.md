@@ -179,8 +179,9 @@ it until it is finished. Human and Ship authorship remain visible in messages.
 When the person isn't active in a browser or on Desktop, GSV tells them in
 their messenger chat with Ship about a new message from a contact they handle
 themselves, a message request (by sender name only) and an accepted
-invitation. Messages Ship handles produce no notice; Ship decides what to bring
-to the person. Each notice GSV sends appears in Ship's history as a `[GSV EVENT]`
+invitation, unless they changed that in
+[When things happen](../settings/when-things-happen.md). Messages Ship handles
+produce no notice; Ship decides what to bring to the person. Each notice GSV sends appears in Ship's history as a `[GSV EVENT]`
 naming the contact, so a reply such as "tell her Friday works" refers to it.
 Act on that reply with the ordinary contact commands. A message request stays
 the person's to read and decide in People.
