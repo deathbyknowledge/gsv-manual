@@ -20,9 +20,10 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | MCP server | **Settings → MCP servers** |
 | Actions, outcomes and request details | **Settings → Logs**; select an entry for details |
 | Request account deletion | **Settings → Account**; email [hello@humansandmachin.es](mailto:hello@humansandmachin.es) for manual deletion during early access |
-| Personal password reset | **Settings → Sign-in → Personal sign-in** (administrator only) |
+| Forgotten password | **Forgot your password?** on the sign-in page; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
+| Personal password reset by the administrator | **Settings → Sign-in → Personal sign-in** (administrator only) |
 | Configure administrator recovery | **Settings → Sign-in → Account recovery → set up recovery** (administrator only) |
-| Recover administrator access | **My Ships**; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
+| Recover administrator access | The emailed link from **Forgot your password?**; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
 | Your public profile | **your profile** at the bottom of **People** |
 | Computer or browser connection | **Work → Connections → connect**, or **Connect this computer** in the desktop app |
 | Web app microphone access | Browser site permissions; **record** in Chat starts capture |

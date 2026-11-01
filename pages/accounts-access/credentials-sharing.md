@@ -41,17 +41,27 @@ Someone without a Ship creates their own from their operator's signup page; no i
 
 ## Password Recovery
 
-**Forgot password?** can send a code through an eligible messenger you previously
-connected. It does not ask for a username. Without an eligible messenger, sign in through
-the **admin** link in the sign-in footer, then use **Settings → Sign-in → Personal sign-in** to
-reset the personal password. This requires a direct administrator session; Ship cannot do
-it on your behalf. Reset revokes personal sessions and disconnects your messenger accounts; sign
-in again and reconnect them. Your account, files and running work remain.
+**Forgot your password?** on the Ship's sign-in page offers two ways back, and neither asks for a
+username. **Email me a code** takes you to the operator's sign-in page with the Ship's handle filled
+in. Enter the email you signed up with, type the code, and come back to the Ship to set a new
+personal password. Or request a code through an eligible messenger you previously connected, on the
+same page. Ship cannot do either on your behalf, and it should point the person to the sign-in page
+rather than ask for a password or code in chat.
+
+The email page never says whether an address owns a Ship. It says a code was sent "if this is the
+email for this Ship", so no code arriving can mean a different address or no email recovery on that
+Ship. Then use a messenger, sign in through the **admin** link in the sign-in footer and use
+**Settings → Sign-in → Personal sign-in**, or ask the operator.
+
+A reset revokes personal sessions and disconnects your messenger accounts; sign in again and
+reconnect them. Your account, files and running work remain. If the administrator password is still
+the one you chose at signup, it changes to the new password too, so the old one stops working
+everywhere. An administrator password you set separately stays as it is.
 
 To configure recovery for a Ship not yet linked to your verified identity, sign in
 as the administrator and choose **Settings → Sign-in → Account recovery → set up recovery**.
 Verify your email or sign in with the identity provider offered by your operator.
 
-To recover administrator access, start from **My Ships** and complete the fresh
-verification bound to that attempt. An ordinary owner session cannot reset the
-administrator credentials. Passkeys are not supported.
+To recover administrator access, use the same emailed link and choose **Reset the administrator
+password instead** on the page where you set the new password. Each attempt needs its own fresh code;
+being signed in to **My Ships** is not enough to reset either password. Passkeys are not supported.
