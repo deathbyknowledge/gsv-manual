@@ -54,9 +54,9 @@ Ship. Then use a messenger, sign in through the **admin** link in the sign-in fo
 **Settings → Sign-in → Personal sign-in**, or ask the operator.
 
 A reset revokes personal sessions and disconnects your messenger accounts; sign in again and
-reconnect them. Your account, files and running work remain. The administrator password doesn't
-change, and it may still be the password you chose at signup. If the old password might be known to
-someone else, set a new administrator password too.
+reconnect them. Your account, files and running work remain. If the administrator password is still
+the one you chose at signup, it changes to the new password too, so the old one stops working
+everywhere. An administrator password you set separately stays as it is.
 
 To configure recovery for a Ship not yet linked to your verified identity, sign in
 as the administrator and choose **Settings → Sign-in → Account recovery → set up recovery**.
