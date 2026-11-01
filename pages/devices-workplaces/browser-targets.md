@@ -19,6 +19,9 @@ Either can reach a calendar, mail, billing portal, admin dashboard or private
 forum through its website. A site the selected browser is already logged into
 needs no MCP server, OAuth account or other integration.
 
+The Your Ship extension requires a Chromium-based browser, such as Google Chrome
+or Microsoft Edge. Firefox and Safari are not supported.
+
 Connecting the user's personal browser is optional. When they want its existing tabs, sessions or device features, choose **connect** beside Connections in Work, pick **Browser**, and connect the **Your Ship** extension with the invitation shown. See [Use the Web and Desktop surfaces](../apps-desktop/desktop-surfaces-and-apps.md). Cloud provisioning, saved sessions and human handoffs are covered in [Use a cloud browser](cloud-browsers.md).
 
 Ship can create the invitation with `targets pair --name "My browser" --platform browser`
