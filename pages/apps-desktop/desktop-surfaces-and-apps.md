@@ -80,7 +80,7 @@ next check. Open one to read its full waiting explanation, inspect details,
 cancel it, or **ask Ship** about that exact responsibility. Child steps stay grouped
 beneath their parent. Routines show cadence and next-run, paused or failed state,
 with pause/enable controls and editing for supported routine types. Event-driven policies live in
-**Settings → Standing responsibilities**.
+**Settings → When things happen**.
 
 The composer’s **+** menu separates **add context** from **ask Ship** and offers:
 

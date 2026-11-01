@@ -40,6 +40,7 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Read an image, transcribe audio, or create media | [Media tools](pages/files-knowledge/media.md) |
 | Search the web | [Shell, CodeMode, and network](pages/reference/shell-codemode-network.md) |
 | Change which model answers first, or how reasoning is set | [Models and approvals](pages/settings/ai-voice-approvals.md) |
+| Choose what you hear about and what Ship does when something happens | [When things happen](pages/settings/when-things-happen.md) |
 | Decide when Ship asks before acting | [Models and approvals](pages/settings/ai-voice-approvals.md) |
 | See every action Ship took and why | [Logs](pages/agents-assistants/ledger.md) |
 | Invite someone to connect | [Passwords, sessions, and people](pages/accounts-access/credentials-sharing.md) |

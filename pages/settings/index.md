@@ -14,7 +14,7 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | Background stars | **Settings → Preferences → Appearance → Show stars**, saved on this device and applied to the app and sign-in |
 | Interface size | Press **x** outside a text field to cycle through 75%, 85%, 100%, 150% and 200%; 75% uses compact message text and tighter spacing to fit more conversation on screen. Saved on this device |
 | When Ship asks before using a capability | **Settings → Permissions** (`users/{uid}/ai/tools/approval`) |
-| Event-driven responsibilities Ship takes care of | **Settings → Standing responsibilities** |
+| What you hear about, and what Ship does, when something happens | [**Settings → When things happen**](when-things-happen.md) |
 | Instructions for Ship and its helpers | **Settings → Instructions** (`~/context.d/`) |
 | Messenger | **Settings → Messengers**, with WhatsApp first; Slack and Discord are marked Coming soon and cannot be connected or reconnected from Settings |
 | MCP server | **Settings → MCP servers** |
@@ -43,5 +43,6 @@ Changes are checked before saving. If a save fails, the draft remains available 
 
 ## Pages In This Section
 
+- [When things happen](when-things-happen.md)
 - [Models, voice, and approvals](ai-voice-approvals.md)
 - [Sessions, raw configuration, and recovery](raw-config-recovery.md)

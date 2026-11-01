@@ -27,7 +27,7 @@ Models and specialized agents can contribute to the work. Ship is the continuing
 
 Ship is one continuing relationship, however you reach it. The web app, Ship Desktop, and connected private messengers all open that same Ship.
 
-The web app has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Work** lists your connections and helpers, with files opened from a connection; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across Ships; **Settings** holds Preferences, Standing responsibilities, Permissions, Instructions, Messengers, MCP servers, and Logs.
+The web app has five views: **Chat** is Ship and the activity behind each reply, with contextual responsibilities and routines; **Work** lists your connections and helpers, with files opened from a connection; **Memory** shows your personal knowledge pages; **People** holds conversations and contacts across Ships; **Settings** holds Preferences, When things happen, Permissions, Instructions, Messengers, MCP servers, and Logs.
 
 Ship may do work in separate helpers, but results return through the same Ship unless you deliberately open a helper directly.
 
