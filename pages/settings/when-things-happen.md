@@ -50,7 +50,7 @@ A source is somewhere your own events come from: a script, a routine, another se
 
 Give an event a stable `--id` and repeats are ignored, so a script can re-read the same items without remembering them. `event list` shows what arrived. `event source add NAME --expect-every 1d` tells you once if a source goes quiet for that long.
 
-Messages look like this, and unlike the others they reach you even while you're active, because nothing else shows them as they arrive:
+Messages look like this. While you're active in a browser or on Desktop, or if you have no messenger linked, an event appears as a card in your Ship conversation instead. A source going quiet still goes to your messenger, so you don't miss it:
 
 - `🔔 Backups: Nightly backup failed`
 - `🔔 Backups: 3 new. Latest: Nightly backup failed`
