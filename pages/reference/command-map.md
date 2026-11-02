@@ -17,6 +17,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Find an earlier conversation message | `message search`, then `message history` |
 | Find Ship's email address, read, or send email | `mail` |
 | Create reminders or routines | `sched`; use `crontab` for recurring shell commands |
+| Tell the owner when a script, routine or outside service notices something | [`event`](../settings/when-things-happen.md#your-own-sources) |
 | Discover a computer or browser | `targets` or `devices` |
 | Start or reuse a cloud browser and wait for readiness | `instance start browser --request-id ID --wait` on `gsv` |
 | Start an on-demand computer for documents, data, media, or software | [`instance start computer --request-id ID --wait`](../devices-workplaces/cloud-computers.md) on `gsv` |
@@ -82,6 +83,8 @@ the CLI's own commands:
   and `end` act on one piece of it.
 - `gsv routines`, `gsv memory` and `gsv activity` cover schedules, the wiki and
   recent activity.
+- `gsv event emit SOURCE --title TEXT` sends an event to one of their own
+  sources from any computer.
 - `gsv files` and `gsv places` reach files and connected places, and
   `gsv run [--on PLACE] COMMAND` runs one command, including a native command
   on Ship such as `gsv run r12y list`.
