@@ -56,7 +56,7 @@ Use `crontab` for a recurring shell command. It runs unattended, so every operat
 
 ## Telling The Owner When Something Happens
 
-When a routine, script or outside service should tell the person something, give it an event source instead of writing a message from the routine. `event source add NAME` creates one, `event emit NAME --title TEXT --id ID` records an event, and the person's choices for that source decide whether they're told and whether Ship sees it. A repeated `--id` is ignored, so a poller can re-read the same items. An outside service uses a webhook address from `event source add NAME --webhook github|stripe|standard|url`. See [Your own sources](../settings/when-things-happen.md#your-own-sources).
+When a routine, script or outside service should tell the person something, give it an event source instead of writing a message from the routine. `event source add NAME` creates one, `event emit NAME --title TEXT --id ID` records an event, and the person's choices for that source decide whether they're told and whether Ship sees it. A repeated `--id` is ignored, so a poller can re-read the same items. An outside service uses a webhook address from `event source add NAME --webhook standard|hmac|url`, chosen by how it signs; the built-in `event-sources` skill has the flags for common senders. See [Your own sources](../settings/when-things-happen.md#your-own-sources).
 
 ## Handing Off Work
 
