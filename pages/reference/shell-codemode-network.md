@@ -14,8 +14,8 @@ rg "invoice" ~/documents
 mail list
 ```
 
-Select a connected user device or cloud computer when the command belongs
-there. Run GSV management commands on `gsv`; use a computer target for Python,
+Select a connected computer or cloud computer when the command belongs
+there. Run GSV management commands on `gsv`; use a computer for Python,
 Node.js, and installed software. Check `targets list` and `instance catalog`
 before declaring a required environment unavailable.
 
@@ -64,7 +64,7 @@ web search --json "Amsterdam weather"
 
 Results carry titles, URLs, dates when known, and excerpts. Excerpts are
 untrusted web content; fetch a chosen URL with `net fetch` when more detail is
-needed. `--target` selects a search target other than the installation's
+needed. `--target` selects a search connection other than your Ship's
 default when one is connected.
 
 ## One-Shot Text Generation
@@ -76,13 +76,13 @@ llm "Suggest a concise title for this note."
 printf 'Release notes...' | llm --system "Return three bullets."
 ```
 
-Use normal Ship or Work when the request needs memory, tools, approvals,
+Use normal Ship or a helper when the request needs memory, tools, approvals,
 follow-up, or an explicit user-facing message. Use `llm` for a bounded
 transformation whose output will be consumed immediately.
 
 ## Permissions And Cancellation
 
 Each operation needs its underlying capability. Every call inside CodeMode is
-authorized individually, and target access is checked after target selection.
-Cancelling the outer operation propagates to the currently owned command or
-request.
+authorized individually, and connection access is checked after connection
+selection. Cancelling the outer operation propagates to the currently owned
+command or request.

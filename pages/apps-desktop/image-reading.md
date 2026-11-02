@@ -34,9 +34,9 @@ Caption is the default. `query` requires `--prompt`; use it when wording the
 question precisely will improve the answer. OCR has a general transcription
 instruction unless a narrower `--prompt` is supplied.
 
-## Read From Another Target
+## Read From Another Connection
 
-An image may be on Ship, a connected computer, or a browser target:
+An image may be in Ship's home, on a connected computer, or on a browser connection:
 
 ```bash
 img2txt laptop:/home/alice/photos/receipt.jpg
@@ -44,9 +44,9 @@ img2txt query --prompt "What error is shown?" laptop:/tmp/screenshot.png
 img2txt detect --target "submit button" [browser:work]:/screenshots/form.png
 ```
 
-Target IDs containing colons use brackets. Reading a target-qualified path does
-not first create a duplicate Ship file. Use `cp` when preserving a separate copy
-is itself useful.
+Connection IDs containing colons use brackets. Reading a connection-qualified
+path does not first create a duplicate Ship file. Use `cp` when preserving a
+separate copy is itself useful.
 
 ## Structured Results
 
@@ -80,7 +80,7 @@ useful.
 - `--mime image/...` supplies a MIME type when it cannot be inferred.
 - Generation modes accept token, temperature, and top-p controls.
 - Point and detect accept `--max-objects`.
-- Missing files, unavailable targets, disconnects, unsupported images,
+- Missing files, unavailable connections, disconnects, unsupported images,
   permission failures, and invalid structured results fail explicitly.
 - Cancellation stops the active read instead of silently retrying elsewhere.
 

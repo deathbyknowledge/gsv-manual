@@ -30,8 +30,8 @@ Use the person's `personal` wiki for personal memory instead of creating private
 ## Ship Manual
 
 `gsv-manual` is the reference for using Ship. Its local copy updates automatically
-when the installed Gateway selects a newer compatible Manual revision. An older
-Gateway does not follow the Manual's latest development branch.
+when the operator selects a newer compatible Manual revision. An older release
+does not follow the Manual's latest development branch.
 
 ```bash
 wiki info gsv-manual
@@ -62,7 +62,7 @@ Use `rgit --help` for exact syntax before a write, discard, import, or commit. R
 
 ## Source References
 
-Wiki pages can record the target and path of source material so knowledge remains traceable without copying an entire source document into the page:
+Wiki pages can record the connection and path of source material so knowledge remains traceable without copying an entire source document into the page:
 
 ```bash
 wiki source add <wiki-id/path.md> --source <target:/path::title>

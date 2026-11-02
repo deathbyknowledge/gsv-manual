@@ -2,7 +2,7 @@
 
 [Messaging, Email, And Connected Services](index.md)
 
-Your Ship's email address uses its handle at the installation's mail domain, `<handle>@gsv.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
+Your Ship's email address uses its handle at the operator's mail domain, `<handle>@ship.space` on the public service. It appears in the runtime facts at the start of every run and `mail address` prints the exact address; use that rather than assuming the domain. The address exists for the owner's convenience: Ship reads, sends and replies from it so the owner does not have to.
 
 ## What The Address Is For
 
@@ -25,7 +25,7 @@ mail search "verification code"
 mail show <message-id>
 ```
 
-`mail list` pages the inbox newest first and `mail search` filters it by sender, subject or text. `mail show` prints the full message, which is where verification codes, links and order details live; `--raw` keeps the original source. Treat message IDs as opaque identifiers. Received messages are also stored under `~/.gsv/mail/inbox/<message-id>/` as `message.txt` and `raw.eml`.
+`mail list` pages the inbox newest first. `mail search` finds messages that contain every word you give, in the sender, subject, summary or text; short words match the start of longer ones. When more messages remain, the last line reads `More:` followed by the command for the next older page; run it as shown. `mail show` prints the full message, which is where verification codes, links and order details live; `--raw` keeps the original source. Treat message IDs as opaque identifiers. Received messages are also stored under `~/.gsv/mail/inbox/<message-id>/` as `message.txt` and `raw.eml`.
 
 ## When Mail Arrives
 
@@ -42,6 +42,14 @@ mail reply <message-id> --message "Reply text"
 Sending supports one recipient and plain text. The message goes out from Ship's own address; the sender cannot be changed. `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
 
 `mail.send` asks the owner for approval by default, from Shell and CodeMode alike; see [Models and approvals](../settings/ai-voice-approvals.md).
+
+To invite a known Ship handle when asked, [create a private contact invitation](contacts.md#pair-with-someone)
+and send its URL with `mail send`. No existing Contact or published profile is
+required. Public-service handles receive mail at `<handle>@ship.space`; for other
+operators, use a known mailbox address or mail domain. Email delivery and contact
+acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list --all`
+respectively. The recipient chooses whether to accept and how their own Ship
+handles messages; an invitation email does not authorize automatic acceptance.
 
 ## Check Delivery
 

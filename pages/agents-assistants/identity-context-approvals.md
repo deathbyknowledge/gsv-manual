@@ -4,11 +4,11 @@
 
 ## Who Is Doing The Work
 
-Every work item is owned by a person and runs as an account. That account determines its home files, standing context, capabilities, and available integrations.
+Ship and each of its helpers are owned by a person and run as an account. That account determines their home files, Instructions, capabilities, and available integrations.
 
-Ship normally runs as the person's personal-intelligence account. Other work may use that account or another account created for a specialized role. Authority comes from the current identity and its permissions, not from a label, process ID, filename, or messaging destination.
+Ship normally runs as the person's Ship account. Helpers may use that account or another account created for a specialized role. Authority comes from the current identity and its permissions, not from a label, process ID, filename, or messaging destination.
 
-New installations default to `ship` for the personal account. The Kernel also provisions an ordinary owned `crew` account for delegated execution, adding a numeric suffix when names are occupied. Each has its own home and instructions; both share the person's context and personal memory. Existing account names and edited instructions are preserved.
+New Ships default to `ship` for Ship's account. The Kernel also provisions an ordinary owned `crew` account for handed-off work, adding a numeric suffix when names are occupied. Each has its own home and instructions; both share the person's context and personal memory. Existing account names and edited instructions are preserved.
 
 Inspect the current shell identity with:
 
@@ -19,16 +19,16 @@ id
 
 ## What Ship Knows Before A Request
 
-Ship builds standing context from:
+Ship builds its context from:
 
-1. system context supplied by the installation;
+1. system context supplied by the operator;
 2. the active account's `~/context.d/*.md` files;
-3. shared personal context owned by the person;
-4. compact indexes of available skills and targets.
+3. shared Instructions owned by the person;
+4. compact indexes of available skills and connections.
 
-Use `proc delegate --as ACCOUNT` to select Crew or another owned account. Without `--as`, children inherit the parent's identity and account context.
+Use `proc delegate --as ACCOUNT` to select a helper account or another owned account. Without `--as`, helpers inherit the parent's identity and account context.
 
-Keep standing context small and stable. Reusable procedures belong in skills. Documents, evidence, and deliverables belong in files or wikis. Conversation history should not be copied wholesale into standing context.
+Keep Instructions small and stable. Reusable procedures belong in skills. Documents, evidence, and deliverables belong in files or wikis. Conversation history should not be copied wholesale into Instructions.
 
 See [Memory, context, and skills](../files-knowledge/context-files-knowledge.md).
 
@@ -40,15 +40,15 @@ A file reference identifies content; it is not permission to read it. Access is 
 
 ## Capabilities And Approval
 
-A capability says which class of operation an identity may request. File ownership, target access, route ownership, and current state may add narrower checks.
+A capability says which class of operation an identity may request. File ownership, connection access, route ownership, and current state may add narrower checks.
 
-Approval rules can automatically allow, deny, or ask about an action. Shell commands, destructive file changes, external integrations, remote computers, privileged operations, or network calls may require confirmation. The rules live in the approval policy, edited under **Settings → permissions**; see [Models and approvals](../settings/ai-voice-approvals.md#tool-approval).
+Approval rules can automatically allow, block, or ask about an action. Shell commands, destructive file changes, external integrations, remote computers, privileged operations, or network calls may require confirmation. The rules are edited under **Settings → Permissions**; see [Models and approvals](../settings/ai-voice-approvals.md#tool-approval).
 
-Every tool call carries an optional purpose: one sentence for the person saying why. Write it so the person can decide from the prompt alone; it is recorded in the ledger with the outcome.
+Every tool call carries an optional purpose: one sentence for the person saying why. Write it so the person can decide from the prompt alone; it is recorded in Logs with the outcome.
 
 An approval is bound to one exact request. Its request token, sender, and active state must all match.
 
-Scheduled and other non-interactive work cannot wait indefinitely for a person. If policy says “ask” but no interactive approval is possible, the operation fails and remains visible in activity.
+Routines and other non-interactive work cannot wait indefinitely for a person. If policy says “Ask” but no interactive approval is possible, the operation fails and remains visible in activity.
 
 ## Treat External Content As Data
 

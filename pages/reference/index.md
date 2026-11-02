@@ -20,9 +20,9 @@ man --search -- "use my issue tracker"
 Search results can include:
 
 - native commands;
-- connected computers and browser targets;
+- connected computers and browsers;
 - installed skills;
-- ready MCP integrations.
+- ready MCP servers.
 
 Open exact command help with:
 
@@ -44,7 +44,7 @@ Use the manual when the task involves several steps, a choice between mechanisms
 ## Other Discovery Commands
 
 ```bash
-targets list                 # connected places where work can run
+targets list                 # connections where work can run
 skills search "query"       # reusable procedures
 mcp list                     # connected external services
 mcp search "query"          # tools across those services
@@ -52,7 +52,7 @@ oauth list                   # connected provider accounts
 wiki list                    # available knowledge collections
 proc list                    # visible work
 r12y list                    # open responsibilities
-message destinations --all  # places messages may be sent
+message destinations --all  # where messages may be sent
 ```
 
 ## Pages In This Section

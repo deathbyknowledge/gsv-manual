@@ -2,46 +2,31 @@
 
 [Accounts And Permissions](index.md)
 
-## Create your Ship
-
-Choose **Create your Ship** in Desktop or open your operator's signup page.
-Choose a handle, verify your email, and set a password. Registration does not
-require an invite code.
-
-## Finish setup
-
-If your Ship still needs setup, choose **Continue setup** and sign
-in with the email used to claim it. Select **Continue** beside your Ship to renew
-its setup link. This resumes the same setup.
-For a setup link issued directly by an operator, ask the operator to renew it.
-Owner verification resumes setup; it does not sign in to an existing local account
-or reset its password.
-
 ## Sign-In Sessions
 
-Web and Desktop ask for your personal password. The small **admin** link in the
-sign-in footer explicitly selects root. The CLI also defaults to personal sign-in; use `gsv auth login
---username root` for administration. Locking or signing out clears that client's private cached data and active session.
+The web app and the desktop app ask for your personal password. The small
+**admin** link in the sign-in footer explicitly selects the administrator. The CLI also defaults to personal sign-in with `gsv login SPACE`; use
+`gsv login SPACE --username root` for administration. Locking or signing out clears that client's private cached data and active session.
 
-A browser or Desktop session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
+A browser or desktop app session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
 
 ## User Tokens
 
-User tokens support non-interactive clients with bounded authority. Create, list, and revoke them with the corresponding `gsv auth token` CLI command. Label each token by purpose and revoke it when that purpose ends.
+User tokens support non-interactive clients with bounded authority. Create, list, and revoke them with `gsv auth token create`, `list` and `revoke`, which remain available for one release for CI and other scripts. Label each token by purpose and revoke it when that purpose ends.
 
 A newly created raw token may be shown once. Do not place it in a message, prompt, ordinary file, log, or screenshot.
 
-## Machine Credentials
+## Computer Credentials
 
-Each connected computer has a credential bound to its machine identity. Desktop can enroll the computer and install its background service. Revoking that machine stops its connection without signing the person out everywhere else.
+Each connected computer has a credential bound to its computer identity. The desktop app can connect the computer and install its background service. Pairing with `gsv pair CODE` saves that credential; do not create a token and copy it into the computer's configuration by hand. Revoking that computer, with `gsv places forget NAME` or `gsv unpair` on the computer itself, stops its connection without signing the person out everywhere else.
 
-See [Computers and browser](../devices-workplaces/index.md).
+See [Connections](../devices-workplaces/index.md).
 
-## Messaging Identities
+## Messenger Accounts
 
-Connecting a messaging account gives Ship access to the service. A separate, short-lived one-time challenge links an external sender to the owner from inside an authenticated Ship session.
+Connecting a messaging account gives Ship access to the service. A separate, short-lived one-time challenge connects an external sender to the owner from inside an authenticated Ship session.
 
-An external identity is linked only through the authenticated challenge, not from a display name, typed provider ID, or untrusted message. See [Connect and route messaging](../integrations/adapters-routing.md).
+An external account is connected only through the authenticated challenge, not from a display name, typed provider ID, or untrusted message. See [Connect and route messaging](../integrations/adapters-routing.md).
 
 ## External Account Secrets
 
@@ -51,21 +36,32 @@ Provider tokens and OAuth credentials belong to the connection that uses them. P
 
 Each Ship has one personal account. Invite someone through
 [People](../integrations/contacts.md) to connect your Ships.
-Contact invitations do not create local accounts or grant access to your machines.
+Contact invitations do not create local accounts or grant access to your connections.
+Someone without a Ship creates their own from their operator's signup page; no invite code is needed.
 
 ## Password Recovery
 
-**Forgot password?** can send a code through an eligible messenger you previously
-linked. It does not ask for a username. Without an eligible link, sign in through
-the **admin** link in the sign-in footer, then use **Settings → sign-in → Personal sign-in** to
-reset the personal password. This requires a direct root session; Ship cannot do
-it on your behalf. Reset revokes personal sessions and messenger links; sign in
-again and reconnect those messengers. Your account, files and running work remain.
+**Forgot your password?** on the Ship's sign-in page offers two ways back, and neither asks for a
+username. **Email me a code** takes you to the operator's sign-in page with the Ship's handle filled
+in. Enter the email you signed up with, type the code, and come back to the Ship to set a new
+personal password. Or request a code through an eligible messenger you previously connected, on the
+same page. Ship cannot do either on your behalf, and it should point the person to the sign-in page
+rather than ask for a password or code in chat.
 
-To set up recovery for a Ship not yet linked to your verified identity, sign in
-as root and choose **Settings → sign-in → Account recovery → set up recovery**.
+The email page never says whether an address owns a Ship. It says a code was sent "if this is the
+email for this Ship", so no code arriving can mean a different address or no email recovery on that
+Ship. Then use a messenger, sign in through the **admin** link in the sign-in footer and use
+**Settings → Sign-in → Personal sign-in**, or ask the operator.
+
+A reset revokes personal sessions and disconnects your messenger accounts; sign in again and
+reconnect them. Your account, files and running work remain. If the administrator password is still
+the one you chose at signup, it changes to the new password too, so the old one stops working
+everywhere. An administrator password you set separately stays as it is.
+
+To configure recovery for a Ship not yet linked to your verified identity, sign in
+as the administrator and choose **Settings → Sign-in → Account recovery → set up recovery**.
 Verify your email or sign in with the identity provider offered by your operator.
 
-To recover administrator access, start from **My Ships** and complete the fresh
-verification bound to that attempt. An ordinary owner session cannot reset root.
-Passkeys are not supported.
+To recover administrator access, use the same emailed link and choose **Reset the administrator
+password instead** on the page where you set the new password. Each attempt needs its own fresh code;
+being signed in to **My Ships** is not enough to reset either password. Passkeys are not supported.

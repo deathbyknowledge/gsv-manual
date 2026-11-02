@@ -11,7 +11,7 @@ Prefer the action that owns the relationship:
 - disconnect a messenger or OAuth account;
 - revoke or reconnect one computer;
 - change the selected model or approval profile;
-- reset or kill only the affected work item.
+- reset or kill only the affected helper.
 
 Change or revoke only the relationship that owns the problem.
 
@@ -41,14 +41,14 @@ Configuration is a key/value store. System keys live under `config/` and are vis
 
 | Key | Purpose |
 | --- | --- |
-| `users/{uid}/ai/models`, `config/ai/models` | Ordered model entries, layered ahead of the deployment base |
+| `users/{uid}/ai/models`, `config/ai/models` | Ordered model entries, layered ahead of the base models |
 | `users/{uid}/ai/model_order` | The owner's fallback order across all layers, by stable id |
 | `users/{uid}/ai/preferred_model` | The entry an account or piece of work prefers |
 | `users/{uid}/ai/reasoning`, `config/ai/reasoning` | Reasoning mode hint, `off` to `xhigh` |
 | `users/{uid}/ai/tools/approval`, `config/ai/tools/approval` | Approval policy |
-| `config/ai/context.d/*.md` | System standing context, concatenated in name order |
-| `users/{uid}/locale/timezone` | The person's IANA timezone for schedules and context |
-| `config/server/name`, `config/server/timezone`, `config/server/version` | Installation name, default timezone, and read-only version |
+| `config/ai/context.d/*.md` | System instructions, concatenated in name order |
+| `users/{uid}/locale/timezone` | The person's IANA timezone for routines and context |
+| `config/server/name`, `config/server/timezone`, `config/server/version` | Ship name, default timezone, and read-only version |
 | `config/shell/timeout_ms`, `config/shell/network_enabled`, `config/shell/max_output_bytes` | Native shell limits |
 
 Read a key with `cat /sys/config/ai/reasoning` or `cat /sys/users/1000/ai/models`; write with a redirect to the same path. Credentials are stored beside an entry as `.../api_key` and are never returned by a list read.
@@ -61,4 +61,4 @@ If another person's data appears after switching accounts, lock or sign out imme
 
 ## Recovery
 
-Use [Troubleshooting](../reference/troubleshooting.md) to isolate the failing action. A data-store repair, installation reset, or operator action should be the last step, not the first.
+Use [Troubleshooting](../reference/troubleshooting.md) to isolate the failing action. A data-store repair, Ship reset, or operator action should be the last step, not the first.
