@@ -21,20 +21,17 @@ Existing Ships retain their username, UID, home and connections. See [Passwords,
 Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
-Signup and sign-in start in light mode unless you have saved a theme choice.
-The Ship logo on signup returns to the homepage. The handle/email form has no
-Back button. **Already have a Ship?** in the top bar opens the page where you
-can create a Ship or open an existing one.
+During signup, **Email me occasionally with cool Ship updates** is optional and
+starts unchecked. It is separate from the required account agreement. An explicit
+choice made while creating a Ship with a verified email requests a subscription;
+signing in or verifying an address alone does not.
 
-During signup, **Email me occasionally with cool Ship updates** is optional and starts unchecked.
-It is separate from the required account agreement. Only an explicit choice made
-while creating a Ship with a verified email requests a subscription; signing in
-or verifying an email alone does not. Use the unsubscribe link in a product email
-to stop receiving updates. Checked signups join the same `newsletter` audience
-as the website newsletter form. Existing subscribed addresses keep tags such as
-`early-access` and gain `newsletter`; their subscription status is unchanged.
-Pending, unsubscribed and blocked addresses remain untouched. Early-access
-signup alone does not add someone to the ongoing newsletter.
+An operator can fulfil earlier marketing opt-ins made before the delivery
+backend existed through a separate, reviewed import. The import records the
+operator's confirmation of those choices; the original opt-in date and wording
+remain unknown. Future signups still require the checkbox. Use the unsubscribe
+link in a product email to stop receiving updates. Existing unsubscribe and
+suppression states are preserved.
 
 ## Inspect Identity
 
