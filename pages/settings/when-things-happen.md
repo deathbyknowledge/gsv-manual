@@ -41,10 +41,10 @@ You get these only when you have a messenger linked and aren't active in a brows
 
 ## Your Own Sources
 
-A source is somewhere your own events come from: a script, a routine, another service. Each one gets its own row in this list. Add them under **Your sources**, or ask Ship to. A new source tells you and leaves Ship **Off**.
+A source is somewhere your own events come from: a script, a routine, another service. Each one gets its own row in this list. Add them in **Work**, under **Your sources**, or ask Ship to. Open one there to pause it, change its secret, delete it or read what arrived. A new source tells you and leaves Ship **Off**.
 
 - **From a routine or script on your Ship:** `event source add backups`, then `event emit backups --title "Nightly backup failed"`.
-- **From any computer:** `gsv event add backups`, then `gsv event emit backups --title "Nightly backup failed"`. Neither needs a public address.
+- **From any computer:** add a source called `backups`, then run `gsv event emit backups --title "Nightly backup failed"`. It doesn't need a public address.
 - **From another service:** choose a signed webhook, GitHub or Stripe when adding the source. You get an address and, except for Stripe, a signing secret, shown once. **New secret** replaces it, and the old one keeps working for 24 hours. Stripe makes its own secret once you give it the address, so paste that into the source's **Signing secret the sender gave you** field.
 - **From a sender that can't sign:** choose a secret address. Anyone holding that address can send events, and request logs on the way may record it, so Ship can't be set to **Acts** on these.
 
