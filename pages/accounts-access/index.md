@@ -21,6 +21,11 @@ Existing Ships retain their username, UID, home and connections. See [Passwords,
 Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
+Signup, sign-in and the app follow the system appearance unless you have saved\na light or dark theme choice. They update when the system appearance changes.
+The Ship logo on signup returns to the homepage. The handle/email form has no
+Back button. **Already have a Ship?** in the top bar opens the page where you
+can create a Ship or open an existing one.
+
 ## Inspect Identity
 
 Inside a work shell:
