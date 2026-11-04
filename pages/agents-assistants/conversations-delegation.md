@@ -74,7 +74,7 @@ Use `proc --help` for the full current syntax.
 
 ## New Input, Queues, And Late Results
 
-Ship and each helper have one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the next model context of Ship or the active helper, so it can adjust the work already in progress. Routines and other requests that need their own run remain queued in order.
+Ship and each helper have one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the next model context of Ship or the active helper, so it can adjust the work already in progress. A helper's result for a run that has already ended waits instead, and takes a run of its own once the current one finishes. Routines and other requests that need their own run remain queued in order.
 
 Only the active run can modify its state. If an older result arrives after the conversation has moved on, Ship decides whether it is still useful before sending anything.
 
