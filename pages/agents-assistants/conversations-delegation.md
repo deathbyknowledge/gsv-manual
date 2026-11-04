@@ -55,7 +55,7 @@ Acknowledge substantial work promptly with Send, then continue. Simple lookups a
 proc delegate --as ACCOUNT --label research --check-after 10m "Find the answer and return the evidence."
 ```
 
-The handed-off task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. An answer too long to hand over inline arrives as an attached `answer.md` in the caller's home, which the caller reads like any other attachment. The caller evaluates that result and then sends a useful answer or yields quietly.
+The handed-off task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. Files the helper attaches with `message attach` come back with its answer, copied into the caller's home. An answer too long to hand over inline arrives the same way, as `answer.md`. The caller reads them like any other attachment. The caller evaluates that result and then sends a useful answer or yields quietly.
 
 At each `--check-after` checkpoint (default 10 minutes), the caller is told the helper is still running and can intervene. `--timeout` is an alias for `--check-after`.
 
