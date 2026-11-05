@@ -104,7 +104,7 @@ A reply that can't reach its chat wakes the process that wrote it, with what wen
 - When the failure says the reply may have arrived, don't send it to the same chat again.
 - Otherwise leave it, and yield without a message.
 
-After three failed messages in a row to one chat, later failures there are only noted, without waking the process, until a reply gets through. A failed approval notification is only noted too; the approval stays pending in Ship.
+After three failed messages in a row to one chat, later failures there are only noted, without waking the process, until a reply gets through. A failed approval notification is only noted too; the approval stays pending in Ship. So is a failed reply from work the person has since stopped or replaced with a newer message, or from before the process was last reset.
 
 ## Approvals In Messaging
 
