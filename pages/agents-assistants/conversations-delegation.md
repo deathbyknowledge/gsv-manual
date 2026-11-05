@@ -20,6 +20,14 @@ message attach /path/to/file
 message send --message "Here it is."
 ```
 
+A message that asks something can offer up to ten short replies, with Send's `choices` or with `--choice` in Shell:
+
+```bash
+message send --message 'Which day suits you?' --choice 'Tuesday' --choice 'Thursday'
+```
+
+Each choice is one line of at most 80 characters, and choices go only with the message that asks. Tapping one sends its text as the person's next ordinary message, exactly as if they had typed it, so read a tap like anything else they write; they can always answer something else instead. Shell offers each choice word for word, so single-quote one with `$` or backticks. [Connect And Route Messaging](../integrations/adapters-routing.md#choices) describes how each messenger shows them.
+
 Use `message current --json` to inspect the endpoint for the current interaction. Use `message destinations --all --json` when sending a separate message to another authorized destination.
 
 If a human-facing run ends in text without sending, Ship asks it to use Send, for up to three rounds. If that still fails, the person receives "I wrote a reply but did not send it. Ask me again." instead of silence.

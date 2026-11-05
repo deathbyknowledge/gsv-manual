@@ -52,7 +52,7 @@ When Ship is handling a request, its compact work surface is eight tools: Read, 
 - Use Read, Write, Edit, Delete, and Search for direct file work and web search.
 - Use Shell for commands and the native command families above.
 - Use CodeMode when one operation must coordinate several typed calls or integrations.
-- Use Send to reply. Text alone sends and keeps working; text with `yield` sends and finishes the run; `yield` alone finishes quietly. Send is the run control and the only one of the eight that is not a capability.
+- Use Send to reply. Text alone sends and keeps working; text with `yield` sends and finishes the run; `yield` alone finishes quietly. A message that asks something can offer `choices`, up to ten short replies the person can tap. Send is the run control and the only one of the eight that is not a capability.
 
 Every capability tool also takes an optional `purpose`: one sentence written for the person, saying why the call is being made. It is shown in an approval prompt and recorded in Logs, and it never reaches the underlying command.
 
