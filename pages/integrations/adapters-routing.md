@@ -96,6 +96,16 @@ Ship remembers where the person last sent a message, including across follow-ups
 
 All signed-in clients share Ship's committed history. Only the selected destination notifies, and a retry keeps the destination chosen for that message. Messenger delivery still obeys the provider's rules, including WhatsApp's reply window.
 
+## When A Reply Doesn't Arrive
+
+A reply that can't reach its chat wakes the process that wrote it, with what went wrong: the messenger refused it, it may already have arrived, or it still failed after two quick retries. The message stays in the Ship conversation either way. Decide whether the person still needs it now:
+
+- To reach them elsewhere, list destinations with `message destinations --all --json` and send there with `message send --to DESTINATION --message "…" --also`.
+- When the failure says the reply may have arrived, don't send it to the same chat again.
+- Otherwise leave it, and yield without a message.
+
+After three failed messages in a row to one chat, later failures there are only noted, without waking the process, until a reply gets through. A failed approval notification is only noted too; the approval stays pending in Ship.
+
 ## Approvals In Messaging
 
 An approval applies only to its exact request token and authorized sender. Bare approval text, stale tokens, and answers from another surface leave the operation unauthorized.
