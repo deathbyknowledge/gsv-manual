@@ -63,7 +63,7 @@ Acknowledge substantial work promptly with Send, then continue. Simple lookups a
 proc delegate --as ACCOUNT --label research --check-after 10m "Find the answer and return the evidence."
 ```
 
-The handed-off task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. The caller evaluates that result and then sends a useful answer or yields quietly.
+The handed-off task gets its own activity. Its ordinary final answer returns directly to the caller; it does not need to send a human message. Files the helper attaches with `message attach` come back with its answer, copied into the caller's home. An answer too long to hand over inline arrives the same way, as `answer.md`. The caller reads them like any other attachment. The caller evaluates that result and then sends a useful answer or yields quietly.
 
 At each `--check-after` checkpoint (default 10 minutes), the caller is told the helper is still running and can intervene. `--timeout` is an alias for `--check-after`.
 
@@ -82,7 +82,7 @@ Use `proc --help` for the full current syntax.
 
 ## New Input, Queues, And Late Results
 
-Ship and each helper have one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the next model context of Ship or the active helper, so it can adjust the work already in progress. Routines and other requests that need their own run remain queued in order.
+Ship and each helper have one provider request in flight at a time. New direct human input may supersede an active direct turn. Results from other work are recorded as soon as they arrive and enter the next model context of Ship or the active helper, so it can adjust the work already in progress. A helper's result for a run that has already ended waits instead, and takes a run of its own once the current one finishes. Routines and other requests that need their own run remain queued in order.
 
 Only the active run can modify its state. If an older result arrives after the conversation has moved on, Ship decides whether it is still useful before sending anything.
 
