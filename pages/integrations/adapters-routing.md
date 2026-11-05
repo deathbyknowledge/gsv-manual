@@ -75,6 +75,19 @@ message send --to DESTINATION --message "Here it is" --attach /path/to/file --al
 
 This works on every messaging path when the selected messenger supports that media type. Attaching a document from a connected computer needs that computer's daemon to be current; older daemons can attach only images.
 
+## Choices
+
+A message that asks something can offer [choices](../agents-assistants/conversations-delegation.md#what-becomes-a-message), and each surface shows them its own way:
+
+| Surface | Choices appear as |
+| --- | --- |
+| Ship app | Buttons under Ship's latest message, until anyone writes again. |
+| WhatsApp | Up to three of at most 20 characters: reply buttons. Up to ten of at most 24: a list behind **Choose one**. Longer choices, choices beside an attachment or a link button, and messages outside the 24-hour window: a numbered list. |
+| Telegram | A reply keyboard in place of the person's keyboard, until Ship's next text message removes it. Beside an attachment or a link button: a numbered list. |
+| Discord and Slack | A numbered list under the message. |
+
+A tap arrives as an ordinary message with the choice's text. Under a numbered list the person may answer with the number, so read a reply such as "2" against the choices offered. Choices of a few words fit WhatsApp's buttons. WhatsApp cannot withdraw buttons, so a tap on an earlier message's button can still arrive later, as a reply to the question it answers.
+
 ## Delivery And Retries
 
 Ship gives each logical inbound and outbound delivery a stable identity. Each destination receives exactly one correlated send request; Ship owns the durable retry, and the messenger owns provider presentation and idempotency. When provider acceptance is uncertain, the delivery remains ambiguous under the same identity for status checks or a safe retry. Inspect one with `message delivery show <delivery-id>`.
