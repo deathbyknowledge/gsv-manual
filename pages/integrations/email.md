@@ -57,8 +57,11 @@ handles messages; an invitation email does not authorize automatic acceptance.
 ## Check Delivery
 
 ```bash
+mail sent
 mail status <delivery-id>
 ```
+
+`mail sent` lists what Ship sent, newest first, one message per line with its delivery id, state, recipients and subject; use it to answer whether Ship already emailed someone. `mail status` shows one delivery in full, including the path of the message as written.
 
 `queued` means Ship owns the send, not that it was delivered. `accepted` means the mail service took the message for delivery. `failed` means nothing was sent, and the error code says why:
 
