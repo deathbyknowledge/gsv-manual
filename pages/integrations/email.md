@@ -35,13 +35,16 @@ Each new message creates a `mail.received` responsibility for Ship, titled with 
 
 ```bash
 mail send --to person@example.com --subject "Subject" --message "Body in **Markdown**"
-mail send --to person@example.com --subject "Subject" --body /path/to/body.md
+mail send --to anna@example.com,mike@example.com --cc bob@example.com --subject "Subject" --body /path/to/body.md
 mail reply <message-id> --message "Reply text"
+mail reply <message-id> --all --message "Reply to everyone"
 ```
 
-Sending supports one recipient. Write the body in Markdown, as in chat: the recipient sees it formatted, and mail apps that prefer plain text get a copy without the marks. HTML in the body shows as text, and an image becomes a link. The message goes out from Ship's own address under the owner's display name; the sender cannot be changed. A reply quotes the original below it, so do not paste the original into the reply. The operator may add a short line under every message, such as "Sent from my Ship". `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
+A message reaches at most 10 people across `--to` and `--cc`; repeat either flag or separate addresses with commas. Each recipient counts toward the day's sending allowance. `mail reply --all` also copies everyone else the original was sent to, without Ship's own address; add `--cc` to copy someone new. Use `--all` when the reply concerns everyone on the thread, as a person would; when unsure, ask the owner. There is no BCC.
 
-`mail.send` asks the owner for approval by default, from Shell and CodeMode alike; see [Models and approvals](../settings/ai-voice-approvals.md).
+Write the body in Markdown, as in chat: the recipient sees it formatted, and mail apps that prefer plain text get a copy without the marks. HTML in the body shows as text, and an image becomes a link. The message goes out from Ship's own address under the owner's display name; the sender cannot be changed. A reply quotes the original below it, so do not paste the original into the reply. The operator may add a short line under every message, such as "Sent from my Ship". `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
+
+`mail.send` asks the owner for approval by default, from Shell and CodeMode alike, and the approval names everyone who will get the message; see [Models and approvals](../settings/ai-voice-approvals.md).
 
 To invite a known Ship handle when asked, [create a private contact invitation](contacts.md#pair-with-someone)
 and send its URL with `mail send`. No existing Contact or published profile is
