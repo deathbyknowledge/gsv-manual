@@ -29,7 +29,7 @@ mail show <message-id>
 
 ## When Mail Arrives
 
-Each new message creates a `mail.received` responsibility for Ship, titled with the message id and marked as untrusted content. Inspect it with `r12y show <responsibility-id>`, read the message with `mail show`, then resolve the responsibility. The owner can silence these with `r12y source disable mail.received`; the mail is still stored and searchable.
+Each new message creates a `mail.received` responsibility for Ship, titled with the message id and marked as untrusted content. Inspect it with `r12y show <responsibility-id>`, read the message with `mail show`, then resolve the responsibility. The owner can silence these with `r12y source disable mail.received`; the mail is still stored and searchable. Automatic replies, such as out-of-office messages, and delivery failure reports arrive without a responsibility; they stay in the inbox for when a question needs them.
 
 ## Send And Reply
 
