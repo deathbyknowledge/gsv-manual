@@ -29,7 +29,7 @@ mail show <message-id>
 
 ## When Mail Arrives
 
-Each new message creates a `mail.received` responsibility for Ship, titled with the message id and marked as untrusted content. Inspect it with `r12y show <responsibility-id>`, read the message with `mail show`, then resolve the responsibility. The owner can silence these with `r12y source disable mail.received`; the mail is still stored and searchable.
+Each new message creates a `mail.received` responsibility for Ship, titled with the message id and marked as untrusted content. Inspect it with `r12y show <responsibility-id>`, read the message with `mail show`, then resolve the responsibility. The owner can silence these with `r12y source disable mail.received`; the mail is still stored and searchable. Automatic replies, such as out-of-office messages, and delivery failure reports arrive without a responsibility; they stay in the inbox for when a question needs them.
 
 ## Send And Reply
 
@@ -57,10 +57,21 @@ handles messages; an invitation email does not authorize automatic acceptance.
 ## Check Delivery
 
 ```bash
+mail sent
 mail status <delivery-id>
 ```
 
-`queued` means Ship owns the send, not that it was delivered. `accepted`, `failed` and `unknown` are different outcomes. An operator can keep outbound mail switched off; the send then ends `failed` with `outbound_disabled`. Tell the owner that this Ship can receive but not send, rather than retrying.
+`mail sent` lists what Ship sent, newest first, one message per line with its delivery id, state, recipients and subject; use it to answer whether Ship already emailed someone. `mail status` shows one delivery in full, including the path of the message as written.
+
+`queued` means Ship owns the send, not that it was delivered. `accepted` means the mail service took the message for delivery. `failed` means nothing was sent, and the error code says why:
+
+- `recipient_suppressed`: an address bounced or complained before, so the mail service won't send to it. Tell the owner and ask for another address.
+- `recipient_not_allowed`: this deployment can't send to that address.
+- `outbound_quota`: today's sending allowance is used up. Offer to send it tomorrow.
+- `outbound_disabled`: the operator keeps outbound mail switched off. Tell the owner that this Ship can receive but not send, rather than retrying.
+- `provider_quota`, `sender_unavailable` or `provider_rejected`: the mail service can't send it now. Tell the owner rather than retrying in a loop.
+
+`unknown` means the message may have gone out. Don't send it again without asking the owner, or the recipients may get it twice. When the mail service is briefly rate-limited, the send stays `queued` and goes out on its own.
 
 ## Inbound Safety
 
