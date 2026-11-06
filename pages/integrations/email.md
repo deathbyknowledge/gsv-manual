@@ -34,12 +34,12 @@ Each new message creates a `mail.received` responsibility for Ship, titled with 
 ## Send And Reply
 
 ```bash
-mail send --to person@example.com --subject "Subject" --message "Plain-text body"
-mail send --to person@example.com --subject "Subject" --body /path/to/body.txt
+mail send --to person@example.com --subject "Subject" --message "Body in **Markdown**"
+mail send --to person@example.com --subject "Subject" --body /path/to/body.md
 mail reply <message-id> --message "Reply text"
 ```
 
-Sending supports one recipient and plain text. The message goes out from Ship's own address; the sender cannot be changed. `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
+Sending supports one recipient. Write the body in Markdown, as in chat: the recipient sees it formatted, and mail apps that prefer plain text get a copy without the marks. HTML in the body shows as text, and an image becomes a link. The message goes out from Ship's own address under the owner's display name; the sender cannot be changed. A reply quotes the original below it, so do not paste the original into the reply. The operator may add a short line under every message, such as "Sent from my Ship". `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
 
 `mail.send` asks the owner for approval by default, from Shell and CodeMode alike; see [Models and approvals](../settings/ai-voice-approvals.md).
 
