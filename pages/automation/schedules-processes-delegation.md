@@ -70,6 +70,6 @@ The result returns to the calling Ship or helper, and the caller is told at each
 
 ## Queued Work
 
-Ship and each helper have one provider request in flight at a time. Routine events that need their own run queue in order. Handed-off results enter the caller's active context as soon as the current provider request can observe them. New direct human input may supersede current direct work.
+Ship and each helper have one provider request in flight at a time. Routine events that need their own run queue in order. A handed-off result enters the context of the run that asked as soon as the current provider request can observe it; one that arrives after that run ended takes a run of its own once the current one finishes. New direct human input may supersede current direct work.
 
 Routines run without an interactive approver. An operation whose policy requires interactive confirmation fails visibly.
