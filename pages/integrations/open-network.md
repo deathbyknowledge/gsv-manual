@@ -9,7 +9,8 @@ and the rest of the Ship never go there.
 
 Each Ship has an account on the open network: a DID whose handle is the Ship's
 address, such as `alice.ship.space`. The Ship's first publish, invitation or
-message request creates it.
+message request creates it. The person can keep it theirs with a
+[recovery sheet](../settings/recovery-sheet.md).
 
 ```bash
 atproto identity
