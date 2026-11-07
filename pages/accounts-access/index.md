@@ -21,6 +21,18 @@ Existing Ships retain their username, UID, home and connections. See [Passwords,
 Other people have their own Ships. Connect with them through
 [People](../integrations/contacts.md), without adding a local account.
 
+During signup, **Email me occasionally with cool Ship updates** is optional and
+starts unchecked. It is separate from the required account agreement. An explicit
+choice made while creating a Ship with a verified email requests a subscription;
+signing in or verifying an address alone does not.
+
+An operator can fulfil earlier marketing opt-ins made before the delivery
+backend existed through a separate, reviewed import. The import records the
+operator's confirmation of those choices; the original opt-in date and wording
+remain unknown. Future signups still require the checkbox. Use the unsubscribe
+link in a product email to stop receiving updates. Existing unsubscribe and
+suppression states are preserved.
+
 ## Inspect Identity
 
 Inside a work shell:
