@@ -50,6 +50,16 @@ sched remove <id>
 
 A routine remains attached to Ship or the helper it was created from. After that one is killed, recreate the routine for its replacement or remove it.
 
+## The Hourly Journal
+
+The journal is a Ship routine named `Journal` that wakes Ship every hour while the person is usually awake. At each check-in Ship records what happened since the previous one in the person's journal, `pages/journal/YYYY/MM/YYYY-MM-DD.md` in the `personal` wiki, and decides whether the person would want anything done now. Usually the answer is nothing. The built-in `journal` skill has the steps, the entry format and the command that turns it on:
+
+```bash
+sched add --ship --name Journal --cron "0 7-23 * * *" --message "Journal check-in. Use the journal skill."
+```
+
+From a terminal, the person can run `gsv journal on`, `gsv journal off`, and `gsv journal` to see a day as a strip of check-ins. Removing the routine stops the check-ins; the journal stays in the wiki.
+
 ## Recurring Shell Commands
 
 Use `crontab` for a recurring shell command. It runs unattended, so every operation must already be authorized.
