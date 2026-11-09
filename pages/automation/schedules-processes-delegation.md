@@ -58,7 +58,7 @@ The journal is a Ship routine named `Journal` that wakes Ship every hour while t
 sched add --ship --name Journal --cron "0 7-23 * * *" --message "Journal check-in. Use the journal skill."
 ```
 
-From a terminal, the person can run `gsv journal on`, `gsv journal off`, and `gsv journal` to see a day as a strip of check-ins. Removing the routine stops the check-ins; the journal stays in the wiki.
+From a terminal, the person can run `gsv journal on`, `gsv journal now` (check in straight away), `gsv journal off`, and `gsv journal` to see a day as a strip of check-ins. Removing the routine stops the check-ins; the journal stays in the wiki.
 
 ## Recurring Shell Commands
 
