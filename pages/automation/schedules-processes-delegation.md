@@ -50,15 +50,15 @@ sched remove <id>
 
 A routine remains attached to Ship or the helper it was created from. After that one is killed, recreate the routine for its replacement or remove it.
 
-## The Hourly Journal
+## The Hourly Clock
 
-The journal is a Ship routine named `Journal` that wakes Ship every hour while the person is usually awake. At each check-in Ship records what happened since the previous one in the person's journal, `pages/journal/YYYY/MM/YYYY-MM-DD.md` in the `personal` wiki, and decides whether the person would want anything done now. Usually the answer is nothing. The built-in `journal` skill has the steps, the entry format and the command that turns it on:
+The clock is a Ship routine named `Clock` that wakes Ship every hour while the person is usually awake. At each tick Ship looks at what happened since the previous one and decides whether the person would want anything done now. Usually the answer is nothing, and the tick ends silently. Messages, mail and events still wake Ship as they happen; the clock only makes sure it never goes more than an hour without looking. The built-in `check-in` skill has the steps and the command that turns it on:
 
 ```bash
-sched add --ship --name Journal --cron "0 7-23 * * *" --message "Journal check-in. Use the journal skill."
+sched add --ship --name Clock --cron "0 7-23 * * *" --message "Clock tick. Use the check-in skill."
 ```
 
-From a terminal, the person can run `gsv journal on`, `gsv journal now` (check in straight away), `gsv journal off`, and `gsv journal` to see a day as a strip of check-ins. Removing the routine stops the check-ins; the journal stays in the wiki.
+From a terminal, the person can run `gsv clock on`, `gsv clock now` (tick straight away), `gsv clock off`, and `gsv clock` to see whether it is on and how the last tick went.
 
 ## Recurring Shell Commands
 
