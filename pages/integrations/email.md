@@ -65,11 +65,13 @@ mail status <delivery-id>
 
 `queued` means Ship owns the send, not that it was delivered. `accepted` means the mail service took the message for delivery. `failed` means nothing was sent, and the error code says why:
 
-- `recipient_suppressed`: an address bounced or complained before, so the mail service won't send to it. Tell the owner and ask for another address.
-- `recipient_not_allowed`: this deployment can't send to that address.
+- `provider_rejected`: the mail service refused the message, as it does when an address bounced or complained before. Tell the owner and ask for another address, rather than retrying.
+- `recipient_suppressed`: every address bounced or complained before, so the mail service sent it to nobody. Tell the owner and ask for another address.
+- `recipient_rejected`: every recipient's mail server refused it. Check the addresses with the owner.
 - `outbound_quota`: today's sending allowance is used up. Offer to send it tomorrow.
 - `outbound_disabled`: the operator keeps outbound mail switched off. Tell the owner that this Ship can receive but not send, rather than retrying.
-- `provider_quota`, `sender_unavailable` or `provider_rejected`: the mail service can't send it now. Tell the owner rather than retrying in a loop.
+- `sender_unavailable`: this deployment can't send now. Tell the owner rather than retrying in a loop.
+- `invalid_draft`: the mail service couldn't send the message as written. Tell the owner rather than sending it again.
 
 `unknown` means the message may have gone out. Don't send it again without asking the owner, or the recipients may get it twice. When the mail service is briefly rate-limited, the send stays `queued` and goes out on its own.
 
