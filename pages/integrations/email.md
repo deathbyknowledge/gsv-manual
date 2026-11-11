@@ -44,7 +44,7 @@ A message reaches at most 10 people across `--to` and `--cc`; repeat either flag
 
 Write the body in Markdown, as in chat: the recipient sees it formatted, and mail apps that prefer plain text get a copy without the marks. HTML in the body shows as text, and an image becomes a link. The message goes out from Ship's own address under the owner's display name; the sender cannot be changed. A reply quotes the original below it, so do not paste the original into the reply. The operator may add a short line under every message, such as "Sent from my Ship". `mail reply` uses the stored envelope of the selected message, so inspect it before replying when the sender or thread is ambiguous. Pass `--delivery-id` when a caller needs an idempotent logical send.
 
-`mail.send` asks the owner for approval by default, from Shell and CodeMode alike, and the approval names everyone who will get the message; see [Models and approvals](../settings/ai-voice-approvals.md).
+`mail.send` asks the owner for approval by default, from Shell and CodeMode alike, and the approval names everyone who will get the message, and the event when it carries an invite; see [Models and approvals](../settings/ai-voice-approvals.md).
 
 To invite a known Ship handle when asked, [create a private contact invitation](contacts.md#pair-with-someone)
 and send its URL with `mail send`. No existing Contact or published profile is
@@ -53,6 +53,19 @@ operators, use a known mailbox address or mail domain. Email delivery and contac
 acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list --all`
 respectively. The recipient chooses whether to accept and how their own Ship
 handles messages; an invitation email does not authorize automatic acceptance.
+
+## Send A Calendar Invite
+
+`cal` writes an event as a calendar file, and `mail send --invite` emails it as an invitation that the guest's mail app offers to add to their calendar:
+
+```bash
+cal add --title "Dinner" --start "2026-11-27 21:15" --duration 2h --location "Casa Lucio" --attendee anna@example.com --out ~/events/dinner.ics
+mail send --invite ~/events/dinner.ics --subject "Dinner on Friday" --message "Here is the invite."
+```
+
+`cal` reads times in the owner's time zone unless `--timezone` names another, and each guest's calendar shows them in its own. A date such as `2026-12-01` makes an all-day event. Repeat `--attendee` for each guest. The message goes to exactly the event's guests, so leave out `--to`. Ship's own address organizes the event, so the guests' answers arrive in the inbox as email.
+
+To move the event, run `cal update ~/events/dinner.ics --start "2026-11-27 21:45"` and send the file again; `--attendee` on `cal update` replaces the guest list. To call it off, run `cal cancel ~/events/dinner.ics` and send that. A calendar that already has the event replaces it, because the file keeps the event's id, so keep the file while the event may still change. Only the event's organizer can change it. `cal show` reads any calendar file, such as one sent in chat; `cal` doesn't write repeating events.
 
 ## Check Delivery
 
