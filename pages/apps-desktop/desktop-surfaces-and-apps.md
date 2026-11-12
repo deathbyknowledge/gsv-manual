@@ -122,12 +122,18 @@ itself stays fixed. The star field retains its full-screen background.
 
 ## People
 
-Open **People** (`p`) to connect with someone on another Ship. **connect**
-creates an invitation link; **I have an invitation** accepts a link or code.
-Handles are another way to send a first message. Incoming
-requests wait for an explicit acceptance, which opens the conversation.
-Inviting and accepting ask each person to choose who handles new messages on
-their own side, with neither option preselected.
+Open **People** (`p`) to talk with people on other Ships. It opens **Recent**,
+your conversations newest first, loading older ones as you scroll. The search icon
+beside the heading searches all of People, whichever list it opens from, and looks
+up a public profile when nothing local matches. The icons at the bottom open
+**archived**, **contacts** (with **Blocked people** below them), **requests** and
+**add contact**. **Add a contact** finds someone by handle and starts a message
+request; **Don’t have a Ship? Invite them to connect.** creates an invitation link,
+and **I have an invitation** accepts a link or code. Incoming requests wait for
+an explicit acceptance, which opens the conversation. Inviting and accepting ask
+each person to choose who handles new messages on their own side, with neither
+option preselected. A conversation with someone you never saved is marked
+**not a contact**; hover over, focus or tap it to add them.
 
 People uses the same growing prompt as Chat. Its **+** opens the attachment file
 picker, and **send** appears beside the prompt when there is something to send.
