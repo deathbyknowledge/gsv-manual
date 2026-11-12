@@ -68,15 +68,27 @@ instance get --request-id REQUEST_ID
 instance list
 ```
 
-A fresh ID requests a separate computer. The fixed expiry is not extended by
-work or retries. Browser profiles and `--new` do not apply to computers.
+A fresh ID requests a separate computer. Retrying does not extend its lifetime;
+use does. Browser profiles and `--new` do not apply to computers.
+
+## How Long It Stays Up
+
+A computer stays up while it is in use. Each command, and each detached command
+still running within its own timeout, keeps it up for 30 more minutes, up to its
+maximum lifetime and the remaining monthly allowance. `instance get TARGET_ID`
+shows the current `expiresAt`.
+
+A computer costs money for every second it runs, used or not. Stop it as soon as
+its work is done and the files the user needs are saved on `gsv`. Do not keep it
+running for later; start a new one when new work needs it.
 
 ## Save And Deliver The Result
 
 Keep files the user needs in their home on `gsv`. Preserve scripts or source
 needed for later edits there too; a [GSV repository](../files-knowledge/repositories.md)
 is useful for reusable projects. Files and installed software on the computer
-are temporary: stop, expiry, or loss destroys them.
+are temporary: stopping or losing the computer destroys them. Expiry saves
+`/workspace` for a week, but only as a way to recover cut-off work.
 
 Copy input and output files using `cp` on `gsv`. Replace `OWNER` with the human
 owner's account and `TARGET_ID` with the computer's connection ID:
@@ -94,8 +106,9 @@ preserve binary bytes, including spreadsheets, PDFs, and images.
 
 Check the result before delivering it. Give the useful answer in the message,
 use a visual when it explains the result better, and attach the usable files
-when they are the deliverable. Keep working notes in GSV. Stop the computer when
-its work is finished and needed files are saved; run on `gsv`:
+when they are the deliverable. Keep working notes in GSV. Stop the computer as
+soon as its work is finished and needed files are saved, because it costs money
+while it runs. Run on `gsv`:
 
 ```bash
 instance stop TARGET_ID --wait
@@ -122,8 +135,9 @@ return await shell("python3 analyze.py", {
 });
 ```
 
-This uses `shell.exec` with `start: true`. Set a timeout within the remaining
-computer lifetime; new commands otherwise default to two minutes. Poll with
+This uses `shell.exec` with `start: true`. Until it ends or its timeout passes,
+the command keeps the computer up, within its maximum lifetime. New commands
+otherwise time out after two minutes. Poll with
 `shell("", { target, sessionId })`, omitting `start`. Do not replay a start or
 uncertain stdin to recover a lost response.
 
@@ -133,6 +147,24 @@ tree, then poll for its terminal result. Stopping the computer ends all commands
 If the computer is lost, recover explicitly on a new one from saved files;
 there is no automatic restore or replay.
 
+## Continue After Expiry
+
+When a computer's lifetime expires, it saves `/workspace` before it stops and
+keeps the save for 7 days. `instance get OLD_TARGET_ID` shows
+`workspace.saveStatus`: `saving`, then `saved` or `failed`. To continue the work,
+start a new computer from the save:
+
+```bash
+instance start computer --request-id REQUEST_ID --from OLD_TARGET_ID --wait
+```
+
+The new computer is ready once `/workspace` is restored, and its
+`restore.status` reads `restored`. Installed packages and running commands are
+not saved: reinstall what the work needs and start commands again. If the
+restore fails, the start fails; recover from the files saved on `gsv` instead.
+Stopping a computer saves nothing, so copy needed files to `gsv` before
+stopping it.
+
 ## Permissions And Usage
 
 Default permissions allow Ship's shell, filesystem, and network work on cloud
@@ -141,6 +173,6 @@ custom policies still apply. Your connected computers have separate approval
 rules. Computers belong to their initiating human account and Ship.
 
 Computer concurrency and monthly seconds are separate from browser limits.
-Starting reserves the requested lifetime. Usage runs from readiness until stop
-or expiry; unused reservation is released after termination is confirmed. Check
+Starting reserves the requested lifetime, and each extension reserves the time
+it adds. Usage runs from readiness until stop or expiry; unused reservation is released after termination is confirmed. Check
 the catalog and instance state when admission fails.
