@@ -65,7 +65,20 @@ mail send --invite ~/events/dinner.ics --subject "Dinner on Friday" --message "H
 
 `cal` reads times in the owner's time zone unless `--timezone` names another, and each guest's calendar shows them in its own. A date such as `2026-12-01` makes an all-day event. Repeat `--attendee` for each guest. The message goes to exactly the event's guests, so leave out `--to`. Ship's own address organizes the event, so the guests' answers arrive in the inbox as email.
 
-To move the event, run `cal update ~/events/dinner.ics --start "2026-11-27 21:45"` and send the file again; `--attendee` on `cal update` replaces the guest list. To call it off, run `cal cancel ~/events/dinner.ics` and send that. A calendar that already has the event replaces it, because the file keeps the event's id, so keep the file while the event may still change. Only the event's organizer can change it. `cal show` reads any calendar file, such as one sent in chat; `cal` doesn't write repeating events.
+To move the event, run `cal update ~/events/dinner.ics --start "2026-11-27 21:45"` and send the file again; `--attendee` on `cal update` replaces the guest list. To call it off, run `cal cancel ~/events/dinner.ics` and send that. A calendar that already has the event replaces it, because the file keeps the event's id, so keep the file while the event may still change. Only the event's organizer can change it. `cal show` reads any calendar file, such as one sent in chat, and lists a repeating event's next dates.
+
+### Repeating Events
+
+`--repeat` takes the rule calendar apps use (an RRULE): `FREQ=DAILY`, `WEEKLY`, `MONTHLY` or `YEARLY`, `INTERVAL=2` for every other one, `BYDAY=MO,WE` for weekdays, `BYMONTHDAY=15` or `BYDAY=-1FR` for a day of the month or its last Friday, and `COUNT=10` or `UNTIL=2027-06-28` to end it:
+
+```bash
+cal add --title "Team sync" --start "2026-11-30 09:00" --duration 30m --repeat "FREQ=WEEKLY;UNTIL=2027-06-28" --attendee anna@example.com --out ~/events/sync.ics
+cal cancel ~/events/sync.ics --occurrence 2026-12-28
+cal update ~/events/sync.ics --occurrence 2027-01-04 --start "2027-01-05 10:00"
+mail send --invite ~/events/sync.ics --subject "Team sync" --message "The sync moves to Tuesday that week."
+```
+
+`--occurrence` names one date of the series: `cal cancel --occurrence` skips it, and `cal update --occurrence` moves or changes that date alone. Without `--occurrence`, an update or cancel applies to every date. A repeating event keeps its clock time in its own time zone, so a 09:00 meeting stays at 09:00 across daylight saving changes. When the whole series moves, each skipped or moved date follows its day, and `cal` says which ones the new rule drops. The file always holds the whole series, so send it again after each change; the approval names the rule, the skipped dates and the moved ones. When the series keeps another time zone than the owner's, the approval shows its times in that zone and names it, since the rule counts days there. To end a series early, update its rule with an `UNTIL`.
 
 ## Check Delivery
 
