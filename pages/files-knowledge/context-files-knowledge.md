@@ -7,7 +7,7 @@ These mechanisms answer different questions:
 | Need | Put it here |
 | --- | --- |
 | “This fact may matter again; retrieve it when relevant.” | personal wiki |
-| “What did we say about this before?” | the conversation: `message search`, then `message history` |
+| “What did we say about this before?” | the conversation, for Ship: `message search`, then `message history` |
 | “This preference must affect nearly every request.” | Instructions |
 | “This unfinished outcome needs follow-through.” | responsibility ledger (`r12y`) |
 | “Use these instructions whenever doing this kind of task.” | a skill |
@@ -55,7 +55,7 @@ messenger or the CLI. Follow their message and language, then continue the
 onboarding instructions. After greeting, mark the responsibility as waiting
 for their reply and yield.
 
-Instructions contain broadly applicable facts and guidance. Journals, detailed knowledge and tool instructions belong in the personal wiki or a skill and are retrieved when needed. Everything said stays in the conversation, which `message search` finds however old; write what will matter again to the wiki.
+Instructions contain broadly applicable facts and guidance. Journals, detailed knowledge and tool instructions belong in the personal wiki or a skill and are retrieved when needed. Everything said to Ship stays in the conversation, which Ship searches with `message search`; messages from before search existed are found by paging `message history`. Helpers can't read it. Write what will matter again to the wiki.
 
 ## Continuing Across Context Windows
 
