@@ -18,7 +18,7 @@ Anything the owner would otherwise give their personal address and get noise bac
 
 ## Connect The Owner's Own Mail
 
-The owner can forward some or all of their own mail to Ship's address, so Ship reads it without ever sending as them. Run `skills show forward-mail` for the setup: it asks which addresses they use, since people often have several, and records them beside Ship's own so the two are never mixed up; agrees what Ship does with mail, such as a short note about everything, only what matters with a digest of the rest, or unsubscribing from newsletters; and walks through forwarding in Gmail, Outlook or iCloud. In Gmail, the forwarding confirmation code arrives in Ship's inbox, and **mark Gmail's copy as read** keeps the owner from being notified twice.
+The owner can forward some or all of their own mail to Ship's address, so Ship reads it without ever sending as them. Run `skills show connect-email` for the setup: it asks which addresses they use, since people often have several, and records them beside Ship's own so the two are never mixed up; agrees what Ship does with mail, such as a short note about everything, only what matters with a digest of the rest, or unsubscribing from newsletters; and walks through forwarding in Gmail, Outlook or iCloud. In Gmail, the forwarding confirmation code arrives in Ship's inbox, and **mark Gmail's copy as read** keeps the owner from being notified twice.
 
 Forwarded mail keeps its original sender and is addressed to the owner, which tells it apart from mail sent to Ship directly. Ship drafts replies to it for the owner to send from their own mailbox.
 
