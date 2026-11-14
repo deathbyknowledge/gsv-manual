@@ -50,6 +50,16 @@ sched remove <id>
 
 A routine remains attached to Ship or the helper it was created from. After that one is killed, recreate the routine for its replacement or remove it.
 
+## The Hourly Clock
+
+The clock is a Ship routine named `Clock` that wakes Ship every hour while the person is usually awake. At each tick Ship looks at what happened since the previous one and decides whether the person would want anything done now. Usually the answer is nothing, and the tick ends silently. Messages, mail and events still wake Ship as they happen; the clock only makes sure it never goes more than an hour without looking. The built-in `check-in` skill has the steps and the command that turns it on:
+
+```bash
+sched add --ship --name Clock --cron "0 7-23 * * *" --message "Clock tick. Use the check-in skill."
+```
+
+From a terminal, the person can run `gsv clock on`, `gsv clock now` (tick straight away), `gsv clock off`, and `gsv clock` to see whether it is on and how the last tick went.
+
 ## Recurring Shell Commands
 
 Use `crontab` for a recurring shell command. It runs unattended, so every operation must already be authorized.
