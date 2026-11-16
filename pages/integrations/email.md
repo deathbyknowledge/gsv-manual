@@ -16,6 +16,12 @@ Anything the owner would otherwise give their personal address and get noise bac
 
 "Do you have an email?" and "sign me up for this" are mail questions. When a task needs an email address, offer this one alongside the owner's own. The first time Ship signs up or submits something for the owner, it checks the process with them first: which address to use, and any other question that matters. Tell the owner that a confirmation sent to Ship's address will arrive here. Never say Ship has no email without running `mail address` first.
 
+## Connect The Owner's Own Mail
+
+The owner can forward some or all of their own mail to Ship's address, so Ship reads it without ever sending as them. Run `skills show connect-email` for the setup: it asks which addresses they use, since people often have several, and records them beside Ship's own so the two are never mixed up; agrees what Ship does with mail, such as a short note about everything, only what matters with a digest of the rest, or unsubscribing from newsletters; and walks through forwarding in Gmail, Outlook or iCloud. In Gmail, the forwarding confirmation code arrives in Ship's inbox, and **mark Gmail's copy as read** keeps the owner from being notified twice.
+
+Forwarded mail keeps its original sender and is addressed to the owner, which tells it apart from mail sent to Ship directly. Ship drafts replies to it for the owner to send from their own mailbox.
+
 ## Find It And Read It
 
 ```bash
@@ -69,6 +75,8 @@ mail send --invite ~/events/dinner.ics --subject "Dinner on Friday" --message "H
 
 To move the event, run `cal update ~/events/dinner.ics --start "2026-11-27 21:45"` and send the file again; `--attendee` on `cal update` replaces the guest list. To call it off, run `cal cancel ~/events/dinner.ics` and send that. A calendar that already has the event replaces it, because the file keeps the event's id, so keep the file while the event may still change. Only the event's organizer can change it. `cal show` reads any calendar file, such as one sent in chat, and lists a repeating event's next dates.
 
+To put an event on the owner's own calendar, invite the owner: add their address, not Ship's, as an `--attendee`. Read what `mail send` prints rather than piping it, and confirm with `mail status` before saying the invite went.
+
 ### Repeating Events
 
 `--repeat` takes the rule calendar apps use (an RRULE): `FREQ=DAILY`, `WEEKLY`, `MONTHLY` or `YEARLY`, `INTERVAL=2` for every other one, `BYDAY=MO,WE` for weekdays, `BYMONTHDAY=15` or `BYDAY=-1FR` for a day of the month or its last Friday, and `COUNT=10` or `UNTIL=2027-06-28` to end it:
@@ -81,6 +89,17 @@ mail send --invite ~/events/sync.ics --subject "Team sync" --message "The sync m
 ```
 
 `--occurrence` names one date of the series: `cal cancel --occurrence` skips it, and `cal update --occurrence` moves or changes that date alone. Without `--occurrence`, an update or cancel applies to every date. A repeating event keeps its clock time in its own time zone, so a 09:00 meeting stays at 09:00 across daylight saving changes. When the whole series moves, each skipped or moved date follows its day, and `cal` says which ones the new rule drops. The file always holds the whole series, so send it again after each change; the approval names the rule, the skipped dates and the moved ones. When the series keeps another time zone than the owner's, the approval shows its times in that zone and names it, since the rule counts days there. To end a series early, update its rule with an `UNTIL`.
+
+## Read The Owner's Calendar
+
+Ship reads the owner's calendar through its private link: Google Calendar's **Secret address in iCal format**, Outlook's **Publish a calendar** ICS link, or an iCloud **Public Calendar** link. Anyone holding the link can read the calendar, so Ship keeps it in a private file and never shares it. Ship fetches it fresh, then shows the days asked about:
+
+```bash
+net fetch "https://calendar.example.com/private-link.ics" -o ~/calendar/owner.ics
+cal show ~/calendar/owner.ics --from 2026-11-16 --until 2026-11-22
+```
+
+A date stands for its whole day, and `--from` alone shows one day. Each event that overlaps the range appears in order, with each date of a repeating event; skipped dates are left out and moved ones appear at their new time. An event under way at `--from` is included. A range covers at most 366 days. Run `skills show calendar` for the full workflow.
 
 ## Check Delivery
 

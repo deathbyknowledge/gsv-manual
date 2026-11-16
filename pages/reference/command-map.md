@@ -16,7 +16,9 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Connect the owner's messenger using a code | `messenger list`, `messenger setup ADAPTER`, `messenger connect ADAPTER < code.txt` |
 | Find an earlier conversation message | `message search`, then `message history` |
 | Find Ship's email address, read, or send email | `mail` |
+| Connect the owner's own mailbox by forwarding, and agree what Ship does with it | the `connect-email` skill; [Connect the owner's mail](../integrations/email.md#connect-the-owners-own-mail) |
 | Make, move, repeat, or cancel a calendar event or one of its dates, or read a calendar file | [`cal`](../integrations/email.md#send-a-calendar-invite), then `mail send --invite` |
+| See what is on the owner's calendar for a day or range | the `calendar` skill: `net fetch` their private calendar link, then [`cal show --from`](../integrations/email.md#read-the-owners-calendar) |
 | Create reminders or routines | `sched`; use `crontab` for recurring shell commands |
 | Tell the owner when a script, routine or outside service notices something | [`event`](../settings/when-things-happen.md#your-own-sources) |
 | Discover a computer or browser | `targets` or `devices` |
