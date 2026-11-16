@@ -25,8 +25,19 @@ instance catalog
 
 Reuse a suitable ready computer or start an available `computer` template.
 Availability and limits come from the operator. The initial image includes
-Python, Node.js, npm, Git, and build tools. Install additional software as the
-task requires. Use `/workspace` for working files.
+Python, Node.js, npm, Git, and build tools, and tools for common documents and
+data:
+
+- PDFs: `pdftotext` and the other Poppler tools, `qpdf`, Ghostscript, and
+  Python's `pypdf` and `reportlab`.
+- Spreadsheets, documents, and slides: Python's `pandas`, `openpyxl`,
+  `python-docx`, and `python-pptx`.
+- Charts and images: `matplotlib` and ImageMagick.
+- Data: `jq`, `sqlite3`, `zip`, and `unzip`.
+
+Use these before installing alternatives. `pip install` and `apt-get install`
+add other software for the life of the computer; LibreOffice, for example, is
+not preinstalled. Use `/workspace` for working files.
 
 Run GSV management commands on `gsv`; run Python, Node.js, and installed software
 on the computer. A missing program on `gsv` does not mean Ship cannot use
