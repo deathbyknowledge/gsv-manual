@@ -201,10 +201,11 @@ Saved login state retains cookies, local storage and IndexedDB between ordinary
 instances. No profile creation or selection is needed in the user flow. Advanced
 `browser profile` commands expose `saveStatus` and `savedAt`; do not promise that unsaved
 changes will survive. Websites can revoke sessions or require another login.
-Saves run periodically, after human input settles, on handoff completion and
-before an ordinary stop. Closing tabs does not remove their site data from the
-next snapshot. Restore completes before readiness; a failed restore never
-silently opens an empty browser. The viewer offers **retry save** and **stop
+Saves run on handoff completion, before an ordinary stop, at expiry and on
+`browser profile save`, never in the background while the browser is in use; a
+browser that fails first loses changes since its last save. Closing tabs does
+not remove their site data from the next snapshot. Restore completes before
+readiness; a failed restore never silently opens an empty browser. The viewer offers **retry save** and **stop
 without saving** after a whole-save failure. Failed or oversized saves preserve
 the previous successful snapshot. Partial saves show **saved with exceptions**;
 the failed sites may require another login after restarting.
