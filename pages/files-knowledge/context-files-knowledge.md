@@ -36,9 +36,9 @@ Personal memory contains concise, supported facts in the person's terms. It excl
 
 Files in `context.d` are loaded automatically. Use them for concise identity, preferences, constraints, and voice that should remain visible without a search. Keep unfinished commitments in `r12y`.
 
-Each account's Instructions live under `~/context.d/`. Shared Instructions belong to the person and are available to owned work. Instructions are ordered by filename.
+Each account's Instructions live under `~/context.d/`. Shared Instructions belong to the person and are available to owned work. Instructions are grouped by file name. Under each name, the layers follow the `<context_layers>` legend in your prompt: system, base (the release's Ship or Crew defaults), the agent's own home, then the person's. A later layer refines an earlier one, and the legend says which folders you can edit.
 
-Ship's voice lives in its own `~/context.d/05-voice.md`; helpers' execution guidance lives in their separate home. Put shared preferences in the human owner's `context.d/10-personal.md`.
+Ship's shipped voice and behaviour are read-only and update with each release. Save what the person asks of Ship in Ship's own home: how it talks in `~/context.d/voice.md`, including anything they say they don't like or find annoying, and how it works, such as initiative or follow-ups, in `~/context.d/behaviour.md`. Each refines the shipped file of the same name. Facts and preferences every agent should follow go in the human owner's `context.d/personal.md`; helpers' execution guidance lives in their own home.
 
 Onboarding is not an Instructions file. While a person is new, Ship's ledger
 holds one system responsibility, `onboarding.initial`, titled "Welcome to Ship",
@@ -46,7 +46,7 @@ whose details are rendered into Ship's context. The shared
 responsibilities context puts it first: Ship follows those instructions to get
 to know the person and complete one small task with them, parks or hands off
 other work meanwhile, and resolves it once the acceptance criteria are met. Confirmed facts learned
-along the way go in the person's `context.d/10-personal.md`.
+along the way go in the person's `context.d/personal.md`.
 Each record keeps the onboarding instructions saved when it was created.
 
 For a new Ship, dismissing the welcome card starts its greeting as an ordinary
@@ -59,7 +59,7 @@ Instructions contain broadly applicable facts and guidance. Journals, detailed k
 
 ## Continuing Across Context Windows
 
-Save useful knowledge as you learn it. The human's `context.d/10-personal.md`
+Save useful knowledge as you learn it. The human's `context.d/personal.md`
 stays loaded for Ship and its helpers; detailed knowledge remains searchable
 in the personal wiki. A history handover is working context, not another memory
 store. Keep commitments in `r12y` and artifacts in files.

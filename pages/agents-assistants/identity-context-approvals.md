@@ -22,9 +22,12 @@ id
 Ship builds its context from:
 
 1. system context supplied by the operator;
-2. the active account's `~/context.d/*.md` files;
-3. shared Instructions owned by the person;
-4. compact indexes of available skills and connections.
+2. for Ship and its Crew, the release's read-only defaults;
+3. the active account's `~/context.d/*.md` files;
+4. shared Instructions owned by the person;
+5. compact indexes of available skills and connections.
+
+Files with the same name are grouped, and a later source refines an earlier one.
 
 Use `proc delegate --as ACCOUNT` to select a helper account or another owned account. Without `--as`, helpers inherit the parent's identity and account context.
 

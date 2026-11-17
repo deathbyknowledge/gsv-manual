@@ -46,7 +46,8 @@ Configuration is a key/value store. System keys live under `config/` and are vis
 | `users/{uid}/ai/preferred_model` | The entry an account or piece of work prefers |
 | `users/{uid}/ai/reasoning`, `config/ai/reasoning` | Reasoning mode hint, `off` to `xhigh` |
 | `users/{uid}/ai/tools/approval`, `config/ai/tools/approval` | Approval policy |
-| `config/ai/context.d/*.md` | System instructions, concatenated in name order |
+| `config/ai/context.d/*.md` | System instructions, the first layer of standing context |
+| `config/ai/ship/context.d/*.md`, `config/ai/crew/context.d/*.md` | The release's Ship and Crew defaults, read by every Ship and Crew account |
 | `users/{uid}/locale/timezone` | The person's IANA timezone for routines and context |
 | `config/server/name`, `config/server/timezone`, `config/server/version` | Ship name, default timezone, and read-only version |
 | `config/shell/timeout_ms`, `config/shell/network_enabled`, `config/shell/max_output_bytes` | Native shell limits |
