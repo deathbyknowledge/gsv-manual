@@ -60,7 +60,7 @@ When a routine, script or outside service should tell the person something, give
 
 ## Handing Off Work
 
-Handing off is for immediate, bounded work. Replace `ACCOUNT` with the helper account named in Ship's `~/context.d/10-delegation.md`:
+Handing off is for immediate, bounded work. Replace `ACCOUNT` with the Crew account named in Ship's shipped `behaviour.md` context:
 
 ```bash
 proc delegate --as ACCOUNT --label invoices --check-after 10m "Compare the invoices and return discrepancies."
