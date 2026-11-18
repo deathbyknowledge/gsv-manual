@@ -15,13 +15,12 @@ A row warns you when nobody will hear about that event.
 | --- | --- | --- |
 | Someone asks to message you | On | Sees it |
 | A contact messages you | On | Sees it |
-| Someone accepts your invitation | On | Sees it |
 | Mail arrives | Off | Acts |
 | A new computer connects | Off | Acts |
 | A messenger connects | Off | Acts |
 | A messenger needs signing in again | Off | Acts |
 
-The first three rows offer only **Off** and **Sees it**. Another person's words never start Ship working by a setting. To have Ship handle a contact, turn that on for the contact in [People](../integrations/contacts.md).
+The first two rows offer only **Off** and **Sees it**. Another person's words never start Ship working by a setting. To have Ship handle a contact, turn that on for the contact in [People](../integrations/contacts.md).
 
 **Acts** on the last four rows is the same setting as that event's standing responsibility, so turning it off from the shell shows here too. **Review conversations for memory** is a separate switch below the list. Replying to you, delegated work and your routines are always on.
 

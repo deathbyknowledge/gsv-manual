@@ -128,9 +128,9 @@ beside the heading searches all of People, whichever list it opens from, and loo
 up a public profile when nothing local matches. The icons at the bottom open
 **archived**, **contacts** (with **Blocked people** below them), **requests** and
 **add contact**. **Add a contact** finds someone by handle and starts a message
-request; **Don’t have a Ship? Invite them to connect.** creates an invitation link,
-and **I have an invitation** accepts a link or code. Incoming requests wait for
-an explicit acceptance, which opens the conversation. Inviting and accepting ask
+request; **Don’t have a Ship? Invite them to connect.** shows the owner's
+reusable invitation link, which anyone can use to send them a request. Incoming
+requests wait for an explicit acceptance, which opens the conversation. Sending and accepting ask
 each person to choose who handles new messages on their own side, with neither
 option preselected. A conversation with someone you never saved is marked
 **not a contact**; hover over, focus or tap it to add them.

@@ -54,13 +54,12 @@ Asking Ship to draft or handle an email is not approval to send it: Ship shows t
 
 `mail.send` asks the owner for approval by default, from Shell and CodeMode alike, and the approval names everyone who will get the message, and the event when it carries an invite; see [Models and approvals](../settings/ai-voice-approvals.md).
 
-To invite a known Ship handle when asked, [create a private contact invitation](contacts.md#pair-with-someone)
-and send its URL with `mail send`. No existing Contact or published profile is
-required. Public-service handles receive mail at `<handle>@ship.space`; for other
-operators, use a known mailbox address or mail domain. Email delivery and contact
-acceptance are separate: inspect `mail status DELIVERY_ID` and `contact invite list --all`
-respectively. The recipient chooses whether to accept and how their own Ship
-handles messages; an invitation email does not authorize automatic acceptance.
+To invite a known Ship handle when asked, send the owner's invitation link from
+`contact invite` with `mail send`; see [Connect with another Ship](contacts.md#connect-with-someone).
+Public-service handles receive mail at `<handle>@ship.space`; for other
+operators, use a known mailbox address or mail domain. `mail status DELIVERY_ID`
+reports only the email: the recipient decides whether to send the owner a
+message request, and the owner decides whether to accept it.
 
 ## Send A Calendar Invite
 

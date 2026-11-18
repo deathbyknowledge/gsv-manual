@@ -36,7 +36,7 @@ Provider tokens and OAuth credentials belong to the connection that uses them. P
 
 Each Ship has one personal account. Invite someone through
 [People](../integrations/contacts.md) to connect your Ships.
-Contact invitations do not create local accounts or grant access to your connections.
+An invitation link does not create a local account or grant access to your connections.
 Someone without a Ship creates their own from their operator's signup page; no invite code is needed.
 
 ## Password Recovery
