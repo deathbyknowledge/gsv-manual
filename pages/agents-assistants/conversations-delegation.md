@@ -57,7 +57,7 @@ Search covers messages saved after the feature was enabled, including those late
 
 ## Handing Off A Bounded Task
 
-Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Hand off when parallel work, separate context, lengthy investigation, or waiting makes a helper useful. Replace `ACCOUNT` with the helper account named in Ship's `~/context.d/10-delegation.md`:
+Acknowledge substantial work promptly with Send, then continue. Simple lookups and short tasks can run directly. Hand off when parallel work, separate context, lengthy investigation, or waiting makes a helper useful. Replace `ACCOUNT` with the Crew account named in Ship's shipped `behaviour.md` context:
 
 ```bash
 proc delegate --as ACCOUNT --label research --check-after 10m "Find the answer and return the evidence."
