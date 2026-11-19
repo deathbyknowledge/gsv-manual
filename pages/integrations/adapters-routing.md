@@ -5,7 +5,7 @@
 ## Connect Versus Link
 
 - **Connect** gives Ship access to the messaging service or bot account.
-- **Link** binds an external sender to the Ship owner through a short-lived code.
+- **Link** binds an external sender to the Ship owner through a one-time link or a short-lived code.
 
 Keeping these separate prevents an untrusted incoming username or chat ID from choosing a local account.
 
@@ -14,19 +14,20 @@ Keeping these separate prevents an untrusted incoming username or chat ID from c
 When the person asks to connect a messenger, handle the Ship side for them:
 
 1. Run `messenger list` on `gsv` to see which messengers are enabled.
-2. Run `messenger setup ADAPTER` and share its link or bot name and instructions for getting a code. Use the returned information rather than inventing a number or URL.
-3. Ask the person to paste their code back into this conversation. Write it to a temporary file, then run `messenger connect ADAPTER < /tmp/messenger-code.txt`. Read the code from the file so it stays out of logged shell command text, and delete the file afterwards.
-4. Report success only after the command returns `paired: true`. Ask them to send a new message in the messenger to start chatting there. If the code expired, get a new one.
+2. Run `messenger setup ADAPTER`. Use the returned information rather than inventing a number or URL.
+3. When it returns `pairingLinks: true`, as WhatsApp and Telegram do, send the person its `setupUrl`. That page in Settings makes a one-time link while they are signed in; they send one message from it, and the page names the account that connected. There is no code for you to collect, and none reaches you. If they ask whether it worked, check `messenger list`.
+4. Otherwise, share its link or bot name and instructions for getting a code, and ask the person to paste the code back into this conversation. Write it to a temporary file, then run `messenger connect ADAPTER < /tmp/messenger-code.txt`. Read the code from the file so it stays out of logged shell command text, and delete the file afterwards. Report success only after the command returns `paired: true`. If the code expired, get a new one.
+5. Ask them to send a new message in the messenger to start chatting there.
 
-`messenger inspect ADAPTER < code.txt` can check the external account without changing its connection. Redemption connects it to Ship's human owner; neither a code nor an argument can select another account or Ship. Redeeming a code for an already-connected account moves it to this Ship. Only redeem a code the person supplies to connect their own account.
+`messenger inspect ADAPTER < code.txt` can check the external account without changing its connection. Redemption connects it to Ship's human owner; neither a code nor an argument can select another account or Ship. Redeeming a code for an already-connected account moves it to this Ship. Only redeem a code the person supplies to connect their own account. Messengers that connect from links refuse `inspect` and `connect`.
 
-No Settings visit is needed for messaging. Password recovery through that messenger requires a direct confirmation in Settings; a messenger that Ship or a helper connected does not authorize password resets. The manual Settings flows below remain available, and disconnect is still a signed-in human action. On older releases without `messenger`, use those flows.
+A messenger connected from a link was connected by the signed-in person, so it also works for password recovery. For a code you redeem, no Settings visit is needed for messaging, but password recovery through that messenger requires a direct confirmation in Settings; a messenger that Ship or a helper connected does not authorize password resets. The Settings flows below remain available, and disconnect is still a signed-in human action. On older releases without `messenger`, use those flows.
 
 ## Telegram
 
-Message the operator's bot with `/link` to receive a short-lived code. Paste it back to Ship, or enter it in **Settings → Messengers → Telegram**, inspect the account, and confirm.
+Open **Settings → Messengers → Telegram**, or the `setupUrl` from `messenger setup telegram`. **Open Telegram** opens the operator's bot with a one-time code; tapping **Start** sends it. The code works once, for 10 minutes, and only for the Ship that made it. On a computer, the page also shows a QR code to scan with a phone's camera and the code to send by hand. The page then names the Telegram account that connected; **Disconnect** removes a wrong one.
 
-The message used to connect may be consumed while connecting. Send another message after confirmation to begin the conversation.
+If that Telegram account already talks to another Ship, the bot asks whether to **Move it** to this Ship or **Keep it**. Someone who messages the bot without a connection is told to ask their Ship to “connect my Telegram”, with a link to create a Ship when the operator offers signup. The message used to connect is consumed while connecting. Send another message after connecting to begin the conversation.
 
 ## Slack
 
@@ -34,7 +35,7 @@ Install the operator's Slack app using the connect link, then send `link` in a d
 
 ## WhatsApp
 
-When the operator offers WhatsApp Business, open the connect link and send `/link` to get instructions followed by a code-only message you can copy. The code expires in 10 minutes. Paste it back to Ship, or enter it in **Settings → Messengers → WhatsApp**, inspect the name and masked number, and confirm while signed in. Send another message after connecting to reach Ship. The operator owns the Meta credentials; people do not supply their own tokens.
+When the operator offers WhatsApp Business, open **Settings → Messengers → WhatsApp**, or the `setupUrl` from `messenger setup whatsapp`. **Open WhatsApp** opens a chat with the Ship number with "Connect my Ship" and a one-time code filled in; sending it connects that WhatsApp account. The code works once, for 10 minutes, and only for the Ship that made it. On a computer, the page also shows a QR code to scan with a phone's camera and the code to send by hand. The page then names the profile and masked number, or the username, that connected; **Disconnect** removes a wrong one. A number that already talks to another Ship is asked whether to **Move it** or **Keep it**, and a number without a connection is told to ask its Ship to “connect my WhatsApp”, with a link to create a Ship when the operator offers signup. Send another message after connecting to reach Ship. The operator owns the Meta credentials; people do not supply their own tokens.
 
 This messenger supports direct messages to that number, including media and approval buttons. Ship’s prose paragraphs arrive as separate messages; headings stay with the following block and lists, quotations, tables and code stay together. It does not expose a person's WhatsApp account or group conversations. Availability depends on the operator's Meta account and regional eligibility.
 

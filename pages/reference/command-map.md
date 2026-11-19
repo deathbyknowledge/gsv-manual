@@ -13,7 +13,7 @@ This page maps common outcomes to the command family that owns them. Run `man <c
 | Inspect or control work | `proc`, `ps` |
 | Hand over the current working context | `proc compact --summary '...'` from Ship or the active helper |
 | Send, attach, silence, or route messages | `message` |
-| Connect the owner's messenger using a code | `messenger list`, `messenger setup ADAPTER`, `messenger connect ADAPTER < code.txt` |
+| Connect the owner's messenger | `messenger list`, `messenger setup ADAPTER` (send its `setupUrl` when it returns `pairingLinks: true`), `messenger connect ADAPTER < code.txt` for a pasted code |
 | Find an earlier conversation message | `message search`, then `message history` |
 | Find Ship's email address, read, or send email | `mail` |
 | Connect the owner's own mailbox by forwarding, and agree what Ship does with it | the `connect-email` skill; [Connect the owner's mail](../integrations/email.md#connect-the-owners-own-mail) |
