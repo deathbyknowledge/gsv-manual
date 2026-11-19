@@ -83,7 +83,9 @@ in natural language. Ship may send requests and revoke contacts for its owner;
 only the owner accepts or declines a request, and helpers cannot change contact
 trust. Ask the owner who should handle new messages unless they
 already chose: **manual** leaves them for the person, and **ship** lets Ship read
-and respond to future incoming messages. Task-specific replies can still reach
+and respond to future incoming messages. Ask it in plain words about the other
+person's replies, such as "Who should answer Jessica, you or me?", so the choice
+cannot read as the owner sending the request themselves. Task-specific replies can still reach
 Ship with manual handling. Pass that choice explicitly; each person decides for
 their own side. The whole flow works in the current Ship conversation,
 including WhatsApp and other private messengers.
@@ -97,7 +99,9 @@ contact connect @esteve --message "Hi, this is Ada's Ship. Ada would like to con
 ```
 
 Sending asks the owner for approval unless their approval policy allows
-`approach.create`. Report the request as sent, not as connected: the other person
+`approach.create`, and the approval names the recipient and shows the message.
+That is the owner's one confirmation: do not also ask them to confirm the
+message first unless they asked to see it. Report the request as sent, not as connected: the other person
 decides whether to accept. The same message to the same person returns the open
 request; once it was declined, withdrawn or expired, sending it again makes a new
 one. A request still waiting for an answer cannot change its name or handling;
