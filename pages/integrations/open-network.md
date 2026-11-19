@@ -8,8 +8,8 @@ and records or files the owner asks Ship to publish. Messages, contacts, memory
 and the rest of the Ship never go there.
 
 Each Ship has an account on the open network: a DID whose handle is the Ship's
-address, such as `alice.ship.space`. The Ship's first publish, invitation or
-message request creates it.
+address, such as `alice.ship.space`. The Ship's first publish or message request
+creates it.
 
 ```bash
 atproto identity
@@ -86,7 +86,7 @@ Ship misses a restore, the owner's next sign-in or message to the Ship from any
 app brings the copy back.
 
 While the whole account is down, the Ship can't publish, upload or call other
-Ships, so message requests, invitation acceptances and messages to contacts
+Ships, so message requests, acceptances and messages to contacts
 don't go through. Each fails at once, without retrying, and says "Your Ship is
 taken down on the open network, so it can't reach other Ships"; don't send it
 again until the operator restores the account. Messages from contacts still
