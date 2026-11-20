@@ -34,6 +34,8 @@ Start with the outcome you want. Each section begins with common actions and lea
 | Analyze data, work with documents or media, or run tools on demand | [Use a cloud computer](pages/devices-workplaces/cloud-computers.md) |
 | Read or act on a site I'm signed into, such as a calendar, mail, or a dashboard | [Use a browser connection](pages/devices-workplaces/browser-targets.md) |
 | Give out an email address for a sign-up, receipt, tracking or bill, or read what arrived there | [Use Ship's email address](pages/integrations/email.md) |
+| Find a deal, compare products or prices, choose a gift, or buy and track an order | [Shop with Ship](pages/agents-assistants/shopping.md) |
+| Organise or join a Secret Santa with other people's Ships | [Run a Secret Santa](pages/agents-assistants/secret-santa.md) |
 | Connect Telegram, WhatsApp, Discord, MCP, or OAuth | [Connected services](pages/integrations/index.md) |
 | Set a reminder or routine | [Routines and handing off work](pages/automation/index.md) |
 | Create, inspect, reset, or stop a helper | [Helper controls](pages/agents-assistants/conversations-delegation.md) |
