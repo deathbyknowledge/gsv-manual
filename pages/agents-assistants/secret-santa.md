@@ -31,7 +31,7 @@ Everyone playing needs a Ship and a contact connection with the organiser; see [
 4. **Wishes and questions.** Ship forwards each wish to the right giver and each question to the right person, without names. A wish sent before the draw waits in your Ship and goes out with the match.
 5. **Close.** After the swap, Ship deletes the draw, the wishes and the addresses. A reveal happens only if everyone agrees.
 
-If someone leaves after the draw, Ship links their giver to their recipient, so that giver could work out who the leaver had. Someone joining after the draw needs a full redraw, which Ship asks you about first.
+If someone joins or leaves after the draw, Ship draws everyone again and tells you first: everyone gets a new match, marked as the newest round, and their Ship keeps only the newest.
 
 ## Taking Part
 
@@ -42,6 +42,6 @@ Tell your Ship you're in someone's Secret Santa, for example "I'm in @ana's Secr
 
 ## What the Organiser Can See
 
-The draw, the early wishes and any addresses live in a file in the organiser's Ship. Messages between Ships travel through the contact conversation under People, so both people in a conversation can read them, including each match message the organiser's Ship sends. The organiser's Activity also keeps every command Ship ran for 90 days, including the match messages and any addresses, and Ship's own history and archives keep the messages it received and the commands it ran, with no set end. A message that fails for good also opens a delivery responsibility in Work naming the contact it was for, and the giver's Ship's history keeps the address it was sent. Deleting the file when the game closes does not remove what Activity, Ship's history, Work and People keep. Ship never shows or tells the organiser, but they own their Ship and can inspect it, as whoever holds a paper hat could look inside.
+Who drew whom lives in a draw file in the organiser's Ship that only the draw script reads. The people, their wishes and any addresses live in a second file that the organiser's Ship works from. Messages between Ships travel through the contact conversation under People, so both people in a conversation can read them, including each match message the organiser's Ship sends. The organiser's Activity also keeps every command Ship ran for 90 days, including the match messages and any addresses, and Ship's own history and archives keep the messages it received and the commands it ran, with no set end. A message that fails for good also opens a delivery responsibility in Work naming the contact it was for, and the giver's Ship's history keeps the address it was sent. Deleting both files when the game closes does not remove what Activity, Ship's history, Work and People keep. Ship never shows or tells the organiser, but they own their Ship and can inspect it, as whoever holds a paper hat could look inside.
 
 Responsibilities hold the list of people, the budget and the dates, never the pairs or addresses. Ordinary approval rules still apply to each message and purchase; see [Models and approvals](../settings/ai-voice-approvals.md).
