@@ -33,9 +33,9 @@ see it.
 
 ## Find Help
 
-Hover over or focus a top-right navigation control for a short explanation. Press **w** outside a text field to open **Work**.
+Hover over or focus a header tab for a short explanation and its shortcut. Each shortcut holds **Alt** (**Option** on a Mac) with a letter and works from any view, even while typing: **Alt+C** Chat, **Alt+W** Work, **Alt+M** Memory, **Alt+P** People, **Alt+S** Settings, **Alt+L** light or dark, **Alt+H** Help. A letter typed without Alt in Chat always lands in your message.
 
-Open **? Help** in the header, or **Help** in the menu on a phone. It introduces what Ship can help with and offers five getting-started topics:
+Open **Help** in the header. It introduces what Ship can help with and offers five getting-started topics:
 
 - **Talking to Ship** expands examples inline.
 - **Use Ship on WhatsApp** opens the existing Messenger connections in Settings.
@@ -45,7 +45,7 @@ Open **? Help** in the header, or **Help** in the menu on a phone. It introduces
 
 **Keyboard shortcuts** replaces the Help panel with **Search Chat**, general shortcuts and shortcuts for the current screen, including platform-appropriate modifier labels. Choose **← Help** to return to getting-started guidance.
 
-**Need more help?** includes **Feedback** when feedback is available. It opens the same Feedback form as the header button and preserves any report draft. The section also links to the Ship manual inside Memory, [email support](mailto:hello@humansandmachin.es), and the [Discord community](https://discord.gg/hy9ExJJFvn).
+**Need more help?** includes **Feedback** when feedback is available. It opens the same Feedback form as the header button and preserves any report draft. On phones and narrow windows, the header has no Feedback button, so open it from Help. The section also links to the Ship manual inside Memory, [email support](mailto:hello@humansandmachin.es), and the [Discord community](https://discord.gg/hy9ExJJFvn).
 
 ## Send Feedback
 

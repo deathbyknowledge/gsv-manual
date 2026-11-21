@@ -40,7 +40,7 @@ Ship is the main conversation. A direct conversation with one selected helper is
 
 ## Search Past Messages
 
-In Chat, use **search**, `/` in browse mode, or `Ctrl/Cmd+F`. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
+In Chat, use **search** or `Ctrl/Cmd+F`, even while typing; `Ctrl+K` opens the same search from any view. Open a match to read it with the surrounding messages; closing search returns to your place and draft.
 
 Ship can search the same sent messages through Shell:
 
