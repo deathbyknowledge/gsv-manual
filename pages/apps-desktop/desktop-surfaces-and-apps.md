@@ -3,7 +3,9 @@
 [Web And Desktop](index.md)
 
 The web app keeps its header, background and drafts while changing views.
-On phones, use **menu** in the header to choose a view.
+Each view is a tab in the header with an icon and its name; on phones and narrow
+windows the tabs show their icons alone. A dot on **People** marks unread People
+activity.
 Browser **Back** and **Forward** retrace those destinations, including People lists,
 conversations, requests and your profile, without reloading the page. Drafts are
 retained while navigating within the open app. Reloading a People destination
@@ -122,7 +124,7 @@ itself stays fixed. The star field retains its full-screen background.
 
 ## People
 
-Open **People** (`p`) to talk with people on other Ships. It opens **Recent**,
+Open **People** (**Alt+P**, **Option+P** on a Mac) to talk with people on other Ships. It opens **Recent**,
 your conversations newest first, loading older ones as you scroll. The search icon
 beside the heading searches all of People, whichever list it opens from, and looks
 up a public profile when nothing local matches. The icons at the bottom open

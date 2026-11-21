@@ -14,8 +14,10 @@ bills can go to it instead of your personal inbox.
 
 Each Ship is named by the handle its owner chose when creating it, and the handle
 is its address. On the public service, the Ship with handle `esteve` lives at
-`esteve.ship.space`, where its interface and public profile (`/profile`) are, and
-its email address is `esteve@ship.space`. Other people's Ships follow the same
+`esteve.ship.space`, and its email address is `esteve@ship.space`. That address
+shows the Ship's public profile while it has one, with a sign-in link for its
+owner, and the app otherwise. The app itself is at `/chat` (`esteve.ship.space/chat`),
+and a browser signed in to the Ship goes straight there. Other people's Ships follow the same
 pattern. The runtime facts at the start of every run give your Ship's own handle
 and address; `contact find @handle` shows another Ship's public profile.
 

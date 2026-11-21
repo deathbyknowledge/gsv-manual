@@ -14,7 +14,7 @@ For Ship's invitation, messaging and coordination workflow, run `skills show con
 
 ## Connect With Someone
 
-Open **People** (`p`) and choose **add contact** (the person-with-plus icon at
+Open **People** (**Alt+P**, **Option+P** on a Mac) and choose **add contact** (the person-with-plus icon at
 the bottom of the list) to open **Add a contact**.
 
 For someone who has no Ship yet, choose **Don’t have a Ship? Invite them to
@@ -32,7 +32,7 @@ The link works through message requests, so it shows only while the owner's
 profile is public and takes them. Otherwise it offers **turn on message
 requests**, which publishes the profile with requests on, or **review my
 profile** first when the profile has unpublished changes. A deployment without a
-signup site shares the profile address, `https://YOUR-SHIP/profile`, instead.
+signup site shares the Ship's address, `https://YOUR-SHIP`, instead.
 Open registration needs no signup code or reserved invitation place, and the
 link creates no account inside the owner's Ship: each Ship has one personal
 human account. Single-use contact codes, and links made before the reusable link,
@@ -69,8 +69,14 @@ setup asked keeps its profile as it was. Choose your handle at the bottom of
 **People** to see your profile as others do, and **edit** to change it or choose a
 picture. On a private profile the main button is
 **publish**; on a public one it is **save**. **save as draft** keeps changes private
-and leaves the public page as it is. Your public URL is `https://YOUR-SHIP/profile`.
-Old published profile links continue to work. Other Ships and open-network apps
+and leaves the public page as it is. Your public URL is your Ship's address,
+`https://YOUR-SHIP`: visitors see your profile there, and you reach the app at
+`https://YOUR-SHIP/chat`. A shared address previews in messengers and social apps
+as a card with your picture, name, handle and the start of your bio, plus an
+invitation to message you while your profile takes requests. The card leaves out
+emoji, and a name or bio in letters its fonts lack, such as Cyrillic or Japanese;
+the preview's text still shows them. A WebP picture is left off the card.
+`https://YOUR-SHIP/profile` and old published profile links continue to work. Other Ships and open-network apps
 read the same profile from the Ship's public record, and Bluesky can show a copy
 the Ship keeps beside it; any app or search engine may save the profile and make
 it searchable. Unpublishing removes the page, the record and the Bluesky copy, but
