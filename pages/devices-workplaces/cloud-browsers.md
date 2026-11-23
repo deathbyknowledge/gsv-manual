@@ -62,8 +62,8 @@ Persist the start request ID before dispatch. If the response is lost, query
 `instance get --request-id <id>` or repeat the exact same start and arguments.
 Do not invent another request ID to recover an uncertain start.
 
-Wait until the instance is `ready`, then use its returned connection ID for ordinary
-Read, Write, Shell and CodeMode operations. Run `tabs list`, `tabs open --active
+Wait until the instance is `ready`, then use its returned connection ID for
+ordinary Read, Write, Shell and CodeMode operations. Run `tabs list`, `tabs open
 <url>` and `page snapshot` on that browser connection. Consult `skills show
 browser-target` for the shared page commands. The connection has temporary files
 and a browser command shell; it is not a Linux computer.
