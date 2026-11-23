@@ -3,13 +3,13 @@
 [Messaging, Email, And Connected Services](index.md)
 
 The open network is the AT Protocol network that Bluesky and other apps read.
-A Ship publishes there only what its owner chooses to make public: the profile,
-and records or files the owner asks Ship to publish. Messages, contacts, memory
-and the rest of the Ship never go there.
+A Ship publishes there its owner's profile, which every Ship has, and records or
+files the owner asks Ship to publish. Messages, contacts, memory and the rest of
+the Ship never go there.
 
 Each Ship has an account on the open network: a DID whose handle is the Ship's
-address, such as `alice.ship.space`. The Ship's first publish or message request
-creates it.
+address, such as `alice.ship.space`. Publishing the owner's profile creates it,
+when the owner first signs in or messages their Ship.
 
 ```bash
 atproto identity
@@ -20,8 +20,9 @@ prints the DID and handle, or `null` until then, and anything the operator has
 
 ## Publish A Record
 
-Only the owner and Ship may publish; helpers are refused. Nothing publishes while
-the owner's profile is private, so ask them to publish it in **People** first.
+Only the owner and Ship may publish; helpers are refused. Nothing publishes until
+the Ship has published the owner's profile. If that failed, `atproto identity`
+prints `null`, and the Ship tries again when the owner next signs in or messages it.
 Each of Ship's writes asks the owner for approval unless an `atproto.write`
 [approval rule](../settings/ai-voice-approvals.md) allows or blocks it. The
 approval shows the handle and address it publishes as, every change, and the
@@ -54,12 +55,11 @@ record uses within six hours expires.
 
 ## The Profile On Bluesky
 
-While the owner's profile is public, the Ship also keeps it as Bluesky shows
-it: the same name, bio and picture, with a link to the profile page. Bluesky
+The Ship also keeps the owner's profile as Bluesky shows it: the same name, bio and picture, with a link to the profile page. Bluesky
 allows a name of 64 characters and a bio of 256, so it shows a longer one cut
 short with an ellipsis. It shows only PNG and JPEG pictures, which People saves
 new pictures as; a WebP picture saved earlier stays off Bluesky until the owner
-chooses a picture again. Unpublishing removes the copy with the profile.
+chooses a picture again.
 
 The Ship doesn't read Bluesky. Follows, replies and messages there never reach
 it, so if the owner asks about them, say so rather than looking for them. An
