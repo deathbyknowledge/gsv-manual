@@ -29,10 +29,8 @@ hosted by another operator, and gets the same request. The owner accepts or
 declines it like any other request. Each person chooses their own handling.
 
 The link works through message requests, so it shows only while the owner's
-profile is public and takes them. Otherwise it offers **turn on message
-requests**, which publishes the profile with requests on, or **review my
-profile** first when the profile has unpublished changes. A deployment without a
-signup site shares the Ship's address, `https://YOUR-SHIP`, instead.
+profile takes them. Otherwise it offers **turn on message requests**, which
+publishes the profile with requests on. A deployment without a signup site shares the Ship's address, `https://YOUR-SHIP`, instead.
 Open registration needs no signup code or reserved invitation place, and the
 link creates no account inside the owner's Ship: each Ship has one personal
 human account. Single-use contact codes, and links made before the reusable link,
@@ -43,8 +41,8 @@ or `esteve.ship.space` for someone on the operator's domain (`ship.space` on the
 public service), or a full address for a Ship hosted elsewhere. Matching contacts
 appear as you type, and the public profile once the handle resolves; **Message**
 opens an existing conversation or a first message request. When nothing resolves,
-People says no public profile matches: the handle may be mistyped or the profile
-private. People's search box does the same lookup when nothing in your
+People says no public profile matches: the handle may be mistyped, or that Ship
+may not have published its owner's profile yet. People's search box does the same lookup when nothing in your
 conversations, requests or blocked people matches. Chat’s **+ → find a person**
 uses the same lookup, and so does `contact find @esteve` in Shell, which prints
 the public profile. Your account's display name is prefilled and editable.
@@ -60,16 +58,15 @@ requests its owner receives. If the owner says a request was abusive, point them
 to **report** on it.
 Both people choose how their own Ship handles new messages before sending or
 accepting the request; neither option is preselected.
-Acceptance opens the conversation and retains that first message. Setup offers the
-owner **I'm OK with a public profile**, unticked by default, beside the terms or the
-password. Ticked, the profile is published at their first sign-in, named by their handle
-and open to message requests; a private one publishes nothing until they publish
-it in **People**, and no one can send them a message request, so their invitation link doesn't work either. A Ship set up before
-setup asked keeps its profile as it was. Choose your handle at the bottom of
+Acceptance opens the conversation and retains that first message. Every Ship has
+a public profile: the Ship publishes one when the owner first signs in, named by
+their handle, with no bio or picture, and open to message requests. The first
+time the owner opens **People**, **Your public profile** offers to add a picture
+and a few words, or **Skip for now**; it doesn't ask again. Choose your handle at the bottom of
 **People** to see your profile as others do, and **edit** to change it or choose a
-picture. On a private profile the main button is
-**publish**; on a public one it is **save**. **save as draft** keeps changes private
-and leaves the public page as it is. Your public URL is your Ship's address,
+picture; **save** publishes the change at once. There is no private profile: an
+owner who wants no new message requests closes them in **edit**, which also stops
+their invitation link working. Your public URL is your Ship's address,
 `https://YOUR-SHIP`: visitors see your profile there, and you reach the app at
 `https://YOUR-SHIP/chat`. A shared address previews in messengers and social apps
 as a card with your picture, name, handle and the start of your bio, plus an
@@ -79,9 +76,8 @@ the preview's text still shows them. A WebP picture is left off the card.
 `https://YOUR-SHIP/profile` and old published profile links continue to work. Other Ships and open-network apps
 read the same profile from the Ship's public record, and Bluesky can show a copy
 the Ship keeps beside it; any app or search engine may save the profile and make
-it searchable. Unpublishing removes the page, the record and the Bluesky copy, but
-anyone who already read the profile may keep a copy.
-Profile drafts remain when you return to a conversation. The profile changes only
+it searchable, and may keep a copy after it changes.
+Unsaved profile edits remain when you return to a conversation. The profile changes only
 in People; Ship cannot edit or publish it, or its copy on Bluesky.
 
 You can ask Ship to send a message request or share the owner's invitation link
