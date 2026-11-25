@@ -4,9 +4,22 @@
 
 ## Sign-In Sessions
 
-The web app and the desktop app ask for your personal password. The small
-**admin** link in the sign-in footer explicitly selects the administrator. The CLI also defaults to personal sign-in with `gsv login SPACE`; use
-`gsv login SPACE --username root` for administration. Locking or signing out clears that client's private cached data and active session.
+Where the owner verified an email at signup, the web app and the desktop app sign in to the
+personal account with that email: the person enters it, then the six-digit code sent to it, or
+uses the **Sign in** button in that email from the same browser. The page only says a code is on its
+way "if this is this Ship's email". A sign-in lasts 30 days on that device. **Sign in with a
+password** uses a password instead. A person who signs in by email has no password until they add
+one in **Settings → Account**, for example to use the command line. Other Ships ask for the
+personal password.
+
+The small **admin** link in the sign-in footer explicitly selects the administrator, which always
+signs in with its password. The CLI also defaults to personal sign-in with `gsv login SPACE`: it
+asks for the email and then the code where the Ship offers that, and Enter at the email prompt uses
+the password instead. Use `gsv login SPACE --username root` for administration. Locking or signing
+out clears that client's private cached data and active session.
+
+Ship cannot sign in for the person. When someone can't sign in, point them to the sign-in page or
+`gsv login`; never ask for an email code or password in chat.
 
 A browser or desktop app session is separate from a connected computer, messenger, or OAuth account. Signing out ends that client session; those other relationships remain connected.
 
@@ -65,3 +78,4 @@ Verify your email or sign in with the identity provider offered by your operator
 To recover administrator access, use the same emailed link and choose **Reset the administrator
 password instead** on the page where you set the new password. Each attempt needs its own fresh code;
 being signed in to **My Ships** is not enough to reset either password. Passkeys are not supported.
+A Ship activated without a password has no administrator password until it is reset this way.
