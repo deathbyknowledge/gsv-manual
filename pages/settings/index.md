@@ -19,6 +19,7 @@ Settings control models, tools, approvals, voice input, sessions, MCP servers, a
 | MCP server | **Settings → MCP servers** |
 | Actions, outcomes and request details | **Settings → Logs**; select an entry for details |
 | Request account deletion | **Settings → Account**; email [hello@humansandmachin.es](mailto:hello@humansandmachin.es) for manual deletion during early access |
+| Add a password, for someone who signs in by email | **Settings → Account → Password → add password** |
 | Forgotten password | **Forgot your password?** on the sign-in page; see [Password recovery](../accounts-access/credentials-sharing.md#password-recovery) |
 | Personal password reset by the administrator | **Settings → Sign-in → Personal sign-in** (administrator only) |
 | Configure administrator recovery | **Settings → Sign-in → Account recovery → set up recovery** (administrator only) |

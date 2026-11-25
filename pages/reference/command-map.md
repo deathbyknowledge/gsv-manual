@@ -79,7 +79,8 @@ continue using the native commands listed above without adding a `gsv` prefix.
 When a person asks how to do something from their own terminal, point them to
 the CLI's own commands:
 
-- `gsv login SPACE` signs in, `gsv status` checks sign-in and pairing, and
+- `gsv login SPACE` signs in, by email code where the Ship offers it or by
+  password, for 30 days; `gsv status` checks sign-in and pairing, and
   `gsv logout` signs out.
 - `gsv ship "MESSAGE"` talks to Ship; `gsv ship` alone opens a prompt.
 - `gsv contacts`, `gsv requests` and `gsv mail` cover people and mail.

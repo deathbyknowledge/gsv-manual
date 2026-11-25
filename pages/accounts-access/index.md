@@ -15,7 +15,9 @@ Accounts identify who is acting. Permissions decide which actions that identity 
 Each Ship has one personal human account. Activation also creates a Ship account
 and a helper account for handed-off work. The administrator is a separate sign-in;
 ordinary use does not run as the administrator. The final local-account activation
-step asks for a password and derives the internal username from the Ship's handle.
+step derives the internal username from the Ship's handle. It asks for a password
+only when the owner did not verify an email at signup; otherwise the owner signs in
+with a code sent to that email and may add a password later.
 Existing Ships retain their username, UID, home and connections. See [Passwords, sessions, and access](credentials-sharing.md).
 
 Other people have their own Ships. Connect with them through
